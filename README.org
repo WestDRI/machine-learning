@@ -1,0 +1,1 @@
+This is the repo for [[https://www.westgrid.ca/][WestGrid]]'s portal on machine-learning training material. You can find this site [[https://westgrid-ml.netlify.com/][here]].
