@@ -1,5 +1,3 @@
 public/
 resources/
-!favicon.png
-!ml_flux_slides.png
-!wg_white_removed_medium.png
+!*.png
