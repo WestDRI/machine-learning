@@ -1,0 +1,23 @@
+#+title: Machine learning in Python with PyTorch
+#+slug: ml_pytorch
+#+date: 2020-06-01
+#+place: 3h workshop for Summer School at the University of Manitoba and the University of British Columbia
+
+#+OPTIONS: toc:1
+
+* Abstract
+
+#+BEGIN_definition
+
+#+END_definition
+
+Thoughts and ideas:
+
+- pick the right tool
+
+   + simple algorithms might be good enough. Neural networks might be overkill
+   + does your code really run faster if you have access to GPU rather than CPU?
+   + deep learning (usually needs GPU): TensorFlow, PyTorch
+   + machine learning which is not deep learning (CPU usually ok): 
+
+
