@@ -5,6 +5,11 @@
 
 #+OPTIONS: toc:1
 
+#+BEGIN_center
+#+ATTR_HTML: :width 200
+[[/img/workinprogress.svg]]
+#+END_center
+
 #+BEGIN_sticker
 [[https://www.eventbrite.ca/e/machine-learning-in-julia-with-flux-registration-88600704091][Register for free webinar]]
 #+END_sticker
