@@ -22,11 +22,8 @@
 
 * Slides
 
-#+BEGIN_center
-#+CAPTION: [[https://westgrid-webinars.netlify.com/ml_flux#/][Machine learning with Julia and the flux package]]
-#+ATTR_HTML: :title Machine learning with Julia and the flux package
-#+ATTR_HTML: :width 700 :style border:2px solid black;
-[[/img/ml_flux_slides.png]]
-#+END_center
+#+BEGIN_export html
+<a href="https://westgrid-webinars.netlify.com/ml_flux#/"><p align="center"><img src="/img/ml_flux_slides.png" title="Link to slides" width="700" style="border:2px solid black"/></p></a>
+#+END_export
 
 * Video
