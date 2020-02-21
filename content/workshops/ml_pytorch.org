@@ -16,6 +16,8 @@
 
 #+END_definition
 
+* Machine learning vs deep learning: which tool to use
+
 Thoughts and ideas:
 
 - pick the right tool
@@ -26,3 +28,14 @@ Thoughts and ideas:
    + machine learning which is not deep learning (CPU usually ok): 
 
 
+* Comments and questions
+
+#+BEGIN_export html
+<script src="https://utteranc.es/client.js"
+        repo="WestGrid/cli_git_etal"
+        issue-term="pathname"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+#+END_export
