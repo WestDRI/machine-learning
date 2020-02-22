@@ -26,16 +26,3 @@ Thoughts and ideas:
    + does your code really run faster if you have access to GPU rather than CPU?
    + deep learning (usually needs GPU): TensorFlow, PyTorch
    + machine learning which is not deep learning (CPU usually ok): 
-
-
-* Comments and questions
-
-#+BEGIN_export html
-<script src="https://utteranc.es/client.js"
-        repo="WestGrid/cli_git_etal"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-#+END_export
