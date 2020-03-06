@@ -27,8 +27,9 @@ canonifyurls = true
 
 [params]
   # author = "Julia Training"
-  author = "Training Material on"
+  # author = "Training Material on"
   # info = "Helping researchers with high-performance computing tools"
+  repourl = "https://github.com/WestGrid/machine-learning"
   wgavatar = "/img/wg_top_padding_medium.png"
   avatarurl = "/img/ml_top_left_padding.png"
   error = "/img/404.png"
