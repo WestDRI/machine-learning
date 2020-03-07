@@ -3,14 +3,14 @@
 #+date: 2020-06-01
 #+place: 3h workshop for Summer School at the University of Manitoba and the University of British Columbia
 
-#+OPTIONS: toc:1
+#+OPTIONS: toc:2
 
 #+BEGIN_center
 #+ATTR_HTML: :width 200
 [[/img/workinprogress.svg]]
 #+END_center
 
-* Abstract
+**** /Abstract/
 
 #+BEGIN_definition
 
