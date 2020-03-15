@@ -1,4 +1,4 @@
-#+title: Machine learning in Julia with Flux
+#+title: Webinar: machine learning in Julia with Flux
 #+slug: flux
 #+date: 2020-05-13
 #+place: 45 min live webinar
@@ -23,7 +23,7 @@
 * Slides
 
 #+BEGIN_export html
-<a href="https://westgrid-webinars.netlify.com/ml_flux#/"><p align="center"><img src="/img/ml_flux_slides.png" title="Link to slides" width="700" style="border:2px solid black"/></p></a>
+<a href="https://westgrid-webinars.netlify.com/flux/"><p align="center"><img src="/img/flux_slides.png" title="Link to slides" width="700" style="border:2px solid black"/></p></a>
 #+END_export
 
 * Video
