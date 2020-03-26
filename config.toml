@@ -38,6 +38,7 @@ canonifyurls = true
   hidecopyright = false
   rtl = false
   math = true
+  since = 2020
   [params.utteranc]
     repo = "WestGrid/machine-learning"
 
