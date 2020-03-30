@@ -36,6 +36,7 @@ canonifyurls = true
   favicon_32 = "/img/favicon.png"
   hidecredits = false
   hidecopyright = false
+  summerschoolurl = "add-page-ml-summerschool-page"
   rtl = false
   math = true
   since = 2020
