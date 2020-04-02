@@ -19,7 +19,8 @@ canonifyurls = true
   [markup.highlight]
     codeFences = true
     guessSyntax = true
-    style = "friendly"
+    # style = "friendly"
+    style = "manni"
   [markup.tableOfContents]
     endLevel = 1
     ordered = false
@@ -102,4 +103,4 @@ canonifyurls = true
 [[menu.main]]
   name = "🖅"
   weight = 6
-  url  = "https://www.westgrid.ca/contact"
+  url  = "mailto:training@westgrid.ca"
