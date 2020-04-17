@@ -3,7 +3,7 @@
 
 #+OPTIONS: toc:2
 
-#+BEGIN_export html
+#+BEGIN_export mhtml
 {{< pic
 src="/img/workinprogress.svg"
 title="Patience... patience..."
