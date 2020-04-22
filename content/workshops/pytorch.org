@@ -1,29 +1,12 @@
 #+title: Machine learning in Python with PyTorch
 #+slug: pytorch
 
-#+OPTIONS: toc:2
+#+OPTIONS: toc:nil
 
-#+BEGIN_export mhtml
-{{< pic
-src="/img/workinprogress.svg"
-title="Patience... patience..."
-width="200"
->}}
-#+END_export
+Due to Covid-19, the 2020 WestGrid Summer School was moved online.
 
-**** /Abstract/
+#+BEGIN_box
+An introduction to machine learning with PyTorch was added to the material covered. You can find it in the [[https://wgschool.netlify.app/ml/][WestGrid Summer School Introduction to PyTorch lesson]]. You will find videos, reading material, exercises, and links to other resources.
+#+END_box
 
-#+BEGIN_definition
-
-#+END_definition
-
-* Machine learning vs deep learning: which tool to use
-
-Thoughts and ideas:
-
-- pick the right tool
-
-   + simple algorithms might be good enough. Neural networks might be overkill
-   + does your code really run faster if you have access to GPU rather than CPU?
-   + deep learning (usually needs GPU): TensorFlow, PyTorch
-   + machine learning which is not deep learning (CPU usually ok): 
+*** Comments & questions
