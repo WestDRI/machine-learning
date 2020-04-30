@@ -1,4 +1,4 @@
-#+title: Introduction to WestGrid Summer School PyTorch lesson
+#+title: Introduction to the PyTorch lesson
 #+description: Zoom
 #+colordes: #cc0066
 #+slug: pt-01-intro
