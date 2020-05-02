@@ -1,10 +1,8 @@
-#+title: Machine learning in Julia with Flux
+#+title: Machine learning in Julia with Flux:
+#+subtitle: Example classifying the MNIST database
 #+slug: flux
 #+date: 2020-05-13
 #+place: 45 min live webinar
-
-{{<img src="/img/workinprogress.svg" title="Patience... patience..." width="200">}}
-{{</img>}}
 
 #+BEGIN_sticker
 [[https://www.eventbrite.ca/e/machine-learning-in-julia-with-flux-registration-88600704091][Register for free webinar]]
@@ -13,7 +11,7 @@
 **** /Abstract/
 
 #+BEGIN_definition
-
+This webinar, aimed at users with no experience in machine learning, is an introduction to the basic concepts of neural networks, followed by a simple example—the classic classification of the [[http://yann.lecun.com/exdb/mnist/][MNIST database]] of handwritten digits—using the [[https://julialang.org/][Julia]] package [[https://fluxml.ai/][Flux]].
 #+END_definition
 
 * Slides
