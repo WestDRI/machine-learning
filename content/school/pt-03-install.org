@@ -1,0 +1,46 @@
+#+title: Installing Python and PyTorch
+#+description: Practice
+#+colordes: #dc7309
+#+slug: pt-03-install
+#+weight: 3
+
+* Miniconda
+
+First of all, you need *Python 3.7 or higher*.\\
+Then you need *a package manager* to install Python packages.
+
+There are many ways to go about this and you are free to chose an alternative method if you wish to do so, particularly if you already have Python installed and are used to installing new packages.
+
+For those new to Python, *I suggest installing [[https://docs.conda.io/en/latest/miniconda.html][Miniconda3]]*.\\
+This will install Python 3.7, the package manager conda, and only the packages they need.\\
+This is a much smaller installation than Anaconda.
+
+* PyTorch
+
+Lastly, you need to install *PyTorch*.
+
+Use [[https://pytorch.org/get-started/locally/][this page]] to find the command you need to run based on your operating system and whether or not you have CUDA (this only concerns you if you have an Nvidia GPU).
+
+I recommend using the *Stable (1.5) build*.
+
+/Examples:/
+
+- You are on Windows, you installed conda as suggested above, and you do not have CUDA, then run:
+
+#+BEGIN_src sh
+conda install pytorch torchvision cpuonly -c pytorch
+#+END_src
+
+- You are on a Mac, you already had conda because you had installed Anaconda prior to this workshop, and you do not have CUDA, then run:
+
+#+BEGIN_src sh
+conda install pytorch torchvision -c pytorch
+#+END_src
+
+- Etc.
+
+* Important note
+
+If you have issues installing Python and/or PyTorch, please sign up for the [[https://westgrid-ml.netlify.app/school/pt-04-debug.html][debug session]] to make sure that you have a running installation before our next Zoom meeting (we will not have time to debug installation issues during that meeting).
+
+* Comments & questions
