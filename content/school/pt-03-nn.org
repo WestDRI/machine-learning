@@ -1,0 +1,27 @@
+#+title: Introduction to neural networks
+#+description: Video
+#+colordes: #5c8a6f
+#+slug: pt-03-nn
+#+weight: 3
+
+[[https://www.3blue1brown.com/][3Blue1Brown by Grant Sanderson]] has a series of 4 videos on neural networks which is easy to watch, fun, and does an excellent job at introducing the functioning of a simple neural network.
+
+This is a great introduction to everything we will do in PyTorch, so *make sure to watch those videos (64 min total)* before our next meeting on Zoom.
+
+* What is a neural network? (19 min)
+
+{{<youtube aircAruvnKk>}}
+
+* How neural networks learn (21 min)
+
+{{<youtube IHZwWFHWa-w>}}
+
+* Backpropagation (14 min)
+
+{{<youtube Ilg3gGewQ5U>}}
+
+* Calculus of backpropagation (10 min)
+
+{{<youtube tIeHLnjs5U8>}}
+
+* Comments & questions
