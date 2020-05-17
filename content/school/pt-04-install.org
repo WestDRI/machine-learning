@@ -1,8 +1,8 @@
 #+title: Installing Python and PyTorch
 #+description: Practice
 #+colordes: #dc7309
-#+slug: pt-03-install
-#+weight: 3
+#+slug: pt-04-install
+#+weight: 4
 
 * Miniconda
 
@@ -41,6 +41,6 @@ conda install pytorch torchvision -c pytorch
 
 * Important note
 
-If you have issues installing Python and/or PyTorch, please sign up for the [[https://westgrid-ml.netlify.app/school/pt-04-debug.html][debug session]] to make sure that you have a running installation before our next Zoom meeting (we will not have time to debug installation issues during that meeting).
+If you have issues installing Python and/or PyTorch, please sign up for the [[https://westgrid-ml.netlify.app/school/pt-05-debug.html][debug session]] to make sure that you have a running installation before our next Zoom meeting (we will not have time to debug installation issues during that meeting).
 
 * Comments & questions

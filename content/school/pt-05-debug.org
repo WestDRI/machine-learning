@@ -1,14 +1,14 @@
 #+title: PyTorch installation
 #+description: (Debug)
 #+colordes: #800040
-#+slug: pt-04-debug
-#+weight: 4
+#+slug: pt-05-debug
+#+weight: 5
 
 #+OPTIONS: toc:nil
 
 /This *debugging session* is not part of the actual lesson./
 
-/Only sign up for it if you have carefully followed the session on [[https://westgrid-ml.netlify.app/school/pt-03-install.html][Python and PyTorch installation]], but are still having problems./
+/Only sign up for it if you have carefully followed the session on [[https://westgrid-ml.netlify.app/school/pt-04-install.html][Python and PyTorch installation]], but are still having problems./
 
 #+BEGIN_debugbox
 *This interactive session will be conducted through Zoom.*
