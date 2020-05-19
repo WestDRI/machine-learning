@@ -39,6 +39,17 @@ conda install pytorch torchvision -c pytorch
 
 - Etc.
 
+* Test the installation
+
+Make sure that all works well by launching Python, loading the {{<c>}}torch{{</c>}} package and running a line of code:
+
+#+BEGIN_src python
+import torch
+
+torch.rand(10, 5)
+#+END_src
+
+
 * Important note
 
 If you have issues installing Python and/or PyTorch, please sign up for the [[https://westgrid-ml.netlify.app/school/pt-05-debug.html][debug session]] to make sure that you have a running installation before our next Zoom meeting (we will not have time to debug installation issues during that meeting).
