@@ -1,4 +1,4 @@
-#+title: Introduction to neural networks
+#+title: What are neural networks?
 #+description: Video
 #+colordes: #5c8a6f
 #+slug: pt-03-nn
