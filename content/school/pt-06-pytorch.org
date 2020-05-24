@@ -1,0 +1,107 @@
+#+title: Introduction to PyTorch
+#+description: Practice
+#+colordes: #dc7309
+#+slug: pt-06-pytorch
+#+weight: 6
+
+* Similarities with NumPy
+
+As you start playing with PyTorch, you will soon notice that it resembles NumPy in many ways. PyTorch tensors are indeed similar to NumPy [[https://numpy.org/doc/1.18/reference/generated/numpy.ndarray.html?highlight=ndarray#numpy.ndarray][ndarrays]] (the NumPy class for n-dimensional arrays).
+
+* Loading PyTorch
+
+#+BEGIN_src python
+from __future__ import print_function
+import torch
+#+END_src
+
+* GPU support
+
+One of the things that PyTorch brings over NumPy is GPU support.
+
+/Example:/
+
+#+BEGIN_src python
+# To create a 2-dimensional tensor filled with random 
+# numbers from the standard normal distribution on CPU
+torch.randn(2, 3, device = torch.device('cpu'))
+
+# To do the same on GPU
+torch.randn(2, 3, device = torch.device('cuda'))
+#+END_src
+
+* Application to a basic neural net
+
+The code below, from [[https://github.com/jcjohnson][Justin Johnson]]'s [[https://github.com/jcjohnson/pytorch-examples][PyTorch examples]], builds a fully-connected ReLU network with one hidden layer and no biases. If you have watched the videos in the previous lesson, you should have some sense of what that means.
+
+This extremely simple network is trained to predict some random output {{<c>}}y{{</c>}} from random input {{<c>}}x{{</c>}}.
+
+The forward pass, loss function, and backward pass are all coded manually, so that you can really see what is going on.
+
+#+BEGIN_src python
+# for those without a GPU
+device = torch.device('cpu')
+
+# for those with a CUDA-enabled GPU
+device = torch.device('cuda')
+
+# N is the batch size
+# D_in is the dimension of the input layer
+# H is the dimension of the hidden layer
+# D_out is the dimension of the output layer
+N, D_in, H, D_out = 64, 1000, 100, 10
+
+# Create 2d random input and output data
+# Similar to numpy.random.randn()
+x = torch.randn(N, D_in, device = device)
+y = torch.randn(N, D_out, device = device)
+
+# Randomly initialize the weights
+# from the input layer to the hidden layer
+w1 = torch.randn(D_in, H, device = device)
+
+# Randomly initialize the weights
+# from the hidden layer to the output layer
+w2 = torch.randn(H, D_out, device = device)
+
+learning_rate = 1e-6
+
+# We are going over 500 epochs
+for t in range(500):
+
+  # Forward pass: compute predicted y
+  h = x.mm(w1)
+  h_relu = h.clamp(min=0)
+  y_pred = h_relu.mm(w2)
+
+  # Compute and print loss; loss is a scalar, and is stored in a PyTorch Tensor
+  # of shape (); we can get its value as a Python number with loss.item().
+  loss = (y_pred - y).pow(2).sum()
+  print(t, loss.item())
+
+  # Backprop to compute gradients of w1 and w2 with respect to loss
+  grad_y_pred = 2.0 * (y_pred - y)
+  grad_w2 = h_relu.t().mm(grad_y_pred)
+  grad_h_relu = grad_y_pred.mm(w2.t())
+  grad_h = grad_h_relu.clone()
+  grad_h[h < 0] = 0
+  grad_w1 = x.t().mm(grad_h)
+
+  # Update weights using gradient descent
+  w1 -= learning_rate * grad_w1
+  w2 -= learning_rate * grad_w2
+#+END_src
+{{<br>}}
+{{<exercise>}}
+Run this code, trying to understand what each line does.<br>
+It might be useful to explore the created objects along the way with, for instance, {{<c>}}type(){{</c>}} or {{<c>}}print(){{</c>}}.<br><br>
+
+If the calculations do not make sense to you, watch the videos of the previous lesson again.<br>
+If you are puzzled by the code syntax, revisit <a href="https://docs.python.org/3/tutorial/">Python's</a> and/or <a href="https://numpy.org/devdocs/user/quickstart.html">NumPy's</a> tutorials (if you are very familiar with NumPy, you might find <a href="https://pytorch-for-numpy-users.wkentaro.com/">this list of equivalence between NumPy and PyTorch</a> by <a href="https://github.com/wkentaro">Kentaro Wada</a> useful).<br><br>
+
+Finally, draw a diagram of this neural network and place {{<c>}}D_in{{</c>}}, {{<c>}}H{{</c>}}, {{<c>}}D_out{{</c>}}, {{<c>}}w1{{</c>}}, {{<c>}}w2{{</c>}}, {{<c>}}x{{</c>}}, and {{<c>}}y{{</c>}} on it.
+{{</exercise>}}
+
+In our Zoom session tomorrow morning, we will discuss this and start building from it.
+
+* Comments & questions
