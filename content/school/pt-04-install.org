@@ -4,6 +4,9 @@
 #+slug: pt-04-install
 #+weight: 4
 
+{{<br>}}
+/All installations are local (on your machine). Don't worry about the cluster./
+
 * Miniconda
 
 First of all, you need *Python 3.7 or higher*.\\
