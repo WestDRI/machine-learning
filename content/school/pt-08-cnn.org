@@ -1,0 +1,9 @@
+#+title: MNIST classification with a CNN
+#+description: Practice
+#+colordes: #dc7309
+#+slug: pt-08-cnn
+#+weight: 8
+
+
+
+* Comments & questions

@@ -1,0 +1,17 @@
+#+title: MNIST classification with a MLP
+#+description: Zoom
+#+colordes: #cc0066
+#+slug: pt-07-mlp
+#+weight: 7
+
+#+OPTIONS: toc:nil
+
+#+BEGIN_zoombox
+*This interactive session will be conducted through Zoom.*
+
+*The meeting ID and password will be emailed to people who registered for this course.*
+#+END_zoombox
+
+Note that *no recording* will be made during this session so as not to discourage participation.
+
+# https://pytorch.org/docs/stable/torchvision/datasets.html#mnist
