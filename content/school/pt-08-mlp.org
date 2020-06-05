@@ -1,4 +1,4 @@
-#+title: MNIST classification with a MLP
+#+title: MNIST classification with an MLP
 #+description: Zoom
 #+colordes: #cc0066
 #+slug: pt-08-mlp
