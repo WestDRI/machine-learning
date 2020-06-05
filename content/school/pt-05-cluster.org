@@ -1,0 +1,151 @@
+#+title: Running ML jobs on Compute Canada clusters
+#+description: Reading
+#+colordes: #538cc6
+#+slug: pt-05-cluster
+#+weight: 5
+
+* Logging to the cluster
+
+Open a terminal emulator.
+
+/Windows users, launch [[https://mobaxterm.mobatek.net/][MobaXTerm]]./ \\
+/MacOS users, launch Terminal./ \\
+/Linux users, launch xterm or the terminal emulator of your choice./
+
+#+BEGIN_src sh
+$ ssh userxxx@cassiopeia.c3.ca
+
+# enter password
+#+END_src
+
+You are now in our training cluster.
+
+* Copying files to the cluster
+
+If you need to copy files to the cluster, you can use {{<c>}}scp{{</c>}}.
+
+**** From your computer
+
+If you are in a local shell, run:
+
+#+BEGIN_src sh
+[local]$ scp /local/path/file  userxxx@cassiopeia.c3.ca:path/cluster
+#+END_src
+
+**** From the cluster
+
+If you are in a remote shell (through ssh), run:
+
+#+BEGIN_src sh
+[cluster]$ scp userxxx@cassiopeia.c3.ca:cluster/path/file  /local/path
+#+END_src
+
+* Loading necessary modules
+
+This is done with the [[https://github.com/TACC/Lmod][Lmod]] tool through the [[https://docs.computecanada.ca/wiki/Utiliser_des_modules/en][module]] command. Here are some key [[https://lmod.readthedocs.io/en/latest/010_user.html][commands]]:
+
+#+BEGIN_src sh
+# Get help on the module command
+$ module help
+
+# List modules that are already loaded
+$ module list
+
+# See which modules are available for Python
+$ module avail python
+
+# Load Python, CUDA, and cuDNN
+$ module load python/3.8.2 cudacore/.10.1.243 cuda/10 cudnn/7.6.5
+#+END_src
+
+NVIDIA [[https://developer.nvidia.com/cudnn][CUDA Deep Neural Network library (cuDNN)]] is a GPU-accelerated library of primitives for deep neural networks.
+
+* Installing wheel
+
+Use a virtualenv.
+
+Use {{<c>}}pip{{</c>}} to install packages.\\
+*Do not use Anaconda*: binaries are unoptimized for Compute Canada clusters and library paths are inconsistent with their architecture. Anaconda installs packages in $HOME where it creates a very large number of small files. It can also create conflicts by modifying {{<b>}}.bashrc{{</b>}}.
+
+Build virtual env on compute nodes if possible (improves I/O performance).
+
+Use pre-downloaded packages.
+
+* Data
+
+Datasets with many small files: use {{<c>}}tar{{</c>}} to create a single file.\\
+Use [[https://docs.computecanada.ca/wiki/Globus][Globus]] for large data transfers.
+
+Note that there are ML datasets available on the Compute Canada clusters. Maybe the dataset you plan to use is already available.
+
+* GPU
+
+Try running your model on *one* GPU first.
+
+* Job script
+
+To submit a job to Slurm (the job scheduler used by the Compute Canada clusters), you need to write an {{<b>}}sbatch{{</b>}} script:
+
+#+BEGIN_src sh
+#!/bin/bash
+#SBATCH --job-name=<name>			  # job name
+#SBATCH --account=def-someuser
+#SBATCH --time=<time>				  # max walltime in D-HH:MM or HH:MM:SS
+#SBATCH --cpus-per-task=<n>           # number of cores
+#SBATCH --gres=gpu:< >:<n>
+#SBATCH --mem=<mem>					  # max memory (default unit is megabytes)
+#SBATCH --output=<file%j.out>		  # file name for the output
+#SBATCH --error=<file%j.err>		  # file name for errors
+# %j gets replaced with the job number
+#SBATCH --mail-user=<email_address>
+#SBATCH --mail-type=ALL
+
+# Load modules
+module load module load python/3.8.2 cudacore/.10.1.243 cuda/10 cudnn/7.6.5
+
+# Create and activate a virtual environment on compute node
+virtualenv --no-download $SLURM_TMPDIR/env
+source $SLURM_TMPDIR/env/bin/activate
+
+# Install Python packages
+pip install --no-index -r ~/requirements.txt
+
+# Transfer data
+tar xf ~/projects/def-someuser/data.tar -C $SLURM_TMPDIR/data
+
+# Run Python script on the data
+python ~/train.py $SLURM_TMPDIR/data
+#+END_src
+
+There are various options for [[https://docs.computecanada.ca/wiki/Running_jobs#Email_notification][email notifications]].
+
+* Job handling
+
+**** Submit job
+
+#+BEGIN_src sh
+$ cd /dir/containing/job
+$ sbatch job.sh
+#+END_src
+
+**** Check job status
+
+#+BEGIN_src sh
+$ sq
+#+END_src
+
+{{<b>}}PD{{</b>}} stands for pending and {{<b>}}R{{</b>}} for running.
+
+**** Cancel job
+
+#+BEGIN_src sh
+scancel <jobid>
+#+END_src
+
+**** Display efficiency measures of completed job
+
+#+BEGIN_src sh
+seff <jobid>
+#+END_src
+
+* Comments & questions

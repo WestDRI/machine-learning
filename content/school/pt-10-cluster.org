@@ -1,9 +1,0 @@
-#+title: PyTorch on the Compute Canada clusters
-#+description: Reading
-#+colordes: #538cc6
-#+slug: pt-10-cluster
-#+weight: 10
-
-
-
-* Comments & questions
