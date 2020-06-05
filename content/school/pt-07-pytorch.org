@@ -1,12 +1,10 @@
 #+title: Introduction to PyTorch
 #+description: Practice
 #+colordes: #dc7309
-#+slug: pt-06-pytorch
-#+weight: 6
+#+slug: pt-07-pytorch
+#+weight: 7
 
-* Similarities with NumPy
-
-As you start playing with PyTorch, you will soon notice that it resembles NumPy in many ways. PyTorch tensors are indeed similar to NumPy [[https://numpy.org/doc/1.18/reference/generated/numpy.ndarray.html?highlight=ndarray#numpy.ndarray][ndarrays]] (the NumPy class for n-dimensional arrays).
+PyTorch is an open source package for Python, primarily developed by Facebook's AI Research lab, enabling tensor computing on the GPU and deep learning research.
 
 * Loading PyTorch
 
@@ -17,22 +15,42 @@ import torch
 
 * GPU support
 
-One of the things that PyTorch brings over NumPy is GPU support.
+As you start playing with PyTorch, you will notice that it resembles [[https://numpy.org/][NumPy]] in many ways. One of the differences is that PyTorch brings GPU support.
 
 /Example:/
 
-#+BEGIN_src python
-# To create a 2-dimensional tensor filled with random 
-# numbers from the standard normal distribution on CPU
-torch.randn(2, 3, device = torch.device('cpu'))
+To create a 2-dimensional tensor filled with random numbers from the standard normal distribution on CPU:
 
-# To do the same on GPU
+#+BEGIN_src python
+torch.randn(2, 3, device = torch.device('cpu'))
+#+END_src
+
+This is similar to NumPy's [[https://numpy.org/doc/1.18/reference/generated/numpy.ndarray.html?highlight=ndarray#numpy.ndarray][ndarray]] (the NumPy class for n-dimensional arrays):
+
+#+BEGIN_src python
+import numpy
+numpy.random.randn(2, 3)
+#+END_src
+
+except that you can do the same on GPU:
+
+#+BEGIN_src python
 torch.randn(2, 3, device = torch.device('cuda'))
 #+END_src
+
+Being able to run the same code on CPU and GPU is very convenient: you can develop code on a machine that doesn't have a dedicated GPU, then run it on the Compute Canada cluster's GPUs.
 
 * Application to a basic neural net
 
 The code below, from [[https://github.com/jcjohnson][Justin Johnson]]'s [[https://github.com/jcjohnson/pytorch-examples][PyTorch examples]], builds a fully-connected ReLU network with one hidden layer and no biases. If you have watched the videos in the previous lesson, you should have some sense of what that means.
+
+#+BEGIN_box
+/Reminders:/
+
+A *fully-connected* or dense layer means that each neuron is connected to all the neurons of the previous and next layers.
+
+*ReLU* is 
+#+END_box
 
 This extremely simple network is trained to predict some random output {{<c>}}y{{</c>}} from random input {{<c>}}x{{</c>}}.
 

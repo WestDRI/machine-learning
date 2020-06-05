@@ -1,8 +1,8 @@
 #+title: Tracking model performance with TensorBoard
 #+description: Video
 #+colordes: #5c8a6f
-#+slug: pt-09-tensorboard
-#+weight: 9
+#+slug: pt-10-tensorboard
+#+weight: 10
 
 #+OPTIONS: toc:nil
 
