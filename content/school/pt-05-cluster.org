@@ -103,10 +103,17 @@ It is very likely that you do not need more than one GPU. Asking for more than y
 
 **** CPU/GPU ratio
 
-- Béluga: no more than 10 CPU cores/GPU
-- Cedar: no more than 6 CPU cores/P100 GPU (p100 and p100l)
-no more than 8 CPU cores/V100 GPU (v100l)
-- Graham: no more than 16 CPU cores/GPU
+Here are Compute Canada recommendations:
+
+*Béluga*:\\
+No more than 10 CPU per GPU
+
+*Cedar*:\\
+P100 GPU: no more than 6 CPU per GPU\\
+V100 GPU: no more than 8 CPU per GPU
+
+*Graham*:\\
+No more than 16 CPU per GPU
 
 * Job script
 
