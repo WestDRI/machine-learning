@@ -22,7 +22,9 @@ You are now in our training cluster.
 
 * Copying files to the cluster
 
-If you need to copy files to the cluster, you can use {{<c>}}scp{{</c>}}.
+*** Small files
+
+If you need to copy files such as scripts to the cluster, you can use {{<c>}}scp{{</c>}}.
 
 **** From your computer
 
@@ -39,6 +41,13 @@ If you are in a remote shell (through ssh), run:
 #+BEGIN_src sh
 [cluster]$ scp userxxx@cassiopeia.c3.ca:cluster/path/file  /local/path
 #+END_src
+
+*** Data
+
+Datasets with many small files: use {{<c>}}tar{{</c>}} to create a single file.\\
+Use [[https://docs.computecanada.ca/wiki/Globus][Globus]] for large data transfers.
+
+Note that there are ML datasets available on the Compute Canada clusters. Maybe the dataset you plan to use is already available.
 
 * Loading necessary modules
 
@@ -71,16 +80,33 @@ Build virtual env on compute nodes if possible (improves I/O performance).
 
 Use pre-downloaded packages.
 
-* Data
-
-Datasets with many small files: use {{<c>}}tar{{</c>}} to create a single file.\\
-Use [[https://docs.computecanada.ca/wiki/Globus][Globus]] for large data transfers.
-
-Note that there are ML datasets available on the Compute Canada clusters. Maybe the dataset you plan to use is already available.
-
 * GPU
 
-Try running your model on *one* GPU first.
+**** GPU type
+
+Several Compute Canada clusters have GPUs. Their numbers and types differ:
+
+{{<img src="/img/school/cc_gpu.png" title="" width="%" line-height="0.5rem">}}
+from <a href="https://docs.computecanada.ca/wiki/Using_GPUs_with_Slurm">Compute Canada Wiki</a>
+<br><br>
+{{</img>}}
+
+The default is {{<b>}}12G P100{{</b>}}, but you can request another type with {{<c>}}SBATCH --gres=gpu:&lt;type&gt;:&lt;number&gt;{{</c>}}.
+
+**** Number of GPU(s)
+
+#+BEGIN_export html
+<font color="#bf540c">Try running your model on <b>one</b> GPU first.</font>
+#+END_export
+
+It is very likely that you do not need more than one GPU. Asking for more than you need will greatly increase your waiting time until your job is run.
+
+**** CPU/GPU ratio
+
+- Béluga: no more than 10 CPU cores/GPU
+- Cedar: no more than 6 CPU cores/P100 GPU (p100 and p100l)
+no more than 8 CPU cores/V100 GPU (v100l)
+- Graham: no more than 16 CPU cores/GPU
 
 * Job script
 
@@ -89,14 +115,14 @@ To submit a job to Slurm (the job scheduler used by the Compute Canada clusters)
 #+BEGIN_src sh
 #!/bin/bash
 #SBATCH --job-name=<name>			  # job name
-#SBATCH --account=def-someuser
+#SBATCH --account=def-<user>
 #SBATCH --time=<time>				  # max walltime in D-HH:MM or HH:MM:SS
-#SBATCH --cpus-per-task=<n>           # number of cores
-#SBATCH --gres=gpu:< >:<n>
-#SBATCH --mem=<mem>					  # max memory (default unit is megabytes)
+#SBATCH --cpus-per-task=<number>      # number of cores
+#SBATCH --gres=gpu:<type>:<number>    # type and number of GPU(s) per node
+#SBATCH --mem=<mem>					  # max memory (default unit is MB) per node
 #SBATCH --output=<file%j.out>		  # file name for the output
 #SBATCH --error=<file%j.err>		  # file name for errors
-# %j gets replaced with the job number
+					                  # %j gets replaced by the job number
 #SBATCH --mail-user=<email_address>
 #SBATCH --mail-type=ALL
 
