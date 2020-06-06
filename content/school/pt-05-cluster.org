@@ -24,22 +24,6 @@ $ tar cf <data>.tar <path/to/dataset/directory>/*
 - As a modern alternative to {{<c>}}tar{{</c>}}, you can use [[https://docs.computecanada.ca/wiki/Dar][Dar]]
 # Note that there are ML datasets available on the Compute Canada clusters. Maybe the dataset you plan to use is already available.
 
-* ssh to the cluster
-
-Open a terminal emulator.
-
-/Windows users, launch [[https://mobaxterm.mobatek.net/][MobaXTerm]]./ \\
-/MacOS users, launch Terminal./ \\
-/Linux users, launch xterm or the terminal emulator of your choice./
-
-#+BEGIN_src sh
-$ ssh user<xxx>@cassiopeia.c3.ca
-
-# enter password
-#+END_src
-
-You are now in our training cluster.
-
 * Copy files to the cluster
 
 *** Small files
@@ -51,7 +35,7 @@ If you need to copy files such as scripts to the cluster, you can use {{<c>}}scp
 If you are in a local shell, run:
 
 #+BEGIN_src sh
-[local]$ scp </local/path/file>  user<xxx>@cassiopeia.c3.ca:<path/cluster>
+[local]$ scp </local/path/file>  <user>@<cluster login node>:<path/cluster>
 #+END_src
 
 **** From the cluster
@@ -59,7 +43,7 @@ If you are in a local shell, run:
 If you are in a remote shell (through ssh), run:
 
 #+BEGIN_src sh
-[cluster]$ scp user<xxx>@cassiopeia.c3.ca:<cluster/path/file>  </local/path>
+[cluster]$ scp <user>@<cluster login node>:<cluster/path/file>  </local/path>
 #+END_src
 
 *** Data
