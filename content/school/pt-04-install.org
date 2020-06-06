@@ -113,6 +113,6 @@ You are now in our training cluster.
 
 * Issues
 
-If you have issues installing PyTorch and/or logging to the training cluster, please sign up for the [[https://westgrid-ml.netlify.app/school/pt-05-debug.html][debug session]] to make sure that you are ready for our next Zoom meeting tomorrow morning.
+If you have issues installing PyTorch and/or logging to the training cluster, please sign up for the [[https://westgrid-ml.netlify.app/school/pt-06-debug.html][debug session]] to make sure that you are ready for our next Zoom meeting tomorrow morning.
 
 * Comments & questions
