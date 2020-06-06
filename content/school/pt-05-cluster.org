@@ -8,11 +8,15 @@
 
 * Prepare your script
 
-Throughout your script, make sure to have plots written to file and not displayed to screen.
+Throughout your script, make sure to have plots written to file and not displayed on screen.
+
+You can develop your script directly in the cluster using an interactive job, or on your local machine (working on your machine at this stage, using very little data and few epochs—only to develop and test the code—is a convenient approach).
+
+Ultimately, you will submit your script to {{<c>}}sbatch{{</c>}}.
 
 * Prepare the data
 
-The Compute Canada clusters are optimized for very large files and are slowed by large collections of small files. Datasets with many small files need to be turned into single large files with {{<c>}}tar{{</c>}}. Failing to do so will affect performance not just for you, but for all users of the cluster.
+The Compute Canada clusters are optimized for very large files and are slowed by large collections of small files. Datasets with many small files need to be turned into single-file archives with {{<c>}}tar{{</c>}}. Failing to do so will affect performance not just for you, but for all users of the cluster.
 
 #+BEGIN_src sh
 $ tar cf <data>.tar <path/to/dataset/directory>/*
@@ -28,7 +32,7 @@ $ tar cf <data>.tar <path/to/dataset/directory>/*
 
 *** Small files
 
-If you need to copy files such as scripts to the cluster, you can use {{<c>}}scp{{</c>}}.
+If you need to copy files such as your script to the cluster, you can use {{<c>}}scp{{</c>}}.
 
 **** From your computer
 
@@ -52,6 +56,8 @@ Use [[https://docs.computecanada.ca/wiki/Globus][Globus]] for large data transfe
 
 * Load necessary modules
 
+To use Python for ML on the cluster, you will need to load the relevant modules.
+
 This is done with the [[https://github.com/TACC/Lmod][Lmod]] tool through the [[https://docs.computecanada.ca/wiki/Utiliser_des_modules/en][module]] command. Here are some key [[https://lmod.readthedocs.io/en/latest/010_user.html][commands]]:
 
 #+BEGIN_src sh
@@ -70,17 +76,6 @@ $ module load python/3.8.2 cudacore/.10.1.243 cuda/10 cudnn/7.6.5
 
 NVIDIA [[https://developer.nvidia.com/cudnn][CUDA Deep Neural Network library (cuDNN)]] is a GPU-accelerated library of primitives for deep neural networks.
 
-* Install Python wheels
-
-Use a virtualenv.
-
-Use {{<c>}}pip{{</c>}} to install packages.\\
-*Do not use Anaconda*: binaries are unoptimized for Compute Canada clusters and library paths are inconsistent with their architecture. Anaconda installs packages in $HOME where it creates a very large number of small files. It can also create conflicts by modifying {{<b>}}.bashrc{{</b>}}.
-
-Build virtual env on compute nodes if possible (improves I/O performance).
-
-Use pre-downloaded packages.
-
 * GPU(s)
 
 **** GPU type
@@ -92,7 +87,7 @@ from <a href="https://docs.computecanada.ca/wiki/Using_GPUs_with_Slurm">Compute 
 <br><br>
 {{</img>}}
 
-The default is {{<b>}}12G P100{{</b>}}, but you can request another type with {{<c>}}SBATCH --gres=gpu:&lt;type&gt;:&lt;number&gt;{{</c>}}.
+The default is {{<b>}}12G P100{{</b>}}, but you can request another type with {{<c>}}SBATCH --gres=gpu:&lt;type&gt;:&lt;number&gt;{{</c>}}
 
 **** Number of GPU(s)
 
@@ -115,6 +110,78 @@ V100 GPU: no more than 8 CPU per GPU
 
 *Graham*:\\
 No more than 16 CPU per GPU
+
+* Install Python wheels
+
+You also need Python packages.
+
+For this, create a virtual environment on compute nodes (this improves I/O performance) in which you install packages with {{<c>}}pip{{</c>}}.
+
+#+BEGIN_box
+*Do not use Anaconda* \\
+While Anaconda is a great tool on personal computers, it is not an appropriate tool when working on the Compute Canada clusters: binaries are unoptimized for those clusters and library paths are inconsistent with their architecture. Anaconda installs packages in {{<b>}}$HOME{{</b>}} where it creates a very large number of small files. It can also create conflicts by modifying {{<b>}}.bashrc{{</b>}}
+#+END_box
+
+The best approach is to start an interactive job to create and activate your virtual environment, install your Python packages, then create a requirements file:
+
+**** Start interactive job
+
+/Example:/
+
+#+BEGIN_src sh
+$ salloc --gres=gpu:1 --cpus-per-task=6 --mem=32000M --time=00:15:00
+#+END_src
+
+In our training cluster which does not have GPUs and which only has 2 CPUs per node and little memory, you have to scale this down:
+
+#+BEGIN_src sh
+$ salloc --cpus-per-task=2 --mem=1000M --time=00:15:00
+#+END_src
+
+# Use pre-downloaded packages.
+
+**** Create the virtual environment
+
+#+BEGIN_src sh
+$ virtualenv --no-download $SLURM_TMPDIR/env
+#+END_src
+
+**** Activate it
+
+#+BEGIN_src sh
+$ source $SLURM_TMPDIR/env/bin/activate
+#+END_src
+
+**** Update pip
+
+#+BEGIN_src sh
+(env) $ pip install --no-index --upgrade pip
+#+END_src
+
+**** Install the packages
+
+#+BEGIN_src sh
+(env) $ pip install --no-index torch torchvision
+#+END_src
+
+**** Save a requirements file
+
+#+BEGIN_src sh
+(env) $ pip freeze > ~/<path/project/dir/>requirements.txt
+#+END_src
+
+**** Exit the virtual environment
+
+#+BEGIN_src sh
+(env) $ deactivate
+#+END_src
+
+* Checkpoints
+
+
+* Running several similar jobs
+
+A number of ML tasks (e.g. [[https://en.wikipedia.org/wiki/Hyperparameter_optimization][hyperparameter optimization]]) require running several instances of similar jobs. Grouping them into a single job with [[https://docs.computecanada.ca/wiki/GLOST][GLOST]] or [[https://docs.computecanada.ca/wiki/GNU_Parallel][GNU Parallel]] reduces the stress on the scheduler.
 
 * Job script
 
@@ -176,18 +243,19 @@ $ sbatch <jobscript>.sh
 $ sq
 #+END_src
 
-{{<b>}}PD{{</b>}} stands for pending and {{<b>}}R{{</b>}} for running.
+{{<b>}}PD{{</b>}} = pending\\
+{{<b>}}R{{</b>}} = running
 
 **** Cancel job
 
 #+BEGIN_src sh
-scancel <jobid>
+$ scancel <jobid>
 #+END_src
 
 **** Display efficiency measures of completed job
 
 #+BEGIN_src sh
-seff <jobid>
+$ seff <jobid>
 #+END_src
 
 * Comments & questions
