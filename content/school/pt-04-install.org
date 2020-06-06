@@ -1,4 +1,4 @@
-#+title: Installing PyTorch and logging to cluster
+#+title: Installing PyTorch and logging to the training cluster
 #+description: Practice
 #+colordes: #dc7309
 #+slug: pt-04-install
