@@ -4,7 +4,27 @@
 #+slug: pt-05-cluster
 #+weight: 5
 
-* Logging to the cluster
+/Note on notation: expressions between the {{<c>}}&lt;{{</c>}} and {{<c>}}&gt;{{</c>}} signs need to be replaced by the relevant information (without those signs)./
+
+* Prepare your script
+
+Throughout your script, make sure to have plots written to file and not displayed to screen.
+
+* Prepare the data
+
+The Compute Canada clusters are optimized for very large files and are slowed by large collections of small files. Datasets with many small files need to be turned into single large files with {{<c>}}tar{{</c>}}. Failing to do so will affect performance not just for you, but for all users of the cluster.
+
+#+BEGIN_src sh
+$ tar cf <data>.tar <path/to/dataset/directory>/*
+#+END_src
+
+/Notes:/
+
+- If you want to also compress the files, replace {{<c>}}tar cf{{</c>}} with {{<c>}}tar czf{{</c>}}
+- As a modern alternative to {{<c>}}tar{{</c>}}, you can use [[https://docs.computecanada.ca/wiki/Dar][Dar]]
+# Note that there are ML datasets available on the Compute Canada clusters. Maybe the dataset you plan to use is already available.
+
+* ssh to the cluster
 
 Open a terminal emulator.
 
@@ -13,14 +33,14 @@ Open a terminal emulator.
 /Linux users, launch xterm or the terminal emulator of your choice./
 
 #+BEGIN_src sh
-$ ssh userxxx@cassiopeia.c3.ca
+$ ssh user<xxx>@cassiopeia.c3.ca
 
 # enter password
 #+END_src
 
 You are now in our training cluster.
 
-* Copying files to the cluster
+* Copy files to the cluster
 
 *** Small files
 
@@ -31,7 +51,7 @@ If you need to copy files such as scripts to the cluster, you can use {{<c>}}scp
 If you are in a local shell, run:
 
 #+BEGIN_src sh
-[local]$ scp /local/path/file  userxxx@cassiopeia.c3.ca:path/cluster
+[local]$ scp </local/path/file>  user<xxx>@cassiopeia.c3.ca:<path/cluster>
 #+END_src
 
 **** From the cluster
@@ -39,17 +59,14 @@ If you are in a local shell, run:
 If you are in a remote shell (through ssh), run:
 
 #+BEGIN_src sh
-[cluster]$ scp userxxx@cassiopeia.c3.ca:cluster/path/file  /local/path
+[cluster]$ scp user<xxx>@cassiopeia.c3.ca:<cluster/path/file>  </local/path>
 #+END_src
 
 *** Data
 
-Datasets with many small files: use {{<c>}}tar{{</c>}} to create a single file.\\
 Use [[https://docs.computecanada.ca/wiki/Globus][Globus]] for large data transfers.
 
-Note that there are ML datasets available on the Compute Canada clusters. Maybe the dataset you plan to use is already available.
-
-* Loading necessary modules
+* Load necessary modules
 
 This is done with the [[https://github.com/TACC/Lmod][Lmod]] tool through the [[https://docs.computecanada.ca/wiki/Utiliser_des_modules/en][module]] command. Here are some key [[https://lmod.readthedocs.io/en/latest/010_user.html][commands]]:
 
@@ -69,7 +86,7 @@ $ module load python/3.8.2 cudacore/.10.1.243 cuda/10 cudnn/7.6.5
 
 NVIDIA [[https://developer.nvidia.com/cudnn][CUDA Deep Neural Network library (cuDNN)]] is a GPU-accelerated library of primitives for deep neural networks.
 
-* Installing wheel
+* Install Python wheels
 
 Use a virtualenv.
 
@@ -80,7 +97,7 @@ Build virtual env on compute nodes if possible (improves I/O performance).
 
 Use pre-downloaded packages.
 
-* GPU
+* GPU(s)
 
 **** GPU type
 
@@ -99,7 +116,7 @@ The default is {{<b>}}12G P100{{</b>}}, but you can request another type with {{
 <font color="#bf540c">Try running your model on <b>one</b> GPU first.</font>
 #+END_export
 
-It is very likely that you do not need more than one GPU. Asking for more than you need will greatly increase your waiting time until your job is run.
+It is very likely that you do not need more than one GPU. Asking for more than you need will greatly increase your waiting time until your job is run. The session on [[https://westgrid-ml.netlify.app/school/pt-11-distributed.html][distributed computing with PyTorch]] will help you see when you might benefit from several GPUs. In any event, you should test your model before asking for several GPUs.
 
 **** CPU/GPU ratio
 
@@ -117,48 +134,56 @@ No more than 16 CPU per GPU
 
 * Job script
 
-To submit a job to Slurm (the job scheduler used by the Compute Canada clusters), you need to write an {{<b>}}sbatch{{</b>}} script:
+To submit a job to Slurm (the job scheduler used by the Compute Canada clusters), you need to write an {{<b>}}sbatch{{</b>}} script. Here is an example:
 
 #+BEGIN_src sh
 #!/bin/bash
-#SBATCH --job-name=<name>			  # job name
-#SBATCH --account=def-<user>
+#SBATCH --job-name=<name>*			  # job name
+#SBATCH --account=def-<user>*
 #SBATCH --time=<time>				  # max walltime in D-HH:MM or HH:MM:SS
 #SBATCH --cpus-per-task=<number>      # number of cores
 #SBATCH --gres=gpu:<type>:<number>    # type and number of GPU(s) per node
 #SBATCH --mem=<mem>					  # max memory (default unit is MB) per node
-#SBATCH --output=<file%j.out>		  # file name for the output
-#SBATCH --error=<file%j.err>		  # file name for errors
+#SBATCH --output=<file%j.out>*		  # file name for the output
+#SBATCH --error=<file%j.err>*		  # file name for errors
 					                  # %j gets replaced by the job number
-#SBATCH --mail-user=<email_address>
-#SBATCH --mail-type=ALL
+#SBATCH --mail-user=<email_address>*
+#SBATCH --mail-type=ALL*
 
 # Load modules
 module load module load python/3.8.2 cudacore/.10.1.243 cuda/10 cudnn/7.6.5
+
+# Create variable with the directory for your ML project
+SOURCEDIR=~/<path/project/dir>
 
 # Create and activate a virtual environment on compute node
 virtualenv --no-download $SLURM_TMPDIR/env
 source $SLURM_TMPDIR/env/bin/activate
 
 # Install Python packages
-pip install --no-index -r ~/requirements.txt
+pip install --no-index -r $SOURCEDIR/requirements.txt
 
-# Transfer data
-tar xf ~/projects/def-someuser/data.tar -C $SLURM_TMPDIR/data
+# Transfer and extract data
+mkdir $SLURM_TMPDIR/data
+tar xf ~/projects/def-<user>/<data>.tar -C $SLURM_TMPDIR/data
 
 # Run Python script on the data
-python ~/train.py $SLURM_TMPDIR/data
+python $SOURCEDIR/<mlscript>.py $SLURM_TMPDIR/data
 #+END_src
 
-There are various options for [[https://docs.computecanada.ca/wiki/Running_jobs#Email_notification][email notifications]].
+/Notes:/
+
+- If you compressed your data with {{<c>}}tar czf{{</c>}}, you need to extract it with {{<c>}}tar xzf{{</c>}}
+- {{<c>}}SBATCH{{</c>}} options marked with a {{<c>}}*{{</c>}} are optional
+- There are various other options for [[https://docs.computecanada.ca/wiki/Running_jobs#Email_notification][email notifications]].
 
 * Job handling
 
 **** Submit job
 
 #+BEGIN_src sh
-$ cd /dir/containing/job
-$ sbatch job.sh
+$ cd </dir/containing/job>
+$ sbatch <jobscript>.sh
 #+END_src
 
 **** Check job status
