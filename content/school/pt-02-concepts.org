@@ -15,7 +15,7 @@ Since this experience comes in the form of *data*, ML consists of feeding vast a
 from <a href="https://xkcd.com/">xkcd.com</a>
 {{</img>}}
 
-**** Example in image recognition
+** Example in image recognition
 
 Coding all the possible ways—pixel by pixel—that a picture can represent a certain object is an impossibly large task. By feeding examples of images of that object to a neural network however, we can train it to recognize that object in images that it has never seen (without explicitly programming how it does this!).
 
@@ -119,9 +119,9 @@ There are several gradient descent methods:
 *Mini-batch gradient descent* is an intermediate approach: it uses mini-batch size examples in each iteration. This allows a vectorized approach (and hence parallelization) that stochastic gradient descent does not allow.\\
 The [[https://arxiv.org/abs/1412.6980][*Adam optimization algorithm*]] is a popular variation of mini-batch gradient descent.
 
-**** Types of ANN
+** Types of ANN
 
-****** Fully connected neural networks
+*** Fully connected neural networks
 
 {{<img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Colored_neural_network.svg" title="" width="90%" line-height="0.5rem">}}
 from <a href="https://commons.wikimedia.org/w/index.php?curid=24913461">Glosser.ca, Wikipedia</a>
@@ -130,7 +130,7 @@ from <a href="https://commons.wikimedia.org/w/index.php?curid=24913461">Glosser.
 {{<br>}}
 Each neuron receives input from every neuron of the previous layer.
 
-****** Convolutional neural network
+*** Convolutional neural network
 
 {{<img src="/img/school/cnn_nw.png" title="" width="%" line-height="1.0rem">}}
 from <a href="https://codetolight.wordpress.com/2017/11/29/getting-started-with-pytorch-for-deep-learning-part-3-neural-network-basics/">Programming Journeys by Rensu Theart</a>
@@ -143,7 +143,7 @@ Images have huge input sizes and would require a very large number of neurons in
 
 Optionally, pooling (combining the outputs of neurons in a subarea) reduces the data dimensions. The stride then dictates how the subarea is moved across the image. Max-pooling is one of the forms of pooling which uses the maximum for each subarea.
 
-****** Recurrent neural network
+*** Recurrent neural network
 
 {{<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Recurrent_neural_network_unfold.svg" title="" width="%" line-height="0.5rem">}}
 from <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">fdeloche, Wikipedia</a>

@@ -30,11 +30,11 @@ $ tar cf <data>.tar <path/to/dataset/directory>/*
 
 * Copy files to the cluster
 
-*** Small files
+** Small files
 
 If you need to copy files such as your script to the cluster, you can use {{<c>}}scp{{</c>}}.
 
-**** From your computer
+***** From your computer
 
 If you are in a local shell, run:
 
@@ -42,7 +42,7 @@ If you are in a local shell, run:
 [local]$ scp </local/path/file>  <user>@<cluster login node>:<path/cluster>
 #+END_src
 
-**** From the cluster
+***** From the cluster
 
 If you are in a remote shell (through ssh), run:
 
@@ -50,7 +50,7 @@ If you are in a remote shell (through ssh), run:
 [cluster]$ scp <user>@<cluster login node>:<cluster/path/file>  </local/path>
 #+END_src
 
-*** Data
+** Data
 
 Use [[https://docs.computecanada.ca/wiki/Globus][Globus]] for large data transfers.
 
@@ -78,7 +78,7 @@ NVIDIA [[https://developer.nvidia.com/cudnn][CUDA Deep Neural Network library (c
 
 * GPU(s)
 
-**** GPU type
+*** GPU type
 
 Several Compute Canada clusters have GPUs. Their numbers and types differ:
 
@@ -89,7 +89,7 @@ from <a href="https://docs.computecanada.ca/wiki/Using_GPUs_with_Slurm">Compute 
 
 The default is {{<b>}}12G P100{{</b>}}, but you can request another type with {{<c>}}SBATCH --gres=gpu:&lt;type&gt;:&lt;number&gt;{{</c>}}
 
-**** Number of GPU(s)
+*** Number of GPU(s)
 
 #+BEGIN_export html
 <font color="#bf540c">Try running your model on <b>one</b> GPU first.</font>
@@ -97,7 +97,7 @@ The default is {{<b>}}12G P100{{</b>}}, but you can request another type with {{
 
 It is very likely that you do not need more than one GPU. Asking for more than you need will greatly increase your waiting time until your job is run. The session on [[https://westgrid-ml.netlify.app/school/pt-11-distributed.html][distributed computing with PyTorch]] will help you see when you might benefit from several GPUs. In any event, you should test your model before asking for several GPUs.
 
-**** CPU/GPU ratio
+*** CPU/GPU ratio
 
 Here are Compute Canada recommendations:
 
@@ -111,7 +111,7 @@ V100 GPU: no more than 8 CPU per GPU
 *Graham*:\\
 No more than 16 CPU per GPU
 
-* Install Python wheels
+* Install Python wheels and test your code
 
 You also need Python packages.
 
@@ -126,7 +126,7 @@ The variable {{<b>}}$SLURM_TMPDIR{{</b>}} is created by Slurm on the compute nod
 
 It may be a good idea to run an interactive job to create a requirements file and test your code:
 
-**** Start an interactive job
+** Start an interactive job
 
 /Example:/
 
@@ -136,7 +136,7 @@ $ salloc --account=def-<user> --gres=gpu:1 --cpus-per-task=6 --mem=32000 --time=
 
 # Use pre-downloaded packages.
 
-**** Create a requirements file
+** Create a requirements file
 
 Create a Python virtual environment:
 
@@ -168,7 +168,7 @@ Save the requirements file:
 (env) $ pip freeze > ~/<path/project/dir/>requirements.txt
 #+END_src
 
-**** Try to run your code
+** Try to run your code
 
 Create a temporary data directory in {{<b>}}$SLURM_TMPDIR{{</b>}}:
 
