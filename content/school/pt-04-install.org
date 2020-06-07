@@ -79,7 +79,10 @@ tensor([[0., 0., 0., 0.],
 torch.cuda.is_available()
 #+END_src
 
-This should return {{<c>}}True{{</c>}}.
+{{<o>}}
+#+BEGIN_src python
+True
+#+END_src
 
 * TensorBoard
 
