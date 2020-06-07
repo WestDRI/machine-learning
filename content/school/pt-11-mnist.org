@@ -1,8 +1,8 @@
-#+title: Transfer learning
+#+title: MNIST classification
 #+description: Zoom
 #+colordes: #cc0066
-#+slug: pt-12-tl
-#+weight: 12
+#+slug: pt-11-mnist
+#+weight: 11
 
 #+OPTIONS: toc:nil
 
@@ -13,5 +13,9 @@
 #+END_zoombox
 
 Note that *no recording* will be made during this session so as not to discourage participation.
+
+
+# https://pytorch.org/docs/stable/torchvision/datasets.html#mnist
+
 
 * Comments & questions
