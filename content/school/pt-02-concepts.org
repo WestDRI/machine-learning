@@ -100,11 +100,21 @@ The information in biological neurons is an all-or-nothing electrochemical pulse
 <center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}from <a href="https://arxiv.org/abs/1908.08681">Diganta Misra 2019</a></center>
 {{</img>}}
 
-The process of learning in biological NN happens through neuron death or growth, and through the creation or loss of synaptic connections between neurons. In ANN, learning happens through optimization algorithms such as gradient descent which adjust the weights and biases connecting each layer of neurons over many iterations.
+The process of learning in biological NN happens through neuron death or growth, and through the creation or loss of synaptic connections between neurons. In ANN, learning happens through optimization algorithms such as gradient descent which minimize cross entropy loss functions by adjusting the weights and biases connecting each layer of neurons over many iterations (cross entropy is the difference between the predicted and real distributions).
 
 /Gradient descent:/
 {{<img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Gradient_descent.svg" title="" width="100%" line-height="0.5rem">}}
 from <a href="https://commons.wikimedia.org/w/index.php?curid=20569355">Olegalexandrov & Zerodamage, Wikipedia</a>
 {{</img>}}
+
+{{<br>}}
+There are several methods for this:
+
+*Batch gradient descent* uses all examples in each iteration and is thus slow for large data set (the parameters are adjusted only after all the samples have been processed).
+
+*Stochastic gradient descent* uses one example in each iteration. It is thus much faster than batch gradient descent (the parameters are adjusted after each example). But it does not allow any vectorization.
+
+*Mini-batch gradient descent* is an intermediate approach: it uses mini-batch size examples in each iteration. This allows a vectorized approach (and hence parallelization) that stochastic gradient descent does not allow.\\
+The [[https://arxiv.org/abs/1412.6980][*Adam optimization algorithm*]] is a popular variation of mini-batch gradient descent.
 
 * Comments & questions
