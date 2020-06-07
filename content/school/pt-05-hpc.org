@@ -1,4 +1,4 @@
-#+title: Running ML jobs on Compute Canada clusters
+#+title: Running ML jobs in Compute Canada clusters
 #+description: Reading
 #+colordes: #538cc6
 #+slug: pt-05-hpc
