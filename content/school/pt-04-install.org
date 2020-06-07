@@ -1,4 +1,4 @@
-#+title: Installing PyTorch and logging to the training cluster
+#+title: Installing PyTorch and logging in the training cluster
 #+description: Practice
 #+colordes: #dc7309
 #+slug: pt-04-install
@@ -91,7 +91,7 @@ Install it with:
 pip install tensorboard
 #+END_src
 
-* ssh to the training cluster
+* Log in the training cluster
 
 Lastly, you need to make sure that you can ssh to our training cluster.
 
