@@ -188,6 +188,11 @@ Play in Python to test your code:
 (env) $ python
 #+END_src
 
+#+BEGIN_src python
+>>> import torch
+>>> ...
+#+END_src
+
 /Note:/ {{<s>}}if you want to exit the virtual environment:
 
 #+BEGIN_src sh
