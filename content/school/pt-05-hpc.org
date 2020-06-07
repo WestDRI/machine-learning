@@ -281,27 +281,7 @@ $ scancel <jobid>
 $ seff <jobid>
 #+END_src
 
-You need to integrate this workflow to your {{<b>}}sbatch{{</b>}} script.
 
-#+BEGIN_src sh
-#!/bin/bash
-#SBATCH ...
-...
-
-# Get most recent checkpoint
-CHECKPOINT_EXT='*.tar'
-CHECKPOINTS=~/scratch/checkpoints/<jobscript>
-LAST_CHECKPOINT=$(find $CHECKPOINTS -maxdepth 1 -name "$CHECKPOINT_EXT" -print0 | xargs -r -0 ls -1 -t | head -1)
-
-# Start training
-if [ -z "$LAST_CHECKPOINT" ]  # if there is no $LAST_CHECKPOINT
-then
-    # start from scratch
-    python $SOURCEDIR/<mlscript>.py --write-checkpoints-to $CHECKPOINTS ...
-else
-    # load checkpoint
-    python $SOURCEDIR/<mlscript>.py --load-checkpoint $LAST_CHECKPOINT --write-checkpoints-to $CHECKPOINTS ...
-fi
 #+END_src
 
 * Comments & questions
