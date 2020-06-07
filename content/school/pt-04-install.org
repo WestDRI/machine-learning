@@ -114,7 +114,7 @@ $ ssh userxxx@cassiopeia.c3.ca
 You are now in our training cluster.
 
 #+BEGIN_box
-The [[https://westgrid-ml.netlify.app/school/pt-05-hpc.html][next lesson]] teaches you how to run ML scripts in Compute Canada clusters. But for the purpose of this course and while using our training cluster, all you will have to do before running PyTorch scripts is to:
+You will learn [[https://westgrid-ml.netlify.app/school/pt-10-hpc.html][tomorrow]] how to run ML scripts in Compute Canada clusters. But for the purpose of this course and while using our training cluster, all you will have to do before running PyTorch scripts is to:
 
 - Load the necessary modules:
 
@@ -131,6 +131,6 @@ $ source /project/shared/bio2/bin/activate
 
 * Issues
 
-If you have issues installing PyTorch and/or logging to the training cluster, please sign up for the [[https://westgrid-ml.netlify.app/school/pt-06-debug.html][debug session]] to make sure that you are ready for our next Zoom meeting tomorrow morning.
+If you have issues installing PyTorch and/or logging to the training cluster, please sign up for the [[https://westgrid-ml.netlify.app/school/pt-05-debug.html][debug session]] to make sure that you are ready for our next Zoom meeting tomorrow morning.
 
 * Comments & questions

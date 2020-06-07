@@ -1,8 +1,8 @@
 #+title: Running ML jobs in Compute Canada clusters
 #+description: Reading
 #+colordes: #538cc6
-#+slug: pt-05-hpc
-#+weight: 5
+#+slug: pt-10-hpc
+#+weight: 10
 
 /Note on notation: expressions between the {{<c>}}&lt;{{</c>}} and {{<c>}}&gt;{{</c>}} signs need to be replaced by the relevant information (without those signs)./
 

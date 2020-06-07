@@ -1,8 +1,8 @@
 #+title: First exposure to PyTorch
 #+description: Practice
 #+colordes: #dc7309
-#+slug: pt-07-exposure
-#+weight: 7
+#+slug: pt-06-exposure
+#+weight: 6
 
 PyTorch is an open source package for Python, primarily developed by Facebook's AI Research lab, enabling tensor computing on the GPU and deep learning research.
 
@@ -129,6 +129,6 @@ If you are puzzled by the code syntax, revisit <a href="https://docs.python.org/
 Finally, draw a diagram of this neural network and place {{<c>}}D_in{{</c>}}, {{<c>}}H{{</c>}}, {{<c>}}D_out{{</c>}}, {{<c>}}w1{{</c>}}, {{<c>}}w2{{</c>}}, {{<c>}}x{{</c>}}, and {{<c>}}y{{</c>}} on it.
 {{</exercise>}}
 
-In our [[https://westgrid-ml.netlify.app/school/pt-08-basics.html][Zoom session]] tomorrow morning, we will discuss this code and start building from it.
+In our [[https://westgrid-ml.netlify.app/school/pt-07-basics.html][Zoom session]] tomorrow morning, we will discuss this code and start building from it.
 
 * Comments & questions

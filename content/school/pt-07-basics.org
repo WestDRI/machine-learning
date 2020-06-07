@@ -1,8 +1,8 @@
 #+title: PyTorch basics
 #+description: Zoom
 #+colordes: #cc0066
-#+slug: pt-08-basics
-#+weight: 8
+#+slug: pt-07-basics
+#+weight: 7
 
 #+OPTIONS: toc:nil
 
