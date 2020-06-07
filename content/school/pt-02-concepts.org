@@ -169,6 +169,14 @@ We talk about *Deep Learning* whenever an ANN consists of 2 or more hidden layer
 from <a href="https://xkcd.com/">xkcd.com</a>
 {{</img>}}
 
+* A bit of vocabulary
+
+- *feature*: measurable property of a phenomenon {{<el l="https://en.wikipedia.org/wiki/Feature_(machine_learning)">}}
+- *feature vector*: set of a phenomenon's features {{<el l="https://en.wikipedia.org/wiki/Feature_(machine_learning)">}}
+- *linear predictor function*: linear function of a set of coefficients and explanatory variables {{<el l="https://en.wikipedia.org/wiki/Linear_predictor_function">}}
+- *linear classifier*: linear predictor function using a feature vector to test whether a phenomenon belongs to a certain class {{<el l="https://en.wikipedia.org/wiki/Linear_classifier">}}
+- *perceptron*: a type of linear classifier for supervised learning. It is the simplest version of a neural network with a single-layer network mapping a set of inputs to an output thanks to a generalized variation of a linear function {{<el l="https://en.wikipedia.org/wiki/Perceptron">}}
+
 * Overfitting
 
 [[https://en.wikipedia.org/wiki/Overfitting][Overfitting]]—extracting noise from the data while it does not represent general meaningful structure and has no predictive power—is a common problem when developing ML models.
