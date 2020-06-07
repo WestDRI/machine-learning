@@ -1,7 +1,7 @@
-#+title: MNIST classification with an MLP
+#+title: PyTorch basics
 #+description: Zoom
 #+colordes: #cc0066
-#+slug: pt-08-mlp
+#+slug: pt-08-basics
 #+weight: 8
 
 #+OPTIONS: toc:nil
@@ -13,5 +13,3 @@
 #+END_zoombox
 
 Note that *no recording* will be made during this session so as not to discourage participation.
-
-# https://pytorch.org/docs/stable/torchvision/datasets.html#mnist
