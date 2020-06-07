@@ -2,7 +2,7 @@
 #+description: Video
 #+colordes: #5c8a6f
 #+slug: pt-08-tensorboard
-#+weight: 08
+#+weight: 8
 
 #+OPTIONS: toc:nil
 
