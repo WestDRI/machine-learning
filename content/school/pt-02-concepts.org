@@ -57,7 +57,8 @@ Find structure within the data.
 
 [[https://westgrid-ml.netlify.app/school/pt-03-nn.html][The next lesson]] will show you four excellent videos by [[https://www.3blue1brown.com/][3Blue1Brown]] on neural networks, so you will learn a lot about them then. But in short, artificial neural networks (ANN) are layered networks of units mimicking the concept of biological neurons: inputs are received by every unit, computed, then transmitted to other units. Experience strengthens some connections between units and weakens others.
 
-In biological neurons, the information consists of action potentials (cell membrane rapid depolarization), in artificial ones, it is a weighted sum of inputs with an additional (possibly weighted) bias.
+In biological networks, the information consists of action potentials (neuron membrane rapid depolarizations) propagating through the network. In artificial ones, the information consists of vectors of weights and biases: each unit passes a weighted sum of its input vector with an additional—possibly weighted—bias through an activation function before passing on the output vector to the next layer of units.\\
+/Note:/ {{<s>}}the bias allows to shift the output of the activation function to the right or to the left: it creates an offset.
 
 /Schematic of biological neuron:/
 {{<br>}}
@@ -95,7 +96,8 @@ The information in biological neurons is an all-or-nothing electrochemical pulse
 {{</img>}}
 
 {{<br>}}
-/Some of the most common activation functions:/
+/Some of the most common activation functions:/ \\
+Which activation function to use depends on the type of problem and the available computing budget. Some early functions have fallen out of use while new ones have emerged.
 {{<img src="/img/school/act_func_nw.png" title="" width="60%" line-height="2.0rem">}}
 <center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}from <a href="https://arxiv.org/abs/1908.08681">Diganta Misra 2019</a></center>
 {{</img>}}
@@ -133,14 +135,14 @@ Optionally, pooling (combining the outputs of neurons in a subarea) reduces the 
 
 ****** Recurrent neural network
 
-RNN are used for chain structured data (e.g. text).
+RNN are used for chain structured data (e.g. speech recognition). They are not feedforward networks (i.e. networks for which the information moves only in one direction without any loop).
 
 * Overfitting
 
-[[https://en.wikipedia.org/wiki/Overfitting][Overfitting]] is a common problem when developing ML models.
+[[https://en.wikipedia.org/wiki/Overfitting][Overfitting]]—extracting noise from the data while it does not represent general meaningful structure and has no predictive power—is a common problem when developing ML models.
 
 {{<br>}}
-{{<img src="/img/school/overfitting.png" title="" width="35%" line-height="0.5rem">}}
+{{<img src="/img/school/overfitting.png" title="" width="38%" line-height="0.5rem">}}
 <center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<n>}}from <a href="https://commons.wikimedia.org/w/index.php?curid=3610704">Chabacano, Wikipedia</a></center>
 {{</img>}}
 
