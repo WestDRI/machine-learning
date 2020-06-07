@@ -199,13 +199,6 @@ Play in Python to test your code:
 (env) $ deactivate
 #+END_src
 
-* Checkpoints
-
-
-* Running several similar jobs
-
-A number of ML tasks (e.g. [[https://en.wikipedia.org/wiki/Hyperparameter_optimization][hyperparameter optimization]]) require running several instances of similar jobs. Grouping them into a single job with [[https://docs.computecanada.ca/wiki/GLOST][GLOST]] or [[https://docs.computecanada.ca/wiki/GNU_Parallel][GNU Parallel]] reduces the stress on the scheduler.
-
 * Job script
 
 To submit a job to Slurm (the job scheduler used by the Compute Canada clusters), you need to write an {{<b>}}sbatch{{</b>}} script. Here is an example:
@@ -281,7 +274,49 @@ $ scancel <jobid>
 $ seff <jobid>
 #+END_src
 
+* Checkpoints
 
+Long jobs should have a checkpoint at least every 24 hours. This ensures that an outage won't lead to days of computation lost and it will help get the job started sooner by the scheduler.
+
+For instance, you might want to have checkpoints every {{<b>}}n{{</b>}} epochs (choose {{<b>}}n{{</b>}} so that {{<b>}}n{{</b>}} epochs take less than 24 hours to run).
+
+In PyTorch, you can create dictionaries with all the information necessary and save them as {{<b>}}.tar{{</b>}} files with {{<c>}}torch.save(){{</c>}}. You can then load them back with {{<c>}}torch.load(){{</c>}}.
+
+The information you want to save in each checkpoint includes the model’s state_dict, the optimizer’s state_dict, the epoch at which you stopped, the latest training loss, and anything else needed to restart training where you left off.
+
+/Example:/
+
+Saving a checkpoint during training could look something like this:
+
+#+BEGIN_src python
+torch.save({
+            'epoch': <last epoch run>,
+            'model_state_dict': net.state_dict(),
+            'optimizer_state_dict': optimizer.state_dict(),
+            'loss': <latest loss>,
+            }, <path/to/file.tar>)
 #+END_src
+
+To restart, initialize the model and optimizer, load the dictionary, and resume training:
+
+#+BEGIN_src python
+# Initialize the model and optimizer
+model = <your model>
+optimizer = <your optimizer>
+
+# Load the dictionary
+checkpoint = torch.load(<path/to/file.tar>)
+model.load_state_dict(checkpoint['model_state_dict'])
+optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+epoch = checkpoint['epoch']
+loss = checkpoint['loss']
+
+# Resume training
+model.train()
+#+END_src
+
+* Running several similar jobs
+
+A number of ML tasks (e.g. [[https://en.wikipedia.org/wiki/Hyperparameter_optimization][hyperparameter optimization]]) require running several instances of similar jobs. Grouping them into a single job with [[https://docs.computecanada.ca/wiki/GLOST][GLOST]] or [[https://docs.computecanada.ca/wiki/GNU_Parallel][GNU Parallel]] reduces the stress on the scheduler.
 
 * Comments & questions
