@@ -1,7 +1,7 @@
-#+title: Introduction to PyTorch
+#+title: First exposure to PyTorch
 #+description: Practice
 #+colordes: #dc7309
-#+slug: pt-07-pytorch
+#+slug: pt-07-exposure
 #+weight: 7
 
 PyTorch is an open source package for Python, primarily developed by Facebook's AI Research lab, enabling tensor computing on the GPU and deep learning research.

@@ -1,9 +1,0 @@
-#+title: MNIST classification with a CNN
-#+description: Practice
-#+colordes: #dc7309
-#+slug: pt-09-cnn
-#+weight: 9
-
-
-
-* Comments & questions

@@ -1,8 +1,8 @@
 #+title: Distributed computing with PyTorch
 #+description: Reading
 #+colordes: #538cc6
-#+slug: pt-11-distributed
-#+weight: 11
+#+slug: pt-10-distributed
+#+weight: 10
 
 * Data parallelism
 
