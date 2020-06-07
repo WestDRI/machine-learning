@@ -108,7 +108,7 @@ from <a href="https://commons.wikimedia.org/w/index.php?curid=20569355">Olegalex
 {{</img>}}
 
 {{<br>}}
-There are several methods for this:
+There are several gradient descent methods:
 
 *Batch gradient descent* uses all examples in each iteration and is thus slow for large data set (the parameters are adjusted only after all the samples have been processed).
 
@@ -116,5 +116,47 @@ There are several methods for this:
 
 *Mini-batch gradient descent* is an intermediate approach: it uses mini-batch size examples in each iteration. This allows a vectorized approach (and hence parallelization) that stochastic gradient descent does not allow.\\
 The [[https://arxiv.org/abs/1412.6980][*Adam optimization algorithm*]] is a popular variation of mini-batch gradient descent.
+
+**** Types of ANN
+
+****** Fully connected neural networks
+
+Each neuron receives input from every neuron of the previous layer.
+
+****** Convolutional neural network
+
+CNN are used for spatially structured data (e.g. image recognition).
+
+Images have huge input sizes and would require a very large number of neurons in a fully connected neural net. In convolutional layers, neurons receive input from a subarea (local receptive field) of the previous layer. This greatly reduces the number of parameters.
+
+Optionally, pooling (combining the outputs of neurons in a subarea) reduces the data dimensions. The stride then dictates how the subarea is moved across the image. Max-pooling is one of the forms of pooling which uses the maximum for each subarea.
+
+****** Recurrent neural network
+
+RNN are used for chain structured data (e.g. text).
+
+* Overfitting
+
+[[https://en.wikipedia.org/wiki/Overfitting][Overfitting]] is a common problem when developing ML models.
+
+{{<br>}}
+{{<img src="/img/school/overfitting.png" title="" width="35%" line-height="0.5rem">}}
+<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<n>}}from <a href="https://commons.wikimedia.org/w/index.php?curid=3610704">Chabacano, Wikipedia</a></center>
+{{</img>}}
+
+{{<br>}}
+Solutions include:
+- Regularization by adding a penalty to the loss function
+- Early stopping
+- Increase depth (more layers) and decrease breadth (less neurons per layer) leading to less parameters overall (but this creates vanishing and exploding gradient problems)
+- Neural architectures adapted to the type of data leading to fewer and shared parameters (e.g. convolutional neural network, recurrent neural network)
+
+* ML implementation tools
+
+The most popular machine learning libraries are [[https://pytorch.org/][PyTorch]], developed by Facebook’s AI Research lab and [[https://www.tensorflow.org/][TensorFlow]], developed by the Google Brain Team. Both of them can be used through their Python API or through APIs in other languages.
+
+[[https://julialang.org/][Julia]]’s syntax is well suited for the implementation of mathematical models, GPU kernels can be written directly in Julia, and Julia’s speed is attractive in computation hungry fields. So Julia has also seen the development of many ML packages.
+
+With the growing popularity of machine learning, packages and tools are being developed rapidly in many languages.
 
 * Comments & questions
