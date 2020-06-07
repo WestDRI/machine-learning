@@ -108,8 +108,7 @@ Use the user name and password that you received by email:
 
 #+BEGIN_src sh
 $ ssh userxxx@cassiopeia.c3.ca
-
-# enter password
+# enter password (it is blind typing)
 #+END_src
 
 You are now in our training cluster.
