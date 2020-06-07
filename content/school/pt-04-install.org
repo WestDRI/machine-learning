@@ -100,9 +100,9 @@ Lastly, you need to make sure that you can ssh to our training cluster.
 
 Open a terminal emulator:
 
-/Windows users, launch [[https://mobaxterm.mobatek.net/][MobaXTerm]]./ \\
-/MacOS users, launch Terminal./ \\
-/Linux users, launch xterm or the terminal emulator of your choice./
+/Windows:/ {{<s>}}[[https://mobaxterm.mobatek.net/][MobaXTerm]] \\
+/MacOS:/ {{<s>}}Terminal \\
+/Linux:/ {{<s>}}xterm or the terminal emulator of your choice
 
 Use the user name and password that you received by email:
 
