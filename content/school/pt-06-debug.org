@@ -1,4 +1,4 @@
-#+title: Issues installing PyTorch or logging to the training cluster
+#+title: Issues installing PyTorch or logging in the training cluster
 #+description: (Debug)
 #+colordes: #800040
 #+slug: pt-06-debug
@@ -8,7 +8,7 @@
 
 /This *debugging session* is not part of the actual lesson./
 
-/Only join if you have carefully followed the session on [[https://westgrid-ml.netlify.app/school/pt-04-install.html][installing PyTorch and logging to the training cluster]], but are still having problems./
+/Only join if you have carefully followed the session on [[https://westgrid-ml.netlify.app/school/pt-04-install.html][installing PyTorch and logging in the training cluster]], but are still having problems./
 
 #+BEGIN_debugbox
 *This interactive session will be conducted through Zoom.*
