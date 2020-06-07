@@ -57,6 +57,9 @@ This extremely simple network is trained to predict some random output {{<c>}}y{
 The forward pass, loss function, and backward pass are all coded manually, so that you can really see what is going on.
 
 #+BEGIN_src python
+from __future__ import print_function
+import torch
+
 # for those without a GPU
 device = torch.device('cpu')
 
