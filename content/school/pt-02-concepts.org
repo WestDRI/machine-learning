@@ -1,0 +1,26 @@
+#+title: Concepts
+#+description: Reading
+#+colordes: #538cc6
+#+slug: pt-02-concepts
+#+weight: 2
+
+* What is machine learning?
+
+Machine learning (ML) can be defined as computer programs whose performance at a task improves with experience.
+
+Since this experience comes in the form of *data*, ML consists of feeding vast amounts of data to algorithms to strengthen *pathways*.
+
+{{<br>}}
+{{<img src="https://imgs.xkcd.com/comics/machine_learning.png" title="" width="%" line-height="0.5rem">}}
+from <a href="https://xkcd.com/">xkcd.com</a>
+{{</img>}}
+
+**** /Example in image recognition:/
+
+Coding all the possible ways—pixel by pixel—that a picture can represent a certain object is an impossibly large task. By feeding examples of images of that object to a neural network however, we can train it to recognize that object in images that it has never seen (without explicitly programming how it does this!).
+
+{{<br>}}
+{{<img src="https://imgs.xkcd.com/comics/machine_learning_captcha.png" title="" width="%" line-height="0.5rem">}}
+from <a href="https://xkcd.com/">xkcd.com</a>
+{{</img>}}
+
