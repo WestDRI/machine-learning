@@ -143,7 +143,7 @@ Each neuron receives input from every neuron of the previous layer.
 
 *** Convolutional neural network
 
-{{<img src="/img/school/cnn_nw.png" title="" width="%" line-height="1.0rem">}}
+{{<img src="/img/school/cnn_nw.png" title="" width="%" line-height="1.5rem">}}
 from <a href="https://codetolight.wordpress.com/2017/11/29/getting-started-with-pytorch-for-deep-learning-part-3-neural-network-basics/">Programming Journeys by Rensu Theart</a>
 {{</img>}}
 
@@ -156,7 +156,7 @@ Optionally, pooling (combining the outputs of neurons in a subarea) reduces the 
 
 *** Recurrent neural network
 
-{{<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Recurrent_neural_network_unfold.svg" title="" width="%" line-height="0.5rem">}}
+{{<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Recurrent_neural_network_unfold.svg" title="" width="%" line-height="0rem">}}
 from <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">fdeloche, Wikipedia</a>
 {{</img>}}
 
