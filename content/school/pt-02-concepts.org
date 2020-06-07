@@ -128,7 +128,7 @@ There are several gradient descent methods:
 *Stochastic gradient descent* uses one example in each iteration. It is thus much faster than batch gradient descent (the parameters are adjusted after each example). But it does not allow any vectorization.
 
 *Mini-batch gradient descent* is an intermediate approach: it uses mini-batch size examples in each iteration. This allows a vectorized approach (and hence parallelization) that stochastic gradient descent does not allow.\\
-The [[https://arxiv.org/abs/1412.6980][*Adam optimization algorithm*]] is a popular variation of mini-batch gradient descent.
+The [[https://arxiv.org/abs/1412.6980][Adam optimization algorithm]] is a popular variation of mini-batch gradient descent.
 
 ** Types of ANN
 
@@ -162,13 +162,6 @@ from <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">fdeloche,
 
 RNN are used for chain structured data (e.g. speech recognition). They are not feedforward networks (i.e. networks for which the information moves only in one direction without any loop).
 
-We talk about *Deep Learning* whenever an ANN consists of 2 or more hidden layers. Shallow networks only have one hidden layer.
-
-{{<br>}}
-{{<img src="https://imgs.xkcd.com/comics/drone_training.png" title="" width="%" line-height="0.5rem">}}
-from <a href="https://xkcd.com/">xkcd.com</a>
-{{</img>}}
-
 * A bit of vocabulary
 
 - *feature*: measurable property of a phenomenon {{<el l="https://en.wikipedia.org/wiki/Feature_(machine_learning)">}}
@@ -176,6 +169,13 @@ from <a href="https://xkcd.com/">xkcd.com</a>
 - *linear predictor function*: linear function of a set of coefficients and explanatory variables {{<el l="https://en.wikipedia.org/wiki/Linear_predictor_function">}}
 - *linear classifier*: linear predictor function using a feature vector to test whether a phenomenon belongs to a certain class {{<el l="https://en.wikipedia.org/wiki/Linear_classifier">}}
 - *perceptron*: a type of linear classifier for supervised learning. It is the simplest version of a neural network with a single-layer network mapping a set of inputs to an output thanks to a generalized variation of a linear function {{<el l="https://en.wikipedia.org/wiki/Perceptron">}}
+
+We talk about *Deep Learning* whenever an ANN consists of 2 or more hidden layers (deep network). Shallow networks only have one hidden layer.
+
+{{<br>}}
+{{<img src="https://imgs.xkcd.com/comics/drone_training.png" title="" width="%" line-height="0.5rem">}}
+from <a href="https://xkcd.com/">xkcd.com</a>
+{{</img>}}
 
 * Overfitting
 
