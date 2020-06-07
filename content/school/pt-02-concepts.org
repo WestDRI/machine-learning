@@ -53,6 +53,11 @@ Unsupervised learning uses unlabelled data (training set of \(x_i\)).
 
 Find structure within the data.
 
+{{<br>}}
+{{<img src="https://imgs.xkcd.com/comics/trained_a_neural_net.png" title="" width="%" line-height="0.5rem">}}
+from <a href="https://xkcd.com/">xkcd.com</a>
+{{</img>}}
+
 * Artificial neural networks
 
 [[https://westgrid-ml.netlify.app/school/pt-03-nn.html][The next lesson]] will show you four excellent videos by [[https://www.3blue1brown.com/][3Blue1Brown]] on neural networks, so you will learn a lot about them then. But in short, artificial neural networks (ANN) are layered networks of units mimicking the concept of biological neurons: inputs are received by every unit, computed, then transmitted to other units. Experience strengthens some connections between units and weakens others.
@@ -104,6 +109,12 @@ Which activation function to use depends on the type of problem and the availabl
 
 The process of learning in biological NN happens through neuron death or growth, and through the creation or loss of synaptic connections between neurons. In ANN, learning happens through optimization algorithms such as gradient descent which minimize cross entropy loss functions by adjusting the weights and biases connecting each layer of neurons over many iterations (cross entropy is the difference between the predicted and real distributions).
 
+{{<br>}}
+{{<img src="https://imgs.xkcd.com/comics/ai_hiring_algorithm.png" title="" width="%" line-height="0.5rem">}}
+from <a href="https://xkcd.com/">xkcd.com</a>
+{{</img>}}
+
+{{<br>}}
 /Gradient descent:/
 {{<img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Gradient_descent.svg" title="" width="100%" line-height="0.5rem">}}
 from <a href="https://commons.wikimedia.org/w/index.php?curid=20569355">Olegalexandrov & Zerodamage, Wikipedia</a>
@@ -150,6 +161,13 @@ from <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">fdeloche,
 {{</img>}}
 
 RNN are used for chain structured data (e.g. speech recognition). They are not feedforward networks (i.e. networks for which the information moves only in one direction without any loop).
+
+We talk about *Deep Learning* whenever an ANN consists of 2 or more hidden layers. Shallow networks only have one hidden layer.
+
+{{<br>}}
+{{<img src="https://imgs.xkcd.com/comics/drone_training.png" title="" width="%" line-height="0.5rem">}}
+from <a href="https://xkcd.com/">xkcd.com</a>
+{{</img>}}
 
 * Overfitting
 
