@@ -1,7 +1,7 @@
 #+title: Running ML jobs on Compute Canada clusters
 #+description: Reading
 #+colordes: #538cc6
-#+slug: pt-05-cluster
+#+slug: pt-05-hpc
 #+weight: 5
 
 /Note on notation: expressions between the {{<c>}}&lt;{{</c>}} and {{<c>}}&gt;{{</c>}} signs need to be replaced by the relevant information (without those signs)./
@@ -122,55 +122,73 @@ For this, create a virtual environment on compute nodes (this improves I/O perfo
 While Anaconda is a great tool on personal computers, it is not an appropriate tool when working on the Compute Canada clusters: binaries are unoptimized for those clusters and library paths are inconsistent with their architecture. Anaconda installs packages in {{<b>}}$HOME{{</b>}} where it creates a very large number of small files. It can also create conflicts by modifying {{<b>}}.bashrc{{</b>}}
 #+END_box
 
-The best approach is to start an interactive job to create and activate your virtual environment, install your Python packages, then create a requirements file:
+The variable {{<b>}}$SLURM_TMPDIR{{</b>}} is created by Slurm on the compute node where a job is running. Its path is {{<b>}}/localscratch/&lt;user&gt;.&lt;jobid&gt;.0{{</b>}}. Anything in it gets deleted when the job is done.
 
-**** Start interactive job
+It may be a good idea to run an interactive job to create a requirements file and test your code:
+
+**** Start an interactive job
 
 /Example:/
 
 #+BEGIN_src sh
-$ salloc --gres=gpu:1 --cpus-per-task=6 --mem=32000M --time=00:15:00
-#+END_src
-
-In our training cluster which does not have GPUs and which only has 2 CPUs per node and little memory, you have to scale this down:
-
-#+BEGIN_src sh
-$ salloc --cpus-per-task=2 --mem=1000M --time=00:15:00
+$ salloc --account=def-<user> --gres=gpu:1 --cpus-per-task=6 --mem=32000 --time=1:00
 #+END_src
 
 # Use pre-downloaded packages.
 
-**** Create the virtual environment
+**** Create a requirements file
+
+Create a Python virtual environment:
 
 #+BEGIN_src sh
 $ virtualenv --no-download $SLURM_TMPDIR/env
 #+END_src
 
-**** Activate it
+Activate it:
 
 #+BEGIN_src sh
 $ source $SLURM_TMPDIR/env/bin/activate
 #+END_src
 
-**** Update pip
+Update pip:
 
 #+BEGIN_src sh
 (env) $ pip install --no-index --upgrade pip
 #+END_src
 
-**** Install the packages
+Install the packages you need in the virtual environment:
 
 #+BEGIN_src sh
 (env) $ pip install --no-index torch torchvision
 #+END_src
 
-**** Save a requirements file
+Save the requirements file:
 
 #+BEGIN_src sh
 (env) $ pip freeze > ~/<path/project/dir/>requirements.txt
 #+END_src
 
-**** Exit the virtual environment
+**** Try to run your code
+
+Create a temporary data directory in {{<b>}}$SLURM_TMPDIR{{</b>}}:
+
+#+BEGIN_src sh
+(env) $ mkdir $SLURM_TMPDIR/data
+#+END_src
+
+Extract the data into it:
+
+#+BEGIN_src sh
+(env) $ tar xf ~/projects/def-<user>/<data>.tar -C $SLURM_TMPDIR/data
+#+END_src
+
+Play in Python to test your code:
+
+#+BEGIN_src sh
+(env) $ python
+#+END_src
+
+/Note:/ {{<s>}}if you want to exit the virtual environment:
 
 #+BEGIN_src sh
 (env) $ deactivate
@@ -190,7 +208,7 @@ To submit a job to Slurm (the job scheduler used by the Compute Canada clusters)
 #+BEGIN_src sh
 #!/bin/bash
 #SBATCH --job-name=<name>*			  # job name
-#SBATCH --account=def-<user>*
+#SBATCH --account=def-<user>
 #SBATCH --time=<time>				  # max walltime in D-HH:MM or HH:MM:SS
 #SBATCH --cpus-per-task=<number>      # number of cores
 #SBATCH --gres=gpu:<type>:<number>    # type and number of GPU(s) per node
@@ -202,7 +220,7 @@ To submit a job to Slurm (the job scheduler used by the Compute Canada clusters)
 #SBATCH --mail-type=ALL*
 
 # Load modules
-module load module load python/3.8.2 cudacore/.10.1.243 cuda/10 cudnn/7.6.5
+module load python/3.8.2 cudacore/.10.1.243 cuda/10 cudnn/7.6.5
 
 # Create variable with the directory for your ML project
 SOURCEDIR=~/<path/project/dir>
