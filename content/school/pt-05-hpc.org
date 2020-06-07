@@ -201,7 +201,7 @@ Play in Python to test your code:
 
 * Job script
 
-To submit a job to Slurm (the job scheduler used by the Compute Canada clusters), you need to write an {{<b>}}sbatch{{</b>}} script. Here is an example:
+To submit a job to Slurm (the job scheduler used by the Compute Canada clusters), you need to write an {{<b>}}sbatch{{</b>}} script. Here is an example script:
 
 #+BEGIN_src sh
 #!/bin/bash
@@ -290,11 +290,11 @@ Saving a checkpoint during training could look something like this:
 
 #+BEGIN_src python
 torch.save({
-            'epoch': <last epoch run>,
-            'model_state_dict': net.state_dict(),
-            'optimizer_state_dict': optimizer.state_dict(),
-            'loss': <latest loss>,
-            }, <path/to/file.tar>)
+    'epoch': <last epoch run>,
+    'model_state_dict': net.state_dict(),
+    'optimizer_state_dict': optimizer.state_dict(),
+    'loss': <latest loss>,
+}, <path/to/file.tar>)
 #+END_src
 
 To restart, initialize the model and optimizer, load the dictionary, and resume training:
