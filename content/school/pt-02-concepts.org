@@ -24,3 +24,32 @@ Coding all the possible ways—pixel by pixel—that a picture can represent a c
 from <a href="https://xkcd.com/">xkcd.com</a>
 {{</img>}}
 
+* Supervised learning
+
+You have been doing supervised machine learning for years without thinking about it in those terms:
+
+- *Regression* is a form of supervised learning with continuous output
+- *Classification* is supervised learning with discrete output
+
+Supervised learning uses training data in the form of example input/output \((x_i, y_i)\) pairs.
+
+/Goal:/
+
+If \(X\) is the space of inputs and \(Y\) the space of outputs, the goal is to find a function \(h\) so that\\
+for each \(x_i \in X\), \(h_\theta(x_i)\) is a predictor for the corresponding value \(y_i\) \\
+(\(\theta\) represents the set of parameters of \(h_\theta\)).
+
+→ i.e. we want to find the relationship between inputs and outputs.
+
+* Unsupervised learning
+
+Here too, you are familiar with some form of unsupervised learning that you weren't thinking about in such terms:
+
+Clustering, social network analysis, market segmentation, PCA ... are all forms of unsupervised learning.
+
+Unsupervised learning uses unlabelled data (training set of \(x_i\)).
+
+/Goal:/
+
+Find structure within the data.
+
