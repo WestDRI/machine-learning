@@ -30,11 +30,11 @@ Go to the {{<b>}}Anaconda Installers{{</b>}} section of [[https://www.anaconda.c
 
 Then, you need 3 Python packages: *PyTorch*, *TorchVision*, and *Matplotlib*.
 
-**** Matplotlib
+*** Matplotlib
 
 Matplotlib is already packaged in Anaconda. So those who installed Anaconda are good with that one. Those who chose an alternative method can find information on how to install it [[https://matplotlib.org/users/installing.html][here]].
 
-**** PyTorch and TorchVision
+*** PyTorch and TorchVision
 
 Use [[https://pytorch.org/get-started/locally/][this page]] to find the command you need to run based on your operating system and whether or not you have CUDA (this only concerns you if you have an Nvidia GPU).
 
@@ -59,7 +59,7 @@ conda install pytorch torchvision -c pytorch
 - Etc.
 
 
-** Test the installation
+**** Test the installation
 
 Make sure that all works well by launching Python, loading the {{<c>}}torch{{</c>}} package and creating a 2-dimensional tensor of zeros:
 
