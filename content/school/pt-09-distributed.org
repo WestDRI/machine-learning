@@ -6,9 +6,9 @@
 
 * On using multiple GPUs
 
-*Before considering using more than 1 GPU, you should carefully analyze whether this will truly benefit your model.*
+*Before you consider using more than 1 GPU on Compute Canada clusters, you should carefully analyze whether this will truly benefit your model.*
 
-With the explosion of the field of machine learning in recent years, the GPUs in Compute Canada clusters have seen an exponential increase of requests. Resources are expanding, but cannot keep up.
+With the explosion of the field of machine learning in recent years, the GPUs in Compute Canada clusters have seen an exponential increase in demand. Resources are expanding, but cannot keep up.
 
 {{<br>}}
 {{<img src="/img/school/cc_rac_gpu_2019_nw.png" title="" width="85%" line-height="1.0rem">}}
@@ -24,27 +24,32 @@ There are however situations when multiple GPUs are advantageous, or even necess
 
 *If you are in doubt, while you are learning, and when testing code, stick to one GPU.*
 
-* Data parallelism
+* Data parallel
 
-Run the same model on multiple GPUs.
-Each GPU uses a different partition of the data.
+/Single node (or single machine), single process, multi-thread (multiple GPUs)./
 
-Uses {{<c>}}torch.nn.DataParallel{{</c>}}.
+PyTorch allows to run the same model on multiple GPUs, each GPU using a different partition of the data. Since each GPU runs the model on a fraction of the data, you get a speedup in training.
+
+This is done with {{<c>}}torch.nn.DataParallel{{</c>}}.
 
 {{<c>}}DataParallel{{</c>}} splits the data automatically and sends jobs to the GPUs: each GPU gets a different data partition and runs the model on it. Once all the jobs are done, {{<c>}}DataParallel{{</c>}} collects and compiles the results before returning the final output.
 
 /Example:/
 
-You have a mini-batch of size \(m\) and 2 GPUs. {{<c>}}DataParallel{{</c>}} sends \(m/2\) samples to one GPU and the other \(m/2\) samples to the other. Once they have ran the model on that data, {{<c>}}DataParallel{{</c>}} collects, compiles and returns the result.
+You have a mini-batch of size \(m\) and 2 GPUs. {{<c>}}DataParallel{{</c>}} sends \(m/2\) samples to one GPU and the other \(m/2\) samples to the other. Once they have run the model on that data, {{<c>}}DataParallel{{</c>}} collects, compiles and returns the result.
 
-Since each GPU runs the model on half the data, this goes a lot faster.
+* Model parallel
 
-* Model parallelism
+/Single node (or single machine), single process, multi-thread (multiple GPUs)./
 
-If the model is too large to fit on a single GPU.
-The model is split between different GPUs.
+If the model is too large to fit on a single GPU, you need to use model parallel. The model is then split between different GPUs.
 
-* Distributed computing on different nodes
+* Distributed data parallel (DDP)
 
+/Single or multiple node(s), multiple processes./
+
+Each process handles a split of the data.
+
+This is done with {{<c>}}torch.nn.parallel.DistributedDataParallel{{</c>}}.
 
 * Comments & questions
