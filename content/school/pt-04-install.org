@@ -116,13 +116,13 @@ You are now in our training cluster.
 #+BEGIN_box
 You will learn [[https://westgrid-ml.netlify.app/school/pt-10-hpc.html][tomorrow]] how to run ML scripts in Compute Canada clusters. But for the purpose of this course and while using our training cluster, all you will have to do before running PyTorch scripts is to:
 
-- Load the necessary modules:
+- Load the Python module (our training cluster does not have GPUs, so there is no need to load the CUDA modules):
 
 #+BEGIN_src sh
-$ module load python/3.8.2 cudacore/.10.1.243 cuda/10 cudnn/7.6.5
+$ module load python/3.8.2
 #+END_src
 
-- Activate a Python virtual environment that we have already created and which contains the {{<c>}}torch{{</c>}} and {{<c>}}torchvision{{</c>}} packages:
+- Activate a Python virtual environment that we have already created and which contains the {{<c>}}torch{{</c>}}, {{<c>}}torchvision{{</c>}}, and {{<c>}}matplotlib{{</c>}} packages:
 
 #+BEGIN_src sh
 $ source /project/shared/bio2/bin/activate
