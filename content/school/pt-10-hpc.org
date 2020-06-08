@@ -39,15 +39,17 @@ If you need to copy files such as your script to the cluster, you can use {{<c>}
 If you are in a local shell, run:
 
 #+BEGIN_src sh
-[local]$ scp </local/path/file>  <user>@<cluster login node>:<path/cluster>
+[local]$ scp </local/path/to/file>  <user>@<cluster>.computecanada.ca:<path/in/cluster>
 #+END_src
+
+/(Replace {{<c>}}&lt;user&gt;{{</c>}} by your user name and {{<c>}}&lt;cluster&gt;{{</c>}} by the name of the Compute Canada cluster hostname (e.g. beluga, cedar, graham).)/
 
 ***** From the cluster
 
 If you are in a remote shell (through ssh), run:
 
 #+BEGIN_src sh
-[cluster]$ scp <user>@<cluster login node>:<cluster/path/file>  </local/path>
+[cluster]$ scp <user>@<cluster>.computecanada.ca:<cluster/path/to/file>  </local/path>
 #+END_src
 
 ** Data
