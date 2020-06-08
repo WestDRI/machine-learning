@@ -358,6 +358,6 @@ Then, *from your computer*, enter this {{<c>}}ssh{{</c>}} command:
 
 You can now open a browser and go to http://localhost:6006.
 
-*Note: TensorBoard requires a lot of processing power. Please do not run it from the logging node. Only run it in a job (batch or interactive).*
+*Note: TensorBoard requires a lot of processing power. Please do not run it from the login node. Only run it in a job.*
 
 * Comments & questions
