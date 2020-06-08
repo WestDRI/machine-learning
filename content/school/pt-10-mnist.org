@@ -1,8 +1,8 @@
 #+title: MNIST classification
 #+description: Zoom
 #+colordes: #cc0066
-#+slug: pt-11-mnist
-#+weight: 11
+#+slug: pt-10-mnist
+#+weight: 10
 
 #+OPTIONS: toc:nil
 
