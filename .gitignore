@@ -9,3 +9,5 @@ static/src/school/get_mean_std_datasets.py
 static/src/school/increasingly_complex_mnist.py
 static/src/school/mnist.py
 static/src/school/simple_example.py
+data/
+runs/
