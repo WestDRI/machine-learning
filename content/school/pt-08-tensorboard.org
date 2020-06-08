@@ -1,9 +1,0 @@
-#+title: Tracking model performance with TensorBoard
-#+description: Video
-#+colordes: #5c8a6f
-#+slug: pt-08-tensorboard
-#+weight: 8
-
-#+OPTIONS: toc:nil
-
-
