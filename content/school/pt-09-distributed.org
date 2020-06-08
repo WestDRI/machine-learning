@@ -4,6 +4,26 @@
 #+slug: pt-09-distributed
 #+weight: 9
 
+* On using multiple GPUs
+
+*Before considering using more than 1 GPU, you should carefully analyze whether this will truly benefit your model.*
+
+With the explosion of the field of machine learning in recent years, the GPUs in Compute Canada clusters have seen an exponential increase of requests. Resources are expanding, but cannot keep up.
+
+{{<br>}}
+{{<img src="/img/school/cc_rac_gpu_2019_nw.png" title="" width="85%" line-height="1.0rem">}}
+<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}from <a href="https://www.computecanada.ca/research-portal/accessing-resources/resource-allocation-competitions/">Compute Canada 2019 RAC Q&A session</a></center>
+{{</img>}}
+
+{{<br>}}
+If you ask for more GPUs, you will wait a lot longer and you will go through your GPU allocation quickly.
+
+*In many cases, this will not make your model faster: PyTorch, by default, only uses one GPU.*
+
+There are however situations when multiple GPUs are advantageous, or even necessary. So you need to learn when and how to parallelize your code to use multiple GPUs.
+
+*If you are in doubt, while you are learning, and when testing code, stick to one GPU.*
+
 * Data parallelism
 
 Run the same model on multiple GPUs.
