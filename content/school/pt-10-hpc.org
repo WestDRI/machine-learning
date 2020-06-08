@@ -321,4 +321,43 @@ model.train()
 
 A number of ML tasks (e.g. [[https://en.wikipedia.org/wiki/Hyperparameter_optimization][hyperparameter optimization]]) require running several instances of similar jobs. Grouping them into a single job with [[https://docs.computecanada.ca/wiki/GLOST][GLOST]] or [[https://docs.computecanada.ca/wiki/GNU_Parallel][GNU Parallel]] reduces the stress on the scheduler.
 
+* Using TensorBoard in the cluster
+
+If you want to visually track your model metrics (e.g. loss, accuracy, model graph, etc.) with [[https://github.com/tensorflow/tensorboard][TensorBoard]], you need to launch it in the background (using {{<c>}}&{{</c>}}) before your python script by adding to your {{<b>}}sbatch{{</b>}} script:
+
+#+BEGIN_src sh
+tensorboard --logdir=/tmp/<your log dir> --host 0.0.0.0 &
+#+END_src
+
+So our example script would look like:
+
+#+BEGIN_src sh
+#!/bin/bash
+#SBATCH ...
+...
+
+tensorboard --logdir=/tmp/<your log dir> --host 0.0.0.0 &
+python $SOURCEDIR/<mlscript>.py $SLURM_TMPDIR/data
+#+END_src
+
+Once the job is running, you need to create a connection between the compute node running TensorBoard and your computer.
+
+First, you need to find the hostname of the compute node running the Tensorboard server. This is the value under {{<b>}}NODELIST{{</b>}} for your job when you run:
+
+#+BEGIN_src sh
+$ sq
+#+END_src
+
+Then, *from your computer*, enter this ssh command:
+
+#+BEGIN_src sh
+[local]$ ssh -N -f -L localhost:6006:<node hostname>:6006 <user>@<cluster>.computecanada.ca
+#+END_src
+
+/(Replace {{<c>}}&lt;node hostname&gt;{{</c>}} by the compute node hostname you just identified, {{<c>}}&lt;user&gt;{{</c>}} by your user name, and {{<c>}}&lt;cluster&gt;{{</c>}} by the name of the Compute Canada cluster hostname (e.g. beluga, cedar, graham).)/
+
+You can now open a browser and go to http://localhost:6006.
+
+*Note: TensorBoard is requires a lot of processing power. Please do not run it from the logging node. Only run it in a job (batch or interactive).*
+
 * Comments & questions
