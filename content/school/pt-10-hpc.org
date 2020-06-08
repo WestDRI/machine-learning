@@ -348,7 +348,7 @@ First, you need to find the hostname of the compute node running the Tensorboard
 $ sq
 #+END_src
 
-Then, *from your computer*, enter this ssh command:
+Then, *from your computer*, enter this {{<c>}}ssh{{</c>}} command:
 
 #+BEGIN_src sh
 [local]$ ssh -N -f -L localhost:6006:<node hostname>:6006 <user>@<cluster>.computecanada.ca
@@ -358,6 +358,6 @@ Then, *from your computer*, enter this ssh command:
 
 You can now open a browser and go to http://localhost:6006.
 
-*Note: TensorBoard is requires a lot of processing power. Please do not run it from the logging node. Only run it in a job (batch or interactive).*
+*Note: TensorBoard requires a lot of processing power. Please do not run it from the logging node. Only run it in a job (batch or interactive).*
 
 * Comments & questions
