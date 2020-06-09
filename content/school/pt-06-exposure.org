@@ -47,7 +47,7 @@ The code below, from [[https://github.com/jcjohnson][Justin Johnson]]'s [[https:
 #+BEGIN_box
 /Reminders:/
 
-A *fully-connected* or dense layer means that each neuron is connected to all the neurons of the previous layer as well as all the neurons of the next layer.
+A *fully-connected* or dense network means that, on each layer, every neuron is connected to all the neurons of the previous layer as well as all the neurons of the next layer.
 
 *ReLU* is a rectified linear unit: a neuron using the rectifier or \(f(x) = max(0, x)\) as its activation function.
 #+END_box
