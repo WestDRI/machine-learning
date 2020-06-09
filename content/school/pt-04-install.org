@@ -102,7 +102,7 @@ pip install tensorboard
 
 * Log in the training cluster
 
-Lastly, you need to make sure that you can ssh to our training cluster.
+Lastly, you need to make sure that you can {{<c>}}ssh{{</c>}} into our training cluster.
 
 Open a terminal emulator:
 
@@ -120,15 +120,7 @@ $ ssh userxxx@cassiopeia.c3.ca
 You are now in our training cluster.
 
 #+BEGIN_box
-You will learn [[https://westgrid-ml.netlify.app/school/pt-08-hpc.html][tomorrow]] how to run ML jobs in Compute Canada clusters. But for the purpose of this course and while using our training cluster, all you will have to do before running {{<b>}}sbatch{{</b>}} jobs containing your PyTorch scripts is to:
-
-- Load the Python module (our training cluster does not have GPUs, so there is no need to load the CUDA modules):
-
-#+BEGIN_src sh
-$ module load python/3.8.2
-#+END_src
-
-- Activate a Python virtual environment that we have already created and which contains the {{<b>}}torch{{</b>}}, {{<b>}}torchvision{{</b>}}, and {{<b>}}matplotlib{{</b>}} packages:
+You will learn [[https://westgrid-ml.netlify.app/school/pt-08-hpc.html][tomorrow]] how to run ML jobs in Compute Canada clusters. But for the purpose of this course and while using our training cluster, all you will have to do before running {{<b>}}sbatch{{</b>}} jobs containing your PyTorch scripts is to activate a Python virtual environment that we have already created and which contains the {{<b>}}torch{{</b>}}, {{<b>}}torchvision{{</b>}}, and {{<b>}}matplotlib{{</b>}} packages:
 
 #+BEGIN_src sh
 $ source /project/shared/bio2/bin/activate
