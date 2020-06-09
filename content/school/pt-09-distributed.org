@@ -24,6 +24,8 @@ There are however situations when multiple GPUs are advantageous, or even necess
 
 *If you are in doubt, while you are learning, and when testing code, stick to one GPU.*
 
+Distributed computing with PyTorch is beyond this introductory course in machine learning. The main message here is that throwing multiple GPUs at your model is a loss of resource if you don't know what you are doing. We will offer workshops on this in the future, but in the meantime, here are the main scenarios with some links to tutorials.
+
 * Data parallel
 
 /Single node (or single machine), single process, multi-thread (multiple GPUs)./
@@ -34,15 +36,17 @@ This is done with {{<c>}}torch.nn.DataParallel{{</c>}}.
 
 {{<c>}}DataParallel{{</c>}} splits the data automatically and sends jobs to the GPUs: each GPU gets a different data partition and runs the model on it. Once all the jobs are done, {{<c>}}DataParallel{{</c>}} collects and compiles the results before returning the final output.
 
-/Example:/
+For instance, if you have a mini-batch of size \(m\) and 2 GPUs. {{<c>}}DataParallel{{</c>}} sends \(m/2\) samples to one GPU and the other \(m/2\) samples to the other. Once they have run the model on that data, {{<c>}}DataParallel{{</c>}} collects, compiles and returns the result.
 
-You have a mini-batch of size \(m\) and 2 GPUs. {{<c>}}DataParallel{{</c>}} sends \(m/2\) samples to one GPU and the other \(m/2\) samples to the other. Once they have run the model on that data, {{<c>}}DataParallel{{</c>}} collects, compiles and returns the result.
+[[https://pytorch.org/tutorials/beginner/blitz/data_parallel_tutorial.html][Here]] is an example.
 
 * Model parallel
 
 /Single node (or single machine), single process, multi-thread (multiple GPUs)./
 
 If the model is too large to fit on a single GPU, you need to use model parallel. The model is then split between different GPUs.
+
+You can find an example [[https://pytorch.org/tutorials/intermediate/model_parallel_tutorial.html][here]].
 
 * Distributed data parallel (DDP)
 
@@ -51,5 +55,7 @@ If the model is too large to fit on a single GPU, you need to use model parallel
 Each process handles a split of the data.
 
 This is done with {{<c>}}torch.nn.parallel.DistributedDataParallel{{</c>}}.
+
+[[https://pytorch.org/tutorials/intermediate/ddp_tutorial.html][This tutorial]] walks you through an example.
 
 * Comments & questions
