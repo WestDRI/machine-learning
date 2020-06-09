@@ -43,7 +43,7 @@ for each \(x_i \in X\), \(h_\theta(x_i)\) is a predictor for the corresponding v
 
 * Unsupervised learning
 
-Here too, you are familiar with some form of unsupervised learning that you weren't thinking about in such terms:
+Here too, you are familiar with some forms of unsupervised learning that you weren't thinking about in such light:
 
 *Clustering*, *social network analysis*, *market segmentation*, *PCA* ... are all forms of unsupervised learning.
 
@@ -63,7 +63,7 @@ from <a href="https://xkcd.com/">xkcd.com</a>
 [[https://westgrid-ml.netlify.app/school/pt-03-nn.html][The next lesson]] will show you four excellent videos by [[https://www.3blue1brown.com/][3Blue1Brown]] on neural networks, so you will learn a lot about them then. But in short, artificial neural networks (ANN) are layered networks of units mimicking the concept of biological neurons: inputs are received by every unit, computed, then transmitted to other units. Experience strengthens some connections between units and weakens others.
 
 In biological networks, the information consists of action potentials (neuron membrane rapid depolarizations) propagating through the network. In artificial ones, the information consists of vectors of weights and biases: each unit passes a weighted sum of its input vector with an additional—possibly weighted—bias through an activation function before passing on the output vector to the next layer of units.\\
-/Note:/ {{<s>}}the bias allows to shift the output of the activation function to the right or to the left: it creates an offset.
+/Note:/ {{<s>}}the bias allows to shift the output of the activation function to the right or to the left; it creates an offset.
 
 /Schematic of biological neuron:/
 {{<br>}}
@@ -93,21 +93,26 @@ While biological neurons are connected in intricate ways, artificial ones follow
 {{</img>}}
 
 {{<2br>}}
-The information in biological neurons is an all-or-nothing electrochemical pulse or action potential. Greater stimuli don’t produce stronger signals but increase firing frequency. In contrast, artificial neurons pass the computation of their inputs through an activation function which can take any value.
+The information in biological neurons is an all-or-nothing electrochemical pulse or action potential. Greater stimuli don’t produce stronger signals but increase firing frequency. In contrast, artificial neurons pass the computation of their inputs through an activation function and the output can take any of the values possible with that function.
 
-/Threshold potential:/
+/Threshold potential in biological neurons:/
 {{<img src="/img/school/all_none_law_nw.png" title="" width="60%" line-height="0rem">}}
 <center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}modified from <a href="https://commons.wikimedia.org/w/index.php?curid=78013076">Blacktc, Wikimedia</a></center>
 {{</img>}}
 
 {{<br>}}
-/Some of the most common activation functions:/ \\
-Which activation function to use depends on the type of problem and the available computing budget. Some early functions have fallen out of use while new ones have emerged.
+/Some of the most common activation functions in artificial neurons:/
+
 {{<img src="/img/school/act_func_nw.png" title="" width="60%" line-height="2.0rem">}}
 <center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}from <a href="https://arxiv.org/abs/1908.08681">Diganta Misra 2019</a></center>
 {{</img>}}
 
-The process of learning in biological NN happens through neuron death or growth, and through the creation or loss of synaptic connections between neurons. In ANN, learning happens through optimization algorithms such as gradient descent which minimize cross entropy loss functions by adjusting the weights and biases connecting each layer of neurons over many iterations (cross entropy is the difference between the predicted and real distributions).
+Which activation function to use depends on the type of problem and the available computing budget. Some early functions have fallen out of use while new ones have emerged.
+
+{{<br>}}
+/Learning:/
+
+The process of learning in biological NN happens through neuron death or growth and through the creation or loss of synaptic connections between neurons. In ANN, learning happens through optimization algorithms such as gradient descent which minimize cross entropy loss functions by adjusting the weights and biases connecting each layer of neurons over many iterations (cross entropy is the difference between the predicted and real distributions).
 
 {{<br>}}
 {{<img src="https://imgs.xkcd.com/comics/ai_hiring_algorithm.png" title="" width="%" line-height="0.5rem">}}
@@ -123,11 +128,11 @@ from <a href="https://commons.wikimedia.org/w/index.php?curid=20569355">Olegalex
 {{<br>}}
 There are several gradient descent methods:
 
-*Batch gradient descent* uses all examples in each iteration and is thus slow for large data set (the parameters are adjusted only after all the samples have been processed).
+*Batch gradient descent* uses all examples in each iteration and is thus slow for large datasets (the parameters are adjusted only after all the samples have been processed).
 
 *Stochastic gradient descent* uses one example in each iteration. It is thus much faster than batch gradient descent (the parameters are adjusted after each example). But it does not allow any vectorization.
 
-*Mini-batch gradient descent* is an intermediate approach: it uses mini-batch size examples in each iteration. This allows a vectorized approach (and hence parallelization) that stochastic gradient descent does not allow.\\
+*Mini-batch gradient descent* is an intermediate approach: it uses mini-batch sized examples in each iteration. This allows a vectorized approach (and hence parallelization).\\
 The [[https://arxiv.org/abs/1412.6980][Adam optimization algorithm]] is a popular variation of mini-batch gradient descent.
 
 ** Types of ANN
@@ -160,7 +165,9 @@ Optionally, pooling (combining the outputs of neurons in a subarea) reduces the 
 from <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">fdeloche, Wikipedia</a>
 {{</img>}}
 
-RNN are used for chain structured data (e.g. speech recognition). They are not feedforward networks (i.e. networks for which the information moves only in one direction without any loop).
+RNN (e.g. Long Short-Term Memory or LSTM) are used for chain structured data (e.g. speech recognition).
+
+They are not feedforward networks (i.e. networks for which the information moves only in one direction without any loop).
 
 * A bit of vocabulary
 
@@ -191,7 +198,7 @@ Solutions include:
 - Regularization by adding a penalty to the loss function
 - Early stopping
 - Increase depth (more layers) and decrease breadth (less neurons per layer) leading to less parameters overall (but this creates vanishing and exploding gradient problems)
-- Neural architectures adapted to the type of data leading to fewer and shared parameters (e.g. convolutional neural network, recurrent neural network)
+- Neural architectures adapted to the type of data leading to fewer and shared parameters (e.g. convolutional neural network or recurrent neural network)
 
 * ML implementation tools
 
@@ -199,6 +206,6 @@ The most popular machine learning libraries are [[https://pytorch.org/][PyTorch]
 
 [[https://julialang.org/][Julia]]’s syntax is well suited for the implementation of mathematical models, GPU kernels can be written directly in Julia, and Julia’s speed is attractive in computation hungry fields. So Julia has also seen the development of many ML packages.
 
-With the growing popularity of machine learning, packages and tools are being developed rapidly in many languages.
+With the growing popularity of machine learning, many other packages and tools are being developed in various languages.
 
 * Comments & questions
