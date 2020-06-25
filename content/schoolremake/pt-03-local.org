@@ -1,0 +1,100 @@
+#+title: Optional: installing PyTorch on your machine
+#+description: Annex
+#+colordes: #2d5986
+#+slug: pt-03-local
+#+weight: 3
+
+{{<br>}}
+/Installing PyTorch on your machine is entirely optional as you can run everything on the training cluster. If you would like to practice on your machine in addition to (or instead of) the training cluster, these should help you. Please note that you won't be debugging local installations./
+
+* Python and package manager
+
+First of all, you need *Python 3.7 or higher* and *a package manager* (to install Python packages).
+
+There are many ways to go about this. *For those new to Python, I suggest installing [[https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)][Anaconda]]:*
+
+Go to the {{<b>}}Anaconda Installers{{</b>}} section of [[https://www.anaconda.com/products/individual][this page]], download and install the 64-Bit installer for your operating system (unless you still have a 32-Bit version of Windows of course. But those are becoming rare).
+
+/Notes:/
+
+- Anaconda is extremely convenient on personal computers. It is also huge since it installs a whole suite of scientific Python packages. If you are looking for a much leaner installation than Anaconda, [[https://docs.conda.io/en/latest/miniconda.html][Miniconda3]] will only install Python 3.7, the package manager conda, and their dependencies.
+
+- Those on Linux, depending on their distro, can also install Python packages with their distribution package manager.
+
+- *While Anaconda is a good option on personal computers, this is NOT the way to go once you move to the Compute Canada clusters.*
+
+* Python packages
+
+Then, you need 4 Python packages: *Matplotlib*, *PyTorch*, *TorchVision*, and *TensorBoard*.
+
+** Matplotlib
+
+Matplotlib is already packaged with Anaconda. So if you installed Anaconda as suggested above, you are done. Those who chose an alternative method can find information on how to install Matplotlib [[https://matplotlib.org/users/installing.html][here]].
+
+** PyTorch and TorchVision
+
+Use [[https://pytorch.org/get-started/locally/][this page]] to find the command you need to run based on your operating system and whether or not you have CUDA (this only concerns you if you have an Nvidia GPU).
+
+I recommend using the *Stable (1.5) build*.
+
+/Examples:/
+
+- You are on Windows, you installed Anaconda as suggested above, and you do not have CUDA, then:
+
+Launch the {{<b>}}Anaconda Prompt{{</b>}} (for instance by typing it in the main Windows search box or by going to {{<b>}}Start{{</b>}} | {{<b>}}Anaconda3{{</b>}} | {{<b>}}Anaconda Prompt{{</b>}}) and type:
+
+#+BEGIN_src sh
+conda install pytorch torchvision cpuonly -c pytorch
+#+END_src
+
+- You are on a Mac and you do not have CUDA, then run:
+
+#+BEGIN_src sh
+conda install pytorch torchvision -c pytorch
+#+END_src
+
+- Etc.
+
+
+*** Test the installation
+
+Make sure that all works well by launching Python, loading the {{<c>}}torch{{</c>}} package and creating a 2-dimensional tensor of zeros:
+
+{{<i>}}
+#+BEGIN_src python
+from __future__ import print_function
+import torch
+
+torch.zeros(3, 4)
+#+END_src
+
+{{<o>}}
+#+BEGIN_src python
+tensor([[0., 0., 0., 0.],
+        [0., 0., 0., 0.],
+        [0., 0., 0., 0.]])
+#+END_src
+
+/Note:/ if you have a CUDA-enabled GPU on your machine and you want to test whether it is accessible to PyTorch, you can run:
+
+{{<i>}}
+#+BEGIN_src python
+torch.cuda.is_available()
+#+END_src
+
+{{<o>}}
+#+BEGIN_src python
+True
+#+END_src
+
+** TensorBoard
+
+[[https://github.com/tensorflow/tensorboard][TensorBoard]] is a web visualization toolkit developed by TensorFlow which can be used with PyTorch.
+
+Install it with:
+
+#+BEGIN_src sh
+pip install tensorboard
+#+END_src
+
+* Comments & questions
