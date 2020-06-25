@@ -1,0 +1,99 @@
+#+title: The MNIST
+#+description: Practice
+#+colordes: #dc7309
+#+slug: pt-06-mnist
+#+weight: 6
+
+In this lesson, we start a script that we will slowly build upon in subsequent lessons.
+
+* Load Python modules
+
+#+BEGIN_src python
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from torchvision import datasets, transforms
+#+END_src
+
+* Set the device argument to CPU or GPU
+
+For those having a CUDA-enabled GPU, you can run:
+
+#+BEGIN_src python
+device = torch.device('cuda')
+#+END_src
+
+For everybody else:
+
+#+BEGIN_src python
+device = torch.device('cpu')
+#+END_src
+
+* Get and prepare the MNIST dataset
+
+** Training data
+
+#+BEGIN_src python
+train = datasets.MNIST(
+    './data',
+    train = True,
+    download = True,
+    transform = transforms.Compose([
+                           transforms.ToTensor(),
+                           transforms.Normalize((0.1307,), (0.3081,))]))
+#+END_src
+
+mean is 0.1307 while std is 0.3081
+
+** Test data
+
+#+BEGIN_src python
+test = datasets.MNIST(
+    './data',
+    train = False,
+    download = False,
+    transform = transforms.Compose([
+                       transforms.ToTensor(),
+                       transforms.Normalize((0.1307,), (0.3081,)) ]))
+#+END_src
+
+#+BEGIN_src python
+train[0][0].size()
+#+END_src
+
+* Explore the data
+
+** 
+
+** Plot an image from the MNIST
+
+* Pass the data through DataLoader
+
+** Training data
+
+#+BEGIN_src python
+train_loader = torch.utils.data.DataLoader(
+    train,
+    batch_size = 4,
+    shuffle = True)
+#+END_src
+
+** Test data
+
+#+BEGIN_src python
+test_loader = torch.utils.data.DataLoader(
+    test,
+    batch_size = 4,
+    shuffle = False)
+#+END_src
+
+
+#+BEGIN_src python
+for data in data_loader:
+  print("Data: ", data)
+  print("Waveform: {}\nSample rate: {}\nLabels: {}".format(data[0], data[1], data[2]))
+  break
+#+END_src
+
+
+* Comments & questions
