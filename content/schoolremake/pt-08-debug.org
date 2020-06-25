@@ -1,0 +1,19 @@
+#+title: Issues accessing and setting up the training cluster
+#+description: (Debug)
+#+colordes: #800040
+#+slug: pt-08-debug
+#+weight: 8
+
+#+OPTIONS: toc:nil
+
+/This *debugging session* is not part of the actual lesson./
+
+/Only join if you have carefully followed the lesson [[https://westgrid-ml.netlify.app/school/pt-02-cluster.html][Training cluster setup]], but are having issues accessing our training cluster or installing the required Python packages in a virtual environment./
+
+#+BEGIN_debugbox
+*This interactive session will be conducted through Zoom.*
+
+*The meeting ID and password will be emailed to people who registered for this course.*
+#+END_debugbox
+
+Note that *no recording* will be made during this session, but that we may ask you *to share your screen* so that we can help you more efficiently and so that other participants having a similar issue can solve it at the same time while watching us debug your problem.
