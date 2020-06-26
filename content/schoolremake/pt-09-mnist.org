@@ -1,8 +1,8 @@
 #+title: The MNIST
 #+description: Practice
 #+colordes: #dc7309
-#+slug: pt-06-mnist
-#+weight: 6
+#+slug: pt-09-mnist
+#+weight: 9
 
 In this lesson, we start a script that we will slowly build upon in subsequent lessons.
 
