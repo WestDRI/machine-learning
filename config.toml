@@ -38,6 +38,7 @@ canonifyurls = true
   hidecredits = false
   hidecopyright = false
   summerschoolurl = "https://wgschool.netlify.app/ml/"
+  summerschoolremakeurl = "https://wgschool.netlify.app/mlremake/"
   rtl = false
   math = true
   since = 2020
