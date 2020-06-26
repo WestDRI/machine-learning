@@ -10,7 +10,9 @@
 [[https://www.3blue1brown.com/][3Blue1Brown by Grant Sanderson]] has a series of 4 videos on neural networks which is easy to watch, fun, and does an excellent job at introducing the functioning of a simple neural network.
 
 {{<br>}}
-This first video (19 min) introduces neural networks.
+*This video (19 min) introduces neural networks.*
+
+/Note:/ {{<n>}} Watch it beyond the acknowledgement fragment as the function ReLU (which we will use) is introduced at the very end.
 
 {{<youtube aircAruvnKk>}}
 
