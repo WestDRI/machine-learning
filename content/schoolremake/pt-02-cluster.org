@@ -1,0 +1,114 @@
+#+title: Training cluster setup
+#+description: Practice
+#+colordes: #dc7309
+#+slug: pt-02-cluster
+#+weight: 2
+
+* Access the training cluster
+
+This course is run in a training cluster. You access it with the secure shell command.
+
+Open a terminal emulator:
+
+/Windows:/ {{<s>}}[[https://mobaxterm.mobatek.net/][MobaXTerm]] \\
+/MacOS:/ {{<m>}}{{<s>}}Terminal \\
+/Linux:/ {{<m>}}{{<n>}}{{<s>}}xterm or the terminal emulator of your choice
+
+In it, using the user name and password that you received by email, type:
+
+#+BEGIN_src sh
+$ ssh userxxx@uu.c3.ca
+# enter password (it is blind typing, so you won't see it as you type)
+#+END_src
+
+You are now in our training cluster.
+
+* Load necessary modules
+
+To use Python for ML on the cluster, you will need to load the relevant modules.
+
+This is done with the [[https://github.com/TACC/Lmod][Lmod]] tool through the [[https://docs.computecanada.ca/wiki/Utiliser_des_modules/en][module]] command. Here are some key [[https://lmod.readthedocs.io/en/latest/010_user.html][commands]]:
+
+#+BEGIN_src sh
+# Get help on the module command
+$ module help
+
+# List modules that are already loaded
+$ module list
+
+# See which modules are available for Python
+$ module avail python
+
+# Load the Python module
+$ module load python/3.8.2
+#+END_src
+
+At this point, we do not have GPUs in our training cluster (we will soon!). For this course, the Python module is thus the only one you need to load. When working on the real Compute Canada clusters however, in order to use GPUs, you will also need to load the modules CUDA, possibly CUDACore (depending on which CUDA module you are loading), and cuDNN ([[https://developer.nvidia.com/cudnn][NVIDIA CUDA Deep Neural Network library]]—a GPU-accelerated library of primitives for deep neural networks).
+
+* Install the necessary Python wheels in a virtual environment
+
+You also need Python packages.
+
+For this, create a virtual environment in which you will install packages with {{<c>}}pip{{</c>}}.
+
+#+BEGIN_box
+*Do not use Anaconda* \\
+While Anaconda is a great tool on personal computers, it is not an appropriate tool when working on the Compute Canada clusters: binaries are unoptimized for those clusters and library paths are inconsistent with their architecture. Anaconda installs packages in {{<b>}}$HOME{{</b>}} where it creates a very large number of small files. It can also create conflicts by modifying {{<b>}}.bashrc{{</b>}}
+#+END_box
+
+** Create a virtual environment
+
+#+BEGIN_src sh
+$ virtualenv --no-download ~/env
+#+END_src
+
+** Activate your virtual environment
+
+#+BEGIN_src sh
+$ source ~/env/bin/activate
+#+END_src
+
+** Update pip
+
+#+BEGIN_src sh
+(env) $ pip install --no-index --upgrade pip
+#+END_src
+
+** Install the packages you need in the virtual environment
+
+#+BEGIN_src sh
+(env) $ pip install --no-index torch torchvision
+#+END_src
+
+
+/Note:/ {{<s>}}if you want to exit the virtual environment:
+
+#+BEGIN_src sh
+(env) $ deactivate
+#+END_src
+
+
+
+
+
+# Save the requirements file:
+
+# #+BEGIN_src sh
+# (env) $ pip freeze > ~/<path/project/dir/>requirements.txt
+# #+END_src
+
+# #+BEGIN_src sh
+# (env) $ pip install --no-index -r ~/<path/project/dir/>requirements.txt
+# #+END_src
+
+
+
+
+
+* Issues
+
+#+BEGIN_box
+If you have issues accessing the training cluster, please sign up for the [[https://westgrid-ml.netlify.app/school/pt-07-debug.html][debug session]]: we won't have time to help you log in during the actual courses.
+#+END_box
+
+* Comments & questions
