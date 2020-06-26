@@ -1,6 +1,6 @@
-#+title: Optional: installing PyTorch on your machine
-#+description: Annex
-#+colordes: #2d5986
+#+title: Installing PyTorch on your machine
+#+description: (Optional)
+#+colordes: #999999
 #+slug: pt-03-local
 #+weight: 3
 
