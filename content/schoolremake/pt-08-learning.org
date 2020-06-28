@@ -1,4 +1,4 @@
-#+title: How do neural networks learn?
+#+title: How can a neural network learn to classify the MNIST?
 #+description: Video
 #+colordes: #5c8a6f
 #+slug: pt-08-learning

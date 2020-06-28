@@ -1,4 +1,4 @@
-#+title: The MNIST
+#+title: Loading and exploring the MNIST
 #+description: Practice
 #+colordes: #dc7309
 #+slug: pt-09-mnist

@@ -1,4 +1,4 @@
-#+title: What is a neural network?
+#+title: What is an artificial neural network?
 #+description: Video
 #+colordes: #5c8a6f
 #+slug: pt-05-nn

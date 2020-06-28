@@ -1,4 +1,4 @@
-#+title: PyTorch tensors
+#+title: The building blocks of artificial neural networks: the tensors
 #+description: Practice
 #+colordes: #dc7309
 #+slug: pt-06-tensor
