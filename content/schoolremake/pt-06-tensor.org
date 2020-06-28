@@ -1,4 +1,4 @@
-#+title: The building blocks of artificial neural networks: the tensors
+#+title: The building blocks of artificial neural networks: tensors
 #+description: Practice
 #+colordes: #dc7309
 #+slug: pt-06-tensor
