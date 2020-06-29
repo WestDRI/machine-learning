@@ -5,52 +5,46 @@
 #+weight: 4
 
 #+BEGIN_simplebox
-/Note on notation:/ {{<s>}}expressions between the {{<c>}}&lt;{{</c>}} and {{<c>}}&gt;{{</c>}} signs need to be replaced by the relevant information (without those signs).
+/Note on notation:/ {{<s>}}expressions between the ~<~ and ~>~ signs need to be replaced by the relevant information (without those signs).
 #+END_simplebox
 
-Whether you are using our training cluster (which is a virtual machine hosted in the cloud mimicking a Compute Canada cluster) or one of Compute Canada clusters (e.g. Cedar or Graham), when you ssh into the cluster, you "arrive" on the login node.
+Whether you are using our training cluster (which is a virtual machine hosted in the cloud mimicking a Compute Canada cluster) or one of Compute Canada clusters (e.g. Cedar or Graham), when you ~ssh~ into the cluster, you "arrive" on the login node.
 
-*This node is not meant to run jobs*. To run some code, you need to submit a script to Slurm (the Compute Canada scheduler) or start an interactive job.
+*Do not run jobs on this node*. To run your code, you need to start an interactive job or submit a job to Slurm (the job scheduler used by the Compute Canada clusters).
 
 If you are not familiar with HPC, you can go through [[https://wgschool.netlify.app/hpc-menu/][the material of the HPC course we offered in this summer school]], [[https://westgrid.github.io/trainingMaterials/getting-started/#introduction-to-westgrid-compute-canada-and-hpc][the training resources on the WestGrid website]], and [[https://www.youtube.com/playlist?list=PLeCQbAbRSKR8gg6ZMFof1Hf9YF_-n31Ym][the Compute Canada introductory videos]].
 
-[[][xxxx]] summarizes the workflow to run Python on the Compute Canada clusters.
-
 This lesson goes over what we will do in this course, using our training cluster (of course, [[https://westgrid-ml.netlify.app/schoolremake/pt-03-local.html][if you run the code locally (on your computer)]], you can simply launch Python).
 
-* Prepare your script
+* Plots
 
-Throughout your script, make sure to have plots written to file and not displayed on screen.
+Do not run code that displays plots on screen. Instead, have them written to files.
 
-You can develop your script directly in the cluster using an interactive job, or on your local machine (working on your machine at this stage, using very little data and few epochs—only to develop and test the code—is a convenient approach).
+* Copy files to/from the cluster
 
-Ultimately, you will submit your script to {{<c>}}sbatch{{</c>}}.
+** Few files
 
-* Copy files to the cluster
-
-** Small files
-
-If you need to copy files such as your script to the cluster, you can use {{<c>}}scp{{</c>}}.
+If you need to copy files to or from the cluster, you can use ~scp~.
 
 ***** From your computer
 
 If you are in a local shell, run:
 
 #+BEGIN_src sh
-[local]$ scp </local/path/to/file>  <user>@<cluster>.computecanada.ca:<path/in/cluster>
+[local]$ scp </local/path/to/file> <user>@<hostname>:<path/in/cluster>
 #+END_src
 
-/(Replace {{<c>}}&lt;user&gt;{{</c>}} by your user name and {{<c>}}&lt;cluster&gt;{{</c>}} by the name of the Compute Canada cluster hostname (e.g. beluga, cedar, graham).)/
+/(Replace {{<c>}}&lt;user&gt;{{</c>}} by your user name and {{<c>}}&lt;hostname&gt;{{</c>}} by the hostname (for this workshop: ~uu.c3.ca~).)/
 
 ***** From the cluster
 
-If you are in a remote shell (through ssh), run:
+If you are in a remote shell (through ~ssh~), run:
 
 #+BEGIN_src sh
-[cluster]$ scp <user>@<cluster>.computecanada.ca:<cluster/path/to/file>  </local/path>
+[remote]$ scp <user>@<hostname>:<cluster/path/to/file> </local/path>
 #+END_src
 
-** Data
+** Large amount of data
 
 Use [[https://docs.computecanada.ca/wiki/Globus][Globus]] for large data transfers.
 
@@ -59,30 +53,28 @@ Use [[https://docs.computecanada.ca/wiki/Globus][Globus]] for large data transfe
 You start an interactive job with:
 
 #+BEGIN_src sh
-$ salloc --account=def-<user> --cpus-per-task=<n> --mem=<mem> --time=<time>
+$ salloc --account=def-<user> --cpus-per-task=<n1> --gres=gpu:<n2> --mem=<mem> --time=<time>
 #+END_src
 
 --account=def-sponsor00
 
-Our training cluster has a total of 60 CPUs on 5 compute nodes. Since there are many of you in this workshop, *please be very mindful when running interactive jobs*: if you request a lot of CPUs for a long time, the other workshop attendees won't be able to use the cluster anymore until your interactive job requested time ends (even if you aren't running any code).
+Our training cluster does not have GPUs, so for this workshop, do not use the ~--gres=gpu:<n2>~ option. It has a total of 60 CPUs on 5 compute nodes. Since there are many of you in this workshop, *please be very mindful when running interactive jobs*: if you request a lot of CPUs for a long time, the other workshop attendees won't be able to use the cluster anymore until your interactive job requested time ends (even if you aren't running any code).
 
 Here are my suggestions so that we don't run into this problem:
 
-- Only start interactive jobs when you need to understand what Python is doing and are not running anything computationally intensive. [[https://westgrid-ml.netlify.app/schoolremake/pt-07-tensor.html][The practice lesson on Python tensors]] would be a good case for this
-- When running interactive jobs, only request 1 CPU (so =--cpus-per-task=1=)
-- Only request the time that you will really use
+- Only start interactive jobs when you need to understand what Python is doing (so where an interactive shell is really beneficial). [[https://westgrid-ml.netlify.app/schoolremake/pt-07-tensor.html][The practice lesson on Python tensors]] would be a good case for this
+- When running interactive jobs, only request 1 CPU (so ~--cpus-per-task=1~)
+- Only request the time that you will really use (e.g. for [[https://westgrid-ml.netlify.app/schoolremake/pt-07-tensor.html][the lesson on Python tensors]], maybe 15 or 30 min seems reasonable)
 
-When you want to run models (later lessons), write a python script and submit a job to Slurm.
-
-#+BEGIN_simplebox
-=--gres=gpu:<n>=
-#+END_simplebox
+For most things (i.e. more or less everything except [[https://westgrid-ml.netlify.app/schoolremake/pt-07-tensor.html][the practice lesson on Python tensors]]), submit a job to Slurm with a Python script.
 
 * Submit a job to Slurm
 
 ** Job script
 
-To submit a job to Slurm (the job scheduler used by the Compute Canada clusters), you need to write an {{<b>}}sbatch{{</b>}} script. Here is an example script:
+To submit a job to Slurm, you need to write an {{<b>}}sbatch{{</b>}} script.
+
+Here is an example script:
 
 #+BEGIN_src sh
 #!/bin/bash
@@ -99,17 +91,15 @@ To submit a job to Slurm (the job scheduler used by the Compute Canada clusters)
 #SBATCH --mail-type=ALL*
 
 # Load modules
-module load python/3.8.2 cudacore/.10.1.243 cuda/10 cudnn/7.6.5
+# (Do not use this in our workshop since we aren't using GPUs)
+# (Note: loading the Python module is not necessary when you active your virtual env)
+# module load cudacore/.10.1.243 cuda/10 cudnn/7.6.5
 
 # Create variable with the directory for your ML project
 SOURCEDIR=~/<path/project/dir>
 
-# Create and activate a virtual environment on compute node
-virtualenv --no-download $SLURM_TMPDIR/env
-source $SLURM_TMPDIR/env/bin/activate
-
-# Install Python packages
-pip install --no-index -r $SOURCEDIR/requirements.txt
+# Activate your Python virtual environment
+source ~/env/bin/activate
 
 # Transfer and extract data
 mkdir $SLURM_TMPDIR/data
