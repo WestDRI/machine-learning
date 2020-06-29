@@ -7,7 +7,7 @@ from torchvision import datasets, transforms
 device = torch.device('cpu')
 
 train = datasets.MNIST(
-    './data',
+    'projects/def-sponsor00/data',
     train = True,
     download = True,
     transform = transforms.Compose([
@@ -15,7 +15,7 @@ train = datasets.MNIST(
                            transforms.Normalize((0.1307,), (0.3081,))]))
 
 test = datasets.MNIST(
-    './data',
+    'projects/def-sponsor00/data',
     train = False,
     download = False,
     transform = transforms.Compose([
