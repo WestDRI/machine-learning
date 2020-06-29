@@ -15,19 +15,23 @@ import torch.nn.functional as F
 from torchvision import datasets, transforms
 #+END_src
 
-* Set the device argument to CPU or GPU
+* Set the device argument to CPU
 
-For those having a CUDA-enabled GPU, you can run:
+Since our training cluster does not have GPUs, we are setting the device argument to ='cpu'=:
+
+#+BEGIN_src python
+device = torch.device('cpu')
+#+END_src
+
+#+BEGIN_simplebox
+/Note:/ {{<s>}}If you have a CUDA-enabled GPU on your computer and [[https://westgrid-ml.netlify.app/schoolremake/pt-03-local.html][if you are running the code locally]], you can run:
 
 #+BEGIN_src python
 device = torch.device('cuda')
 #+END_src
 
-For everybody else:
-
-#+BEGIN_src python
-device = torch.device('cpu')
-#+END_src
+This is also what you will want to use when running jobs on the Compute Canada clusters.
+#+END_simplebox
 
 * Get and prepare the MNIST dataset
 
@@ -35,7 +39,7 @@ device = torch.device('cpu')
 
 #+BEGIN_src python
 train = datasets.MNIST(
-    './data',
+    'projects/def-sponsor00/data',
     train = True,
     download = True,
     transform = transforms.Compose([
@@ -49,7 +53,7 @@ mean is 0.1307 while std is 0.3081
 
 #+BEGIN_src python
 test = datasets.MNIST(
-    './data',
+    'projects/def-sponsor00/data',
     train = False,
     download = False,
     transform = transforms.Compose([
@@ -60,6 +64,7 @@ test = datasets.MNIST(
 #+BEGIN_src python
 train[0][0].size()
 #+END_src
+
 
 * Explore the data
 
