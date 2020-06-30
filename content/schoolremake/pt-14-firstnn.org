@@ -1,0 +1,15 @@
+#+title: Our first neural network
+#+description: Zoom
+#+colordes: #cc0066
+#+slug: pt-14-firstnn
+#+weight: 14
+
+#+OPTIONS: toc:nil
+
+#+BEGIN_zoombox
+*This interactive session will be conducted through Zoom.*
+
+*The meeting ID and password was emailed to people on the waitlist.*
+#+END_zoombox
+
+Note that *no recording* will be made during this session so as not to discourage participation.
