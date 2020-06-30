@@ -89,7 +89,7 @@ $ source ~/env/bin/activate
 * Issues
 
 #+BEGIN_box
-If you have issues accessing the training cluster or installing the python packages in a virtual environment, please sign up for the [[https://westgrid-ml.netlify.app/schoolremake/pt-07-debug.html][debug session]].
+If you have issues accessing the training cluster or installing the python packages in a virtual environment, please sign up for the [[https://westgrid-ml.netlify.app/schoolremake/pt-08-debug.html][debug session]].
 #+END_box
 
 * Comments & questions
