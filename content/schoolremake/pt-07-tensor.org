@@ -24,6 +24,12 @@ For instance:
 $ salloc --cpus-per-task=1 --mem=3G --time=0:30:0
 #+END_src
 
+You can now start an interactive Python session:
+
+#+BEGIN_src sh
+$ python
+#+END_src
+
 * Load PyTorch
 
 First, we need to load the ~torch~ package:
