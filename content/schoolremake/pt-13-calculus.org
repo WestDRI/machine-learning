@@ -1,8 +1,8 @@
 #+title: A bit of calculus
 #+description: Video
 #+colordes: #5c8a6f
-#+slug: pt-12-calculus
-#+weight: 12
+#+slug: pt-13-calculus
+#+weight: 13
 
 This last video (10 min) dives into the calculus of backpropagation.
 

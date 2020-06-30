@@ -1,8 +1,8 @@
-#+title: Our first neural network
+#+title: Wrap-up
 #+description: Zoom
 #+colordes: #cc0066
-#+slug: pt-13-firstnn
-#+weight: 13
+#+slug: pt-17-wrapup
+#+weight: 17
 
 #+OPTIONS: toc:nil
 
@@ -13,3 +13,5 @@
 #+END_zoombox
 
 Note that *no recording* will be made during this session so as not to discourage participation.
+
+* Comments & questions

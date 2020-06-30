@@ -1,8 +1,8 @@
 #+title: Automatic differentiation with autograd
 #+description: Practice
 #+colordes: #dc7309
-#+slug: pt-11-autograd
-#+weight: 11
+#+slug: pt-12-autograd
+#+weight: 12
 
 
 * Comments & questions

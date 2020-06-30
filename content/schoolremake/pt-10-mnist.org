@@ -1,8 +1,10 @@
 #+title: Loading and exploring the MNIST
 #+description: Practice
 #+colordes: #dc7309
-#+slug: pt-09-mnist
-#+weight: 9
+#+slug: pt-10-mnist
+#+weight: 10
+
+# https://pytorch.org/docs/stable/torchvision/datasets.html#mnist
 
 In this lesson, we start a script that we will slowly build upon in subsequent lessons.
 

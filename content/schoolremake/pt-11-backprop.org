@@ -1,8 +1,8 @@
 #+title: Backpropagation
 #+description: Video
 #+colordes: #5c8a6f
-#+slug: pt-10-backprop
-#+weight: 10
+#+slug: pt-11-backprop
+#+weight: 11
 
 This video (14 min) explains backpropagation.
 
