@@ -8,7 +8,17 @@ PyTorch's central object is the /tensor/. Tensors have many similarities with Nu
 
 In this lesson, we will explore tensors: how to create them, run operations on them, and most importantly, what they really represent. *Run all the code so that you can look at the outputs and explore on your own.*
 
-* Start interactive job
+* Activate your Python virtual environment
+
+Now is the time to activate the virtual environment that [[https://westgrid-ml.netlify.app/schoolremake/pt-02-cluster.html#headline-3][you created]] so that you will have access to the Python packages [[https://westgrid-ml.netlify.app/schoolremake/pt-02-cluster.html#headline-3][you installed]] in it.
+
+#+BEGIN_src sh
+$ source ~/env/bin/activate
+#+END_src
+
+* Start an interactive job
+
+For instance:
 
 #+BEGIN_src sh
 $ salloc --cpus-per-task=1 --mem=3G --time=0:30:0
@@ -16,7 +26,7 @@ $ salloc --cpus-per-task=1 --mem=3G --time=0:30:0
 
 * Load PyTorch
 
-First, we need to load the =torch= package:
+First, we need to load the ~torch~ package:
 
 #+BEGIN_src python
 import torch
@@ -28,11 +38,11 @@ PyTorch's /tensors/ are homogeneous multidimensional arrays.
 
 You can create them with a variety of methods such as:
 
-- =torch.rand=, for a tensor filled with random numbers from a uniform distribution on \([0, 1)\)
-- =torch.randn=, for a tensor filled with numbers from the standard normal distribution
-- =torch.empty=, for an uninitialized tensor
-- =torch.zeros=, for a tensor filled with \(0\)
-- =torch.ones=, for a tensor filled with \(1\)
+- ~torch.rand~, for a tensor filled with random numbers from a uniform distribution on \([0, 1)\)
+- ~torch.randn~, for a tensor filled with numbers from the standard normal distribution
+- ~torch.empty~, for an uninitialized tensor
+- ~torch.zeros~, for a tensor filled with \(0\)
+- ~torch.ones~, for a tensor filled with \(1\)
 
 Each element you pass to these methods represents the length of one dimension. Consequently, the number of elements determines the number of dimensions of the tensor.
 
@@ -123,13 +133,13 @@ torch.rand(3, 5, 4, 2, 1)
 
 {{<br>}}
 
-You can get the dimension of a tensor with the method =dim=:
+You can get the dimension of a tensor with the method ~dim~:
 
 #+BEGIN_src python
 torch.rand(3, 5, 4, 2, 1).dim()
 #+END_src
 
-And its size with the method =size=:
+And its size with the method ~size~:
 
 #+BEGIN_src python
 torch.rand(3, 5, 4, 2, 1).size()
@@ -158,7 +168,7 @@ torch.add(x, y)
 
 ** In-place operations
 
-In-place operations are post-fixed with =_=:
+In-place operations are post-fixed with ~_~:
 
 #+BEGIN_src python
 x
