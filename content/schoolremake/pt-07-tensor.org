@@ -10,7 +10,7 @@ In this lesson, we will explore tensors: how to create them, run operations on t
 
 * Activate your Python virtual environment
 
-Now is the time to activate the virtual environment that [[https://westgrid-ml.netlify.app/schoolremake/pt-02-cluster.html#headline-3][you created]] so that you will have access to the Python packages [[https://westgrid-ml.netlify.app/schoolremake/pt-02-cluster.html#headline-3][you installed]] in it.
+Now is the time to activate the virtual environment that [[https://westgrid-ml.netlify.app/schoolremake/pt-02-cluster.html#headline-4][you created]] so that you will have access to the Python packages [[https://westgrid-ml.netlify.app/schoolremake/pt-02-cluster.html#headline-7][you installed]] in it.
 
 #+BEGIN_src sh
 $ source ~/env/bin/activate
