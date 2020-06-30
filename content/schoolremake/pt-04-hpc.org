@@ -53,20 +53,27 @@ Use [[https://docs.computecanada.ca/wiki/Globus][Globus]] for large data transfe
 You start an interactive job with:
 
 #+BEGIN_src sh
-$ salloc --account=def-<user> --cpus-per-task=<n1> --gres=gpu:<n2> --mem=<mem> --time=<time>
+$ salloc --account=def-<user> --cpus-per-task=<n> --gres=gpu:<n> --mem=<mem> --time=<time>
 #+END_src
 
---account=def-sponsor00
+Our training cluster does not have GPUs, so for this workshop, do not use the ~--gres=gpu:<n>~ option.
 
-Our training cluster does not have GPUs, so for this workshop, do not use the ~--gres=gpu:<n2>~ option. It has a total of 60 CPUs on 5 compute nodes. Since there are many of you in this workshop, *please be very mindful when running interactive jobs*: if you request a lot of CPUs for a long time, the other workshop attendees won't be able to use the cluster anymore until your interactive job requested time ends (even if you aren't running any code).
+You also don't have to worry about the ~--account=def-<user>~ option (or, if you want, you can use ~--account=def-sponsor00~).
+
+Our training cluster has a total of 60 CPUs on 5 compute nodes. Since there are many of you in this workshop, *please be very mindful when running interactive jobs*: if you request a lot of CPUs for a long time, the other workshop attendees won't be able to use the cluster anymore until your interactive job requested time ends (even if you aren't running any code).
 
 Here are my suggestions so that we don't run into this problem:
 
-- Only start interactive jobs when you need to understand what Python is doing (so where an interactive shell is really beneficial). [[https://westgrid-ml.netlify.app/schoolremake/pt-07-tensor.html][The practice lesson on Python tensors]] would be a good case for this
+- Only start interactive jobs when you need to understand what Python is doing (so where an interactive shell is really beneficial). [[https://westgrid-ml.netlify.app/schoolremake/pt-07-tensor.html][The practice lesson on Python tensors]] would be a good case for this if you want to play with tensors of various dimensions to familiarize yourself with them
 - When running interactive jobs, only request 1 CPU (so ~--cpus-per-task=1~)
-- Only request the time that you will really use (e.g. for [[https://westgrid-ml.netlify.app/schoolremake/pt-07-tensor.html][the lesson on Python tensors]], maybe 15 or 30 min seems reasonable)
+- Only request the time that you will really use (e.g. for [[https://westgrid-ml.netlify.app/schoolremake/pt-07-tensor.html][the lesson on Python tensors]], maybe 30 min seems reasonable)
 
 For most things (i.e. more or less everything except [[https://westgrid-ml.netlify.app/schoolremake/pt-07-tensor.html][the practice lesson on Python tensors]]), submit a job to Slurm with a Python script.
+
+#+BEGIN_simplebox
+/Note:/ \\
+In this workshop, we will submit jobs from ~/home~. This is fine on some of the Compute Canada clusters as well. Be aware however that [[https://docs.computecanada.ca/wiki/Running_jobs#Cluster_particularities][you are not allowed to do that on Cedar]]. Instead, on Cedar, you have to submit jobs from ~/scratch~ or ~/project~.
+#+END_simplebox
 
 * Submit a job to Slurm
 
