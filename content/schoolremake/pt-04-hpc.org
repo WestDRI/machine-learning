@@ -1,6 +1,6 @@
 #+title: HPC with Python
-#+description: Practice
-#+colordes: #dc7309
+#+description: Reading
+#+colordes: #538cc6
 #+slug: pt-04-hpc
 #+weight: 4
 
