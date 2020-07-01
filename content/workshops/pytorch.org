@@ -8,7 +8,7 @@ Due to Covid-19, the 2020 WestGrid Summer School was moved online.
 An introduction to machine learning with PyTorch was added to the material covered. 
 
 #+BEGIN_box
-You can find it in the [[https://wgschool.netlify.app/ml/][WestGrid Summer School Introduction to PyTorch lesson]]. You will find videos, reading material, exercises, and links to other resources.
+You can find it in the [[https://wgschool.netlify.app/mlremake/][WestGrid Summer School Introduction to PyTorch lesson]]. You will find videos, reading material, exercises, and links to other resources.
 #+END_box
 
 *** Comments & questions
