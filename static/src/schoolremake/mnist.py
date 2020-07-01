@@ -9,7 +9,7 @@ device = torch.device('cpu')
 
 train = datasets.MNIST(
     # './data',
-    'projects/def-sponsor00/data',
+    '~/projects/def-sponsor00/data',
     train = True,
     download = True,
     transform = transforms.Compose([
@@ -18,7 +18,7 @@ train = datasets.MNIST(
 
 test = datasets.MNIST(
     # './data',
-    'projects/def-sponsor00/data',
+    '~/projects/def-sponsor00/data',
     train = False,
     download = False,
     transform = transforms.Compose([
