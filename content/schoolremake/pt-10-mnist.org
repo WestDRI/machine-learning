@@ -97,6 +97,13 @@ train[0][0].size()
 
 ** Plot an image from the MNIST
 
+# #+BEGIN_src python
+# for data in data_loader:
+#   print("Data: ", data)
+#   print("Waveform: {}\nSample rate: {}\nLabels: {}".format(data[0], data[1], data[2]))
+#   break
+# #+END_src
+
 * Pass the data through DataLoader
 
 ** Training data
@@ -116,14 +123,5 @@ test_loader = torch.utils.data.DataLoader(
     batch_size = 4,
     shuffle = False)
 #+END_src
-
-
-#+BEGIN_src python
-for data in data_loader:
-  print("Data: ", data)
-  print("Waveform: {}\nSample rate: {}\nLabels: {}".format(data[0], data[1], data[2]))
-  break
-#+END_src
-
 
 * Comments & questions
