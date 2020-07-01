@@ -70,8 +70,8 @@ train = datasets.MNIST(
     train = True,
     download = True,
     transform = transforms.Compose([
-                           transforms.ToTensor(),
-                           transforms.Normalize((0.1307,), (0.3081,))]))
+        transforms.ToTensor(),
+        transforms.Normalize((0.1307,), (0.3081,))]))
 #+END_src
 
 The mean and standard deviation of the data are 0.1307 and 0.3081 respectively, which is why we are using these values to normalize the it.
@@ -86,8 +86,8 @@ test = datasets.MNIST(
     train = False,
     download = False,
     transform = transforms.Compose([
-                       transforms.ToTensor(),
-                       transforms.Normalize((0.1307,), (0.3081,))]))
+        transforms.ToTensor(),
+        transforms.Normalize((0.1307,), (0.3081,))]))
 #+END_src
 
 * Explore the data
@@ -148,12 +148,38 @@ Then explore the {{<b>}}test{{</b>}} object.
 
 ** Plot an image from the MNIST
 
-# #+BEGIN_src python
-# for data in data_loader:
-#   print("Data: ", data)
-#   print("Waveform: {}\nSample rate: {}\nLabels: {}".format(data[0], data[1], data[2]))
-#   break
-# #+END_src
+For this, we need ~pyplot~ from ~matplotlib~:
+
+#+BEGIN_src python
+from matplotlib import pyplot as plt
+#+END_src
+
+Then we select the image of the first pair and we resize it with ~torch.view~:
+
+#+BEGIN_src python
+img = train[0][0]
+img = img.view(28, 28)
+#+END_src
+
+Finally, we plot it with ~pyplot~, but since we are in a cluster, instead of showing it to screen with ~plt.show()~, we save it to file:
+
+#+BEGIN_src python
+plt.imshow(img, cmap='gray')
+plt.savefig('img.png')
+#+END_src
+
+You can now copy the image to your local computer to visualize it. From your local shell:
+
+#+BEGIN_src sh
+scp userxxx@uu.c3.ca:<path/to/img.png> <path/where/you/want/to/copy/it>
+#+END_src
+
+This is what that first image looks like:
+
+{{<img src="/img/school/img.png" title="" width="%" line-height="0.5rem">}}
+{{</img>}}
+
+And indeed, it matches the first label we explored earlier (~train[0][1]~).
 
 * Pass the data through ~DataLoader~
 
