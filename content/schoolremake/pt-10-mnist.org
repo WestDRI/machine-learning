@@ -49,7 +49,13 @@ device = torch.device('cuda')
 This is also what you will want to use when running jobs on the Compute Canada clusters.
 #+END_simplebox
 
-* Get and prepare the MNIST dataset
+* Get and prepare the MNIST data
+
+In the Compute Canada clusters, a good place to store data shared amongst users of a project is in the {{<b>}}/project{{</b>}} file system; more precisely, in {{<b>}}/project/def-&lt;group&gt;{{</b>}}, where {{<b>}}&lt;group&gt;{{</b>}} is usually the name of your PI. You can access it from your home through a symbolic link in {{<b>}}~/projects{{</b>}}: {{<b>}}~/projects/def-&lt;group&gt;{{</b>}}.
+
+In our training cluster, we are all part of the group {{<b>}}def-sponsor00{{</b>}}, so we will all download and access the MNIST data in {{<b>}}~/projects/def-sponsor00/data{{</b>}}.
+
+You can download the dataset directly from [[http://yann.lecun.com/exdb/mnist/][the MNIST website]], but the PyTorch package TorchVision has tools to download the classic vision datasets, including the MNIST.
 
 ** Training data
 
