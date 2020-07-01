@@ -59,6 +59,8 @@ You can download the dataset directly from [[http://yann.lecun.com/exdb/mnist/][
 
 ** Training data
 
+Download, transform to tensor, and normalize the training MNIST training data:
+
 #+BEGIN_src python
 train = datasets.MNIST(
     'projects/def-sponsor00/data',
@@ -69,9 +71,11 @@ train = datasets.MNIST(
                            transforms.Normalize((0.1307,), (0.3081,))]))
 #+END_src
 
-mean is 0.1307 while std is 0.3081
+The mean and std of the data are 0.1307 and 0.3081 respectively, which is why we are using these values to normalize the data.
 
 ** Test data
+
+We then do the same with the test data:
 
 #+BEGIN_src python
 test = datasets.MNIST(
@@ -80,17 +84,16 @@ test = datasets.MNIST(
     download = False,
     transform = transforms.Compose([
                        transforms.ToTensor(),
-                       transforms.Normalize((0.1307,), (0.3081,)) ]))
+                       transforms.Normalize((0.1307,), (0.3081,))]))
 #+END_src
+
+* Explore the data
+
+** Inspect the data
 
 #+BEGIN_src python
 train[0][0].size()
 #+END_src
-
-
-* Explore the data
-
-** 
 
 ** Plot an image from the MNIST
 
