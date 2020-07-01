@@ -77,7 +77,7 @@ $ source ~/env/bin/activate
 ** Install the packages you need in the virtual environment
 
 #+BEGIN_src sh
-(env) $ pip install --no-index torch torchvision
+(env) $ pip install --no-index matplotlib torch torchvision tensorboard
 #+END_src
 
 /Note:/ {{<s>}}if you want to exit the virtual environment:
