@@ -1,10 +1,10 @@
 import torch
-import torch.nn as nn
-import torch.nn.functional as F
 from torchvision import datasets, transforms
 
 # To run on GPU, replace 'cpu' by 'cuda'
 device = torch.device('cpu')
+
+# * Prepare data
 
 train = datasets.MNIST(
     './data',
@@ -20,7 +20,38 @@ test = datasets.MNIST(
     download = False,
     transform = transforms.Compose([
                        transforms.ToTensor(),
-                       transforms.Normalize((0.1307,), (0.3081,)) ]))
+                       transforms.Normalize((0.1307,), (0.3081,))]))
+
+# * Explore data
+
+len(train)
+
+train[0]
+len(train[0])
+type(train[0])
+
+train[0][0]
+type(train[0][0])
+
+train[0][1]
+type(train[0][1])
+
+train[0][0].size()
+
+train[0][0][0]
+train[0][0][0][0]
+train[0][0][0][0][0]
+
+# * Print one image
+
+from matplotlib import pyplot as plt
+
+img = train[0][0]
+img = img.view(28, 28)
+plt.imshow(img, cmap='gray')
+plt.savefig('img.png')
+
+# * DataLoader
 
 train_loader = torch.utils.data.DataLoader(
     train,
