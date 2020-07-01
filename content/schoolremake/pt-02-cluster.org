@@ -80,7 +80,9 @@ $ source ~/env/bin/activate
 (env) $ pip install --no-index matplotlib torch torchvision tensorboard
 #+END_src
 
-/Note:/ {{<s>}}if you want to exit the virtual environment:
+** Leave the virtual environment
+
+If you want to exit the virtual environment, run:
 
 #+BEGIN_src sh
 (env) $ deactivate
