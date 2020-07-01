@@ -145,7 +145,7 @@ And think about what each of them represents.<br><br>
 Then explore the {{<b>}}test{{</b>}} object.
 {{</exercise>}}
 
-** Plot an image from the MNIST
+** Plot an image from the data
 
 For this, we will use ~pyplot~ from ~matplotlib~.
 
@@ -177,6 +177,10 @@ This is what that first image looks like:
 And indeed, it matches the first label we explored earlier (~train[0][1]~).
 
 * Pass the data through ~DataLoader~
+
+PyTorch provides the [[https://pytorch.org/docs/stable/data.html?highlight=dataloader#module-torch.utils.data][torch.utils.data.DataLoader]] class which combines a dataset and an optional sampler and provides an iterable (while training or testing our neural network, we will iterate over that object). It allows, [[https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.DataLoader][among many other things]], to set the batch size and shuffle the data.
+
+So our last step in preparing the data is to pass it through ~DataLoader~.
 
 ** Training data
 
