@@ -25,6 +25,16 @@ The goal is to build a neural network which can learn from the training set to p
 {{<img src="/img/school/mnist_classify_nw.png" title="" width="100%" line-height="0.5rem">}}
 {{</img>}}
 
+* Start an interactive job
+
+Before you can start running Python code, you need to source your Python virtual environment and start an interactive job:
+
+#+BEGIN_src sh
+$ source ~/env/bin/activate
+$ salloc --cpus-per-task=1 --mem=3G --time=0:30:0   # edit as needed
+$ python
+#+END_src
+
 * Load Python modules
 
 #+BEGIN_src python
@@ -65,7 +75,7 @@ Download, transform to tensor, and normalize the training MNIST training data:
 
 #+BEGIN_src python
 train = datasets.MNIST(
-    'projects/def-sponsor00/data',
+    '~/projects/def-sponsor00/data',
     train = True,
     download = True,
     transform = transforms.Compose([
@@ -81,7 +91,7 @@ We then do the same with the test data:
 
 #+BEGIN_src python
 test = datasets.MNIST(
-    'projects/def-sponsor00/data',
+    '~/projects/def-sponsor00/data',
     train = False,
     download = False,
     transform = transforms.Compose([
