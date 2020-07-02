@@ -4,6 +4,6 @@
 #+slug: pt-13-calculus
 #+weight: 13
 
-This last video (10 min) dives into the calculus of backpropagation.
+*This last video (10 min) by [[https://www.3blue1brown.com/][3Blue1Brown]] dives into the calculus of backpropagation.*
 
 {{<youtube tIeHLnjs5U8>}}

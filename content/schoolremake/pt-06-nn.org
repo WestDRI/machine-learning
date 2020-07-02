@@ -12,7 +12,7 @@
 {{<br>}}
 *This video (19 min) introduces neural networks.*
 
-/Note:/ {{<n>}} Watch it beyond the acknowledgement fragment as the function ReLU (which we will use) is introduced at the very end.
+Watch it beyond the acknowledgement fragment as the function ReLU (a really important function in modern neural networks) is introduced at the very end.
 
 {{<youtube aircAruvnKk>}}
 

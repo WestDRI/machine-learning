@@ -4,6 +4,6 @@
 #+slug: pt-11-backprop
 #+weight: 11
 
-This video (14 min) explains backpropagation.
+*This third video (14 min) by [[https://www.3blue1brown.com/][3Blue1Brown]] explains backpropagation.*
 
 {{<youtube Ilg3gGewQ5U>}}
