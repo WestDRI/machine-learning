@@ -79,7 +79,7 @@ tensor([[0., 0., 0., 0.],
 
 {{<i>}}
 #+BEGIN_src python
-torch.cuda.is_available()
+print(torch.cuda.is_available())
 #+END_src
 
 {{<o>}}

@@ -9,7 +9,7 @@
 {{<youtube Ilg3gGewQ5U>}}
 
 #+BEGIN_simplebox
-/Note: there is one minor erratum in this video./
+/Note: there is one minor terminology error in this video./
 
 When using mini-batches (instead of all training examples) before re-calculating the weights and biases, they talk about *stochastic gradient descent*. In fact, what they are describing in the video is called *mini-batch gradient descent*. Stochastic gradient descent uses a single example in each iteration.
 #+END_simplebox
