@@ -56,7 +56,7 @@ Each element you pass to these methods represents the length of one dimension. C
 _Let's have a look at a few examples:_
 
 #+BEGIN_src python
-torch.rand(1)
+print(torch.rand(1))
 #+END_src
 
 This is a one-dimensional tensor. Its length in the unique dimesion is 1. So it is a tensor with a single element.
@@ -64,13 +64,13 @@ This is a one-dimensional tensor. Its length in the unique dimesion is 1. So it 
 When a tensor has a unique element, that element can be returned as a number with:
 
 #+BEGIN_src python
-torch.rand(1).item()
+print(torch.rand(1).item())
 #+END_src
 
 {{<br>}}
 
 #+BEGIN_src python
-torch.rand(2)
+print(torch.rand(2))
 #+END_src
 
 This is another one-dimensional tensor. Its length in the unique dimesion is 2.
@@ -78,7 +78,7 @@ This is another one-dimensional tensor. Its length in the unique dimesion is 2.
 {{<br>}}
 
 #+BEGIN_src python
-torch.rand(3)
+print(torch.rand(3))
 #+END_src
 
 A one-dimensional tensor. Its length in the unique dimesion is 3.
@@ -86,8 +86,8 @@ A one-dimensional tensor. Its length in the unique dimesion is 3.
 {{<br>}}
 
 #+BEGIN_src python
-torch.rand(1, 1)
-torch.rand(1, 1).item()
+print(torch.rand(1, 1))
+print(torch.rand(1, 1).item())
 #+END_src
 
 Two-dimensional tensor. Its length in one dimesion 1 and its length in the other dimesion is also 1. So this is also a tensor with a single element.
@@ -95,7 +95,7 @@ Two-dimensional tensor. Its length in one dimesion 1 and its length in the other
 {{<br>}}
 
 #+BEGIN_src python
-torch.rand(1, 1, 1)
+print(torch.rand(1, 1, 1))
 #+END_src
 
 Three-dimensional tensor with a single element.
@@ -103,7 +103,7 @@ Three-dimensional tensor with a single element.
 {{<br>}}
 
 #+BEGIN_src python
-torch.rand(3, 1)
+print(torch.rand(3, 1))
 #+END_src
 
 Two-dimensional tensor. Its length in one dimension is 3 and in the other 1.
@@ -111,7 +111,7 @@ Two-dimensional tensor. Its length in one dimension is 3 and in the other 1.
 {{<br>}}
 
 #+BEGIN_src python
-torch.rand(2, 6)
+print(torch.rand(2, 6))
 #+END_src
 
 Two-dimensional tensor. Its length in one dimension is 2 and in the other 6
@@ -119,7 +119,7 @@ Two-dimensional tensor. Its length in one dimension is 2 and in the other 6
 {{<br>}}
 
 #+BEGIN_src python
-torch.rand(2, 1, 5)
+print(torch.rand(2, 1, 5))
 #+END_src
 
 Three-dimensional tensor. Its length in one dimension is 2, in a second dimension it is 1, and in the third dimension it is 5.
@@ -129,12 +129,12 @@ Three-dimensional tensor. Its length in one dimension is 2, in a second dimensio
 Play with a few more examples until this all makes sense:
 
 #+BEGIN_src python
-torch.rand(2, 2, 5)
-torch.rand(1, 1, 5)
-torch.rand(1, 1, 5, 1)
-torch.rand(2, 3, 5, 2)
-torch.rand(2, 3, 5, 2, 4)
-torch.rand(3, 5, 4, 2, 1)
+print(torch.rand(2, 2, 5))
+print(torch.rand(1, 1, 5))
+print(torch.rand(1, 1, 5, 1))
+print(torch.rand(2, 3, 5, 2))
+print(torch.rand(2, 3, 5, 2, 4))
+print(torch.rand(3, 5, 4, 2, 1))
 #+END_src
 
 {{<br>}}
@@ -142,13 +142,13 @@ torch.rand(3, 5, 4, 2, 1)
 You can get the dimension of a tensor with the method ~dim~:
 
 #+BEGIN_src python
-torch.rand(3, 5, 4, 2, 1).dim()
+print(torch.rand(3, 5, 4, 2, 1).dim())
 #+END_src
 
 And its size with the method ~size~:
 
 #+BEGIN_src python
-torch.rand(3, 5, 4, 2, 1).size()
+print(torch.rand(3, 5, 4, 2, 1).size())
 #+END_src
 
 * Operations
@@ -161,15 +161,15 @@ Let's take the addition as an example:
 x = torch.rand(2)
 y = torch.rand(2)
 
-x
-y
+print(x)
+print(y)
 #+END_src
 
 The addition can be done with either of:
 
 #+BEGIN_src python
-x + y
-torch.add(x, y)
+print(x + y)
+print(torch.add(x, y))
 #+END_src
 
 ** In-place operations
@@ -177,9 +177,9 @@ torch.add(x, y)
 In-place operations are post-fixed with ~_~:
 
 #+BEGIN_src python
-x
+print(x)
 x.add_(y)
-x
+print(x)
 #+END_src
 
 * GPU

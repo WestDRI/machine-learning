@@ -27,28 +27,28 @@ test = datasets.MNIST(
 
 # * Explore data
 
-len(train)
+print(len(train))
 
-train[0]
-len(train[0])
-type(train[0])
+print(train[0])
+print(len(train[0]))
+print(type(train[0]))
 
-train[0][0]
-type(train[0][0])
+print(train[0][0])
+print(type(train[0][0]))
 
-train[0][1]
-type(train[0][1])
+print(train[0][1])
+print(type(train[0][1]))
 
-train[0][0].size()
+print(train[0][0].size())
 
-train[0][0][0]
-train[0][0][0][0]
-train[0][0][0][0][0]
+print(train[0][0][0])
+print(train[0][0][0][0])
+print(train[0][0][0][0][0])
 
 # * Print one image
 
-img = train[0][0]
-img = img.view(28, 28)
+print(img = train[0][0])
+print(img = img.view(28, 28))
 plt.imshow(img, cmap='gray')
 # plt.show()
 plt.savefig('img.png')
