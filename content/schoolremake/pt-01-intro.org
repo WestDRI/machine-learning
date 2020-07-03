@@ -13,7 +13,7 @@ Due to space limitations, please note that *only those joining this opening sess
 #+BEGIN_zoombox
 This interactive session will be conducted through Zoom.
 
-The meeting ID and password was emailed to people on the waitlist. If we reach our cap and you cannot get in this meeting, don't worry: you can always practice the material [[https://westgrid-ml.netlify.app/schoolremake/pt-03-local.html][on your machine]] and we will offer many machine learning workshops in the future.
+The meeting ID and password was emailed to people on the waiting list. If we reach our cap and you cannot get in this meeting, don't worry: you can always practice the material [[https://westgrid-ml.netlify.app/schoolremake/pt-03-local.html][on your machine]] and we will offer many machine learning workshops in the future.
 #+END_zoombox
 
 *No recording* will be made during this session so as not to discourage participation.

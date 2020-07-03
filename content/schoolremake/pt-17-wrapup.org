@@ -9,7 +9,7 @@
 #+BEGIN_zoombox
 *This interactive session will be conducted through Zoom.*
 
-*The meeting ID and password was emailed to people on the waitlist.*
+*The meeting ID and password was emailed to people on the waiting list.*
 #+END_zoombox
 
 Note that *no recording* will be made during this session so as not to discourage participation.
