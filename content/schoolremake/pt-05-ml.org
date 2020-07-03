@@ -9,8 +9,8 @@ Machine learning (ML) can be defined as computer programs whose performance at a
 Since this experience comes in the form of *data*, ML consists of feeding vast amounts of data to algorithms to strengthen *pathways*.
 
 {{<br>}}
-{{<img src="https://imgs.xkcd.com/comics/machine_learning.png" title="" width="%" line-height="0.5rem">}}
-from <a href="https://xkcd.com/">xkcd.com</a>
+{{<img src="https://imgs.xkcd.com/comics/machine_learning.png" title="" width="%" line-height="1rem">}}
+From <a href="https://xkcd.com/">xkcd.com</a>
 {{</img>}}
 
 ** Example in image recognition
@@ -18,8 +18,8 @@ from <a href="https://xkcd.com/">xkcd.com</a>
 Coding all the possible ways—pixel by pixel—that a picture can represent a certain object is an impossibly large task. By feeding examples of images of that object to a neural network however, we can train it to recognize that object in images that it has never seen (without explicitly programming how it does this!).
 
 {{<br>}}
-{{<img src="https://imgs.xkcd.com/comics/machine_learning_captcha.png" title="" width="%" line-height="0.5rem">}}
-from <a href="https://xkcd.com/">xkcd.com</a>
+{{<img src="https://imgs.xkcd.com/comics/machine_learning_captcha.png" title="" width="%" line-height="1rem">}}
+From <a href="https://xkcd.com/">xkcd.com</a>
 {{</img>}}
 
 * Types of learning
@@ -57,8 +57,8 @@ Unsupervised learning uses unlabelled data (training set of \(x_i\)).
 Find structure within the data.
 
 {{<br>}}
-{{<img src="https://imgs.xkcd.com/comics/trained_a_neural_net.png" title="" width="%" line-height="0.5rem">}}
-from <a href="https://xkcd.com/">xkcd.com</a>
+{{<img src="https://imgs.xkcd.com/comics/trained_a_neural_net.png" title="" width="%" line-height="1rem">}}
+<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<n>}}{{<n>}}From <a href="https://xkcd.com/">xkcd.com</a></center>
 {{</img>}}
 
 * Artificial neural networks
@@ -71,13 +71,13 @@ In biological networks, the information consists of action potentials (neuron me
 /Schematic of biological neuron:/
 {{<br>}}
 {{<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Neuron.svg" title="" width="100%" line-height="2.5rem">}}
-from <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">Dhp1080, Wikipedia</a>
+From <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">Dhp1080, Wikipedia</a>
 {{</img>}}
 
 /Schematic of artificial neuron:/
 {{<br>}}
 {{<img src="/img/school/artificial_neuron_nw.png" title="" width="70%" line-height="0rem">}}
-<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}modified from <a href="https://royalsocietypublishing.org/doi/10.1098/rsta.2019.0163">O.C. Akgun & J. Mei 2019</a></center>
+<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}Modified from <a href="https://royalsocietypublishing.org/doi/10.1098/rsta.2019.0163">O.C. Akgun & J. Mei 2019</a></center>
 {{</img>}}
 
 {{<2br>}}
@@ -85,14 +85,14 @@ While biological neurons are connected in intricate ways, artificial ones follow
 
 /Neurons in mouse cortex:/
 {{<img src="/img/school/brain_neurons.jpg" title="" width="70%" line-height="2.5rem">}}
-<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<n>}}Neurons are in green, the dark branches are blood vessels <br>
-{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}image by <a href="https://news.berkeley.edu/2020/03/19/high-speed-microscope-captures-fleeting-brain-signals/">Na Ji, UC Berkeley</a></center>
+<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<n>}}Neurons are in green, the dark branches are blood vessels. <br>
+{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}Image by <a href="https://news.berkeley.edu/2020/03/19/high-speed-microscope-captures-fleeting-brain-signals/">Na Ji, UC Berkeley</a></center>
 {{</img>}}
 
 /Neural network with 2 hidden layers:/
 {{<br>}}
-{{<img src="/img/school/nn_multi_layer_nw.png" title="" width="80%" line-height="1.0rem">}}
-<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}from <a href="https://themaverickmeerkat.com/2020-01-10-TicTacToe/">The Maverick Meerkat</a></center>
+{{<img src="/img/school/nn_multi_layer_nw.png" title="" width="80%" line-height="1.5rem">}}
+<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}From <a href="https://themaverickmeerkat.com/2020-01-10-TicTacToe/">The Maverick Meerkat</a></center>
 {{</img>}}
 
 {{<2br>}}
@@ -100,14 +100,14 @@ The information in biological neurons is an all-or-nothing electrochemical pulse
 
 /Threshold potential in biological neurons:/
 {{<img src="/img/school/all_none_law_nw.png" title="" width="60%" line-height="0rem">}}
-<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}modified from <a href="https://commons.wikimedia.org/w/index.php?curid=78013076">Blacktc, Wikimedia</a></center>
+<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}Modified from <a href="https://commons.wikimedia.org/w/index.php?curid=78013076">Blacktc, Wikimedia</a></center>
 {{</img>}}
 
 {{<br>}}
 /Some of the most common activation functions in artificial neurons:/
 
 {{<img src="/img/school/act_func_nw.png" title="" width="60%" line-height="2.0rem">}}
-<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}from <a href="https://arxiv.org/abs/1908.08681">Diganta Misra 2019</a></center>
+<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}From <a href="https://arxiv.org/abs/1908.08681">Diganta Misra 2019</a></center>
 {{</img>}}
 
 Which activation function to use depends on the type of problem and the available computing budget. Some early functions have fallen out of use while new ones have emerged (e.g. sigmoid got replaced by ReLU which is easier to train).
@@ -118,14 +118,14 @@ Which activation function to use depends on the type of problem and the availabl
 The process of learning in biological NN happens through neuron death or growth and through the creation or loss of synaptic connections between neurons. In ANN, learning happens through optimization algorithms such as gradient descent which minimize cross entropy loss functions by adjusting the weights and biases connecting each layer of neurons over many iterations (cross entropy is the difference between the predicted and real distributions).
 
 {{<br>}}
-{{<img src="https://imgs.xkcd.com/comics/ai_hiring_algorithm.png" title="" width="%" line-height="0.5rem">}}
-from <a href="https://xkcd.com/">xkcd.com</a>
+{{<img src="https://imgs.xkcd.com/comics/ai_hiring_algorithm.png" title="" width="%" line-height="1rem">}}
+From <a href="https://xkcd.com/">xkcd.com</a>
 {{</img>}}
 
 {{<br>}}
 /Gradient descent:/
 {{<img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Gradient_descent.svg" title="" width="100%" line-height="0.5rem">}}
-from <a href="https://commons.wikimedia.org/w/index.php?curid=20569355">Olegalexandrov & Zerodamage, Wikipedia</a>
+From <a href="https://commons.wikimedia.org/w/index.php?curid=20569355">Olegalexandrov & Zerodamage, Wikipedia</a>
 {{</img>}}
 
 {{<br>}}
@@ -143,7 +143,7 @@ The [[https://arxiv.org/abs/1412.6980][Adam optimization algorithm]] is a popula
 *** Fully connected neural networks
 
 {{<img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Colored_neural_network.svg" title="" width="90%" line-height="0.5rem">}}
-from <a href="https://commons.wikimedia.org/w/index.php?curid=24913461">Glosser.ca, Wikipedia</a>
+From <a href="https://commons.wikimedia.org/w/index.php?curid=24913461">Glosser.ca, Wikipedia</a>
 {{</img>}}
 
 {{<br>}}
@@ -152,7 +152,7 @@ Each neuron receives input from every neuron of the previous layer.
 *** Convolutional neural networks
 
 {{<img src="/img/school/cnn_nw.png" title="" width="%" line-height="1.5rem">}}
-from <a href="https://codetolight.wordpress.com/2017/11/29/getting-started-with-pytorch-for-deep-learning-part-3-neural-network-basics/">Programming Journeys by Rensu Theart</a>
+From <a href="https://codetolight.wordpress.com/2017/11/29/getting-started-with-pytorch-for-deep-learning-part-3-neural-network-basics/">Programming Journeys by Rensu Theart</a>
 {{</img>}}
 
 {{<br>}}
@@ -165,7 +165,7 @@ Optionally, pooling (combining the outputs of neurons in a subarea) reduces the 
 *** Recurrent neural networks
 
 {{<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Recurrent_neural_network_unfold.svg" title="" width="%" line-height="0rem">}}
-from <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">fdeloche, Wikipedia</a>
+From <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">fdeloche, Wikipedia</a>
 {{</img>}}
 
 RNN (e.g. Long Short-Term Memory or LSTM) are used for chain structured data (e.g. speech recognition).
@@ -177,8 +177,8 @@ They are not feedforward networks (i.e. networks for which the information moves
 Deep neural networks have 2 or more hidden layers (shallow networks only have one hidden layer). When an ANN is deep, we talk about *Deep Learning* (DL). 
 
 {{<br>}}
-{{<img src="https://imgs.xkcd.com/comics/drone_training.png" title="" width="%" line-height="0.5rem">}}
-from <a href="https://xkcd.com/">xkcd.com</a>
+{{<img src="https://imgs.xkcd.com/comics/drone_training.png" title="" width="%" line-height="1rem">}}
+From <a href="https://xkcd.com/">xkcd.com</a>
 {{</img>}}
 
 * ML implementation tools
