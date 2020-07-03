@@ -39,7 +39,9 @@ V100 GPU: no more than 8 CPU per GPU.
 *Graham*:\\
 No more than 16 CPU per GPU.
 
-* Test your code in an interactive job before submitting a really big batch job to Slurm
+* Code testing 
+
+It might be wise to test your code in an interactive job before submitting a really big batch job to Slurm.
 
 ** Activate your Python virtual environment
 
@@ -133,7 +135,7 @@ loss = checkpoint['loss']
 model.train()
 #+END_src
 
-* Using TensorBoard on the cluster
+* TensorBoard on the cluster
 
 [[https://github.com/tensorflow/tensorboard][TensorBoard]] allows to visually track your model metrics (e.g. loss, accuracy, model graph, etc.). It requires a lot of processing power however, so if you want to use it on a Compute Canada cluster, *do not run it from the login node.* Instead, run it as part of your job. This section guides you through the whole workflow.
 
