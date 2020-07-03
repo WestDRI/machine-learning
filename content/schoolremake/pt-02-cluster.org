@@ -39,7 +39,7 @@ $ module list
 # See which modules are available for Python
 $ module avail python
 
-# Load the Python module
+# Load the module for Python version 3.8.3
 $ module load python/3.8.2
 #+END_src
 
@@ -53,7 +53,7 @@ For this, create a virtual environment in which you will install packages with {
 
 #+BEGIN_box
 *Do not use Anaconda* \\
-While Anaconda is a great tool on personal computers, it is not an appropriate tool when working on the Compute Canada clusters: binaries are unoptimized for those clusters and library paths are inconsistent with their architecture. Anaconda installs packages in {{<b>}}$HOME{{</b>}} where it creates a very large number of small files. It can also create conflicts by modifying {{<b>}}.bashrc{{</b>}}
+While Anaconda is a great tool on personal computers, it is not an appropriate tool when working on the Compute Canada clusters: binaries are unoptimized for those clusters and library paths are inconsistent with their architecture. Anaconda installs packages in {{<b>}}$HOME{{</b>}} where it creates a very large number of small files. It can also create conflicts by modifying {{<b>}}.bashrc{{</b>}}.
 #+END_box
 
 ** Create a virtual environment
@@ -91,7 +91,7 @@ If you want to exit the virtual environment, run:
 * Issues
 
 #+BEGIN_box
-If you have issues accessing the training cluster or installing the python packages in a virtual environment, please sign up for the [[https://westgrid-ml.netlify.app/schoolremake/pt-08-debug.html][debug session]].
+If you have issues accessing the training cluster or installing the python packages in a virtual environment, please join the [[https://westgrid-ml.netlify.app/schoolremake/pt-08-debug.html][debug session]] where we will help you getting up and running.
 #+END_box
 
 * Comments & questions

@@ -24,28 +24,29 @@ from <a href="https://xkcd.com/">xkcd.com</a>
 
 * Types of learning
 
-There are now more types of learning than those presented here. But these initial types are interesting because they will be familiar to you already (even if you didn't look at them in the framework of machine learning).
+There are now more types of learning than those presented here. But these initial types are interesting because they will already be familiar to you.
 
 ** Supervised learning
 
-You have been doing supervised machine learning for years without thinking about it in those terms:
+You have been doing supervised machine learning for years without looking at it in the framework of machine learning:
 
-- *Regression* is a form of supervised learning with continuous output
-- *Classification* is supervised learning with discrete output
+- *Regression* is a form of supervised learning with continuous outputs
+- *Classification* is supervised learning with discrete outputs
 
 Supervised learning uses training data in the form of example input/output \((x_i, y_i)\) pairs.
 
 */Goal:/*
 
 If \(X\) is the space of inputs and \(Y\) the space of outputs, the goal is to find a function \(h\) so that\\
-for each \(x_i \in X\), \(h_\theta(x_i)\) is a predictor for the corresponding value \(y_i\) \\
+for each \(x_i \in X\),\\
+\(h_\theta(x_i)\) is a predictor for the corresponding value \(y_i\) \\
 (\(\theta\) represents the set of parameters of \(h_\theta\)).
 
 → i.e. we want to find the relationship between inputs and outputs.
 
 ** Unsupervised learning
 
-Here too, you are familiar with some forms of unsupervised learning that you weren't thinking about in such light:
+Here too, you are familiar with some forms of unsupervised learning that you weren't thinking about in such terms:
 
 *Clustering*, *social network analysis*, *market segmentation*, *PCA* ... are all forms of unsupervised learning.
 

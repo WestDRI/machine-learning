@@ -5,7 +5,7 @@
 #+weight: 3
 
 {{<br>}}
-/Installing PyTorch on your machine is entirely optional as you can run everything on the training cluster. If you would like to practice on your machine in addition to (or instead of) the training cluster, these should help you. Please note that you won't be debugging local installations./
+/Installing PyTorch on your machine is entirely optional as you can run everything on the training cluster. If you would like to practice on your machine in addition to (or instead of) the training cluster, this lesson will guide you through the setup of your machine. Please note that we won't be debugging local installations./
 
 * Python and package manager
 
@@ -13,7 +13,7 @@ First of all, you need *Python 3.7 or higher* and *a package manager* (to instal
 
 There are many ways to go about this. *For those new to Python, I suggest installing [[https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)][Anaconda]]:*
 
-Go to the {{<b>}}Anaconda Installers{{</b>}} section of [[https://www.anaconda.com/products/individual][this page]], download and install the 64-Bit installer for your operating system (unless you still have a 32-Bit version of Windows of course. But those are becoming rare).
+Go to the {{<b>}}Anaconda Installers{{</b>}} section at the bottom of [[https://www.anaconda.com/products/individual][this page]], download and install the 64-Bit installer for your operating system (unless you still have a 32-Bit version of Windows of course, but those are becoming rare).
 
 /Notes:/
 
@@ -47,7 +47,7 @@ Launch the {{<b>}}Anaconda Prompt{{</b>}} (for instance by typing it in the main
 conda install pytorch torchvision cpuonly -c pytorch
 #+END_src
 
-- You are on a Mac and you do not have CUDA, then run:
+- You are on a Mac and you do not have CUDA, then run in Terminal:
 
 #+BEGIN_src sh
 conda install pytorch torchvision -c pytorch
@@ -58,11 +58,10 @@ conda install pytorch torchvision -c pytorch
 
 *** Test the installation
 
-Make sure that all works well by launching Python, loading the {{<c>}}torch{{</c>}} package and creating a 2-dimensional tensor of zeros:
+Make sure that all works by launching Python, loading the {{<b>}}torch{{</b>}} package and creating a 2-dimensional tensor filled with zeros:
 
 {{<i>}}
 #+BEGIN_src python
-from __future__ import print_function
 import torch
 
 print(torch.zeros(3, 4))

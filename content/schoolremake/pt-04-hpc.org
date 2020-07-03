@@ -8,9 +8,9 @@
 /Note on notation:/ {{<s>}}expressions between the ~<~ and ~>~ signs need to be replaced by the relevant information (without those signs).
 #+END_simplebox
 
-Whether you are using our training cluster (which is a virtual machine hosted in the cloud mimicking a Compute Canada cluster) or one of Compute Canada clusters (e.g. Cedar or Graham), when you ~ssh~ into the cluster, you "arrive" on the login node.
+Whether you are using our training cluster (which is a virtual machine hosted in the cloud and mimicking a Compute Canada cluster) or one of Compute Canada clusters (e.g. Cedar or Graham), when you ~ssh~ into the cluster, you "arrive" on the login node.
 
-*Do not run jobs on this node*. To run your code, you need to start an interactive job or submit a job to Slurm (the job scheduler used by the Compute Canada clusters).
+*Do not run anything computationally intensive on this node*. To run your code, you need to start an interactive job or submit a batch job to Slurm (the job scheduler used by the Compute Canada clusters).
 
 If you are not familiar with HPC, you can go through [[https://wgschool.netlify.app/hpc-menu/][the material of the HPC course we offered in this summer school]], [[https://westgrid.github.io/trainingMaterials/getting-started/#introduction-to-westgrid-compute-canada-and-hpc][the training resources on the WestGrid website]], and [[https://www.youtube.com/playlist?list=PLeCQbAbRSKR8gg6ZMFof1Hf9YF_-n31Ym][the Compute Canada introductory videos]].
 
@@ -34,7 +34,7 @@ If you are in a local shell, run:
 [local]$ scp </local/path/to/file> <user>@<hostname>:<path/in/cluster>
 #+END_src
 
-/(Replace {{<c>}}&lt;user&gt;{{</c>}} by your user name and {{<c>}}&lt;hostname&gt;{{</c>}} by the hostname (for this workshop: ~uu.c3.ca~).)/
+/(Replace {{<c>}}&lt;user&gt;{{</c>}} by your user name and {{<c>}}&lt;hostname&gt;{{</c>}} by the hostname—for this workshop: ~uu.c3.ca~.)/
 
 ***** From the cluster
 
@@ -60,7 +60,7 @@ $ salloc --account=def-<user> --cpus-per-task=<n> --gres=gpu:<n> --mem=<mem> --t
 
 Our training cluster does not have GPUs, so for this workshop, do not use the ~--gres=gpu:<n>~ option.
 
-You also don't have to worry about the ~--account=def-<user>~ option (or, if you want, you can use ~--account=def-sponsor00~).
+For the workshop, you also don't have to worry about the ~--account=def-<user>~ option (or, if you want, you can use ~--account=def-sponsor00~).
 
 Our training cluster has a total of 60 CPUs on 5 compute nodes. Since there are many of you in this workshop, *please be very mindful when running interactive jobs*: if you request a lot of CPUs for a long time, the other workshop attendees won't be able to use the cluster anymore until your interactive job requested time ends (even if you aren't running any code).
 
@@ -92,62 +92,64 @@ Here is an example script:
 #SBATCH --cpus-per-task=<number>      # number of cores
 #SBATCH --gres=gpu:<type>:<number>    # type and number of GPU(s) per node
 #SBATCH --mem=<mem>					  # max memory (default unit is MB) per node
-#SBATCH --output=<file%j.out>*		  # file name for the output
-#SBATCH --error=<file%j.err>*		  # file name for errors
-					                  # %j gets replaced by the job number
+#SBATCH --output=<%x_%j.out>*		  # file name for the output
+#SBATCH --error=<%x_%j.err>*		  # file name for errors
 #SBATCH --mail-user=<email_address>*
 #SBATCH --mail-type=ALL*
 
 # Load modules
 # (Do not use this in our workshop since we aren't using GPUs)
-# (Note: loading the Python module is not necessary when you active your virtual env)
+# (Note: loading the Python module is not necessary
+# when you activate a Python virtual environment)
 # module load cudacore/.10.1.243 cuda/10 cudnn/7.6.5
 
-# Create variable with the directory for your ML project
+# Create a variable with the directory for your ML project
 SOURCEDIR=~/<path/project/dir>
 
 # Activate your Python virtual environment
 source ~/env/bin/activate
 
-# Transfer and extract data
+# Transfer and extract data to a compute node
 mkdir $SLURM_TMPDIR/data
 tar xf ~/projects/def-<user>/<data>.tar -C $SLURM_TMPDIR/data
 
-# Run Python script on the data
-python $SOURCEDIR/<mlscript>.py $SLURM_TMPDIR/data
+# Run your Python script on the data
+python $SOURCEDIR/<script>.py $SLURM_TMPDIR/data
 #+END_src
 
 /Notes:/
 
+- {{<c>}}%x{{</c>}} will get replaced by the script name and {{<c>}}%j{{</c>}} by the job number
 - If you compressed your data with {{<c>}}tar czf{{</c>}}, you need to extract it with {{<c>}}tar xzf{{</c>}}
 - {{<c>}}SBATCH{{</c>}} options marked with a {{<c>}}*{{</c>}} are optional
-- There are various other options for [[https://docs.computecanada.ca/wiki/Running_jobs#Email_notification][email notifications]].
+- There are various other options for [[https://docs.computecanada.ca/wiki/Running_jobs#Email_notification][email notifications]]
 
 ** Job handling
 
-**** Submit job
+**** Submit a job
 
 #+BEGIN_src sh
 $ cd </dir/containing/job>
 $ sbatch <jobscript>.sh
 #+END_src
 
-**** Check job status
+**** Check the status of your job(s)
 
 #+BEGIN_src sh
 $ sq
 #+END_src
 
 {{<b>}}PD{{</b>}} = pending\\
-{{<b>}}R{{</b>}} = running
+{{<b>}}R{{</b>}} = running\\
+No information = your job has finished running.
 
-**** Cancel job
+**** Cancel a job
 
 #+BEGIN_src sh
 $ scancel <jobid>
 #+END_src
 
-**** Display efficiency measures of completed job
+**** Display efficiency measures of a completed job
 
 #+BEGIN_src sh
 $ seff <jobid>
