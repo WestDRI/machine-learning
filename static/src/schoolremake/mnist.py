@@ -8,8 +8,8 @@ device = torch.device('cpu')
 # * Prepare data
 
 train = datasets.MNIST(
-    # './data',
-    '~/projects/def-sponsor00/data',
+    './data',
+    # '~/projects/def-sponsor00/data',
     train = True,
     download = True,
     transform = transforms.Compose([
@@ -17,8 +17,8 @@ train = datasets.MNIST(
         transforms.Normalize((0.1307,), (0.3081,))]))
 
 test = datasets.MNIST(
-    # './data',
-    '~/projects/def-sponsor00/data',
+    './data',
+    # '~/projects/def-sponsor00/data',
     train = False,
     download = False,
     transform = transforms.Compose([
@@ -44,6 +44,12 @@ print(train[0][0].size())
 print(train[0][0][0])
 print(train[0][0][0][0])
 print(train[0][0][0][0][0])
+
+print(train.data)
+print(train.data.size())
+
+print(train.targets)
+print(train.targets.size())
 
 # * Print one image
 
