@@ -63,25 +63,25 @@ Find structure within the data.
 
 * Artificial neural networks
 
-Artificial neural networks (ANN) are one of the machine learning models (other models include decision trees or Bayesian networks). This course will focus on them. [[https://westgrid-ml.netlify.app/school/pt-03-nn.html][The next lesson]] will show you four excellent videos by [[https://www.3blue1brown.com/][3Blue1Brown]] on neural networks, so you will learn a lot about them then. But in short, artificial neural networks (ANN) are layered networks of units mimicking the concept of biological neurons: inputs are received by every unit, computed, then transmitted to other units. Experience strengthens some connections between units and weakens others.
+Artificial neural networks (ANN) are one of the machine learning models (other models include decision trees or Bayesian networks). Their potential and popularity has truly exploded in recent years and this is what we will focus on in this course. In [[https://westgrid-ml.netlify.app/school/pt-03-nn.html][the next lesson]], you will watch an excellent video by [[https://www.3blue1brown.com/][3Blue1Brown]] that will walk you through the concepts of neural networks. But in short, artificial neural networks are a series of layered units mimicking the concept of biological neurons: inputs are received by every unit of a layer, computed, then transmitted to units of the next layer. In the process of learning, experience strengthens some connections between units and weakens others.
 
-In biological networks, the information consists of action potentials (neuron membrane rapid depolarizations) propagating through the network. In artificial ones, the information consists of vectors of weights and biases: each unit passes a weighted sum of its input vector with an additional—possibly weighted—bias through an activation function before passing on the output vector to the next layer of units.\\
-/Note:/ {{<s>}}the bias allows to shift the output of the activation function to the right or to the left; it creates an offset.
+In biological networks, the information consists of action potentials (neuron membrane rapid depolarizations) propagating through the network. In artificial ones, the information consists of tensors (multidimensional arrays) of weights and biases: each unit passes a weighted sum of an input tensor with an additional—possibly weighted—bias through an activation function before passing on the output tensor to the next layer of units.\\
+/Note:/ {{<s>}}the bias allows to shift the output of the activation function to the right or to the left (i.e. it creates an offset).
 
-/Schematic of biological neuron:/
+/Schematic of a biological neuron:/
 {{<br>}}
 {{<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Neuron.svg" title="" width="100%" line-height="2.5rem">}}
 From <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">Dhp1080, Wikipedia</a>
 {{</img>}}
 
-/Schematic of artificial neuron:/
+/Schematic of an artificial neuron:/
 {{<br>}}
 {{<img src="/img/school/artificial_neuron_nw.png" title="" width="70%" line-height="0rem">}}
 <center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}Modified from <a href="https://royalsocietypublishing.org/doi/10.1098/rsta.2019.0163">O.C. Akgun & J. Mei 2019</a></center>
 {{</img>}}
 
 {{<2br>}}
-While biological neurons are connected in intricate ways, artificial ones follow a layered structure. Another difference in complexity is in the number of units: the human brain has 65–90 billion neurons. ANN have much fewer units.
+While biological neurons are connected in extremely intricate patterns, artificial ones follow a layered structure. Another difference in complexity is in the number of units: the human brain has 65–90 billion neurons. ANN have much fewer units.
 
 /Neurons in mouse cortex:/
 {{<img src="/img/school/brain_neurons.jpg" title="" width="70%" line-height="2.5rem">}}
@@ -115,7 +115,7 @@ Which activation function to use depends on the type of problem and the availabl
 {{<br>}}
 /Learning:/
 
-The process of learning in biological NN happens through neuron death or growth and through the creation or loss of synaptic connections between neurons. In ANN, learning happens through optimization algorithms such as gradient descent which minimize cross entropy loss functions by adjusting the weights and biases connecting each layer of neurons over many iterations (cross entropy is the difference between the predicted and real distributions).
+The process of learning in biological NN happens through neuron death or growth and through the creation or loss of synaptic connections between neurons. In ANN, learning happens through optimization algorithms such as gradient descent which minimize cross entropy loss functions by adjusting the weights and biases connecting each layer of neurons over many iterations (cross entropy is the difference between the predicted and the real distributions).
 
 {{<br>}}
 {{<img src="https://imgs.xkcd.com/comics/ai_hiring_algorithm.png" title="" width="%" line-height="1rem">}}
@@ -147,7 +147,7 @@ From <a href="https://commons.wikimedia.org/w/index.php?curid=24913461">Glosser.
 {{</img>}}
 
 {{<br>}}
-Each neuron receives input from every neuron of the previous layer.
+Each neuron receives inputs from every neuron of the previous layer and passes its output to every neuron of the next layer.
 
 *** Convolutional neural networks
 
@@ -156,11 +156,11 @@ From <a href="https://codetolight.wordpress.com/2017/11/29/getting-started-with-
 {{</img>}}
 
 {{<br>}}
-CNN are used for spatially structured data (e.g. image recognition).
+Convolutional neural networks (CNN) are used for spatially structured data (e.g. in image recognition).
 
-Images have huge input sizes and would require a very large number of neurons in a fully connected neural net. In convolutional layers, neurons receive input from a subarea (local receptive field) of the previous layer. This greatly reduces the number of parameters.
+Images have huge input sizes and would require a very large number of neurons in a fully connected neural net. In convolutional layers, neurons receive input from a subarea (called /local receptive field/) of the previous layer. This greatly reduces the number of parameters.
 
-Optionally, pooling (combining the outputs of neurons in a subarea) reduces the data dimensions. The stride then dictates how the subarea is moved across the image. Max-pooling is one of the forms of pooling which uses the maximum for each subarea.
+Optionally, pooling (combining the outputs of neurons in a subarea) reduces the data dimensions. The /stride/ then dictates how the subarea is moved across the image. /Max-pooling/ is one of the forms of pooling which uses the maximum for each subarea.
 
 *** Recurrent neural networks
 
@@ -168,20 +168,20 @@ Optionally, pooling (combining the outputs of neurons in a subarea) reduces the 
 From <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">fdeloche, Wikipedia</a>
 {{</img>}}
 
-RNN (e.g. Long Short-Term Memory or LSTM) are used for chain structured data (e.g. speech recognition).
+Recurrent neural networks (RNN) such as Long Short-Term Memory (LSTM) are used for chain structured data (e.g. in speech recognition).
 
-They are not feedforward networks (i.e. networks for which the information moves only in one direction without any loop).
+They are not feedforward networks (i.e. networks for which the information moves only in the forward direction without any loop).
 
 *** Deep neural networks
 
-Deep neural networks have 2 or more hidden layers (shallow networks only have one hidden layer). When an ANN is deep, we talk about *Deep Learning* (DL). 
+The first layer of a neural net is the input layer. The last one is the output layer. All the layers in-between are called /hidden layers/. Shallow neural networks have only one hidden layer and deep networks have two or more hidden layers. When an ANN is deep, we talk about *Deep Learning* (DL).
 
 {{<br>}}
 {{<img src="https://imgs.xkcd.com/comics/drone_training.png" title="" width="%" line-height="1rem">}}
 From <a href="https://xkcd.com/">xkcd.com</a>
 {{</img>}}
 
-* ML implementation tools
+* ML implementation
 
 The most popular machine learning libraries (mostly for neural nets) are [[https://pytorch.org/][PyTorch]], developed by Facebook’s AI Research lab and [[https://www.tensorflow.org/][TensorFlow]], developed by the Google Brain Team. Both of them can be used through their Python API or through APIs in other languages.
 
