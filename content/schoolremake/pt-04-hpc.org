@@ -20,13 +20,15 @@ This lesson goes over what we will do in this course, using our training cluster
 
 Do not run code that displays plots on screen. Instead, have them written to files.
 
-* Copy files to/from the cluster
+* Data
 
-** Few files
+** Copy files to/from the cluster
+
+*** Few files
 
 If you need to copy files to or from the cluster, you can use ~scp~.
 
-***** From your computer
+****** From your computer
 
 If you are in a local shell, run:
 
@@ -36,7 +38,7 @@ If you are in a local shell, run:
 
 /(Replace {{<c>}}&lt;user&gt;{{</c>}} by your user name and {{<c>}}&lt;hostname&gt;{{</c>}} by the hostname—for this workshop: ~uu.c3.ca~.)/
 
-***** From the cluster
+****** From the cluster
 
 If you are in a remote shell (through ~ssh~), run:
 
@@ -44,10 +46,24 @@ If you are in a remote shell (through ~ssh~), run:
 [remote]$ scp <user>@<hostname>:<cluster/path/to/file> </local/path>
 #+END_src
 
-** Large amount of data
+*** Large amount of data
 
 Use [[https://docs.computecanada.ca/wiki/Globus][Globus]] for large data transfers.
 
+Note that Compute Canada is planning to store classic ML datasets on its clusters in the future. So if your research uses a common dataset, it may be worth inquiring whether it might be available before downloading a copy.
+
+** Large collections of files
+
+The Compute Canada clusters are optimized for very large files and are slowed by large collections of small files. Datasets with many small files need to be turned into single-file archives with {{<c>}}tar{{</c>}}. *Failing to do so will affect performance not just for you, but for all users of the cluster.*
+
+#+BEGIN_src sh
+$ tar cf <data>.tar <path/to/dataset/directory>/*
+#+END_src
+
+/Notes:/
+
+- If you want to also compress the files, replace {{<c>}}tar cf{{</c>}} with {{<c>}}tar czf{{</c>}}
+- As a modern alternative to {{<c>}}tar{{</c>}}, you can use [[https://docs.computecanada.ca/wiki/Dar][Dar]]
 
 * Interactive jobs
 
