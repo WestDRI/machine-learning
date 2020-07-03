@@ -12,7 +12,7 @@ With the explosion of the field of machine learning in recent years, the GPUs in
 
 {{<br>}}
 {{<img src="/img/school/cc_rac_gpu_2019_nw.png" title="" width="85%" line-height="1.0rem">}}
-<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}from <a href="https://www.computecanada.ca/research-portal/accessing-resources/resource-allocation-competitions/">Compute Canada 2019 RAC Q&A session</a></center>
+<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}From <a href="https://www.computecanada.ca/research-portal/accessing-resources/resource-allocation-competitions/">Compute Canada 2019 RAC Q&A session</a></center>
 {{</img>}}
 
 {{<br>}}
@@ -22,9 +22,9 @@ If you ask for more GPUs, you will wait a lot longer and you will go through you
 
 There are however situations when multiple GPUs are advantageous, or even necessary. So you need to learn when and how to parallelize your code to use multiple GPUs.
 
-*If you are in doubt, while you are learning, and when testing code, stick to one GPU.*
+*If you are in doubt, while you are learning, and when testing code, stick to a single GPU.*
 
-Distributed computing with PyTorch is beyond this introductory course in machine learning. The main message here is that throwing multiple GPUs at your model is a loss of resource if you don't know what you are doing. We will offer workshops on this in the future, but in the meantime, here are the main scenarios with some links to tutorials.
+Distributed computing with PyTorch is beyond this introductory course in machine learning. The main message here is that throwing multiple GPUs at your model is a loss of resource if you don't know what you are doing. We will offer workshops on distributed ML in the future, but in the meantime, here are the main scenarios with some links to tutorials.
 
 * Data parallel
 

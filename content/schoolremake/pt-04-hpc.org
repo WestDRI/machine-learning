@@ -48,10 +48,10 @@ If you are in a remote shell (through ~ssh~), run:
 
 Use [[https://docs.computecanada.ca/wiki/Globus][Globus]] for large data transfers.
 
-* Start an interactive job
 
-Interactive jobs are useful for testing and code development.
+* Interactive jobs
 
+Interactive jobs are useful for code testing and development. They are not however the most efficient way to run code, so you should limit their use to testing and development.
 You start an interactive job with:
 
 #+BEGIN_src sh
@@ -76,7 +76,7 @@ Here are my suggestions so that we don't run into this problem:
 In this workshop, we will submit jobs from ~/home~. This is fine on some of the Compute Canada clusters as well. Be aware however that [[https://docs.computecanada.ca/wiki/Running_jobs#Cluster_particularities][you are not allowed to do that on Cedar]]. Instead, on Cedar, you have to submit jobs from ~/scratch~ or ~/project~.
 #+END_simplebox
 
-* Submit a batch job to Slurm
+* Batch jobs
 
 As soon as you have a working Python script, you want to submit a batch job instead of running an interactive job. To do that, you need to write an {{<b>}}sbatch{{</b>}} script.
 

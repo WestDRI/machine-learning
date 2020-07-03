@@ -6,50 +6,56 @@
 
 * GPU(s)
 
-*** GPU type
+** GPU types
 
 Several Compute Canada clusters have GPUs. Their numbers and types differ:
 
-{{<img src="/img/school/cc_gpu.png" title="" width="%" line-height="0.5rem">}}
-from <a href="https://docs.computecanada.ca/wiki/Using_GPUs_with_Slurm">Compute Canada Wiki</a>
+{{<img src="/img/school/cc_gpu.png" title="" width="%" line-height="1rem">}}
+From <a href="https://docs.computecanada.ca/wiki/Using_GPUs_with_Slurm">Compute Canada Wiki</a>
 <br><br>
 {{</img>}}
 
-The default is {{<b>}}12G P100{{</b>}}, but you can request another type with {{<c>}}SBATCH --gres=gpu:&lt;type&gt;:&lt;number&gt;{{</c>}}
+The default is {{<b>}}12G P100{{</b>}}, but you can request another type with {{<c>}}SBATCH --gres=gpu:&lt;type&gt;:&lt;number&gt;{{</c>}} (example: {{<c>}}--gres=gpu:p100l:1{{</c>}} to request a 16G P100 on Cedar). Please [[https://docs.computecanada.ca/wiki/Using_GPUs_with_Slurm#Specifying_the_type_of_GPU_to_use][refer to the Compute Canada Wiki]] for more details.
 
-*** Number of GPU(s)
+** Number of GPU(s)
 
 #+BEGIN_export html
-<font color="#bf540c">Try running your model on <b>one</b> GPU first.</font>
+<font color="#bf540c"><b>Try running your model on a single GPU first.</b></font>
 #+END_export
 
-It is very likely that you do not need more than one GPU. Asking for more than you need will greatly increase your waiting time until your job is run. The session on [[https://westgrid-ml.netlify.app/school/pt-11-distributed.html][distributed computing with PyTorch]] will help you see when you might benefit from several GPUs. In any event, you should test your model before asking for several GPUs.
+It is very likely that you do not need more than one GPU. Asking for more than you need will greatly increase your waiting time until your job is run. The lesson on [[https://westgrid-ml.netlify.app/schoolremake/pt-15-distributed.html][distributed computing with PyTorch]] gives a few information as to when you might benefit from using several GPUs and provides some links to more resources. We will also offer workshops on distributed ML in the future. In any event, you should test your model before asking for several GPUs.
 
-*** CPU/GPU ratio
+** CPU/GPU ratio
 
 Here are Compute Canada recommendations:
 
 *Béluga*:\\
-No more than 10 CPU per GPU
+No more than 10 CPU per GPU.
 
 *Cedar*:\\
-P100 GPU: no more than 6 CPU per GPU\\
-V100 GPU: no more than 8 CPU per GPU
+P100 GPU: no more than 6 CPU per GPU.\\
+V100 GPU: no more than 8 CPU per GPU.
 
 *Graham*:\\
-No more than 16 CPU per GPU
+No more than 16 CPU per GPU.
 
-* Test your code in an interactive job before submitting a big job to Slurm
+* Test your code in an interactive job before submitting a really big batch job to Slurm
+
+** Activate your Python virtual environment
+
+#+BEGIN_src sh
+$ source ~/env/bin/activate
+#+END_src
 
 ** Start an interactive job
 
 /Example:/
 
 #+BEGIN_src sh
-$ salloc --account=def-<user> --gres=gpu:1 --cpus-per-task=6 --mem=32000 --time=1:00
+$ salloc --account=def-<user> --gres=gpu:1 --cpus-per-task=6 --mem=32000 --time=0:30:0
 #+END_src
 
-** Try to run your code
+** Prepare the data
 
 Create a temporary data directory in {{<b>}}$SLURM_TMPDIR{{</b>}}:
 
@@ -57,11 +63,17 @@ Create a temporary data directory in {{<b>}}$SLURM_TMPDIR{{</b>}}:
 (env) $ mkdir $SLURM_TMPDIR/data
 #+END_src
 
+#+BEGIN_simplebox
+/Note:/ {{<s>}}The variable {{<b>}}$SLURM_TMPDIR{{</b>}} is created by Slurm on the compute node where a job is running. Its path is {{<b>}}/localscratch/&lt;user&gt;.&lt;jobid&gt;.0{{</b>}}. Anything in it gets deleted when the job is done.
+#+END_simplebox
+
 Extract the data into it:
 
 #+BEGIN_src sh
 (env) $ tar xf ~/projects/def-<user>/<data>.tar -C $SLURM_TMPDIR/data
 #+END_src
+
+** Try to run your code
 
 Play in Python to test your code:
 
@@ -82,13 +94,13 @@ Play in Python to test your code:
 
 * Checkpoints
 
-Long jobs should have a checkpoint at least every 24 hours. This ensures that an outage won't lead to days of computation lost and it will help get the job started sooner by the scheduler.
+Long jobs should have a checkpoint at least every 24 hours. This ensures that an outage won't lead to days of computation lost and it will help get the job started by the scheduler sooner.
 
 For instance, you might want to have checkpoints every {{<b>}}n{{</b>}} epochs (choose {{<b>}}n{{</b>}} so that {{<b>}}n{{</b>}} epochs take less than 24 hours to run).
 
 In PyTorch, you can create dictionaries with all the information necessary and save them as {{<b>}}.tar{{</b>}} files with {{<c>}}torch.save(){{</c>}}. You can then load them back with {{<c>}}torch.load(){{</c>}}.
 
-The information you want to save in each checkpoint includes the model’s state_dict, the optimizer’s state_dict, the epoch at which you stopped, the latest training loss, and anything else needed to restart training where you left off.
+The information you want to save in each checkpoint includes the model’s {{<b>}}state_dict{{</b>}}, the optimizer’s {{<b>}}state_dict{{</b>}}, the {{<b>}}epoch{{</b>}} at which you stopped, the latest training {{<b>}}loss{{</b>}}, and anything else needed to restart training where you left off.
 
 /Example:/
 
@@ -100,7 +112,7 @@ torch.save({
     'model_state_dict': net.state_dict(),
     'optimizer_state_dict': optimizer.state_dict(),
     'loss': <latest loss>,
-}, <path/to/file.tar>)
+}, <path/to/checkpoint-file.tar>)
 #+END_src
 
 To restart, initialize the model and optimizer, load the dictionary, and resume training:
@@ -111,7 +123,7 @@ model = <your model>
 optimizer = <your optimizer>
 
 # Load the dictionary
-checkpoint = torch.load(<path/to/file.tar>)
+checkpoint = torch.load(<path/to/checkpoint-file.tar>)
 model.load_state_dict(checkpoint['model_state_dict'])
 optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
 epoch = checkpoint['epoch']
