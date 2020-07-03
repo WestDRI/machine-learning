@@ -133,6 +133,51 @@ loss = checkpoint['loss']
 model.train()
 #+END_src
 
+* Using TensorBoard on the cluster
+
+[[https://github.com/tensorflow/tensorboard][TensorBoard]] allows to visually track your model metrics (e.g. loss, accuracy, model graph, etc.). It requires a lot of processing power however, so if you want to use it on a Compute Canada cluster, *do not run it from the login node.* Instead, run it as part of your job. This section guides you through the whole workflow.
+
+** Launch TensorBoard
+
+First, you need to launch TensorBoard in the background (with a trailing ~&~) before running your Python script. To do so, ad to your {{<b>}}sbatch{{</b>}} script:
+
+#+BEGIN_src sh
+tensorboard --logdir=/tmp/<your log dir> --host 0.0.0.0 &
+#+END_src
+
+/Example:/
+
+#+BEGIN_src sh
+#!/bin/bash
+#SBATCH ...
+...
+
+tensorboard --logdir=/tmp/<your log dir> --host 0.0.0.0 &
+python $SOURCEDIR/<script>.py $SLURM_TMPDIR/data
+#+END_src
+
+** Create a connection between the compute node and your computer
+
+Once the job is running, you need to create a connection between the compute node running TensorBoard and your computer.
+
+First, you need to find the hostname of the compute node running the Tensorboard server. This is the value under {{<b>}}NODELIST{{</b>}} for your job when you run:
+
+#+BEGIN_src sh
+$ sq
+#+END_src
+
+Then, *from your computer*, enter this {{<c>}}ssh{{</c>}} command:
+
+#+BEGIN_src sh
+[local]$ ssh -N -f -L localhost:6006:<node hostname>:6006 <user>@<cluster>.computecanada.ca
+#+END_src
+
+/(Replace {{<c>}}&lt;node hostname&gt;{{</c>}} by the compute node hostname you just identified, {{<c>}}&lt;user&gt;{{</c>}} by your user name, and {{<c>}}&lt;cluster&gt;{{</c>}} by the name of the Compute Canada cluster hostname—e.g. beluga, cedar, graham.)/
+
+** Access TensorBoard
+
+You can now open a browser (on your computer) and go to http://localhost:6006 to monitor your model running on a compute node in the cluster!
+
 * Running several similar jobs
 
 A number of ML tasks (e.g. [[https://en.wikipedia.org/wiki/Hyperparameter_optimization][hyperparameter optimization]]) require running several instances of similar jobs. Grouping them into a single job with [[https://docs.computecanada.ca/wiki/GLOST][GLOST]] or [[https://docs.computecanada.ca/wiki/GNU_Parallel][GNU Parallel]] reduces the stress on the scheduler.
