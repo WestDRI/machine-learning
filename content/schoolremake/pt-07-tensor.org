@@ -223,6 +223,19 @@ x = x.type(torch.float)
 print(x.dtype)
 #+END_src
 
+* Indexing
+
+Indexing works as it does in NumPy:
+
+#+BEGIN_src python
+x = torch.rand(5, 4)
+print(x)
+
+print(x[:, 2])
+print(x[3, :])
+print(x[2, 3])
+#+END_src
+
 * GPU
 
 Tensors can be sent to a device (CPU or GPU) with the ~to~ method:
