@@ -55,29 +55,69 @@ print(y.grad)
 
 * Example
 
-Let's go over a simple example.
+Let's go over a simple example:
+- let ~real~ be the tensor of some real values
+- let ~predicted~ be the tensor given by some model trying to predict these real values after an iteration
+
+We will calculate the first derivative (first step of the backpropagation) manually and with the ~torch.autograd~ package to really understand what that package does.
+
+Let's fill ~real~ and ~predicted~ with random values since we don't have a real situation with a real network (but let's make sure to start recording the history of computations performed on ~predicted~):
 
 #+BEGIN_src python
 import torch
-import random
 
-y = torch.tensor(random.choices(range(10), k = 50),
-                 dtype = torch.float)
-print(y)
+real = torch.rand(3, 8)
+print(real)
 
-y_pred = torch.tensor(random.choices(range(10), k = 50),
-                      dtype = torch.float, requires_grad = True)
-print(y_pred)
-
-loss = (y_pred - y).pow(2).sum()
-
-loss.backward()
-print(y_pred.grad)
-
-manual_grad_y_pred = 2.0 * (y_pred - y)
-print(manual_grad_y_pred)
-
-print(manual_grad_y_pred.eq(y_pred.grad).all())
+predicted = torch.rand(3, 8, requires_grad = True)
+print(predicted)
 #+END_src
+
+Several loss functions can be used in machine learning, but let's use the one you saw in the previous video: \(\sum_{}^{} (\text{predicted} - \text{real})^2\).
+
+#+BEGIN_src python
+loss = (predicted - real).pow(2).sum()
+#+END_src
+
+Now, to train a model, after each forward-pass, we need to go through the backpropagation to adjust the weights and biases of the model. That means, we need to calculate all the derivatives, starting from the derivative of the predicted values up to the derivatives of the weights and biases.
+
+Here, we will only do the very first step: calculate the derivative of ~predicted~.
+
+** Manual derivative calculation
+
+As you saw in the previous video, the formula for this first derivative, with the loss function we used, is: \(2(\text{predicted} - \text{real})\).
+
+There is no point in adding this operation to ~predicted~'s computation history, so we will exclude it with ~with torch.no_grad():~
+
+#+BEGIN_src python
+with torch.no_grad():
+    manual_gradient_predicted = 2.0 * (predicted - real)
+print(manual_gradient_predicted)
+#+END_src
+
+** Automatic derivative calculation
+
+Now, with ~torch.autograd~:
+
+#+BEGIN_src python
+loss.backward()
+#+END_src
+
+Since we tracked computations on ~predicted~, we can calculate its gradient with:
+
+#+BEGIN_src python
+auto_gradient_predicted = predicted.grad
+print(auto_gradient_predicted)
+#+END_src
+
+** Comparison
+
+The result is the same, as can be tested with:
+
+#+BEGIN_src python
+print(manual_gradient_predicted.eq(auto_gradient_predicted).all())
+#+END_src
+
+The calculation of this first derivative of backpropagation was simple enough. But to propagate all the derivatives calculations backward through the chain rule would quickly turn into a deep calculus problem. With ~torch.autograd~, calculating the gradients of all the other elements of the network is as simple as calling them with the attribute ~grad~ once the function ~torch.Tensor.backward()~ has been run.
 
 * Comments & questions
