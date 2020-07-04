@@ -68,15 +68,16 @@ $ tar cf <data>.tar <path/to/dataset/directory>/*
 * Interactive jobs
 
 Interactive jobs are useful for code testing and development. They are not however the most efficient way to run code, so you should limit their use to testing and development.
+
 You start an interactive job with:
 
 #+BEGIN_src sh
-$ salloc --account=def-<user> --cpus-per-task=<n> --gres=gpu:<n> --mem=<mem> --time=<time>
+$ salloc --account=def-<account> --cpus-per-task=<n> --gres=gpu:<n> --mem=<mem> --time=<time>
 #+END_src
 
 Our training cluster does not have GPUs, so for this workshop, do not use the ~--gres=gpu:<n>~ option.
 
-For the workshop, you also don't have to worry about the ~--account=def-<user>~ option (or, if you want, you can use ~--account=def-sponsor00~).
+For the workshop, you also don't have to worry about the ~--account=def-<account>~ option (or, if you want, you can use ~--account=def-sponsor00~).
 
 Our training cluster has a total of 60 CPUs on 5 compute nodes. Since there are many of you in this workshop, *please be very mindful when running interactive jobs*: if you request a lot of CPUs for a long time, the other workshop attendees won't be able to use the cluster anymore until your interactive job requested time ends (even if you aren't running any code).
 
@@ -103,7 +104,7 @@ Here is an example script:
 #+BEGIN_src sh
 #!/bin/bash
 #SBATCH --job-name=<name>*			  # job name
-#SBATCH --account=def-<user>
+#SBATCH --account=def-<account>
 #SBATCH --time=<time>				  # max walltime in D-HH:MM or HH:MM:SS
 #SBATCH --cpus-per-task=<number>      # number of cores
 #SBATCH --gres=gpu:<type>:<number>    # type and number of GPU(s) per node
@@ -157,6 +158,7 @@ $ sq
 
 {{<b>}}PD{{</b>}} = pending\\
 {{<b>}}R{{</b>}} = running\\
+{{<b>}}CG{{</b>}} = completing (Slurm is doing the closing processes) \\
 No information = your job has finished running.
 
 **** Cancel a job

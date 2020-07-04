@@ -54,7 +54,7 @@ $ source ~/env/bin/activate
 /Example:/
 
 #+BEGIN_src sh
-$ salloc --account=def-<user> --gres=gpu:1 --cpus-per-task=6 --mem=32000 --time=0:30:0
+$ salloc --account=def-<account> --gres=gpu:1 --cpus-per-task=6 --mem=32000 --time=0:30:0
 #+END_src
 
 ** Prepare the data
