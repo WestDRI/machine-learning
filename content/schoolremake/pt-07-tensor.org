@@ -137,7 +137,7 @@ print(torch.rand(2, 3, 5, 2, 4))
 print(torch.rand(3, 5, 4, 2, 1))
 #+END_src
 
-{{<br>}}
+** Getting information
 
 You can get the dimension of a tensor with the method ~dim~:
 
@@ -149,6 +149,20 @@ And its size with the method ~size~:
 
 #+BEGIN_src python
 print(torch.rand(3, 5, 4, 2, 1).size())
+#+END_src
+
+** Creating new tensors of the size of existing ones
+
+All these methods to create tensor can be appended with ~_like~ to create new tensors of the same size:
+
+#+BEGIN_src python
+x = torch.rand(2, 4)
+print(x)
+
+y = torch.zeros_like(x)
+print(y)
+
+x.size() == y.size()
 #+END_src
 
 * Operations
