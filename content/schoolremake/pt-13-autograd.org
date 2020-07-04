@@ -19,7 +19,15 @@ print(x)
 
 ** The ~grad_fun~ attribute
 
+Whenever a tensor is created by an operation involving a tracked tensor, it has a ~grad_fun~ attribute:
 
+#+BEGIN_src python
+x = torch.ones(2, 4, requires_grad = True)
+print(x)
+y = x + 1
+print(y)
+print(y.grad_fn)
+#+END_src
 
 ** Judicious tracking
 
@@ -50,7 +58,7 @@ with torch.no_grad():
 
 * Calculating gradients
 
-After you have performed a number of operations on ~x~ and obtained a final object (let's call it ~loss~ since in the context of neural networks, the loss function is the starting place of the backpropagation process), you calculate the gradient of any object ~y~ with:
+After you have performed a number of operations on ~x~ and obtained a final object (let's call it ~loss~ since in the context of neural networks, the output of the loss function is the starting place of the backpropagation process), you can get the gradient of any object ~y~ with:
 
 #+BEGIN_src python
 loss.backward()
