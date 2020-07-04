@@ -240,4 +240,12 @@ print(x[2, 3])
 
 Tensors can be sent to a device (CPU or GPU) with the ~to~ method:
 
+#+BEGIN_src python
+x = torch.rand(5, 4)
+x.to('cpu')
+x.to('cuda')
+#+END_src
+
+Of course, if you don't have GPUs, that last one won't work...
+
 * Comments & questions
