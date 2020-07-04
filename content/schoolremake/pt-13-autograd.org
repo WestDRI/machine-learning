@@ -4,4 +4,80 @@
 #+slug: pt-13-autograd
 #+weight: 13
 
+After watching the last two videos, you may be starting to panic: how hard will it be to write the chain rule (with so many derivatives!) in backpropagation?!?
+
+*Don't fear!* PyTorch has automatic differentiation abilities, meaning that it can track all the operations conducted on tensors and do the backprop for you.
+
+* Tracking computations
+
+PyTorch does not track all the computations on all the tensors (this would be extremely memory intensive!). To start tracking computations on a vector, set the ~.requires_grad~ attribute to ~True~:
+
+#+BEGIN_src python
+x = torch.rand(3, 7, requires_grad = True)
+print(x)
+#+END_src
+
+** The ~grad_fun~ attribute
+
+
+
+** Judicious tracking
+
+You don't want to track more than is necessary. There are multiple ways to avoid tracking what you don't want to.
+
+You can simply stop tracking computations on a tensor:
+
+#+BEGIN_src python
+
+#+END_src
+
+You can change its ~requires_grad~ flag:
+
+#+BEGIN_src python
+
+#+END_src
+
+Alternatively, you can wrap any code you don't want to track with ~with torch.no_grad():~
+
+#+BEGIN_src python
+with torch.no_grad():
+    
+#+END_src
+
+* Calculating gradients
+
+After you have performed a number of operations on ~x~ and obtained a final object (let's call it ~loss~ since in the context of neural networks, the loss function is the starting place of the backpropagation process), you calculate the gradient of any object ~y~ with:
+
+#+BEGIN_src python
+loss.backward()
+print(y.grad)
+#+END_src
+
+* Example
+
+Let's go over a simple example.
+
+#+BEGIN_src python
+import torch
+import random
+
+y = torch.tensor(random.choices(range(10), k = 50),
+                 dtype = torch.float)
+print(y)
+
+y_pred = torch.tensor(random.choices(range(10), k = 50),
+                      dtype = torch.float, requires_grad = True)
+print(y_pred)
+
+loss = (y_pred - y).pow(2).sum()
+
+loss.backward()
+print(y_pred.grad)
+
+manual_grad_y_pred = 2.0 * (y_pred - y)
+print(manual_grad_y_pred)
+
+print(manual_grad_y_pred.eq(y_pred.grad).all())
+#+END_src
+
 * Comments & questions
