@@ -1,20 +1,19 @@
 import torch
-import random
 
-y = torch.tensor(random.choices(range(10), k = 50),
-                 dtype = torch.float)
-print(y)
+real = torch.rand(3, 8)
+print(real)
 
-y_pred = torch.tensor(random.choices(range(10), k = 50),
-                      dtype = torch.float, requires_grad = True)
-print(y_pred)
+predicted = torch.rand(3, 8, requires_grad = True)
+print(predicted)
 
-loss = (y_pred - y).pow(2).sum()
+loss = (predicted - real).pow(2).sum()
+
+with torch.no_grad():
+    manual_gradient_predicted = 2.0 * (predicted - real)
+print(manual_gradient_predicted)
 
 loss.backward()
-print(y_pred.grad)
+auto_gradient_predicted = predicted.grad
+print(auto_gradient_predicted)
 
-manual_grad_y_pred = 2.0 * (y_pred - y)
-print(manual_grad_y_pred)
-
-print(manual_grad_y_pred.eq(y_pred.grad).all())
+print(manual_gradient_predicted.eq(auto_gradient_predicted).all())
