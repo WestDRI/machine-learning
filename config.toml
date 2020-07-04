@@ -88,7 +88,7 @@ canonifyurls = true
   # name = "📓"
   name = "School"
   weight = 3
-  url  = "https://wgschool.netlify.app/ml/"
+  url  = "https://wgschool.netlify.app/mlremake/"
 [[menu.main]]
   # name = "🏠"
   name = "📚"
