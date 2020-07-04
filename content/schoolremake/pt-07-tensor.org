@@ -236,6 +236,34 @@ print(x[3, :])
 print(x[2, 3])
 #+END_src
 
+* Reshaping
+
+You can change the shape and size of a tensor with the method ~view~:
+
+/Note: your new tensor needs to have the same number of elements as the old one!/
+
+#+BEGIN_src python
+print(x.view(4, 5))
+print(x.view(1, 20))
+print(x.view(20, 1))
+#+END_src
+
+You can even change the number of dimensions:
+
+#+BEGIN_src python
+print(x.view(20))
+print(x.view(20, 1, 1))
+print(x.view(1, 20, 1, 1))
+#+END_src
+
+When you set the size in one dimension to ~-1~, it is automatically calculated:
+
+#+BEGIN_src python
+print(x.view(10, -1))
+print(x.view(5, -1))
+print(x.view(-1, 1))
+#+END_src
+
 * GPU
 
 Tensors can be sent to a device (CPU or GPU) with the ~to~ method:
@@ -246,6 +274,6 @@ x.to('cpu')
 x.to('cuda')
 #+END_src
 
-Of course, if you don't have GPUs, that last one won't work...
+Of course, if you don't have GPUs, that last one won't work.
 
 * Comments & questions
