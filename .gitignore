@@ -15,3 +15,7 @@ content/schoolremake/etherpad.org
 static/src/schoolremake/unused/mnist_hogwild.py
 static/src/schoolremake/unused/train.py
 static/src/schoolremake/unused/two_layer_net_tensor.py
+static/img/school/unused/digit.png
+static/img/school/unused/neuron_grayanatomy_nw.png
+static/img/school/unused/relu.png
+static/img/school/unused/softmax.png
