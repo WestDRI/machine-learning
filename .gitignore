@@ -12,3 +12,6 @@ static/src/school/simple_example.py
 data/
 runs/
 content/schoolremake/etherpad.org
+static/src/schoolremake/unused/mnist_hogwild.py
+static/src/schoolremake/unused/train.py
+static/src/schoolremake/unused/two_layer_net_tensor.py
