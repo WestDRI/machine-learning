@@ -13,7 +13,7 @@ After watching the last two videos, you may be starting to panic: how hard will 
 PyTorch does not track all the computations on all the tensors (this would be extremely memory intensive!). To start tracking computations on a vector, set the ~.requires_grad~ attribute to ~True~:
 
 #+BEGIN_src python
-x = torch.rand(3, 7, requires_grad = True)
+x = torch.rand(3, 7, requires_grad=True)
 print(x)
 #+END_src
 
@@ -22,7 +22,7 @@ print(x)
 Whenever a tensor is created by an operation involving a tracked tensor, it has a ~grad_fun~ attribute:
 
 #+BEGIN_src python
-x = torch.ones(2, 4, requires_grad = True)
+x = torch.ones(2, 4, requires_grad=True)
 print(x)
 y = x + 1
 print(y)
@@ -36,7 +36,7 @@ You don't want to track more than is necessary. There are multiple ways to avoid
 You can simply stop tracking computations on a tensor with the method ~detach~:
 
 #+BEGIN_src python
-x = torch.rand(4, 3, requires_grad = True)
+x = torch.rand(4, 3, requires_grad=True)
 print(x)
 print(x.detach_())
 #+END_src
@@ -44,7 +44,7 @@ print(x.detach_())
 You can change its ~requires_grad~ flag:
 
 #+BEGIN_src python
-x = torch.rand(4, 3, requires_grad = True)
+x = torch.rand(4, 3, requires_grad=True)
 print(x)
 print(x.requires_grad_(False))
 #+END_src
@@ -83,7 +83,7 @@ import torch
 real = torch.rand(3, 8)
 print(real)
 
-predicted = torch.rand(3, 8, requires_grad = True)
+predicted = torch.rand(3, 8, requires_grad=True)
 print(predicted)
 #+END_src
 

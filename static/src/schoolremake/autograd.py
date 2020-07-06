@@ -3,7 +3,7 @@ import torch
 real = torch.rand(3, 8)
 print(real)
 
-predicted = torch.rand(3, 8, requires_grad = True)
+predicted = torch.rand(3, 8, requires_grad=True)
 print(predicted)
 
 loss = (predicted - real).pow(2).sum()

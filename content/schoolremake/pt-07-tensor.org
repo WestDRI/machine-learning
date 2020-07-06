@@ -207,7 +207,7 @@ PyTorch has a {{<b>}}dtype{{</b>}} class similar to that of NumPy.
 You can assign a data type to a tensor when you create it:
 
 #+BEGIN_src python
-x = torch.rand(2, 4, dtype = torch.float64)
+x = torch.rand(2, 4, dtype=torch.float64)
 #+END_src
 
 To check the data type of a tensor:
