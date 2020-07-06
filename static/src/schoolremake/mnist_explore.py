@@ -8,20 +8,20 @@ device = torch.device('cpu')
 # * Prepare data
 
 train = datasets.MNIST(
-    './data',
+    '~/parvus/pwg/wtm/tml/data',
     # '~/projects/def-sponsor00/data',
-    train = True,
-    download = True,
-    transform = transforms.Compose([
+    train=True,
+    download=True,
+    transform=transforms.Compose([
         transforms.ToTensor(),
         transforms.Normalize((0.1307,), (0.3081,))]))
 
 test = datasets.MNIST(
-    './data',
+    '~/parvus/pwg/wtm/tml/data',
     # '~/projects/def-sponsor00/data',
-    train = False,
-    download = False,
-    transform = transforms.Compose([
+    train=False,
+    download=False,
+    transform=transforms.Compose([
         transforms.ToTensor(),
         transforms.Normalize((0.1307,), (0.3081,))]))
 
@@ -63,10 +63,10 @@ plt.savefig('img.png')
 
 train_loader = torch.utils.data.DataLoader(
     train,
-    batch_size = 4,
-    shuffle = True)
+    batch_size=4,
+    shuffle=True)
 
 test_loader = torch.utils.data.DataLoader(
     test,
-    batch_size = 4,
-    shuffle = False)
+    batch_size=4,
+    shuffle=False)
