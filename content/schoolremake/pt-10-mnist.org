@@ -245,22 +245,22 @@ test_loader = torch.utils.data.DataLoader(
 
 ** Plot a full batch of images with their labels
 
-Now that we have passed our data through ~DataLoader~, it is easy to select one batch from it.
+Now that we have passed our data through ~DataLoader~, it is easy to select one batch from it. Let's plot an entire batch of images with their labels.
 
-Let's plot an entire batch of images with their labels:
+First, we need to get one batch of training images and their labels:
 
 #+BEGIN_src python
-# get one batch of training images
 dataiter = iter(train_loader)
 batchimg, batchlabel = dataiter.next()
+#+END_src
 
-# plot the images and their label in that batch
+Then, we can plot them:
+
+#+BEGIN_src python
 batchplot = plt.figure()
 for i in torch.arange(20):
     sub = batchplot.add_subplot(2, 10, i+1, xticks=[], yticks=[])
     sub.imshow(torch.squeeze(batchimg[i]), cmap='gray')
-    # print out the correct label for each image
-    # .item() gets the value contained in a Tensor
     sub.set_title(str(batchlabel[i].item()))
 batchplot.savefig('batchplot.png')
 #+END_src
