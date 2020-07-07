@@ -197,6 +197,32 @@ This is what that first image looks like:
 
 And indeed, it matches the first label we explored earlier (~train[0][1]~).
 
+** Plot one image with its pixel values
+
+We can plot it with more details by showing the value of each pixel in the image:
+
+#+BEGIN_src python
+imgpxplot = plt.figure(figsize = (12,12))
+sub = imgpxplot.add_subplot(111)
+sub.imshow(imgpx, cmap='gray')
+width, height = imgpx.shape
+thresh = imgpx.max() / 2.5
+for x in range(width):
+    for y in range(height):
+        val = round(imgpx[x][y].item(), 1) if imgpx[x][y].item() !=0 else 0
+        sub.annotate(str(val), xy=(y, x),
+                    horizontalalignment='center',
+                    verticalalignment='center',
+                    color='white' if imgpx[x][y].item() < thresh else 'black')
+
+imgpxplot.savefig('imgpx.png')
+#+END_src
+
+And this is what we get:
+
+{{<img src="/img/school/imgpx_nw.png" title="" width="%" line-height="0.5rem">}}
+{{</img>}}
+
 ** Pass the data through ~DataLoader~
 
 PyTorch provides the [[https://pytorch.org/docs/stable/data.html?highlight=dataloader#module-torch.utils.data][torch.utils.data.DataLoader]] class which combines a dataset and an optional sampler and provides an iterable (while training or testing our neural network, we will iterate over that object). It allows, [[https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.DataLoader][among many other things]], to set the batch size and shuffle the data.
