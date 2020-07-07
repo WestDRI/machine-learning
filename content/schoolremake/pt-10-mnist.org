@@ -198,7 +198,7 @@ And indeed, it matches the first label we explored earlier (~train[0][1]~).
 
 ** Plot one image with its pixel values
 
-We can plot it with more details by showing the value of each pixel in the image:
+We can plot it with more details by showing the value of each pixel in the image. One little twist is that we need to pick a threshold value below which we print the pixel values in white otherwise they would not be visible (black on near black background). We also round the pixel values to one decimal digit so as not to clutter the result.
 
 #+BEGIN_src python
 imgpxplot = plt.figure(figsize = (12, 12))
@@ -208,7 +208,7 @@ width, height = imgpx.shape
 thresh = imgpx.max() / 2.5
 for x in range(width):
     for y in range(height):
-        val = round(imgpx[x][y].item(), 1) if imgpx[x][y].item() !=0 else 0
+        val = round(imgpx[x][y].item(), 1)
         sub.annotate(str(val), xy=(y, x),
                     horizontalalignment='center',
                     verticalalignment='center',

@@ -63,7 +63,7 @@ width, height = img.shape
 thresh = img.max() / 2.5
 for x in range(width):
     for y in range(height):
-        val = round(img[x][y].item(), 1) if img[x][y].item() !=0 else 0
+        val = round(img[x][y].item(), 1)
         sub.annotate(str(val), xy=(y, x),
                     horizontalalignment='center',
                     verticalalignment='center',
