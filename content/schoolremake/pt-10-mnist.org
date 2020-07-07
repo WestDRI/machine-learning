@@ -192,7 +192,7 @@ scp userxxx@uu.c3.ca:<path/to/img.png> <path/where/you/want/to/copy/it>
 
 This is what that first image looks like:
 
-{{<img src="/img/school/img.png" title="" width="%" line-height="0.5rem">}}
+{{<img src="/img/school/img_nw.png" title="" width="%" line-height="0.5rem">}}
 {{</img>}}
 
 And indeed, it matches the first label we explored earlier (~train[0][1]~).
