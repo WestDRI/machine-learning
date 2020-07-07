@@ -87,10 +87,10 @@ dataiter = iter(train_loader)
 batchimg, batchlabel = dataiter.next()
 
 # plot the images and their label in that batch
-batchplot = plt.figure()
+batchplot = plt.figure(figsize=(20, 5))
 for i in torch.arange(20):
     sub = batchplot.add_subplot(2, 10, i+1, xticks=[], yticks=[])
     sub.imshow(torch.squeeze(batchimg[i]), cmap='gray')
-    sub.set_title(str(batchlabel[i].item()))
+    sub.set_title(str(batchlabel[i].item()), fontsize=25)
 batchplot.show()
 # batchplot.savefig('batch.png', bbox_inches='tight')

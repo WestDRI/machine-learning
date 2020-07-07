@@ -256,11 +256,11 @@ batchimg, batchlabel = dataiter.next()
 Then, we can plot them:
 
 #+BEGIN_src python
-batchplot = plt.figure()
+batchplot = plt.figure(figsize=(20, 5))
 for i in torch.arange(20):
     sub = batchplot.add_subplot(2, 10, i+1, xticks=[], yticks=[])
     sub.imshow(torch.squeeze(batchimg[i]), cmap='gray')
-    sub.set_title(str(batchlabel[i].item()))
+    sub.set_title(str(batchlabel[i].item()), fontsize=25)
 batchplot.savefig('batchplot.png')
 #+END_src
 
