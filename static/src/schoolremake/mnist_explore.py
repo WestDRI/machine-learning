@@ -2,28 +2,24 @@ import torch
 from torchvision import datasets, transforms
 from matplotlib import pyplot as plt
 
-# To run on GPU, replace 'cpu' by 'cuda'
-device = torch.device('cpu')
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # * Prepare data
 
-train = datasets.MNIST(
-    '~/parvus/pwg/wtm/tml/data',
-    # '~/projects/def-sponsor00/data',
-    train=True,
-    download=True,
-    transform=transforms.Compose([
+transform = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize((0.1307,), (0.3081,))]))
+        transforms.Normalize((0.1307,), (0.3081,))
+    ])
 
-test = datasets.MNIST(
+train_data = datasets.MNIST(
     '~/parvus/pwg/wtm/tml/data',
     # '~/projects/def-sponsor00/data',
-    train=False,
-    download=False,
-    transform=transforms.Compose([
-        transforms.ToTensor(),
-        transforms.Normalize((0.1307,), (0.3081,))]))
+    train=True, download=True, transform=transform)
+
+test_data = datasets.MNIST(
+    '~/parvus/pwg/wtm/tml/data',
+    # '~/projects/def-sponsor00/data',
+    train=False, transform=transform)
 
 # * Explore data
 
@@ -51,22 +47,18 @@ print(train.data.size())
 print(train.targets)
 print(train.targets.size())
 
-# * Print one image
+# * Plot one image
 
-print(img = train[0][0])
-print(img = img.view(28, 28))
+img = train_data[0][0]
+img = img.view(28, 28)
 plt.imshow(img, cmap='gray')
-# plt.show()
-plt.savefig('img.png')
+plt.show()
+# plt.savefig('img.png', bbox_inches='tight')
 
 # * DataLoader
 
 train_loader = torch.utils.data.DataLoader(
-    train,
-    batch_size=4,
-    shuffle=True)
+    train_data, batch_size=20, shuffle=True)
 
 test_loader = torch.utils.data.DataLoader(
-    test,
-    batch_size=4,
-    shuffle=False)
+    test_data, batch_size=20, shuffle=False)
