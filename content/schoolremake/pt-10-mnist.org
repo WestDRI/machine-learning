@@ -170,11 +170,10 @@ Then explore the {{<b>}}test{{</b>}} object.
 
 For this, we will use ~pyplot~ from ~matplotlib~.
 
-First, we select the image of the first pair and we resize it from 3 to 2 dimensions with ~torch.view~:
+First, we select the image of the first pair and we resize it from 3 to 2 dimensions by removing its dimension of size 1 with ~torch.squeeze~:
 
 #+BEGIN_src python
-img = train[0][0]
-img = img.view(28, 28)
+img = torch.squeeze(train_data[0][0])
 #+END_src
 
 Then, we plot it with ~pyplot~, but since we are in a cluster, instead of showing it to screen with ~plt.show()~, we save it to file:
@@ -202,7 +201,7 @@ And indeed, it matches the first label we explored earlier (~train[0][1]~).
 We can plot it with more details by showing the value of each pixel in the image:
 
 #+BEGIN_src python
-imgpxplot = plt.figure(figsize = (12,12))
+imgpxplot = plt.figure(figsize = (12, 12))
 sub = imgpxplot.add_subplot(111)
 sub.imshow(imgpx, cmap='gray')
 width, height = imgpx.shape

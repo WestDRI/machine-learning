@@ -49,15 +49,14 @@ print(train.targets.size())
 
 # * Plot one image
 
-img = train_data[0][0]
-img = img.view(28, 28)
+img = torch.squeeze(train_data[0][0])
 plt.imshow(img, cmap='gray')
 plt.show()
 # plt.savefig('img.png', bbox_inches='tight')
 
 # ** Plot one image with its pixel values
 
-imgplot = plt.figure(figsize = (12,12))
+imgplot = plt.figure(figsize = (12, 12))
 sub = imgplot.add_subplot(111)
 sub.imshow(img, cmap='gray')
 width, height = img.shape
