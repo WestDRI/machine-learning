@@ -51,14 +51,20 @@ Since our training cluster does not have GPUs, we are setting the device argumen
 device = torch.device('cpu')
 #+END_src
 
-#+BEGIN_simplebox
-/Note:/ {{<s>}}If you have a CUDA-enabled GPU on your computer and [[https://westgrid-ml.netlify.app/schoolremake/pt-03-local.html][if you are running the code locally]], you can run:
+If you have a CUDA-enabled GPU on your computer and [[https://westgrid-ml.netlify.app/schoolremake/pt-03-local.html][if you are running the code locally]], you can run:
 
 #+BEGIN_src python
-device = torch.device('cuda')
+device = torch.device('cuda:0')
 #+END_src
 
 This is also what you will want to use when running jobs on the Compute Canada clusters.
+
+#+BEGIN_simplebox
+More elegantly, you can write a conditional:
+
+#+BEGIN_src python
+device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+#+END_src
 #+END_simplebox
 
 * Get and prepare the MNIST data
