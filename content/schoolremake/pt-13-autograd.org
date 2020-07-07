@@ -10,9 +10,13 @@ After watching the last two videos, you may be starting to panic: how hard will 
 
 * Tracking computations
 
+/Note: if you want to run the code in the training cluster, as always, submit a batch job to Slurm or do it in an interactive job (with ~salloc~)./
+
 PyTorch does not track all the computations on all the tensors (this would be extremely memory intensive!). To start tracking computations on a vector, set the ~.requires_grad~ attribute to ~True~:
 
 #+BEGIN_src python
+import torch
+
 x = torch.rand(3, 7, requires_grad=True)
 print(x)
 #+END_src
@@ -67,8 +71,6 @@ print(y.grad)
 
 * Example
 
-/Note: if you want to run this example in the training cluster, as always, submit a batch job to Slurm or do it in an interactive job (with ~salloc~)./
-
 Let's go over a simple example:
 - let ~real~ be the tensor of some real values
 - let ~predicted~ be the tensor given by some model trying to predict these real values after an iteration
@@ -78,8 +80,6 @@ We will calculate the first derivative (first step of the backpropagation) manua
 Let's fill ~real~ and ~predicted~ with random values since we don't have a real situation with a real network (but let's make sure to start recording the history of computations performed on ~predicted~):
 
 #+BEGIN_src python
-import torch
-
 real = torch.rand(3, 8)
 print(real)
 
