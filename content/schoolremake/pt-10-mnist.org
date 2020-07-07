@@ -77,33 +77,38 @@ You can download the dataset directly from [[http://yann.lecun.com/exdb/mnist/][
 
 ** Training data
 
-Download, transform to tensor, and normalize the training MNIST training data:
+Now, we will download the MNIST training data, transform it to tensor, and normalize it.
+
+First, let's define a transformation (the mean and standard deviation of the MNIST training data are 0.1307 and 0.3081 respectively, hence these values):
 
 #+BEGIN_src python
-train = datasets.MNIST(
-    '~/projects/def-sponsor00/data',
-    train=True,
-    download=True,
-    transform=transforms.Compose([
+transform = transforms.Compose([
         transforms.ToTensor(),
-        transforms.Normalize((0.1307,), (0.3081,))]))
+        transforms.Normalize((0.1307,), (0.3081,))
+    ])
 #+END_src
 
-The mean and standard deviation of the data are 0.1307 and 0.3081 respectively, which is why we are using these values to normalize the it.
+Then we can download and transform it:
+
+#+BEGIN_src python
+train_data = datasets.MNIST(
+    '~/projects/def-sponsor00/data',
+    train=True, download=True, transform=transform)
+#+END_src
+
+~train=True~ selects the training set of the MNIST.
 
 ** Test data
 
-We then do the same with the test data:
+We then do the same with the test data (even though the mean and std of the test data are slightly different, we want to normalize it in the same way):
 
 #+BEGIN_src python
-test = datasets.MNIST(
+test_data = datasets.MNIST(
     '~/projects/def-sponsor00/data',
-    train=False,
-    download=False,
-    transform=transforms.Compose([
-        transforms.ToTensor(),
-        transforms.Normalize((0.1307,), (0.3081,))]))
+    train=False, transform=transform)
 #+END_src
+
+Notice that here, we use ~train=False~ to select the test set.
 
 * Explore the data
 
@@ -165,7 +170,7 @@ Then explore the {{<b>}}test{{</b>}} object.
 
 For this, we will use ~pyplot~ from ~matplotlib~.
 
-First, we select the image of the first pair and we resize it with ~torch.view~:
+First, we select the image of the first pair and we resize it from 3 to 2 dimensions with ~torch.view~:
 
 #+BEGIN_src python
 img = train[0][0]
