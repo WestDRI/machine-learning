@@ -31,40 +31,6 @@ train_loader = torch.utils.data.DataLoader(
 test_loader = torch.utils.data.DataLoader(
     test, batch_size=20, shuffle=False)
 
-# get one batch of training images
-dataiter = iter(train_loader)
-batchimg, batchlbl = dataiter.next()
-
-# plot the images and their label in that batch
-batchplot = plt.figure()
-for i in torch.arange(20):
-    sub = batchplot.add_subplot(2, 10, i+1, xticks=[], yticks=[])
-    sub.imshow(torch.squeeze(batchimg[i]), cmap='gray')
-    # print out the correct label for each image
-    # .item() gets the value contained in a Tensor
-    sub.set_title(str(batchlbl[i].item()))
-batchplot.show()
-# batchplot.savefig('batchplot.png')
-
-# plot a single image with its pixel values
-single = torch.squeeze(batchimg[4])
-
-singleplot = plt.figure()
-sub = singleplot.add_subplot(111)
-sub.imshow(single, cmap='gray')
-width, height = single.shape
-thresh = single.max() / 2.5
-for x in range(width):
-    for y in range(height):
-        val = round(single[x][y].item(), 1) if single[x][y].item() !=0 else 0
-        sub.annotate(str(val), xy=(y, x),
-                    horizontalalignment='center',
-                    verticalalignment='center',
-                    color='white' if single[x][y].item() < thresh else 'black')
-
-singleplot.show()
-# singleplot.savefig('single.png')
-
 # define the network architecture
 class Net(nn.Module):
     def __init__(self):
