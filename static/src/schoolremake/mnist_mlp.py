@@ -7,7 +7,7 @@ import torch.optim as optim
 from torchvision import datasets, transforms
 from matplotlib import pyplot as plt
 
-device = torch.device("cuda" if use_cuda else "cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 transform = transforms.Compose([
         transforms.ToTensor(),
