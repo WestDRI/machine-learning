@@ -15,14 +15,14 @@ transform = transforms.Compose([
     ])
 
 train_data = datasets.MNIST(
-        '~/parvus/pwg/wtm/tml/data',
-        # '~/projects/def-sponsor00/data',
-        train=True, download=True, transform=transform)
+    '~/parvus/pwg/wtm/tml/data',
+    # '~/projects/def-sponsor00/data',
+    train=True, download=True, transform=transform)
 
-    test_data = datasets.MNIST(
-        '~/parvus/pwg/wtm/tml/data',
-        # '~/projects/def-sponsor00/data',
-        train=False, transform=transform)
+test_data = datasets.MNIST(
+    '~/parvus/pwg/wtm/tml/data',
+    # '~/projects/def-sponsor00/data',
+    train=False, transform=transform)
 
 # prepare data loaders
 train_loader = torch.utils.data.DataLoader(
