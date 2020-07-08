@@ -26,10 +26,10 @@ test_data = datasets.MNIST(
 
 # prepare data loaders
 train_loader = torch.utils.data.DataLoader(
-    train, batch_size=20, shuffle=True)
+    train_data, batch_size=20, shuffle=True)
 
 test_loader = torch.utils.data.DataLoader(
-    test, batch_size=20, shuffle=False)
+    test_data, batch_size=20, shuffle=False)
 
 # define the network architecture
 class Net(nn.Module):
