@@ -269,4 +269,8 @@ We get:
 {{<img src="/img/school/batch_nw.png" title="" width="%" line-height="0.5rem">}}
 {{</img>}}
 
+* Acknowledgements
+
+This lesson drew heavily on [[https://github.com/iam-mhaseeb/Multi-Layer-Perceptron-MNIST-with-PyTorch][a model]] by [[https://github.com/iam-mhaseeb][Muhammad Haseeb]].
+
 * Comments & questions
