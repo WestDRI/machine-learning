@@ -10,7 +10,7 @@ With the growing popularity of machine learning, many frameworks have appeared i
 
 There are a several points you might want to consider in making that choice. For instance, what tools do people use in your field? (what tools are used in the papers you read?) What tools are your colleagues and collaborators using?
 
-Looking a bit further into the future, whether you are considering staying in academia, or work in industry could also influence your choice. If the former, paying attention to the literature is key, if the latter, it may be good to have a look at [[https://www.infoworld.com/article/3518453/interested-in-machine-learning-better-learn-pytorch.html][the trends in job postings]].
+Looking a bit further into the future, whether you are considering staying in academia or working in industry could also influence your choice. If the former, paying attention to the literature is key, if the latter, it may be good to have a look at [[https://www.infoworld.com/article/3518453/interested-in-machine-learning-better-learn-pytorch.html][the trends in job postings]].
 
 Some frameworks offer collections of already-made toolkits. They are thus easy to start using and do not require a lot of programming experience. On the other hand, they may feel like black boxes and they are not very customizable. [[https://scikit-learn.org/stable/][Scikit-learn]] and [[https://keras.io/][Keras]]—usually run on top of TensorFlow—fall in that category. Lower level tools allow you full control and tuning of your models, but can come with a steeper learning curve.
 
