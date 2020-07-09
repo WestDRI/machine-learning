@@ -54,7 +54,7 @@ It is often impossible to see the source code of proprietary software.
 
 *** Long-term access
 
-It is often very difficult to have access to old versions of proprietary tools (and this can be necessary to reproduce old studies). When companies disappear, the tools they produced usually disappear with them. Open source tools, particularly those who have their code under version control in repositories such as GitHub, all stages of development remain fully accessible, and if they get abandoned, their maintenance can be taken over or restarted by others.
+It is often very difficult to have access to old versions of proprietary tools (and this can be necessary to reproduce old studies). When companies disappear, the tools they produced usually disappear with them. Open source tools, particularly those who have their code under version control in repositories such as GitHub, remain fully accessible (including all stages of development), and if they get abandoned, their maintenance can be taken over or restarted by others.
 
 *** The licenses you have access to may be limiting and a cause of headache
 
