@@ -114,43 +114,43 @@ Notice that here, we use ~train=False~ to select the test set.
 
 ** Inspect the data
 
-First, let's check the size of ~train~:
+First, let's check the size of ~train_data~:
 
 #+BEGIN_src python
-print(len(train))
+print(len(train_data))
 #+END_src
 
-OK, that makes sense since the MNIST's training set has 60,000 pairs. ~train~ has 60,000 elements and we should expect each element to be of size 2 since it is a pair. Let's double-check with the first element:
+OK, that makes sense since the MNIST's training set has 60,000 pairs. ~train_data~ has 60,000 elements and we should expect each element to be of size 2 since it is a pair. Let's double-check with the first element:
 
 #+BEGIN_src python
-print(len(train[0]))
+print(len(train_data[0]))
 #+END_src
 
 OK. So far, so good. We can print that first pair:
 
 #+BEGIN_src python
-print(train[0])
+print(train_data[0])
 #+END_src
 
 And you can see that it is a tuple with:
 
 #+BEGIN_src python
-print(type(train[0]))
+print(type(train_data[0]))
 #+END_src
 
 What is that tuple made of?
 
 #+BEGIN_src python
-print(type(train[0][0]))
-print(type(train[0][1]))
+print(type(train_data[0][0]))
+print(type(train_data[0][1]))
 #+END_src
 
-It is made of the tensor for the first image (remember that we transformed the images into tensors when we created the objects ~train~ and ~test~) and the integer of the first label (which you can see is 5 when you print ~train[0][1]~).
+It is made of the tensor for the first image (remember that we transformed the images into tensors when we created the objects ~train_data~ and ~test_data~) and the integer of the first label (which you can see is 5 when you print ~train_data[0][1]~).
 
-So since ~train[0][0]~ is the tensor representing the image of the first pair, let's check its size:
+So since ~train_data[0][0]~ is the tensor representing the image of the first pair, let's check its size:
 
 #+BEGIN_src python
-print(train[0][0].size())
+print(train_data[0][0].size())
 #+END_src
 
 That makes sense: a color image would have 3 layers of RGB values (so the size in the first dimension would be 3), but because the MNIST has black and white images, there is a single layer of values—the values of each pixel on a gray scale—so the first dimension has a size of 1. The 2nd and 3rd dimensions correspond to the width and length of the image in pixels, hence 28 and 28.
@@ -158,12 +158,12 @@ That makes sense: a color image would have 3 layers of RGB values (so the size i
 {{<exercise>}}
 Run the following:
 <pre>
-print(train[0][0][0])
-print(train[0][0][0][0])
-print(train[0][0][0][0][0])
+print(train_data[0][0][0])
+print(train_data[0][0][0][0])
+print(train_data[0][0][0][0][0])
 </pre>
 And think about what each of them represents.<br><br>
-Then explore the {{<b>}}test{{</b>}} object.
+Then explore the {{<b>}}test_data{{</b>}} object.
 {{</exercise>}}
 
 ** Plot an image from the data
@@ -194,7 +194,7 @@ This is what that first image looks like:
 {{<img src="/img/school/img_nw.png" title="" width="%" line-height="0.5rem">}}
 {{</img>}}
 
-And indeed, it matches the first label we explored earlier (~train[0][1]~).
+And indeed, it matches the first label we explored earlier (~train_data[0][1]~).
 
 ** Plot one image with its pixel values
 
