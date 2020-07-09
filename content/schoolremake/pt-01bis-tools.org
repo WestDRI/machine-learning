@@ -18,7 +18,7 @@ This course will focus on [[https://pytorch.org/][PyTorch]], developed by Facebo
 
 The most popular machine learning library currently remains [[https://www.tensorflow.org/][TensorFlow]], developed by the Google Brain Team. While it has a Python API, its syntax can be more obscure.
 
-[[https://julialang.org/][Julia]]’s syntax is well suited for the implementation of mathematical models, GPU kernels can be written directly in Julia, and Julia’s speed is attractive in computation hungry fields. So Julia has also seen the development of many ML packages, such as [[https://github.com/FluxML/Flux.jl][Flux]] or [[https://github.com/denizyuret/Knet.jl][Knet]]. The user base of Julia remains quite small however.
+[[https://julialang.org/][Julia]]’s syntax is well suited for the implementation of mathematical models, GPU kernels can be written directly in Julia, and Julia’s speed is attractive in computation hungry fields. So Julia has also seen the development of many ML packages such as [[https://github.com/FluxML/Flux.jl][Flux]] or [[https://github.com/denizyuret/Knet.jl][Knet]]. The user base of Julia remains quite small however.
 
 My main motivation in writing this section however is to raise awareness about one question that *should really be considered in the question of which tool to choose*: whether the tool you decide to learn and use in your research is open source or proprietary.
 
@@ -34,7 +34,7 @@ Here are some of the reasons you should be wary of proprietary tools:
 
 *** Researchers who do not have access to the tool cannot reproduce your methods
 
-Large Canadian universities may offer a license for the tool, but grad students in other countries, independent researchers, researchers in small organizations, etc. may not have access to a free license (or tens of thousands of dollars to pay for them).
+Large Canadian universities may offer a license for the tool, but grad students in other countries, independent researchers, researchers in small organizations, etc. may not have access to a free license (or tens of thousands of dollars to pay for it).
 
 *** Once you graduate, you may not have access to the tool anymore
 
@@ -42,7 +42,7 @@ Once you leave your Canadian institution, you may become one of those researcher
 
 *** Your university may stop paying for a license
 
-As commercial tools fall behind successful open source ones, some universities may decide to stop purchasing a license. It happened during my years at SFU with an expensive and clunky citation tool which, after having been promoted for years by the library through countless workshops, got interrupted.
+As commercial tools fall behind successful open source ones, some universities may decide to stop purchasing a license. It happened during my years at SFU with an expensive and clunky citation tool which, after having been promoted for years by the library through countless workshops, got abandoned in favour of a much better free and open source one.
 
 *** You may get locked-in
 
@@ -58,7 +58,7 @@ It is often very difficult to have access to old versions of proprietary tools (
 
 *** The licenses you have access to may be limiting and a cause of headache
 
-For instance, Compute Canada does not have an unlimited number of MATLAB licenses. Since these licenses come with complex rules (one license needed for each node, additional licenses for each toolbox, additional licenses for newer tools, etc.), it can quickly become a nightmare to navigate through it all. You may want to have a look at [[https://www.reddit.com/r/deeplearning/comments/g82lr9/matlab_vs_pytorch_vector_operations_on_gpu_which/][some of the comments on this thread]].
+For instance, Compute Canada does not have an unlimited number of MATLAB licenses. Since these licenses come with complex rules (one license needed for each node, additional licenses for each toolbox, additional licenses for newer tools, etc.), it can quickly become a nightmare to navigate through it all. You may want to have a look at [[https://www.reddit.com/r/deeplearning/comments/g82lr9/matlab_vs_pytorch_vector_operations_on_gpu_which/][some of the comments in this thread]].
 
 *** Proprietary tools fall behind popular open source tools
 
