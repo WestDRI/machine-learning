@@ -38,9 +38,9 @@ $ python
 * Load Python modules
 
 #+BEGIN_src python
+from matplotlib import pyplot as plt
 import torch
 from torchvision import datasets, transforms
-from matplotlib import pyplot as plt
 #+END_src
 
 * Set the device argument to CPU
