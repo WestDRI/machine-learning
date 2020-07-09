@@ -2,7 +2,7 @@
 #+description: Practice
 #+colordes: #dc7309
 #+slug: pt-13-autograd
-#+weight: 13
+#+weight: 14
 
 After watching the last two videos, you may be starting to panic: how hard will it be to write the chain rule (with so many derivatives!) in backpropagation?!?
 

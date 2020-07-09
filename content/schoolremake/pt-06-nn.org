@@ -2,7 +2,7 @@
 #+description: Video
 #+colordes: #5c8a6f
 #+slug: pt-06-nn
-#+weight: 6
+#+weight: 7
 
 #+OPTIONS: toc:nil
 

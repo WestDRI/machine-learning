@@ -2,7 +2,7 @@
 #+description: (Debug)
 #+colordes: #800040
 #+slug: pt-08-debug
-#+weight: 8
+#+weight: 9
 
 #+OPTIONS: toc:nil
 

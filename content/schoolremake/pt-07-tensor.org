@@ -2,7 +2,7 @@
 #+description: Practice
 #+colordes: #dc7309
 #+slug: pt-07-tensor
-#+weight: 7
+#+weight: 8
 
 PyTorch's central object is the /tensor/. Tensors have many similarities with NumPy's /ndarrays/, but they can be computed on GPUs. They are extremely well suited to build neural networks.
 

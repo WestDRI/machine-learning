@@ -2,7 +2,7 @@
 #+description: Practice
 #+colordes: #dc7309
 #+slug: pt-02-cluster
-#+weight: 2
+#+weight: 3
 
 * Access to the training cluster
 

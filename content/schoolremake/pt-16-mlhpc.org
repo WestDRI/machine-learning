@@ -2,7 +2,7 @@
 #+description: Reading
 #+colordes: #538cc6
 #+slug: pt-16-mlhpc
-#+weight: 16
+#+weight: 17
 
 * GPU(s)
 

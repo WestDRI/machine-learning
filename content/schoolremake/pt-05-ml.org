@@ -2,7 +2,7 @@
 #+description: Reading
 #+colordes: #538cc6
 #+slug: pt-05-ml
-#+weight: 5
+#+weight: 6
 
 Machine learning (ML) can be defined as computer programs whose performance at a task improves with experience.
 

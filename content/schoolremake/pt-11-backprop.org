@@ -2,7 +2,7 @@
 #+description: Video
 #+colordes: #5c8a6f
 #+slug: pt-11-backprop
-#+weight: 11
+#+weight: 12
 
 *This third video (14 min) by [[https://www.3blue1brown.com/][3Blue1Brown]] explains backpropagation.*
 

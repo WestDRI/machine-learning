@@ -2,7 +2,7 @@
 #+description: Reading
 #+colordes: #538cc6
 #+slug: pt-15-distributed
-#+weight: 15
+#+weight: 16
 
 * On using multiple GPUs
 
