@@ -201,20 +201,20 @@ And indeed, it matches the first label we explored earlier (~train_data[0][1]~).
 We can plot it with more details by showing the value of each pixel in the image. One little twist is that we need to pick a threshold value below which we print the pixel values in white otherwise they would not be visible (black on near black background). We also round the pixel values to one decimal digit so as not to clutter the result.
 
 #+BEGIN_src python
-imgpxplot = plt.figure(figsize = (12, 12))
-sub = imgpxplot.add_subplot(111)
-sub.imshow(imgpx, cmap='gray')
-width, height = imgpx.shape
-thresh = imgpx.max() / 2.5
+imgplot = plt.figure(figsize = (12, 12))
+sub = imgplot.add_subplot(111)
+sub.imshow(img, cmap='gray')
+width, height = img.shape
+thresh = img.max() / 2.5
 for x in range(width):
     for y in range(height):
-        val = round(imgpx[x][y].item(), 1)
+        val = round(img[x][y].item(), 1)
         sub.annotate(str(val), xy=(y, x),
                     horizontalalignment='center',
                     verticalalignment='center',
-                    color='white' if imgpx[x][y].item() < thresh else 'black')
+                    color='white' if img[x][y].item() < thresh else 'black')
 
-imgpxplot.savefig('imgpx.png')
+imgplot.savefig('imgpx.png')
 #+END_src
 
 And this is what we get:
