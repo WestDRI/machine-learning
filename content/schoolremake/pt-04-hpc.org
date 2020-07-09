@@ -140,6 +140,31 @@ python $SOURCEDIR/<script>.py $SLURM_TMPDIR/data
 - If you compressed your data with {{<c>}}tar czf{{</c>}}, you need to extract it with {{<c>}}tar xzf{{</c>}}
 - {{<c>}}SBATCH{{</c>}} options marked with a {{<c>}}*{{</c>}} are optional
 - There are various other options for [[https://docs.computecanada.ca/wiki/Running_jobs#Email_notification][email notifications]]
+- You may wonder why we transferred data to a compute node:
+
+This makes any I/O operation involving your data a lot faster, so it will speed up your code.
+
+So first, we create a temporary data directory in {{<b>}}$SLURM_TMPDIR{{</b>}}:
+
+#+BEGIN_src sh
+$ mkdir $SLURM_TMPDIR/data
+#+END_src
+
+#+BEGIN_simplebox
+{{<s>}}The variable {{<b>}}$SLURM_TMPDIR{{</b>}} is created by Slurm on the compute node where a job is running. Its path is {{<b>}}/localscratch/&lt;user&gt;.&lt;jobid&gt;.0{{</b>}}. Anything in it gets deleted when the job is done.
+#+END_simplebox
+
+Then we extract the data into it:
+
+#+BEGIN_src sh
+$ tar xf ~/projects/def-<user>/<data>.tar -C $SLURM_TMPDIR/data
+#+END_src
+
+If your data is not in a tar file, you can simply copy it to the compute node running your job:
+
+#+BEGIN_src sh
+$ cp -r ~/projects/def-<user>/<data> $SLURM_TMPDIR/data
+#+END_src
 
 ** Job handling
 
@@ -159,7 +184,7 @@ $ sq
 {{<b>}}PD{{</b>}} = pending\\
 {{<b>}}R{{</b>}} = running\\
 {{<b>}}CG{{</b>}} = completing (Slurm is doing the closing processes) \\
-No information = your job has finished running.
+No information = your job has finished running
 
 **** Cancel a job
 
