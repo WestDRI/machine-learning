@@ -87,7 +87,8 @@ predicted = torch.rand(3, 8, requires_grad=True)
 print(predicted)
 #+END_src
 
-Several loss functions can be used in machine learning, but let's use the one you saw in the previous video: \(\sum_{}^{} (\text{predicted} - \text{real})^2\).
+Several loss functions can be used in machine learning, but let's use the one you saw in the previous video:
+\[\text{loss}=\sum_{}^{} (\text{predicted} - \text{real})^2\]
 
 #+BEGIN_src python
 loss = (predicted - real).pow(2).sum()
@@ -99,13 +100,15 @@ Here, we will only do the very first step: calculate the derivative of ~predicte
 
 ** Manual derivative calculation
 
-As you saw in the previous video, the formula for this first derivative, with the loss function we used, is: \(2(\text{predicted} - \text{real})\).
+As you saw in the previous video, the formula for this first derivative, with the loss function we used, is:
+\[\text{gradient}_\text{predicted}=2(\text{predicted} - \text{real})\]
 
 There is no point in adding this operation to ~predicted~'s computation history, so we will exclude it with ~with torch.no_grad():~
 
 #+BEGIN_src python
 with torch.no_grad():
     manual_gradient_predicted = 2.0 * (predicted - real)
+
 print(manual_gradient_predicted)
 #+END_src
 
