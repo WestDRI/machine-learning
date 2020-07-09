@@ -60,7 +60,7 @@ criterion = nn.CrossEntropyLoss()
 optimizer = optim.SGD(model.parameters(), lr=0.01)
 
 # number of epochs to train the model
-epochs = 30
+epochs = 20
 
 # prep model for training
 model.train()
