@@ -181,14 +181,4 @@ The first layer of a neural net is the input layer. The last one is the output l
 From <a href="https://xkcd.com/">xkcd.com</a>
 {{</img>}}
 
-* ML implementation
-
-The most popular machine learning libraries (mostly for neural nets) are [[https://pytorch.org/][PyTorch]], developed by Facebook’s AI Research lab and [[https://www.tensorflow.org/][TensorFlow]], developed by the Google Brain Team. Both of them can be used through their Python API or through APIs in other languages.
-
-[[https://julialang.org/][Julia]]’s syntax is well suited for the implementation of mathematical models, GPU kernels can be written directly in Julia, and Julia’s speed is attractive in computation hungry fields. So Julia has also seen the development of many ML packages.
-
-With the growing popularity of machine learning, many other packages and tools are being developed in various languages.
-
-This course will focus on PyTorch.
-
 * Comments & questions
