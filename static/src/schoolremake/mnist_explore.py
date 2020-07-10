@@ -12,13 +12,11 @@ transform = transforms.Compose([
     ])
 
 train_data = datasets.MNIST(
-    '~/parvus/pwg/wtm/tml/data',
-    # '~/projects/def-sponsor00/data',
+    '~/projects/def-sponsor00/data',
     train=True, download=True, transform=transform)
 
 test_data = datasets.MNIST(
-    '~/parvus/pwg/wtm/tml/data',
-    # '~/projects/def-sponsor00/data',
+    '~/projects/def-sponsor00/data',
     train=False, transform=transform)
 
 # * Explore data
