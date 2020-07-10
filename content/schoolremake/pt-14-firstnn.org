@@ -24,6 +24,6 @@ Click to open the slides in a new tab:
 
 * References
 
-The final model in this lesson comes from the PyTorch [[https://github.com/pytorch/examples][examples]] project.
+The final model in this lesson is derived from the PyTorch [[https://github.com/pytorch/examples][examples]] project.
 
 * Comments & questions
