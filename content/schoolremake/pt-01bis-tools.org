@@ -42,7 +42,7 @@ Once you leave your Canadian institution, you may become one of those researcher
 
 *** Your university may stop paying for a license
 
-As commercial tools fall behind successful open source ones, some universities may decide to stop purchasing a license. It happened during my years at SFU with an expensive and clunky citation tool which, after having been promoted for years by the library through countless workshops, got abandoned in favour of a much better free and open source one.
+As commercial tools fall behind successful open source ones, some universities may decide to stop purchasing a license. It happened during my years at SFU with an expensive and clunky citation manager which, after having been promoted for years by the library through countless workshops, got abandoned in favour of a much better free and open source one.
 
 *** You may get locked-in
 
