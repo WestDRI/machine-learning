@@ -109,8 +109,8 @@ Here is an example script:
 #SBATCH --cpus-per-task=<number>      # number of cores
 #SBATCH --gres=gpu:<type>:<number>    # type and number of GPU(s) per node
 #SBATCH --mem=<mem>					  # max memory (default unit is MB) per node
-#SBATCH --output=<%x_%j.out>*		  # file name for the output
-#SBATCH --error=<%x_%j.err>*		  # file name for errors
+#SBATCH --output=%x_%j.out*		  # file name for the output
+#SBATCH --error=%x_%j.err*		  # file name for errors
 #SBATCH --mail-user=<email_address>*
 #SBATCH --mail-type=ALL*
 

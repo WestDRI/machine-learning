@@ -1,6 +1,6 @@
+from matplotlib import pyplot as plt
 import torch
 from torchvision import datasets, transforms
-from matplotlib import pyplot as plt
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
@@ -21,29 +21,29 @@ test_data = datasets.MNIST(
 
 # * Explore data
 
-print(len(train))
+print(len(train_data))
 
-print(train[0])
-print(len(train[0]))
-print(type(train[0]))
+print(train_data[0])
+print(len(train_data[0]))
+print(type(train_data[0]))
 
-print(train[0][0])
-print(type(train[0][0]))
+print(train_data[0][0])
+print(type(train_data[0][0]))
 
-print(train[0][1])
-print(type(train[0][1]))
+print(train_data[0][1])
+print(type(train_data[0][1]))
 
-print(train[0][0].size())
+print(train_data[0][0].size())
 
-print(train[0][0][0])
-print(train[0][0][0][0])
-print(train[0][0][0][0][0])
+print(train_data[0][0][0])
+print(train_data[0][0][0][0])
+print(train_data[0][0][0][0][0])
 
-print(train.data)
-print(train.data.size())
+print(train_data.data)
+print(train_data.data.size())
 
-print(train.targets)
-print(train.targets.size())
+print(train_data.targets)
+print(train_data.targets.size())
 
 # * Plot one image
 
