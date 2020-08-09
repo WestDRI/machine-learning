@@ -1,13 +1,17 @@
 baseurl = "/"
 title = "Machine-learning"
+
 theme = "hugo-coder"
+
 languagecode = "en"
 defaultcontentlanguage = "en"
+
 buildFuture = true
 footnotereturnlinkcontents = "↩"
 relativeURLs = true
-uglyURLs = true
+
 enableEmoji = true
+
 paginate = 20
 canonifyurls = true
 
@@ -19,7 +23,6 @@ canonifyurls = true
   [markup.highlight]
     codeFences = true
     guessSyntax = true
-    # style = "friendly"
     style = "manni"
   [markup.tableOfContents]
     endLevel = 1
@@ -27,9 +30,6 @@ canonifyurls = true
     startLevel = 1
 
 [params]
-  # author = "Julia Training"
-  # author = "Training Material on"
-  # info = "Helping researchers with high-performance computing tools"
   repourl = "https://github.com/WestGrid/machine-learning"
   wgavatar = "/img/wg_top_padding_medium.png"
   siteavatar = "/img/ml_top_left_padding.png"
@@ -79,18 +79,16 @@ canonifyurls = true
 [[menu.main]]
   name = "Workshops"
   weight = 1
-  url  = "/workshops/"
+  url  = "workshops/"
 [[menu.main]]
   name = "Webinars"
   weight = 2
-  url  = "/webinars/"
+  url  = "webinars/"
 [[menu.main]]
-  # name = "📓"
   name = "School"
   weight = 3
   url  = "https://wgschool.netlify.app/mlremake/"
 [[menu.main]]
-  # name = "🏠"
   name = "📚"
   weight = 4
   url  = "https://westgrid.github.io/trainingMaterials/"
