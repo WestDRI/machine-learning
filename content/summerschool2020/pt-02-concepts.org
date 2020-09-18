@@ -60,7 +60,7 @@ from <a href="https://xkcd.com/">xkcd.com</a>
 
 * Artificial neural networks
 
-[[https://westgrid-ml.netlify.app/school/pt-03-nn.html][The next lesson]] will show you four excellent videos by [[https://www.3blue1brown.com/][3Blue1Brown]] on neural networks, so you will learn a lot about them then. But in short, artificial neural networks (ANN) are layered networks of units mimicking the concept of biological neurons: inputs are received by every unit, computed, then transmitted to other units. Experience strengthens some connections between units and weakens others.
+[[https://westgrid-ml.netlify.app/summerschool2020/pt-03-nn.html][The next lesson]] will show you four excellent videos by [[https://www.3blue1brown.com/][3Blue1Brown]] on neural networks, so you will learn a lot about them then. But in short, artificial neural networks (ANN) are layered networks of units mimicking the concept of biological neurons: inputs are received by every unit, computed, then transmitted to other units. Experience strengthens some connections between units and weakens others.
 
 In biological networks, the information consists of action potentials (neuron membrane rapid depolarizations) propagating through the network. In artificial ones, the information consists of vectors of weights and biases: each unit passes a weighted sum of its input vector with an additional—possibly weighted—bias through an activation function before passing on the output vector to the next layer of units.\\
 /Note:/ {{<s>}}the bias allows to shift the output of the activation function to the right or to the left; it creates an offset.
@@ -73,7 +73,7 @@ from <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">Dhp1080, 
 
 /Schematic of artificial neuron:/
 {{<br>}}
-{{<img src="/img/school/artificial_neuron_nw.png" title="" width="70%" line-height="0rem">}}
+{{<img src="/img/summerschool2020/artificial_neuron_nw.png" title="" width="70%" line-height="0rem">}}
 <center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}modified from <a href="https://royalsocietypublishing.org/doi/10.1098/rsta.2019.0163">O.C. Akgun & J. Mei 2019</a></center>
 {{</img>}}
 
@@ -81,14 +81,14 @@ from <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">Dhp1080, 
 While biological neurons are connected in intricate ways, artificial ones follow a layered structure. Another difference in complexity is in the number of units: the human brain has 65–90 billion neurons. ANN have much fewer units.
 
 /Neurons in mouse cortex:/
-{{<img src="/img/school/brain_neurons.jpg" title="" width="70%" line-height="2.5rem">}}
+{{<img src="/img/summerschool2020/brain_neurons.jpg" title="" width="70%" line-height="2.5rem">}}
 <center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<n>}}Neurons are in green, the dark branches are blood vessels <br>
 {{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}image by <a href="https://news.berkeley.edu/2020/03/19/high-speed-microscope-captures-fleeting-brain-signals/">Na Ji, UC Berkeley</a></center>
 {{</img>}}
 
 /Neural network with 2 hidden layers:/
 {{<br>}}
-{{<img src="/img/school/nn_multi_layer_nw.png" title="" width="80%" line-height="1.0rem">}}
+{{<img src="/img/summerschool2020/nn_multi_layer_nw.png" title="" width="80%" line-height="1.0rem">}}
 <center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}from <a href="https://themaverickmeerkat.com/2020-01-10-TicTacToe/">The Maverick Meerkat</a></center>
 {{</img>}}
 
@@ -96,14 +96,14 @@ While biological neurons are connected in intricate ways, artificial ones follow
 The information in biological neurons is an all-or-nothing electrochemical pulse or action potential. Greater stimuli don’t produce stronger signals but increase firing frequency. In contrast, artificial neurons pass the computation of their inputs through an activation function and the output can take any of the values possible with that function.
 
 /Threshold potential in biological neurons:/
-{{<img src="/img/school/all_none_law_nw.png" title="" width="60%" line-height="0rem">}}
+{{<img src="/img/summerschool2020/all_none_law_nw.png" title="" width="60%" line-height="0rem">}}
 <center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}modified from <a href="https://commons.wikimedia.org/w/index.php?curid=78013076">Blacktc, Wikimedia</a></center>
 {{</img>}}
 
 {{<br>}}
 /Some of the most common activation functions in artificial neurons:/
 
-{{<img src="/img/school/act_func_nw.png" title="" width="60%" line-height="2.0rem">}}
+{{<img src="/img/summerschool2020/act_func_nw.png" title="" width="60%" line-height="2.0rem">}}
 <center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}from <a href="https://arxiv.org/abs/1908.08681">Diganta Misra 2019</a></center>
 {{</img>}}
 
@@ -148,7 +148,7 @@ Each neuron receives input from every neuron of the previous layer.
 
 *** Convolutional neural network
 
-{{<img src="/img/school/cnn_nw.png" title="" width="%" line-height="1.5rem">}}
+{{<img src="/img/summerschool2020/cnn_nw.png" title="" width="%" line-height="1.5rem">}}
 from <a href="https://codetolight.wordpress.com/2017/11/29/getting-started-with-pytorch-for-deep-learning-part-3-neural-network-basics/">Programming Journeys by Rensu Theart</a>
 {{</img>}}
 
@@ -189,7 +189,7 @@ from <a href="https://xkcd.com/">xkcd.com</a>
 [[https://en.wikipedia.org/wiki/Overfitting][Overfitting]]—extracting noise from the data while it does not represent general meaningful structure and has no predictive power—is a common problem when developing ML models.
 
 {{<br>}}
-{{<img src="/img/school/overfitting.png" title="" width="38%" line-height="0.5rem">}}
+{{<img src="/img/summerschool2020/overfitting.png" title="" width="38%" line-height="0.5rem">}}
 <center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<n>}}from <a href="https://commons.wikimedia.org/w/index.php?curid=3610704">Chabacano, Wikipedia</a></center>
 {{</img>}}
 

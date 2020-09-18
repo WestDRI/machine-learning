@@ -120,7 +120,7 @@ $ ssh userxxx@cassiopeia.c3.ca
 You are now in our training cluster.
 
 #+BEGIN_box
-You will learn [[https://westgrid-ml.netlify.app/school/pt-08-hpc.html][tomorrow]] how to run ML jobs in Compute Canada clusters. But for the purpose of this course and while using our training cluster, all you will have to do before running {{<b>}}sbatch{{</b>}} jobs containing your PyTorch scripts is to activate a Python virtual environment that we have already created and which contains the {{<b>}}torch{{</b>}}, {{<b>}}torchvision{{</b>}}, and {{<b>}}matplotlib{{</b>}} packages:
+You will learn [[https://westgrid-ml.netlify.app/summerschool2020/pt-08-hpc.html][tomorrow]] how to run ML jobs in Compute Canada clusters. But for the purpose of this course and while using our training cluster, all you will have to do before running {{<b>}}sbatch{{</b>}} jobs containing your PyTorch scripts is to activate a Python virtual environment that we have already created and which contains the {{<b>}}torch{{</b>}}, {{<b>}}torchvision{{</b>}}, and {{<b>}}matplotlib{{</b>}} packages:
 
 #+BEGIN_src sh
 $ source /project/shared/bio2/bin/activate
@@ -131,6 +131,6 @@ From here on, you can launch {{<b>}}sbatch{{</b>}} jobs to run python scripts in
 
 * Issues
 
-If you have issues installing PyTorch and/or logging in the training cluster, please sign up for the [[https://westgrid-ml.netlify.app/school/pt-05-debug.html][debug session]] to make sure that you are ready for our next Zoom meeting tomorrow morning.
+If you have issues installing PyTorch and/or logging in the training cluster, please sign up for the [[https://westgrid-ml.netlify.app/summerschool2020/pt-05-debug.html][debug session]] to make sure that you are ready for our next Zoom meeting tomorrow morning.
 
 * Comments & questions

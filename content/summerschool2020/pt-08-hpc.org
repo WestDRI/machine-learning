@@ -84,7 +84,7 @@ NVIDIA [[https://developer.nvidia.com/cudnn][CUDA Deep Neural Network library (c
 
 Several Compute Canada clusters have GPUs. Their numbers and types differ:
 
-{{<img src="/img/school/cc_gpu.png" title="" width="%" line-height="0.5rem">}}
+{{<img src="/img/summerschool2020/cc_gpu.png" title="" width="%" line-height="0.5rem">}}
 from <a href="https://docs.computecanada.ca/wiki/Using_GPUs_with_Slurm">Compute Canada Wiki</a>
 <br><br>
 {{</img>}}
@@ -97,7 +97,7 @@ The default is {{<b>}}12G P100{{</b>}}, but you can request another type with {{
 <font color="#bf540c">Try running your model on <b>one</b> GPU first.</font>
 #+END_export
 
-It is very likely that you do not need more than one GPU. Asking for more than you need will greatly increase your waiting time until your job is run. The session on [[https://westgrid-ml.netlify.app/school/pt-11-distributed.html][distributed computing with PyTorch]] will help you see when you might benefit from several GPUs. In any event, you should test your model before asking for several GPUs.
+It is very likely that you do not need more than one GPU. Asking for more than you need will greatly increase your waiting time until your job is run. The session on [[https://westgrid-ml.netlify.app/summerschool2020/pt-11-distributed.html][distributed computing with PyTorch]] will help you see when you might benefit from several GPUs. In any event, you should test your model before asking for several GPUs.
 
 *** CPU/GPU ratio
 
