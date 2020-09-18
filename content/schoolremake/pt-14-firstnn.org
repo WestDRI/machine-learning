@@ -19,7 +19,7 @@ Note that *no recording* will be made during this session so as not to discourag
 Click to open the slides in a new tab:
 
 #+BEGIN_export html
-<a href="https://westgrid-slides.netlify.app/pt_firstnn.html#/" target="_blank"><p align="center"><img src="/img/school/firstnn_slides.png" title="" width="100%" style="border-style: solid; border-width: 2.5px 2px 0 2.5px; border-color: black"/></p></a>
+<a href="https://westgrid-slides.netlify.app/pt_firstnn.html#/" target="_blank"><p align="center"><img src="/img/summerschool2020/firstnn_slides.png" title="" width="100%" style="border-style: solid; border-width: 2.5px 2px 0 2.5px; border-color: black"/></p></a>
 #+END_export
 
 * Scripts
