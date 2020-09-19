@@ -86,7 +86,7 @@ canonifyurls = true
   weight = 2
   url  = "webinars/"
 [[menu.main]]
-  name = "Schools"
+  name = "Courses"
   weight = 3
   url  = "schools/"
 [[menu.main]]
