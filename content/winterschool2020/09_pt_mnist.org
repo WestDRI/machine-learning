@@ -1,0 +1,276 @@
+#+title: Loading and exploring the MNIST
+#+description: Practice
+#+colordes: #dc7309
+#+slug: pt-10-mnist
+#+weight: 11
+
+* The MNIST dataset
+
+As you learnt in the past 2 videos, the MNIST is one of the classic datasets used for testing machine learning systems. It consists of pairs of images of handwritten digits and their corresponding labels.
+
+{{<img src="/img/summerschool2020/mnist_nw.png" title="" width="70%" line-height="0.5rem">}}
+<center>Modified from <a href="https://commons.wikimedia.org/w/index.php?curid=64810040">Josef Steppan, Wikimedia</a></center>
+{{</img>}}
+
+{{<br>}}
+The images are composed of 28x28 pixels of greyscale RGB codes ranging from 0 to 255 and the labels are the digits from 0 to 9 that each image represents.
+
+{{<img src="/img/summerschool2020/mnist_example.png" title="" width="70%" line-height="0.5rem">}}
+{{</img>}}
+
+There are 60,000 training pairs and 10,000 testing pairs.
+
+The goal is to build a neural network which can learn from the training set to properly identify the handwritten digits and which will perform well when presented with the testing set that it has never seen. This is a typical case of [[https://westgrid-ml.netlify.app/schoolremake/pt-05-ml.html#headline-3][supervised learning]].
+
+{{<img src="/img/summerschool2020/mnist_classify_nw.png" title="" width="100%" line-height="0.5rem">}}
+{{</img>}}
+
+* Start an interactive job
+
+Before you can start running Python code, you need to source your Python virtual environment and start an interactive job:
+
+#+BEGIN_src sh
+$ source ~/env/bin/activate
+$ salloc --cpus-per-task=1 --mem=3G --time=0:30:0   # edit as needed
+$ python
+#+END_src
+
+* Load Python modules
+
+#+BEGIN_src python
+from matplotlib import pyplot as plt
+import torch
+from torchvision import datasets, transforms
+#+END_src
+
+* Set the device argument to CPU
+
+Since our training cluster does not have GPUs, we are setting the device argument to ='cpu'=:
+
+#+BEGIN_src python
+device = torch.device('cpu')
+#+END_src
+
+If you have a CUDA-enabled GPU on your computer and [[https://westgrid-ml.netlify.app/schoolremake/pt-03-local.html][if you are running the code locally]], you can run:
+
+#+BEGIN_src python
+device = torch.device('cuda:0')
+#+END_src
+
+This is also what you will want to use when running jobs on the Compute Canada clusters.
+
+#+BEGIN_simplebox
+More elegantly, you can write a conditional:
+
+#+BEGIN_src python
+device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+#+END_src
+#+END_simplebox
+
+* Get and prepare the MNIST data
+
+In the Compute Canada clusters, a good place to store data shared amongst users of a project is in the {{<b>}}/project{{</b>}} file system; more precisely, in {{<b>}}/project/def-&lt;group&gt;{{</b>}}, where {{<b>}}&lt;group&gt;{{</b>}} is usually the name of your PI. You can access it from your home through a symbolic link in {{<b>}}~/projects{{</b>}}: {{<b>}}~/projects/def-&lt;group&gt;{{</b>}}.
+
+In our training cluster, we are all part of the group {{<b>}}def-sponsor00{{</b>}}, so we will all download and access the MNIST data in {{<b>}}~/projects/def-sponsor00/data{{</b>}}.
+
+You can download the dataset directly from [[http://yann.lecun.com/exdb/mnist/][the MNIST website]], but the PyTorch package TorchVision has tools to download the classic vision datasets, including the MNIST. This is why we loaded modules from ~torchvision~ at the start of this script.
+
+** Training data
+
+Now, we will download the MNIST training data, transform it to tensor, and normalize it.
+
+First, let's define a transformation (the mean and standard deviation of the MNIST training data are 0.1307 and 0.3081 respectively, hence these values):
+
+#+BEGIN_src python
+transform = transforms.Compose([
+        transforms.ToTensor(),
+        transforms.Normalize((0.1307,), (0.3081,))
+    ])
+#+END_src
+
+Then we can download and transform it:
+
+#+BEGIN_src python
+train_data = datasets.MNIST(
+    '~/projects/def-sponsor00/data',
+    train=True, download=True, transform=transform)
+#+END_src
+
+~train=True~ selects the training set of the MNIST.
+
+** Test data
+
+We then do the same with the test data (even though the mean and std of the test data are slightly different, we want to normalize it in the same way):
+
+#+BEGIN_src python
+test_data = datasets.MNIST(
+    '~/projects/def-sponsor00/data',
+    train=False, transform=transform)
+#+END_src
+
+Notice that here, we use ~train=False~ to select the test set.
+
+* Explore the data
+
+** Inspect the data
+
+First, let's check the size of ~train_data~:
+
+#+BEGIN_src python
+print(len(train_data))
+#+END_src
+
+OK, that makes sense since the MNIST's training set has 60,000 pairs. ~train_data~ has 60,000 elements and we should expect each element to be of size 2 since it is a pair. Let's double-check with the first element:
+
+#+BEGIN_src python
+print(len(train_data[0]))
+#+END_src
+
+OK. So far, so good. We can print that first pair:
+
+#+BEGIN_src python
+print(train_data[0])
+#+END_src
+
+And you can see that it is a tuple with:
+
+#+BEGIN_src python
+print(type(train_data[0]))
+#+END_src
+
+What is that tuple made of?
+
+#+BEGIN_src python
+print(type(train_data[0][0]))
+print(type(train_data[0][1]))
+#+END_src
+
+It is made of the tensor for the first image (remember that we transformed the images into tensors when we created the objects ~train_data~ and ~test_data~) and the integer of the first label (which you can see is 5 when you print ~train_data[0][1]~).
+
+So since ~train_data[0][0]~ is the tensor representing the image of the first pair, let's check its size:
+
+#+BEGIN_src python
+print(train_data[0][0].size())
+#+END_src
+
+That makes sense: a color image would have 3 layers of RGB values (so the size in the first dimension would be 3), but because the MNIST has black and white images, there is a single layer of values—the values of each pixel on a gray scale—so the first dimension has a size of 1. The 2nd and 3rd dimensions correspond to the width and length of the image in pixels, hence 28 and 28.
+
+{{<exercise>}}
+Run the following:
+<pre>
+print(train_data[0][0][0])
+print(train_data[0][0][0][0])
+print(train_data[0][0][0][0][0])
+</pre>
+And think about what each of them represents.<br><br>
+Then explore the {{<b>}}test_data{{</b>}} object.
+{{</exercise>}}
+
+** Plot an image from the data
+
+For this, we will use ~pyplot~ from ~matplotlib~.
+
+First, we select the image of the first pair and we resize it from 3 to 2 dimensions by removing its dimension of size 1 with ~torch.squeeze~:
+
+#+BEGIN_src python
+img = torch.squeeze(train_data[0][0])
+#+END_src
+
+Then, we plot it with ~pyplot~, but since we are in a cluster, instead of showing it to screen with ~plt.show()~, we save it to file:
+
+#+BEGIN_src python
+plt.imshow(img, cmap='gray')
+plt.savefig('img.png')
+#+END_src
+
+You can now copy the image to your local computer to visualize it. From your local shell:
+
+#+BEGIN_src sh
+scp userxxx@uu.c3.ca:<path/to/img.png> <path/where/you/want/to/copy/it>
+#+END_src
+
+This is what that first image looks like:
+
+{{<img src="/img/summerschool2020/img_nw.png" title="" width="%" line-height="0.5rem">}}
+{{</img>}}
+
+And indeed, it matches the first label we explored earlier (~train_data[0][1]~).
+
+** Plot one image with its pixel values
+
+We can plot it with more details by showing the value of each pixel in the image. One little twist is that we need to pick a threshold value below which we print the pixel values in white otherwise they would not be visible (black on near black background). We also round the pixel values to one decimal digit so as not to clutter the result.
+
+#+BEGIN_src python
+imgplot = plt.figure(figsize = (12, 12))
+sub = imgplot.add_subplot(111)
+sub.imshow(img, cmap='gray')
+width, height = img.shape
+thresh = img.max() / 2.5
+for x in range(width):
+    for y in range(height):
+        val = round(img[x][y].item(), 1)
+        sub.annotate(str(val), xy=(y, x),
+                    horizontalalignment='center',
+                    verticalalignment='center',
+                    color='white' if img[x][y].item() < thresh else 'black')
+
+imgplot.savefig('imgpx.png')
+#+END_src
+
+And this is what we get:
+
+{{<img src="/img/summerschool2020/imgpx_nw.png" title="" width="%" line-height="0.5rem">}}
+{{</img>}}
+
+** Pass the data through ~DataLoader~
+
+PyTorch provides the [[https://pytorch.org/docs/stable/data.html?highlight=dataloader#module-torch.utils.data][torch.utils.data.DataLoader]] class which combines a dataset and an optional sampler and provides an iterable (while training or testing our neural network, we will iterate over that object). It allows, [[https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.DataLoader][among many other things]], to set the batch size and shuffle the data.
+
+So our last step in preparing the data is to pass it through ~DataLoader~.
+
+*** Training data
+
+#+BEGIN_src python
+train_loader = torch.utils.data.DataLoader(
+    train_data, batch_size=20, shuffle=True)
+#+END_src
+
+*** Test data
+
+#+BEGIN_src python
+test_loader = torch.utils.data.DataLoader(
+    test_data, batch_size=20, shuffle=False)
+#+END_src
+
+** Plot a full batch of images with their labels
+
+Now that we have passed our data through ~DataLoader~, it is easy to select one batch from it. Let's plot an entire batch of images with their labels.
+
+First, we need to get one batch of training images and their labels:
+
+#+BEGIN_src python
+dataiter = iter(train_loader)
+batchimg, batchlabel = dataiter.next()
+#+END_src
+
+Then, we can plot them:
+
+#+BEGIN_src python
+batchplot = plt.figure(figsize=(20, 5))
+for i in torch.arange(20):
+    sub = batchplot.add_subplot(2, 10, i+1, xticks=[], yticks=[])
+    sub.imshow(torch.squeeze(batchimg[i]), cmap='gray')
+    sub.set_title(str(batchlabel[i].item()), fontsize=25)
+batchplot.savefig('batchplot.png')
+#+END_src
+
+We get:
+
+{{<img src="/img/summerschool2020/batch_nw.png" title="" width="%" line-height="0.5rem">}}
+{{</img>}}
+
+* References
+
+This lesson drew heavily on [[https://github.com/iam-mhaseeb/Multi-Layer-Perceptron-MNIST-with-PyTorch][a model]] by [[https://github.com/iam-mhaseeb][Muhammad Haseeb]].
+
+* Comments & questions

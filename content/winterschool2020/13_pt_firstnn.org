@@ -1,0 +1,37 @@
+#+title: Our first neural network
+#+description: Zoom
+#+colordes: #cc0066
+#+slug: pt-14-firstnn
+#+weight: 15
+
+#+OPTIONS: toc:nil
+
+#+BEGIN_zoombox
+*This interactive session will be conducted through Zoom.*
+
+*The meeting ID and password was emailed to people on the waiting list.*
+#+END_zoombox
+
+Note that *no recording* will be made during this session so as not to discourage participation.
+
+* Slides
+
+Click to open the slides in a new tab:
+
+#+BEGIN_export html
+<a href="https://westgrid-slides.netlify.app/pt_firstnn.html#/" target="_blank"><p align="center"><img src="/img/summerschool2020/firstnn_slides.png" title="" width="100%" style="border-style: solid; border-width: 2.5px 2px 0 2.5px; border-color: black"/></p></a>
+#+END_export
+
+* Scripts
+
+You can find a copy of all the Python and Slurm scripts used in this course on the training cluster under:
+
+#+BEGIN_src sh
+~/projects/def-sponsor00/mnist/
+#+END_src
+
+* References
+
+The final model in this lesson is derived from the PyTorch [[https://github.com/pytorch/examples][examples]] project.
+
+* Comments & questions

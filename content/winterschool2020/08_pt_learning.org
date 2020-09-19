@@ -1,0 +1,9 @@
+#+title: How can a neural network learn to classify the MNIST?
+#+description: Video
+#+colordes: #5c8a6f
+#+slug: pt-09-learning
+#+weight: 10
+
+*This second video (21 min) by [[https://www.3blue1brown.com/][3Blue1Brown]] explains how neural networks learn.*
+
+{{<youtube IHZwWFHWa-w>}}

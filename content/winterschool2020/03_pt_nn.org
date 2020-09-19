@@ -1,0 +1,26 @@
+#+title: What is an artificial neural network?
+#+description: Video
+#+colordes: #5c8a6f
+#+slug: pt-06-nn
+#+weight: 7
+
+#+OPTIONS: toc:nil
+
+{{<br>}}
+[[https://www.3blue1brown.com/][3Blue1Brown by Grant Sanderson]] has a series of 4 videos on neural networks which is easy to watch, fun, and does an excellent job at introducing the functioning of a simple neural network.
+
+{{<br>}}
+*This first video (19 min) introduces neural networks.*
+
+Watch it beyond the acknowledgement fragment as the function ReLU (a really important function in modern neural networks) is introduced at the very end.
+
+{{<youtube aircAruvnKk>}}
+
+{{<br>}}
+#+BEGIN_simplebox
+/Note:/ {{<n>}}As you develop your own ML models, if you find that your mathematical background is shaky, 3blue1brown also has [[https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab][an excellent series of videos on linear algebra]] and [[https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr][an equally great one on calculus]].
+
+{{<img src="https://imgs.xkcd.com/comics/matrix_transform.png" title="" width="%" line-height="0.7rem">}}
+From <a href="https://xkcd.com/">xkcd.com</a>
+{{</img>}}
+#+END_simplebox
