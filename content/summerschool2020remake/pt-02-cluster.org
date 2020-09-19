@@ -14,7 +14,7 @@ Open a terminal emulator:
 /MacOS:/ {{<m>}}{{<s>}}Terminal \\
 /Linux:/ {{<m>}}{{<n>}}{{<s>}}xterm or the terminal emulator of your choice
 
-In it, using the user name and password that you received [[https://westgrid-ml.netlify.app/schoolremake/pt-01-intro.html][in our first Zoom session]], type:
+In it, using the user name and password that you received [[https://westgrid-ml.netlify.app/summerschool2020remake/pt-01-intro.html][in our first Zoom session]], type:
 
 #+BEGIN_src sh
 $ ssh userxxx@uu.c3.ca
@@ -91,7 +91,7 @@ If you want to exit the virtual environment, run:
 * Issues
 
 #+BEGIN_box
-If you have issues accessing the training cluster or installing the python packages in a virtual environment, please join the [[https://westgrid-ml.netlify.app/schoolremake/pt-08-debug.html][debug session]] where we will help you getting up and running.
+If you have issues accessing the training cluster or installing the python packages in a virtual environment, please join the [[https://westgrid-ml.netlify.app/summerschool2020remake/pt-08-debug.html][debug session]] where we will help you getting up and running.
 #+END_box
 
 * Comments & questions

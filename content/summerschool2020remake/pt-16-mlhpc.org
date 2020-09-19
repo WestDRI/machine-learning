@@ -23,7 +23,7 @@ The default is {{<b>}}12G P100{{</b>}}, but you can request another type with {{
 <font color="#bf540c"><b>Try running your model on a single GPU first.</b></font>
 #+END_export
 
-It is very likely that you do not need more than one GPU. Asking for more than you need will greatly increase your waiting time until your job is run. The lesson on [[https://westgrid-ml.netlify.app/schoolremake/pt-15-distributed.html][distributed computing with PyTorch]] gives a few information as to when you might benefit from using several GPUs and provides some links to more resources. We will also offer workshops on distributed ML in the future. In any event, you should test your model before asking for several GPUs.
+It is very likely that you do not need more than one GPU. Asking for more than you need will greatly increase your waiting time until your job is run. The lesson on [[https://westgrid-ml.netlify.app/summerschool2020remake/pt-15-distributed.html][distributed computing with PyTorch]] gives a few information as to when you might benefit from using several GPUs and provides some links to more resources. We will also offer workshops on distributed ML in the future. In any event, you should test your model before asking for several GPUs.
 
 ** CPU/GPU ratio
 

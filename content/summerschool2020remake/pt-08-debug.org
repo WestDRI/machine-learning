@@ -8,7 +8,7 @@
 
 /This *debugging session* is not part of the actual lesson./
 
-/Only join if you have carefully followed the lesson [[https://westgrid-ml.netlify.app/schoolremake/pt-02-cluster.html][Training cluster setup]], but are having issues accessing our training cluster or installing the required Python packages in a virtual environment./
+/Only join if you have carefully followed the lesson [[https://westgrid-ml.netlify.app/summerschool2020remake/pt-02-cluster.html][Training cluster setup]], but are having issues accessing our training cluster or installing the required Python packages in a virtual environment./
 
 #+BEGIN_debugbox
 *This interactive session will be conducted through Zoom.*
