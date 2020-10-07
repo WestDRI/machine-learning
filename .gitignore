@@ -1,9 +1,6 @@
 public/
 resources/
-!*.png
-!workinprogress.svg
 archetypes/default.md
-static/img/cc_regional_partner_brown_large.png
 static/src/school/basic_mnist.py
 static/src/school/get_mean_std_datasets.py
 static/src/school/increasingly_complex_mnist.py
