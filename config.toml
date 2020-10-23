@@ -45,6 +45,7 @@ canonifyurls = true
   since = 2020
   [params.utteranc]
     repo = "WestGrid/machine-learning"
+    issueTerm = "url"
 
 [taxonomies]
   category = "categories"
