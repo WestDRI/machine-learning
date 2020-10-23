@@ -1,4 +1,4 @@
 #+title: Online autumn school 2020
 #+schooltitle: Getting started with deep learning using PyTorch
-#+schoollink: https://autumnschool.netlify.app/ml/
+#+schoollink: https://autumnschool.netlify.app/pytorch/
 #+weight: 9
