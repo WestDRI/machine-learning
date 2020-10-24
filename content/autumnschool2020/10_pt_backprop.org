@@ -1,15 +1,19 @@
 #+title: Backpropagation
 #+description: Video
-#+colordes: #5c8a6f
-#+slug: pt-11-backprop
-#+weight: 12
+#+colordes: #8a2000
+#+slug: 10_pt_backprop
+#+weight: 10
 
-*This third video (14 min) by [[https://www.3blue1brown.com/][3Blue1Brown]] explains backpropagation.*
+#+OPTIONS: toc:nil
 
-{{<youtube Ilg3gGewQ5U>}}
+*** Video 3 (14 min)
 
-#+BEGIN_simplebox
-/Note: there is one minor terminology error in this video./
+In this lesson, you will watch the third video on NN by [[https://www.3blue1brown.com/][3Blue1Brown]] which explains how backpropagation works.{{<2br>}}
 
-When using mini-batches (instead of all training examples) before re-calculating the weights and biases, they talk about *stochastic gradient descent*. In fact, what they are describing in the video is called *mini-batch gradient descent*. Stochastic gradient descent uses a single example in each iteration.
-#+END_simplebox
+{{<youtube Ilg3gGewQ5U>}}{{<br>}}
+
+#+BEGIN_mhexample
+There is one minor terminological error in this video: they call the use of mini-batches *stochastic gradient descent*. In fact, this is called *mini-batch gradient descent*. Stochastic gradient descent uses a single example at each iteration.
+#+END_mhexample
+
+* Comments & questions
