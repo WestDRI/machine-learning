@@ -1,9 +1,15 @@
 #+title: A bit of calculus
 #+description: Video
-#+colordes: #5c8a6f
-#+slug: pt-12-calculus
-#+weight: 13
+#+colordes: #8a2000
+#+slug: 11_pt_calculus
+#+weight: 11
 
-*This last video (10 min) by [[https://www.3blue1brown.com/][3Blue1Brown]] dives into the calculus of backpropagation.*
+#+OPTIONS: toc:nil
+
+*** Video 4 (10 min)
+
+In this lesson, you will watch the last video on NN by [[https://www.3blue1brown.com/][3Blue1Brown]] which dives into the calculus of backpropagation.{{<2br>}}
 
 {{<youtube tIeHLnjs5U8>}}
+
+* Comments & questions
