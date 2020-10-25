@@ -1,6 +1,6 @@
 #+title: What are artificial neural networks?
 #+description: Video
-#+colordes: #8a2000
+#+colordes: #663300
 #+slug: 03_pt_nn
 #+weight: 3
 
