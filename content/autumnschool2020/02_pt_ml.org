@@ -1,8 +1,8 @@
-#+title: What is machine learning?
+#+title: What are machine learning & deep learning?
 #+description: Reading
-#+colordes: #538cc6
-#+slug: pt-05-ml
-#+weight: 6
+#+colordes: #2d5986
+#+slug: 02_pt_ml
+#+weight: 2
 
 Machine learning (ML) can be defined as computer programs whose performance at a task improves with experience.
 
