@@ -1,6 +1,6 @@
 #+title: Backpropagation
 #+description: Video
-#+colordes: #8a2000
+#+colordes: #663300
 #+slug: 10_pt_backprop
 #+weight: 10
 

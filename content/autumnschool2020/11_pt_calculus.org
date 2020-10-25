@@ -1,6 +1,6 @@
 #+title: A bit of calculus
 #+description: Video
-#+colordes: #8a2000
+#+colordes: #663300
 #+slug: 11_pt_calculus
 #+weight: 11
 

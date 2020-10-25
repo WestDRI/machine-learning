@@ -1,6 +1,6 @@
 #+title: How do neural networks learn?
 #+description: Video
-#+colordes: #8a2000
+#+colordes: #663300
 #+slug: 08_pt_learning
 #+weight: 8
 
