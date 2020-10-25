@@ -1,8 +1,8 @@
-#+title: A note about open source vs proprietary tools
+#+title: Which ML/DL framework to choose?
 #+description: Reading
-#+colordes: #538cc6
-#+slug: pt-01bis-foss
-#+weight: 2
+#+colordes: #2d5986
+#+slug: 04_pt_oss
+#+weight: 4
 
 With the growing popularity of machine learning, many frameworks have appeared in various languages. One of the questions you might be facing is: *which tool should I choose?*
 
