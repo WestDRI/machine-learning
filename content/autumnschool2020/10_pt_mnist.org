@@ -1,8 +1,8 @@
-#+title: Loading and exploring the MNIST
-#+description: Practice
-#+colordes: #dc7309
-#+slug: pt-10-mnist
-#+weight: 11
+#+title: The MNIST
+#+description: Hands-on
+#+colordes: #8a2000
+#+slug: 10_pt_mnist
+#+weight: 10
 
 * The MNIST dataset
 

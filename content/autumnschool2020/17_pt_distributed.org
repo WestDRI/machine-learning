@@ -1,8 +1,8 @@
 #+title: A few notes on distributed computing with PyTorch
 #+description: Reading
 #+colordes: #538cc6
-#+slug: pt-15-distributed
-#+weight: 16
+#+slug: 17_pt_distributed
+#+weight: 17
 
 * On using multiple GPUs
 

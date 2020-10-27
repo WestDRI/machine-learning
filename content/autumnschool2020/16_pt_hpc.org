@@ -1,8 +1,8 @@
 #+title: HPC with Python
 #+description: Reading
 #+colordes: #538cc6
-#+slug: pt-04-hpc
-#+weight: 5
+#+slug: 16_pt_hpc
+#+weight: 16
 
 #+BEGIN_simplebox
 /Note on notation:/ {{<s>}}expressions between the ~<~ and ~>~ signs need to be replaced by the relevant information (without those signs).

@@ -1,8 +1,14 @@
-#+title: Automatic differentiation with autograd
-#+description: Practice
-#+colordes: #dc7309
-#+slug: pt-13-autograd
-#+weight: 14
+#+title: Automatic differentiation
+#+description: Zoom
+#+colordes: #e86e0a
+#+slug: 13_pt_autograd
+#+weight: 13
+
+*Zoom session 3 — part 1*
+
+{{<m>}} /Access:/ You should have received the meeting id and password by email. \\
+{{<m>}} /Time:/ xx pm Pacific Time. \\
+{{<m>}} /Topic:/ 
 
 After watching the last two videos, you may be starting to panic: how hard will it be to write the chain rule (with so many derivatives!) in backpropagation?!?
 
