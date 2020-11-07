@@ -8,8 +8,8 @@
 
 *Zoom session 2 — part 1*
 
-{{<m>}} /Access:/ You should have received the meeting id and password by email. \\
-{{<m>}} /Time:/ xx am Pacific Time. \\
-{{<m>}} /Topic:/ I will answer questions you may have had while going over the first few lessons for this course.
+{{<m>}} /Access:/ {{<s>}}You should have received the meeting id and password by email. \\
+{{<m>}} /Time:/ {{<m>}}11:15 am Pacific Time. \\
+{{<m>}} /Topic:/ {{<m>}}I will answer questions you may have had while going over the first few lessons.
 
 * Comments & questions
