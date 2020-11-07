@@ -1,4 +1,4 @@
-#+title: Installing PyTorch on your machine
+#+title: Local installation
 #+description: (Optional)
 #+colordes: #999999
 #+slug: 05_pt_install
