@@ -1,4 +1,4 @@
-#+title: What are artificial neural networks?
+#+title: Artificial neural networks
 #+description: Video
 #+colordes: #663300
 #+slug: 03_pt_nn
@@ -8,7 +8,9 @@
 
 *** Video 1 (19 min)
 
-[[https://www.3blue1brown.com/][3Blue1Brown by Grant Sanderson]] has a series of 4 videos on neural networks which is easy to watch, fun, and does an excellent job at introducing the functioning of a simple neural network. For this lesson, you will watch the first of these videos which explains what NN are.
+[[https://www.3blue1brown.com/][3Blue1Brown by Grant Sanderson]] has a series of 4 videos on neural networks which is easy to watch, fun, and does an excellent job at introducing the functioning of a simple neural network.
+
+For this lesson, you will watch the first of these videos which explains what NN are.
 
 #+BEGIN_mhexample
 Watch it beyond the acknowledgement fragment as the function ReLU (a really important function in modern neural networks) is introduced at the very end.{{<2br>}}
