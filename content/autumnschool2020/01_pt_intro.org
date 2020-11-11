@@ -28,4 +28,21 @@ This is a good place to develop and try code, explore data, etc.
 
 When we need lots of computing power however—for instance while training models—we will SSH to the training cluster and run ~sbatch~ jobs. \\
 Training models from Jupyter would be a poor use of computing resources: while large amounts of memory, many CPUs and a GPU are useful to train models, having them allocated for an entire Jupyter session would have them sit idle for most of the time. This is something to think about when you use the real Compute Canada clusters!
+
+* JupyterLab
+
+To launch JupyterLab on UU:
+
+1. Go to [[https:uu.c3.ca]]
+2. Sign in with your username and password
+3. *Please leave the following untouched:* \\
+   {{<m>}}Reservation: "None" \\
+   {{<m>}}Account: "def-sponsor00" \\
+   {{<m>}}Number of cores: "1" \\
+   {{<m>}}GPU configuration: "None" \\
+   *These are the only values you should edit:* \\
+   {{<m>}}Change the time to *8.0* \\
+   {{<m>}}Change the memory to *2000* \\
+   {{<m>}}Make sure the interface is set to *JupyterLab*
+4. Press start
 * Comments & questions
