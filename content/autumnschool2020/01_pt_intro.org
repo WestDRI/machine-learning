@@ -49,4 +49,30 @@ To launch JupyterLab on UU:
 
 {{<img src="/img/autumnschool2020/jh_widget_nw.png" margin="rem" title="" width="%" line-height="0rem">}}
 {{</img>}}
+
+** SSH
+
+To SSH into the training cluster to launch ~sbatch~ jobs:
+
+**** Open a terminal emulator
+
+/Windows:/ {{<m>}}{{<s>}}[[https://mobaxterm.mobatek.net/][MobaXTerm]] (install the free version)\\
+/MacOS:/ {{<m>}}{{<m>}}{{<s>}}Terminal \\
+/Linux/WSL:/ {{<n>}}{{<s>}}Your usual terminal
+
+**** SSH into the cluster
+
+Linux, WSL, and MacOS, type:
+
+#+BEGIN_src sh
+$ ssh userxxx@uu.c3.ca
+# enter password (it is blind typing, so you won't see it as you type)
+#+END_src
+
+Window users:
+
+[[https://mobaxterm.mobatek.net/demo.html][This demo]] shows you how to use SSH with MobaXTerm. \\
+Only the first 24% of the video are relevant for us. \\
+For "Remote host" enter: *uu.c3.ca*.
+
 * Comments & questions
