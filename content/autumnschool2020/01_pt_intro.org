@@ -1,4 +1,4 @@
-#+title: Introduction to the course
+#+title: Introduction to the course & cluster access
 #+description: Zoom
 #+colordes: #e86e0a
 #+slug: 01_pt_intro
