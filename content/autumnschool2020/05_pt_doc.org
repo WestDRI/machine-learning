@@ -1,8 +1,8 @@
 #+title: Documentation
 #+description: Reading
 #+colordes: #2d5986
-#+slug: 06_pt_doc
-#+weight: 6
+#+slug: 05_pt_doc
+#+weight: 5
 
 * Internal
 

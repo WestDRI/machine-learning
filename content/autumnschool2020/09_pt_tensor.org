@@ -1,8 +1,8 @@
 #+title: PyTorch tensors
 #+description: Zoom
 #+colordes: #e86e0a
-#+slug: 08_pt_tensor
-#+weight: 8
+#+slug: 09_pt_tensor
+#+weight: 9
 
 *Zoom session 2 — part 2*
 

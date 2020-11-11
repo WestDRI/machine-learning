@@ -1,8 +1,8 @@
 #+title: Artificial neural networks
 #+description: Video
 #+colordes: #663300
-#+slug: 03_pt_nn
-#+weight: 3
+#+slug: 06_pt_nn
+#+weight: 6
 
 #+OPTIONS: toc:nil
 
