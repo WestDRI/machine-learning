@@ -1,4 +1,4 @@
-#+title: What are machine learning & deep learning?
+#+title: AI, machine learning, deep learning
 #+description: Reading
 #+colordes: #2d5986
 #+slug: 02_pt_ml
