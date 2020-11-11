@@ -8,29 +8,7 @@
 
 PyTorch's central object is the /tensor/. Tensors have many similarities with NumPy's /ndarrays/, but they can be computed on GPUs. They are extremely well suited to build neural networks.
 
-In this lesson, we will explore tensors: how to create them, run operations on them, and most importantly, what they really represent. *Run all the code so that you can look at the outputs and explore on your own.*
-
-* Activate your Python virtual environment
-
-After you ~ssh~ to the training cluster, activate the virtual environment that [[https://westgrid-ml.netlify.app/schoolremake/pt-02-cluster.html#headline-4][you created]] so that you have access to the Python packages [[https://westgrid-ml.netlify.app/schoolremake/pt-02-cluster.html#headline-7][you installed]] in it:
-
-#+BEGIN_src sh
-$ source ~/env/bin/activate
-#+END_src
-
-* Start an interactive job
-
-For instance:
-
-#+BEGIN_src sh
-$ salloc --cpus-per-task=1 --mem=3G --time=0:30:0
-#+END_src
-
-You can now start an interactive Python session:
-
-#+BEGIN_src sh
-$ python
-#+END_src
+In this lesson, we will explore tensors: how to create them, run operations on them, and most importantly, what they really represent.
 
 * Load PyTorch
 
