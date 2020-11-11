@@ -1,6 +1,6 @@
 #+title: Automatic differentiation
-#+description: Zoom
-#+colordes: #e86e0a
+#+description: Hands-on
+#+colordes: #8a2000
 #+slug: 13_pt_autograd
 #+weight: 13
 

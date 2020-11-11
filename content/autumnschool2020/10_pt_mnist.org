@@ -1,6 +1,6 @@
 #+title: The MNIST
-#+description: Hands-on
-#+colordes: #8a2000
+#+description: Zoom
+#+colordes: #e86e0a
 #+slug: 10_pt_mnist
 #+weight: 10
 
