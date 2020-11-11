@@ -1,8 +1,8 @@
 #+title: Local installation
 #+description: (Optional)
 #+colordes: #999999
-#+slug: 02_pt_install
-#+weight: 2
+#+slug: 05_pt_install
+#+weight: 5
 
 {{<br>}}
 /Installing PyTorch on your machine is entirely optional as you can run everything on the training cluster. If you would like to practice on your machine in addition to (or instead of) the training cluster, this lesson will guide you through the setup of your machine. Please note that we won't be debugging local installations./
