@@ -46,4 +46,7 @@ To launch JupyterLab on UU:
    {{<n>}}{{<m>}}Change the memory to *2000* \\
    {{<n>}}{{<m>}}Make sure the interface is set to *JupyterLab*
 4. Press start
+
+{{<img src="/img/autumnschool2020/jh_widget_nw.png" margin="rem" title="" width="%" line-height="0rem">}}
+{{</img>}}
 * Comments & questions
