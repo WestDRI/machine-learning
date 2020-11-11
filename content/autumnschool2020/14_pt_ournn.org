@@ -6,8 +6,10 @@
 
 *Zoom session 3 — part 1*
 
-{{<m>}} /Access:/ You should have received the meeting id and password by email. \\
-{{<m>}} /Time:/ xx pm Pacific Time. \\
-{{<m>}} /Topic:/ 
+#+BEGIN_simplebox
+/Access:/ {{<s>}}You should have received the meeting id and password by email \\
+/Time:/ {{<m>}}3 pm Pacific Time \\
+/Topic:/ {{<m>}}In this lesson, we will build our own NN to classify the MNIST
+#+END_simplebox
 
 * Comments & questions

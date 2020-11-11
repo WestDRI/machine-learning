@@ -4,6 +4,8 @@
 #+slug: 10_pt_mnist
 #+weight: 10
 
+*Zoom session 2 — part 3*
+
 * The MNIST dataset
 
 As you learnt in the past 2 videos, the MNIST is one of the classic datasets used for testing machine learning systems. It consists of pairs of images of handwritten digits and their corresponding labels.

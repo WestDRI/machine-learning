@@ -4,12 +4,6 @@
 #+slug: 13_pt_autograd
 #+weight: 13
 
-*Zoom session 3 — part 1*
-
-{{<m>}} /Access:/ You should have received the meeting id and password by email. \\
-{{<m>}} /Time:/ xx pm Pacific Time. \\
-{{<m>}} /Topic:/ 
-
 After watching the last two videos, you may be starting to panic: how hard will it be to write the chain rule (with so many derivatives!) in backpropagation?!?
 
 *Don't fear!* PyTorch has automatic differentiation abilities—meaning that it can track all the operations conducted on tensors and do the backprop for you—thanks to its package ~torch.autograd~.
