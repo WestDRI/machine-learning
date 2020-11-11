@@ -4,8 +4,6 @@
 #+slug: 01_pt_intro
 #+weight: 1
 
-#+OPTIONS: toc:nil
-
 *Zoom session 1*
 
 #+BEGIN_simplebox
