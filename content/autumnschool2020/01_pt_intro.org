@@ -8,8 +8,16 @@
 
 *Zoom session 1*
 
-{{<m>}} /Access:/ You should have received the meeting id and password by email. \\
-{{<m>}} /Time:/ 9 am Pacific Time. \\
-{{<m>}} /Topic:/ Quick presentation of how this course will run.
+#+BEGIN_simplebox
+/Access:/ {{<n>}}{{<s>}}You should have received the meeting id and password by email
 
+/Time:/ {{<n>}}{{<m>}}9 am Pacific Time
+
+/Topics:/
+{{<n>}}{{<n>}}Presentation of the course \\
+{{<n>}}{{<s>}}{{<m>}}{{<m>}}{{<m>}}Distribution of usernames and password \\
+{{<n>}}{{<s>}}{{<m>}}{{<m>}}{{<m>}}Access to the JupyterHub for this course \\
+{{<n>}}{{<s>}}{{<m>}}{{<m>}}{{<m>}}Access to the training cluster for this course
+#+END_simplebox
+{{<br>}}
 * Comments & questions
