@@ -35,14 +35,15 @@ To launch JupyterLab on UU:
 
 1. Go to [[https:uu.c3.ca]]
 2. Sign in with your username and password
-3. *Please leave the following untouched:* \\
-   {{<m>}}Reservation: "None" \\
-   {{<m>}}Account: "def-sponsor00" \\
-   {{<m>}}Number of cores: "1" \\
-   {{<m>}}GPU configuration: "None" \\
-   *These are the only values you should edit:* \\
-   {{<m>}}Change the time to *8.0* \\
-   {{<m>}}Change the memory to *2000* \\
-   {{<m>}}Make sure the interface is set to *JupyterLab*
+3. Set the server options (see image below): \\
+   {{<n>}} /Please leave the following untouched:/ \\
+   {{<n>}}{{<m>}}Reservation: "None" \\
+   {{<n>}}{{<m>}}Account: "def-sponsor00" \\
+   {{<n>}}{{<m>}}Number of cores: "1" \\
+   {{<n>}}{{<m>}}GPU configuration: "None" \\
+   {{<n>}} /These are the only values you should edit:/ \\
+   {{<n>}}{{<m>}}Change the time to *8.0* \\
+   {{<n>}}{{<m>}}Change the memory to *2000* \\
+   {{<n>}}{{<m>}}Make sure the interface is set to *JupyterLab*
 4. Press start
 * Comments & questions
