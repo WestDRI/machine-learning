@@ -14,6 +14,22 @@ PyTorch's central object is the /tensor/. Tensors have many similarities with Nu
 
 In this lesson, we will explore tensors: how to create them, run operations on them, and most importantly, what they really represent.
 
+* Setup
+
+This lesson does not require a lot of computing power and we want it to be interactive to explore how PyTorch tensors work. This is a perfect case to use an interactive session on a cluster with ~salloc~ or, as we will be doing here, to use JupyterLab.
+
+*** Start JupyterLab
+
+First, [[https://westgrid-ml.netlify.app/autumnschool2020/01_pt_intro/#headline-2][launch a JupyterLab session]] (or re-open it if you already launched it).
+
+*** Navigate to a sensible place
+
+Familiarize yourself with the navigation pane, create a directory called {{<b>}}workspace{{</b>}}, and enter it.
+
+*** Start a Jupyter notebook with the Python 3 kernel
+
+Start a notebook and rename it to something that makes sense to you (e.g. {{<b>}}tensors.ipynb{{</b>}}).
+
 * Load PyTorch
 
 First, we need to load the ~torch~ package:
