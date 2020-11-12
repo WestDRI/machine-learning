@@ -4,7 +4,9 @@
 #+slug: 02_pt_ml
 #+weight: 2
 
-Machine learning (ML) can be defined as computer programs whose performance at a task improves with experience.
+Artificial intelligence is a vast field: any system mimicking animal intelligence falls in its scope.
+
+Machine learning (ML) is a subfield of artificial intelligence that can be defined as computer programs whose performance at a task improves with experience.
 
 Since this experience comes in the form of *data*, ML consists of feeding vast amounts of data to algorithms to strengthen *pathways*.
 
@@ -174,7 +176,7 @@ They are not feedforward networks (i.e. networks for which the information moves
 
 *** Deep neural networks
 
-The first layer of a neural net is the input layer. The last one is the output layer. All the layers in-between are called /hidden layers/. Shallow neural networks have only one hidden layer and deep networks have two or more hidden layers. When an ANN is deep, we talk about *Deep Learning* (DL).
+The first layer of a neural net is the input layer. The last one is the output layer. All the layers in-between are called /hidden layers/. Shallow neural networks have only one hidden layer and deep networks have two or more hidden layers. When an ANN is deep, we talk about *Deep Learning* (DL). So deep learning is a subfield of machine learning.
 
 {{<br>}}
 {{<img src="https://imgs.xkcd.com/comics/drone_training.png" title="" width="%" line-height="1rem">}}
