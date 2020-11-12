@@ -4,17 +4,19 @@
 #+slug: 16_pt_hpc
 #+weight: 16
 
-#+BEGIN_simplebox
-/Note on notation:/ {{<s>}}expressions between the ~<~ and ~>~ signs need to be replaced by the relevant information (without those signs).
-#+END_simplebox
+#+BEGIN_mhexample
+Note on notation:
 
-Whether you are using our training cluster (which is a virtual machine hosted in the cloud and mimicking a Compute Canada cluster) or one of Compute Canada clusters (e.g. Cedar or Graham), when you ~ssh~ into the cluster, you "arrive" on the login node.
+Expressions between the ~<~ and ~>~ signs need to be replaced by the relevant information (without those signs).
+#+END_mhexample
 
-*Do not run anything computationally intensive on this node*. To run your code, you need to start an interactive job or submit a batch job to Slurm (the job scheduler used by the Compute Canada clusters).
+When you ~ssh~ into one of Compute Canada clusters, you log into the login node.
 
-If you are not familiar with HPC, you can go through [[https://wgschool.netlify.app/hpc-menu/][the material of the HPC course we offered in this summer school]], [[https://westgrid.github.io/trainingMaterials/getting-started/#introduction-to-westgrid-compute-canada-and-hpc][the training resources on the WestGrid website]], and [[https://www.youtube.com/playlist?list=PLeCQbAbRSKR8gg6ZMFof1Hf9YF_-n31Ym][the Compute Canada introductory videos]].
+Everybody using a cluster uses that node to enter the cluster. *Do not run anything computationally intensive on this node or you would make the entire cluster very slow for everyone*. To run your code, you need to start an interactive job or submit a batch job to Slurm (the job scheduler used by the Compute Canada clusters).
 
-This lesson goes over what we will do in this course, using our training cluster (of course, [[https://westgrid-ml.netlify.app/schoolremake/pt-03-local.html][if you run the code locally (on your computer)]], you can simply launch Python).
+If you are not familiar with HPC, you can go through [[https://autumnschool.netlify.app/hpc-menu/][the material of the HPC course we offered in this autumn school]], [[https://wgschool.netlify.app/hpc-menu/][the material from last summer]], [[https://westgrid.github.io/trainingMaterials/getting-started/#introduction-to-westgrid-compute-canada-and-hpc][the training resources on the WestGrid website]], [[https://docs.computecanada.ca/wiki/Compute_Canada_Documentation][the Compute Canada Wiki]], or [[https://www.youtube.com/playlist?list=PLeCQbAbRSKR8gg6ZMFof1Hf9YF_-n31Ym][the Compute Canada introductory videos]].
+
+This lesson is a summary of relevant information while using Python in an HPC context for deep learning.
 
 * Plots
 
@@ -60,10 +62,12 @@ The Compute Canada clusters are optimized for very large files and are slowed by
 $ tar cf <data>.tar <path/to/dataset/directory>/*
 #+END_src
 
-/Notes:/
+#+BEGIN_mhexample
+Notes:
 
 - If you want to also compress the files, replace {{<c>}}tar cf{{</c>}} with {{<c>}}tar czf{{</c>}}
 - As a modern alternative to {{<c>}}tar{{</c>}}, you can use [[https://docs.computecanada.ca/wiki/Dar][Dar]]
+#+END_mhexample
 
 * Interactive jobs
 
@@ -88,10 +92,9 @@ Here are my suggestions so that we don't run into this problem:
 - Only request the time that you will really use (e.g. for [[https://westgrid-ml.netlify.app/schoolremake/pt-07-tensor.html][the lesson on Python tensors]], maybe 30 min to 1 hour seems reasonable)
 - If you don't need your job allocation anymore before it runs out, you can relinquish it with {{<b>}}Ctrl+d{{</b>}}
 
-#+BEGIN_simplebox
-/Note:/ \\
-In this workshop, we will submit jobs from ~/home~. This is fine on some of the Compute Canada clusters as well. Be aware however that [[https://docs.computecanada.ca/wiki/Running_jobs#Cluster_particularities][you are not allowed to do that on Cedar]]. Instead, on Cedar, you have to submit jobs from ~/scratch~ or ~/project~.
-#+END_simplebox
+#+BEGIN_mhexample
+Be aware that, on Cedar, [[https://docs.computecanada.ca/wiki/Running_jobs#Cluster_particularities][you are not allowed to submit jobs from ~/home~]]. Instead, you have to submit jobs from ~/scratch~ or ~/project~.
+#+END_mhexample
 
 * Batch jobs
 
@@ -134,25 +137,26 @@ tar xf ~/projects/def-<user>/<data>.tar -C $SLURM_TMPDIR/data
 python $SOURCEDIR/<script>.py $SLURM_TMPDIR/data
 #+END_src
 
-/Notes:/
+#+BEGIN_mhexample
+Notes:
 
 - {{<c>}}%x{{</c>}} will get replaced by the script name and {{<c>}}%j{{</c>}} by the job number
 - If you compressed your data with {{<c>}}tar czf{{</c>}}, you need to extract it with {{<c>}}tar xzf{{</c>}}
 - {{<c>}}SBATCH{{</c>}} options marked with a {{<c>}}*{{</c>}} are optional
 - There are various other options for [[https://docs.computecanada.ca/wiki/Running_jobs#Email_notification][email notifications]]
-- You may wonder why we transferred data to a compute node:
+#+END_mhexample
 
-This makes any I/O operation involving your data a lot faster, so it will speed up your code.
+You may wonder why we transferred data to a compute node. This makes any I/O operation involving your data a lot faster, so it will speed up your code. Here is how this works:
 
-So first, we create a temporary data directory in {{<b>}}$SLURM_TMPDIR{{</b>}}:
+First, we create a temporary data directory in {{<b>}}$SLURM_TMPDIR{{</b>}}:
 
 #+BEGIN_src sh
 $ mkdir $SLURM_TMPDIR/data
 #+END_src
 
-#+BEGIN_simplebox
-{{<s>}}The variable {{<b>}}$SLURM_TMPDIR{{</b>}} is created by Slurm on the compute node where a job is running. Its path is {{<b>}}/localscratch/&lt;user&gt;.&lt;jobid&gt;.0{{</b>}}. Anything in it gets deleted when the job is done.
-#+END_simplebox
+#+BEGIN_mhexample
+The variable {{<b>}}$SLURM_TMPDIR{{</b>}} is created by Slurm on the compute node where a job is running. Its path is {{<b>}}/localscratch/&lt;user&gt;.&lt;jobid&gt;.0{{</b>}}. Anything in it gets deleted when the job is done.
+#+END_mhexample
 
 Then we extract the data into it:
 
@@ -245,7 +249,9 @@ $ source ~/env/bin/activate
 
 ** Start an interactive job
 
-/Example:/
+#+BEGIN_mhex
+Example:
+#+END_mhex
 
 #+BEGIN_src sh
 $ salloc --account=def-<account> --gres=gpu:1 --cpus-per-task=6 --mem=32000 --time=0:30:0
@@ -259,9 +265,9 @@ Create a temporary data directory in {{<b>}}$SLURM_TMPDIR{{</b>}}:
 (env) $ mkdir $SLURM_TMPDIR/data
 #+END_src
 
-#+BEGIN_simplebox
-/Note:/ {{<s>}}The variable {{<b>}}$SLURM_TMPDIR{{</b>}} is created by Slurm on the compute node where a job is running. Its path is {{<b>}}/localscratch/&lt;user&gt;.&lt;jobid&gt;.0{{</b>}}. Anything in it gets deleted when the job is done.
-#+END_simplebox
+#+BEGIN_mhexample
+The variable {{<b>}}$SLURM_TMPDIR{{</b>}} is created by Slurm on the compute node where a job is running. Its path is {{<b>}}/localscratch/&lt;user&gt;.&lt;jobid&gt;.0{{</b>}}. Anything in it gets deleted when the job is done.
+#+END_mhexample
 
 Extract the data into it:
 
@@ -282,7 +288,9 @@ Play in Python to test your code:
 >>> ...
 #+END_src
 
-/Note:/ {{<s>}}if you want to exit the virtual environment:
+#+BEGIN_mhexample
+Note that if you want to exit the virtual environment, you can run:
+#+END_mhexample
 
 #+BEGIN_src sh
 (env) $ deactivate
@@ -298,9 +306,9 @@ In PyTorch, you can create dictionaries with all the information necessary and s
 
 The information you want to save in each checkpoint includes the model’s {{<b>}}state_dict{{</b>}}, the optimizer’s {{<b>}}state_dict{{</b>}}, the {{<b>}}epoch{{</b>}} at which you stopped, the latest training {{<b>}}loss{{</b>}}, and anything else needed to restart training where you left off.
 
-/Example:/
-
-Saving a checkpoint during training could look something like this:
+#+BEGIN_mhex
+For example, saving a checkpoint during training could look something like this:
+#+END_mhex
 
 #+BEGIN_src python
 torch.save({
@@ -341,7 +349,9 @@ First, you need to launch TensorBoard in the background (with a trailing ~&~) be
 tensorboard --logdir=/tmp/<your log dir> --host 0.0.0.0 &
 #+END_src
 
-/Example:/
+#+BEGIN_mhex
+Example:
+#+END_mhex
 
 #+BEGIN_src sh
 #!/bin/bash
