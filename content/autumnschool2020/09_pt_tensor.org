@@ -32,7 +32,7 @@ Start a notebook and rename it to something that makes sense to you (e.g. {{<b>}
 
 * Load PyTorch
 
-First, we need to load the ~torch~ package:
+First, we need to load the main package from the PyTorch library. It is called ~torch~:
 
 #+BEGIN_src python
 import torch
