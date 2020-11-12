@@ -19,11 +19,11 @@ The goal is to build a neural network which can learn from the training set to p
 {{<img src="/img/autumnschool2020/mnist_nn_nw.png" margin="5rem" title="" width="85%" line-height="0rem">}}
 {{</img>}}
 
-* Let's explore the MNIST with PyTorch
+Now, let's explore the MNIST with PyTorch.
 
-** Downloading and preparing the MNIST data
+* Downloading and preparing the MNIST data
 
-*** Where to store the data in the cluster
+** Where to store the data in the cluster
 
 In Compute Canada clusters, a good place to store data shared amongst members of a project is in the {{<b>}}/project{{</b>}} file system.
 
@@ -35,11 +35,11 @@ It would make little sense to all download the same MNIST data in different plac
 
 *We will thus all access the MNIST data in {{<b>}}~/projects/def-sponsor00/data{{</b>}}.*
 
-*** How to obtain the data?
+** How to obtain the data?
 
 The dataset can be downloaded directly from [[http://yann.lecun.com/exdb/mnist/][the MNIST website]], but the PyTorch package TorchVision has tools to download and transform several classic vision datasets, including the MNIST.
 
-*** Transforming the data
+** Transforming the data
 
 We will transform the raw data to tensors and normalize it using the mean and standard deviation of the MNIST training data (0.1307 and 0.3081 respectively).
 
@@ -52,11 +52,11 @@ transform = transforms.Compose([
     ])
 #+END_src
 
-*** Downloading the data
+** Downloading the data
 
 We can now download and transform the data.
 
-**** Training data
+*** Training data
 
 #+BEGIN_src python
 train_data = datasets.MNIST(
@@ -66,7 +66,7 @@ train_data = datasets.MNIST(
 
 ~train=True~ selects the training set of the MNIST.
 
-**** Test data
+*** Test data
 
 Even though the mean and standard deviation of the test data are slightly different, it is important to normalize the test data in the same way.
 
@@ -80,7 +80,9 @@ test_data = datasets.MNIST(
 
 I have already run these commands, so the data is already in {{<b>}}~/projects/def-sponsor00/data{{</b>}}, ready to be used and you don't have to run anything.
 
-** Inspect the data
+* Exploring the data
+
+** Data inspection
 
 First, let's check the size of ~train_data~:
 
@@ -134,7 +136,7 @@ And think about what each of them represents.<br><br>
 Then explore the {{<b>}}test_data{{</b>}} object.
 {{</exercise>}}
 
-** Plot an image from the data
+** Plotting an image from the data
 
 For this, we will use ~pyplot~ from ~matplotlib~.
 
@@ -164,7 +166,7 @@ This is what that first image looks like:
 
 And indeed, it matches the first label we explored earlier (~train_data[0][1]~).
 
-** Plot one image with its pixel values
+** Plotting an image with its pixel values
 
 We can plot it with more details by showing the value of each pixel in the image. One little twist is that we need to pick a threshold value below which we print the pixel values in white otherwise they would not be visible (black on near black background). We also round the pixel values to one decimal digit so as not to clutter the result.
 
@@ -190,20 +192,20 @@ And this is what we get:
 {{<img src="/img/summerschool2020/imgpx_nw.png" title="" width="%" line-height="0.5rem">}}
 {{</img>}}
 
-** Pass the data through ~DataLoader~
+* Batch processing
 
 PyTorch provides the [[https://pytorch.org/docs/stable/data.html?highlight=dataloader#module-torch.utils.data][torch.utils.data.DataLoader]] class which combines a dataset and an optional sampler and provides an iterable (while training or testing our neural network, we will iterate over that object). It allows, [[https://pytorch.org/docs/stable/data.html?highlight=dataloader#torch.utils.data.DataLoader][among many other things]], to set the batch size and shuffle the data.
 
 So our last step in preparing the data is to pass it through ~DataLoader~.
 
-*** Training data
+** Training data
 
 #+BEGIN_src python
 train_loader = torch.utils.data.DataLoader(
     train_data, batch_size=20, shuffle=True)
 #+END_src
 
-*** Test data
+** Test data
 
 #+BEGIN_src python
 test_loader = torch.utils.data.DataLoader(
