@@ -4,12 +4,11 @@
 #+slug: 14_pt_ournn
 #+weight: 14
 
+#+BEGIN_simplebox
 *Zoom session 3 — part 1*
 
-#+BEGIN_simplebox
-/Access:/ {{<s>}}You should have received the meeting id and password by email \\
-/Time:/ {{<m>}}3 pm Pacific Time \\
-/Topic:/ {{<m>}}In this lesson, we will build our own NN to classify the MNIST
+/Time:/ {{<m>}}3 pm Pacific Time. \\
+/Topic:/ {{<m>}}In this session, we will build our own NN to classify the MNIST.
 #+END_simplebox
 
 * Comments & questions

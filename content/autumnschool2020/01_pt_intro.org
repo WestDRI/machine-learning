@@ -4,18 +4,18 @@
 #+slug: 01_pt_intro
 #+weight: 1
 
+#+BEGIN_simplebox
 *Zoom session 1*
 
-#+BEGIN_simplebox
-/Access:/ {{<n>}}{{<s>}}You should have received the meeting id and password by email
+/Access:/ {{<n>}}{{<s>}}You should have received the meeting id and password by email.
 
-/Time:/ {{<n>}}{{<m>}}9 am Pacific Time
+/Time:/ {{<n>}}{{<m>}}9 am Pacific Time.
 
 /Topics:/
-{{<n>}}{{<n>}}Presentation of the course \\
-{{<n>}}{{<s>}}{{<m>}}{{<m>}}{{<m>}}Distribution of usernames and password \\
-{{<n>}}{{<s>}}{{<m>}}{{<m>}}{{<m>}}Access to the JupyterHub for this course \\
-{{<n>}}{{<s>}}{{<m>}}{{<m>}}{{<m>}}Access to the training cluster for this course
+{{<n>}}{{<n>}}Presentation of the course. \\
+{{<n>}}{{<s>}}{{<m>}}{{<m>}}{{<m>}}Distribution of usernames and password. \\
+{{<n>}}{{<s>}}{{<m>}}{{<m>}}{{<m>}}Access to the JupyterHub for this course. \\
+{{<n>}}{{<s>}}{{<m>}}{{<m>}}{{<m>}}Access to the training cluster for this course.
 #+END_simplebox
 {{<br>}}
 

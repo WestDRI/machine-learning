@@ -4,7 +4,11 @@
 #+slug: 10_pt_mnist
 #+weight: 10
 
+#+BEGIN_simplebox
 *Zoom session 2 — part 3*
+
+/Topic:/ {{<m>}}In this session, we will explore the MNIST dataset with PyTorch.
+#+END_simplebox
 
 * The MNIST dataset
 

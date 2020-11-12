@@ -6,8 +6,10 @@
 
 #+OPTIONS: toc:nil
 
+#+BEGIN_simplebox
 *Zoom session 3 — part 2*
 
-In this last session, I will try to answer your last questions and we will wrap up the course.
+/Topic:/ {{<m>}}In this last session, I will try to answer your last questions and we will wrap up the course.
+#+END_simplebox
 
 * Comments & questions
