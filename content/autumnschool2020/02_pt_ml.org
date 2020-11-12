@@ -176,11 +176,13 @@ They are not feedforward networks (i.e. networks for which the information moves
 
 *** Deep neural networks
 
-The first layer of a neural net is the input layer. The last one is the output layer. All the layers in-between are called /hidden layers/. Shallow neural networks have only one hidden layer and deep networks have two or more hidden layers. When an ANN is deep, we talk about *Deep Learning* (DL). So deep learning is a subfield of machine learning.
+The first layer of a neural net is the input layer. The last one is the output layer. All the layers in-between are called /hidden layers/. Shallow neural networks have only one hidden layer and deep networks have two or more hidden layers. When an ANN is deep, we talk about *Deep Learning* (DL).
 
 {{<br>}}
 {{<img src="https://imgs.xkcd.com/comics/drone_training.png" title="" width="%" line-height="1rem">}}
 From <a href="https://xkcd.com/">xkcd.com</a>
 {{</img>}}
+
+*In short, deep learning is a subfield of machine learning which is itself a subfield of the must larger field of artificial intelligence.*
 
 * Comments & questions
