@@ -1,6 +1,6 @@
 #+title: HPC with Python
 #+description: Reading
-#+colordes: #538cc6
+#+colordes: #999999
 #+slug: 16_pt_hpc
 #+weight: 16
 
