@@ -150,13 +150,6 @@ Then, we plot it with ~pyplot~, but since we are in a cluster, instead of showin
 
 #+BEGIN_src python
 plt.imshow(img, cmap='gray')
-plt.savefig('img.png')
-#+END_src
-
-You can now copy the image to your local computer to visualize it. From your local shell:
-
-#+BEGIN_src sh
-scp userxxx@uu.c3.ca:<path/to/img.png> <path/where/you/want/to/copy/it>
 #+END_src
 
 This is what that first image looks like:
@@ -183,8 +176,6 @@ for x in range(width):
                     horizontalalignment='center',
                     verticalalignment='center',
                     color='white' if img[x][y].item() < thresh else 'black')
-
-imgplot.savefig('imgpx.png')
 #+END_src
 
 And this is what we get:
@@ -231,7 +222,6 @@ for i in torch.arange(20):
     sub = batchplot.add_subplot(2, 10, i+1, xticks=[], yticks=[])
     sub.imshow(torch.squeeze(batchimg[i]), cmap='gray')
     sub.set_title(str(batchlabel[i].item()), fontsize=25)
-batchplot.savefig('batchplot.png')
 #+END_src
 
 We get:
