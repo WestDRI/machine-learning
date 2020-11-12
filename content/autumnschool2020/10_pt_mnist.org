@@ -19,61 +19,31 @@ The goal is to build a neural network which can learn from the training set to p
 {{<img src="/img/autumnschool2020/mnist_nn_nw.png" margin="5rem" title="" width="85%" line-height="0rem">}}
 {{</img>}}
 
-* Start an interactive job
+* Let's explore the MNIST with PyTorch
 
-Before you can start running Python code, you need to source your Python virtual environment and start an interactive job:
+** Downloading and preparing the MNIST data
 
-#+BEGIN_src sh
-$ source ~/env/bin/activate
-$ salloc --cpus-per-task=1 --mem=3G --time=0:30:0   # edit as needed
-$ python
-#+END_src
+*** Where to store the data in the cluster
 
-* Load Python modules
+In Compute Canada clusters, a good place to store data shared amongst members of a project is in the {{<b>}}/project{{</b>}} file system.
 
-#+BEGIN_src python
-from matplotlib import pyplot as plt
-import torch
-from torchvision import datasets, transforms
-#+END_src
+You usually belong to {{<b>}}/project/def-&lt;group&gt;{{</b>}}, where {{<b>}}&lt;group&gt;{{</b>}} is the name of your PI. You can access it from your home directory through the symbolic link {{<b>}}~/projects/def-&lt;group&gt;{{</b>}}.
 
-* Set the device argument to CPU
+In our training cluster, we are all part of the group {{<b>}}def-sponsor00{{</b>}}, accessible through {{<b>}}~/projects/def-sponsor00{{</b>}}.
 
-Since our training cluster does not have GPUs, we are setting the device argument to ='cpu'=:
+It would make little sense to all download the same MNIST data in different places...
 
-#+BEGIN_src python
-device = torch.device('cpu')
-#+END_src
+*We will thus all access the MNIST data in {{<b>}}~/projects/def-sponsor00/data{{</b>}}.*
 
-If you have a CUDA-enabled GPU on your computer and [[https://westgrid-ml.netlify.app/schoolremake/pt-03-local.html][if you are running the code locally]], you can run:
+*** How to obtain the data?
 
-#+BEGIN_src python
-device = torch.device('cuda:0')
-#+END_src
+The dataset can be downloaded directly from [[http://yann.lecun.com/exdb/mnist/][the MNIST website]], but the PyTorch package TorchVision has tools to download and transform several classic vision datasets, including the MNIST.
 
-This is also what you will want to use when running jobs on the Compute Canada clusters.
+*** Transforming the data
 
-#+BEGIN_simplebox
-More elegantly, you can write a conditional:
+We will transform the raw data to tensors and normalize it using the mean and standard deviation of the MNIST training data (0.1307 and 0.3081 respectively).
 
-#+BEGIN_src python
-device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-#+END_src
-#+END_simplebox
-
-* Get and prepare the MNIST data
-
-In the Compute Canada clusters, a good place to store data shared amongst users of a project is in the {{<b>}}/project{{</b>}} file system; more precisely, in {{<b>}}/project/def-&lt;group&gt;{{</b>}}, where {{<b>}}&lt;group&gt;{{</b>}} is usually the name of your PI. You can access it from your home through a symbolic link in {{<b>}}~/projects{{</b>}}: {{<b>}}~/projects/def-&lt;group&gt;{{</b>}}.
-
-In our training cluster, we are all part of the group {{<b>}}def-sponsor00{{</b>}}, so we will all download and access the MNIST data in {{<b>}}~/projects/def-sponsor00/data{{</b>}}.
-
-You can download the dataset directly from [[http://yann.lecun.com/exdb/mnist/][the MNIST website]], but the PyTorch package TorchVision has tools to download the classic vision datasets, including the MNIST. This is why we loaded modules from ~torchvision~ at the start of this script.
-
-** Training data
-
-Now, we will download the MNIST training data, transform it to tensor, and normalize it.
-
-First, let's define a transformation (the mean and standard deviation of the MNIST training data are 0.1307 and 0.3081 respectively, hence these values):
+Let's define a transformation:
 
 #+BEGIN_src python
 transform = transforms.Compose([
@@ -82,7 +52,11 @@ transform = transforms.Compose([
     ])
 #+END_src
 
-Then we can download and transform it:
+*** Downloading the data
+
+We can now download and transform the data.
+
+**** Training data
 
 #+BEGIN_src python
 train_data = datasets.MNIST(
@@ -92,9 +66,9 @@ train_data = datasets.MNIST(
 
 ~train=True~ selects the training set of the MNIST.
 
-** Test data
+**** Test data
 
-We then do the same with the test data (even though the mean and std of the test data are slightly different, we want to normalize it in the same way):
+Even though the mean and standard deviation of the test data are slightly different, it is important to normalize the test data in the same way.
 
 #+BEGIN_src python
 test_data = datasets.MNIST(
@@ -102,9 +76,9 @@ test_data = datasets.MNIST(
     train=False, transform=transform)
 #+END_src
 
-Notice that here, we use ~train=False~ to select the test set.
+~train=False~ selects the test set.
 
-* Explore the data
+I have already run these commands, so the data is already in {{<b>}}~/projects/def-sponsor00/data{{</b>}}, ready to be used and you don't have to run anything.
 
 ** Inspect the data
 
