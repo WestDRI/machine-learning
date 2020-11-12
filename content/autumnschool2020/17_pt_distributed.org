@@ -1,4 +1,4 @@
-#+title: A few notes on distributed computing with PyTorch
+#+title: A few notes on PyTorch distributed computing
 #+description: Reading
 #+colordes: #999999
 #+slug: 17_pt_distributed
