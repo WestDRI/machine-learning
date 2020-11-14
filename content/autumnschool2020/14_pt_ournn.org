@@ -11,4 +11,73 @@
 /Topic:/ {{<m>}}In this session, we will build our own NN to classify the MNIST.
 #+END_simplebox
 
+* Let's try to run our model
+
+Jupyter is a great tool xxxx. let's move to .... sbatch.
+
+** Log in to the training cluster through SSH
+
+Open a terminal and SSH to our training cluster [[https://westgrid-ml.netlify.app/autumnschool2020/01_pt_intro/#headline-3][as we saw in the first lesson]].
+
+** Load necessary modules
+
+First, we need to load some modules. This is done with the [[https://github.com/TACC/Lmod][Lmod]] tool through the [[https://docs.computecanada.ca/wiki/Utiliser_des_modules/en][module]] command. Here are some key [[https://lmod.readthedocs.io/en/latest/010_user.html][commands]]:
+
+#+BEGIN_src sh
+# Get help on the module command
+$ module help
+
+# List modules that are already loaded
+$ module list
+
+# See which modules are available for Python
+$ module avail python
+
+# Load the module for Python
+$ module load python
+#+END_src
+
+** Install the necessary Python packages in a virtual environment
+
+You also need Python packages.
+
+For this, create a virtual environment in which you will install packages with {{<c>}}pip{{</c>}}.
+
+#+BEGIN_box
+*Do not use Anaconda* \\
+While Anaconda is a great tool on personal computers, it is not an appropriate tool when working on the Compute Canada clusters: binaries are unoptimized for those clusters and library paths are inconsistent with their architecture. Anaconda installs packages in {{<b>}}$HOME{{</b>}} where it creates a very large number of small files. It can also create conflicts by modifying {{<b>}}.bashrc{{</b>}}.
+#+END_box
+
+*** Create a virtual environment
+
+#+BEGIN_src sh
+$ virtualenv --no-download ~/env
+#+END_src
+
+*** Activate your virtual environment
+
+#+BEGIN_src sh
+$ source ~/env/bin/activate
+#+END_src
+
+*** Update pip
+
+#+BEGIN_src sh
+(env) $ pip install --no-index --upgrade pip
+#+END_src
+
+*** Install the packages you need in the virtual environment
+
+#+BEGIN_src sh
+(env) $ pip install --no-index matplotlib torch torchvision
+#+END_src
+
+#+BEGIN_mhexample
+If you want to exit the virtual environment, you can press Ctrl-D or run:
+#+END_mhexample
+
+#+BEGIN_src sh
+(env) $ deactivate
+#+END_src
+
 * Comments & questions
