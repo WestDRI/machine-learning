@@ -6,11 +6,11 @@
 
 After watching the last two videos, you may be starting to panic: how hard will it be to write the chain rule (with so many derivatives!) in backpropagation?!?
 
-*Don't fear!* PyTorch has automatic differentiation abilities—meaning that it can track all the operations conducted on tensors and do the backprop for you—thanks to its package ~torch.autograd~.
+*Don't fear!* PyTorch has [[https://en.wikipedia.org/wiki/Automatic_differentiation][automatic differentiation]] abilities—meaning that it can track all the operations conducted on tensors and do the backprop for you—thanks to its package ~torch.autograd~.
+
+You can use our training JupyterHub to run the examples in this lesson.
 
 * Tracking computations
-
-/Note: if you want to run the code in the training cluster, as always, submit a batch job to Slurm or do it in an interactive job (with ~salloc~)./
 
 PyTorch does not track all the computations on all the tensors (this would be extremely memory intensive!). To start tracking computations on a vector, set the ~.requires_grad~ attribute to ~True~:
 
