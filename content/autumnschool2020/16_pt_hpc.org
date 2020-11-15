@@ -185,10 +185,12 @@ $ sbatch <jobscript>.sh
 $ sq
 #+END_src
 
+#+BEGIN_mhexample
 {{<b>}}PD{{</b>}} = pending\\
 {{<b>}}R{{</b>}} = running\\
 {{<b>}}CG{{</b>}} = completing (Slurm is doing the closing processes) \\
 No information = your job has finished running
+#+END_mhexample
 
 **** Cancel a job
 
