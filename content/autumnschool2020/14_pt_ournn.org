@@ -30,10 +30,17 @@ $ module help
 # List modules that are already loaded
 $ module list
 
-# See which modules are available for Python
-$ module avail python
+# See which modules are available for a tool
+$ module avail <tool>
 
-# Load the module for Python
+# Load a module
+$ module load <module>[/<version>]
+#+END_src
+
+The only tool we need here is Python. \\
+~module avail python~ gives us the list of available modules for Python and if we want to load the default module (~python/3.7.4~), all we have to run is:
+
+#+BEGIN_src sh
 $ module load python
 #+END_src
 
