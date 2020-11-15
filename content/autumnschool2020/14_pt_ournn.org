@@ -129,4 +129,37 @@ Notes:
 - ~%x~ will get replaced by the script name & ~%j~ by the job number
 #+END_mhexample
 
+** Submit a job
+
+Finally, you need to submit your job to Slurm:
+
+#+BEGIN_src sh
+$ sbatch ~/mnist/nn.sh
+#+END_src
+
+You can check the status of your job with:
+
+#+BEGIN_src sh
+$ sq
+#+END_src
+
+#+BEGIN_mhexample
+{{<b>}}PD{{</b>}} = pending\\
+{{<b>}}R{{</b>}} = running\\
+{{<b>}}CG{{</b>}} = completing (Slurm is doing the closing processes) \\
+No information = your job has finished running
+#+END_mhexample
+
+You can cancel it with:
+
+#+BEGIN_src sh
+$ scancel <jobid>
+#+END_src
+
+Once your job has finished running, you can display efficiency measures with:
+
+#+BEGIN_src sh
+$ seff <jobid>
+#+END_src
+
 * Comments & questions
