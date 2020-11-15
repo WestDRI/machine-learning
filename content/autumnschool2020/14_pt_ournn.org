@@ -102,4 +102,31 @@ Start a Python script with the text editor of your choice:
 nano nn.py
 #+END_src
 
+** Write a Slurm script
+
+Write a shell script with the text editor of your choice:
+
+#+BEGIN_src sh
+nano nn.sh
+#+END_src
+
+This is what you want in that script:
+
+#+BEGIN_src sh
+#!/bin/bash
+#SBATCH --time=5:0
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=2G
+#SBATCH --output=%x_%j.out
+#SBATCH --error=%x_%j.err
+
+python ~/mnist/nn.py
+#+END_src
+
+#+BEGIN_mhexample
+Notes:
+- ~--time~ accepts these formats: "min", "min:s", "h:min:s", "d-h", "d-h:min" & "d-h:min:s"
+- ~%x~ will get replaced by the script name & ~%j~ by the job number
+#+END_mhexample
+
 * Comments & questions
