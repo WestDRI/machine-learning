@@ -80,4 +80,19 @@ If you want to exit the virtual environment, you can press Ctrl-D or run:
 (env) $ deactivate
 #+END_src
 
+** Write a Python script
+
+Create a directory for this project and ~cd~ into it:
+
+#+BEGIN_src sh
+mkdir mnist
+cd mnist
+#+END_src
+
+Start a Python script with the text editor of your choice:
+
+#+BEGIN_src sh
+nano nn.py
+#+END_src
+
 * Comments & questions
