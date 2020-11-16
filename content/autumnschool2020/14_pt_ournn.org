@@ -417,4 +417,5 @@ Once your job has finished running, you can display efficiency measures with:
 $ seff <jobid>
 #+END_src
 
+[[https://github.com/tensorflow/tensorboard][TensorBoard]] is a web visualization toolkit developed by TensorFlow which can be used with PyTorch.
 * Comments & questions

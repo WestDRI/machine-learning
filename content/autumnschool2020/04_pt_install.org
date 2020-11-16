@@ -88,9 +88,7 @@ True
 
 ** TensorBoard
 
-[[https://github.com/tensorflow/tensorboard][TensorBoard]] is a web visualization toolkit developed by TensorFlow which can be used with PyTorch.
-
-Install it with:
+Install TensorBoard with:
 
 #+BEGIN_src sh
 pip install tensorboard
