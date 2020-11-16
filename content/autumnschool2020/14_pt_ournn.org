@@ -150,6 +150,19 @@ main()
 writer.flush()
 writer.close()
 #+END_src
+
+Things seem to be working ok. Time to iterate our model to actually train it!
+
+Jupyter is a fantastic tool. It has a major downside however: when you launch a Jupyter server, you are running a job on a compute node. If you want to play for 8 hours in Jupyter, you are requesting an 8 hour job. Now, most of the time you spend on Jupyter is spent running bits and pieces of code (or doing nothing at all). If you ask for GPUs, many CPUs, and lots of RAM, all of it will remain idle almost all of the time. It is a really sub-optimum use of Compute Canada resources.
+
+In addition, if you ask for lots of resources for a long time, you will have to wait a long time in the queue before they get allocated to you.
+
+Lastly, you will go through your allocation quickly.
+
+A much better strategy is to develop and test your code (with very little data, few epochs, etc.) in an interactive job (with ~salloc~) or in Jupyter, *then*, launch an ~sbatch~ job to actually train your model.
+
+* Let's train and test our model
+
 ** Log in the training cluster
 
 Open a terminal and SSH to our training cluster [[https://westgrid-ml.netlify.app/autumnschool2020/01_pt_intro/#headline-3][as we saw in the first lesson]].
