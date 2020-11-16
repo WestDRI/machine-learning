@@ -86,14 +86,14 @@ print(torch.cuda.is_available())
 True
 #+END_src
 
-# ** TensorBoard
+** TensorBoard
 
-# [[https://github.com/tensorflow/tensorboard][TensorBoard]] is a web visualization toolkit developed by TensorFlow which can be used with PyTorch.
+[[https://github.com/tensorflow/tensorboard][TensorBoard]] is a web visualization toolkit developed by TensorFlow which can be used with PyTorch.
 
-# Install it with:
+Install it with:
 
-# #+BEGIN_src sh
-# pip install tensorboard
-# #+END_src
+#+BEGIN_src sh
+pip install tensorboard
+#+END_src
 
 * Comments & questions
