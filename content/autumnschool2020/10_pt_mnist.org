@@ -43,7 +43,11 @@ It would make little sense to all download the same MNIST data in different plac
 
 The dataset can be downloaded directly from [[http://yann.lecun.com/exdb/mnist/][the MNIST website]], but the PyTorch package TorchVision has tools to download and transform several classic vision datasets, including the MNIST.
 
-Let's load the needed libraries:
+** Transforming the data
+
+We will transform the raw data to tensors and normalize it using the mean and standard deviation of the MNIST training data (0.1307 and 0.3081 respectively).
+
+First, let's load the needed libraries:
 
 #+BEGIN_src python
 import torch
@@ -51,11 +55,7 @@ from torchvision import datasets, transforms
 from matplotlib import pyplot as plt
 #+END_src
 
-** Transforming the data
-
-We will transform the raw data to tensors and normalize it using the mean and standard deviation of the MNIST training data (0.1307 and 0.3081 respectively).
-
-Let's define a transformation:
+Then, let's define a transformation:
 
 #+BEGIN_src python
 transform = transforms.Compose([
