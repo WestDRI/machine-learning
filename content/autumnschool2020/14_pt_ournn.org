@@ -341,7 +341,7 @@ def main():
 
     train_loader = torch.utils.data.DataLoader(train_data, batch_size=64)
     test_loader = torch.utils.data.DataLoader(test_data, batch_size=1000)
-    model = Net().to(device)  # create instance of our network and send it to device
+    model = Net().to(device)
     optimizer = optim.Adadelta(model.parameters(), lr=1.0)
     scheduler = StepLR(optimizer, step_size=1, gamma=0.7)
 
