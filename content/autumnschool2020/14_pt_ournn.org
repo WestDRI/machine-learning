@@ -185,8 +185,8 @@ $ module avail <tool>
 $ module load <module>[/<version>]
 #+END_src
 
-The only tool we need here is Python. \\
-~module avail python~ gives us the list of available modules for Python and if we want to load the default module (~python/3.7.4~), all we have to run is:
+The only tool you need here is Python. \\
+~module avail python~ gives the list of available modules for Python and if you want to load the default module (~python/3.7.4~), *all you have to run is*:
 
 #+BEGIN_src sh
 $ module load python
@@ -194,46 +194,54 @@ $ module load python
 
 ** Install Python packages
 
-You also need Python packages.
+You also need the Python packages ~matplotlib~, ~torch~, ~torchvision~, and ~tensorboard~.
 
-For this, create a virtual environment in which you will install packages with {{<c>}}pip{{</c>}}.
+On Compute Canada clusters, you need to create a virtual environment in which you install packages with ~pip~.
 
 #+BEGIN_box
 *Do not use Anaconda* \\
 While Anaconda is a great tool on personal computers, it is not an appropriate tool when working on the Compute Canada clusters: binaries are unoptimized for those clusters and library paths are inconsistent with their architecture. Anaconda installs packages in {{<b>}}$HOME{{</b>}} where it creates a very large number of small files. It can also create conflicts by modifying {{<b>}}.bashrc{{</b>}}.
 #+END_box
 
-Create a virtual environment:
+For this workshop, since we all need the same packages, I already created a virtual environment that we will all use. *All you have to do is to activate it with*:
 
 #+BEGIN_src sh
-$ virtualenv --no-download ~/env
+$ source ~/projects/def-sponsor00/env/bin/activate
 #+END_src
 
-Activate your virtual environment:
-
-#+BEGIN_src sh
-$ source ~/env/bin/activate
-#+END_src
-
-Update pip:
-
-#+BEGIN_src sh
-(env) $ pip install --no-index --upgrade pip
-#+END_src
-
-Install the packages you need in the virtual environment:
-
-#+BEGIN_src sh
-(env) $ pip install --no-index matplotlib torch torchvision
-#+END_src
-
-#+BEGIN_mhexample
 If you want to exit the virtual environment, you can press Ctrl-D or run:
-#+END_mhexample
 
 #+BEGIN_src sh
 (env) $ deactivate
 #+END_src
+
+#+BEGIN_mhex
+For future reference, below is how you would install packages on a real Compute Canada cluster (but please don't do it in the training cluster as it is unnecessary and would only slow it down).
+
+Create a virtual environment:
+
+#+BEGIN_example
+$ virtualenv --no-download ~/env
+#+END_example
+
+Activate the virtual environment:
+
+#+BEGIN_example
+$ source ~/env/bin/activate
+#+END_example
+
+Update pip:
+
+#+BEGIN_example
+(env) $ pip install --no-index --upgrade pip
+#+END_example
+
+Install the packages you need in the virtual environment:
+
+#+BEGIN_example
+(env) $ pip install --no-cache-dir --no-index matplotlib torch torchvision tensorboard
+#+END_example
+#+END_mhex
 
 ** Write a Python script
 
