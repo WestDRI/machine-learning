@@ -447,7 +447,13 @@ Because we only have 1 GPU and are taking turns running our jobs, we need to kee
 salloc --time=1:0:0 --mem=2000M
 #+END_src
 
-Launch TensorBoard with:
+To launch TensorBoard, we need to activate our Python virtual environment (TensorBoard was installed by ~pip~):
+
+#+BEGIN_src sh
+source ~/projects/def-sponsor00/env/bin/activate
+#+END_src
+
+Then we can launch TensorBoard in the background:
 
 #+BEGIN_src sh
 tensorboard --logdir=~/mnist/runs --host 0.0.0.0 &
