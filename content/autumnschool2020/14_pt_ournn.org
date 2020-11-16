@@ -370,7 +370,8 @@ This is what you want in that script:
 #!/bin/bash
 #SBATCH --time=5:0
 #SBATCH --cpus-per-task=1
-#SBATCH --mem=2G
+#SBATCH --gres=gpu:1
+#SBATCH --mem=0
 #SBATCH --output=%x_%j.out
 #SBATCH --error=%x_%j.err
 
@@ -380,6 +381,7 @@ python ~/mnist/nn.py
 #+BEGIN_mhexample
 Notes:
 - ~--time~ accepts these formats: "min", "min:s", "h:min:s", "d-h", "d-h:min" & "d-h:min:s"
+- ~--mem=0~ requests the entire memory of the node with the GPU
 - ~%x~ will get replaced by the script name & ~%j~ by the job number
 #+END_mhexample
 
