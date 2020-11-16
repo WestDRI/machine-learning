@@ -171,9 +171,9 @@ Right now, our training cluster doesn't have a functional GPU and this being an 
 
 Open a terminal and SSH to our training cluster [[https://westgrid-ml.netlify.app/autumnschool2020/01_pt_intro/#headline-3][as we saw in the first lesson]].
 
-** Load necessary module
+** Load necessary modules
 
-First, we need to load some modules. This is done with the [[https://github.com/TACC/Lmod][Lmod]] tool through the [[https://docs.computecanada.ca/wiki/Utiliser_des_modules/en][module]] command. Here are some key [[https://lmod.readthedocs.io/en/latest/010_user.html][commands]]:
+First, we need to load the Python and CUDA modules. This is done with the [[https://github.com/TACC/Lmod][Lmod]] tool through the [[https://docs.computecanada.ca/wiki/Utiliser_des_modules/en][module]] command. Here are some key [[https://lmod.readthedocs.io/en/latest/010_user.html][Lmod commands]]:
 
 #+BEGIN_src sh
 # Get help on the module command
@@ -189,11 +189,10 @@ $ module avail <tool>
 $ module load <module>[/<version>]
 #+END_src
 
-The only tool you need here is Python. \\
-~module avail python~ gives the list of available modules for Python and if you want to load the default module (~python/3.7.4~), *all you have to run is*:
+To load the default modules for Python and CUDA, run:
 
 #+BEGIN_src sh
-$ module load python
+$ module load python cuda
 #+END_src
 
 ** Install Python packages
