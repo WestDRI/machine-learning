@@ -258,7 +258,7 @@ Start a Python script with the text editor of your choice:
 nano nn.py
 #+END_src
 
-In it, copy-paste the code we played with in Jupyter, but this time have it run for 50 epochs:
+In it, copy-paste the code we played with in Jupyter, but this time have it run for 10 epochs:
 
 #+BEGIN_src python
 import torch
@@ -319,7 +319,7 @@ def test(model, device, test_loader):
         100. * correct / len(test_loader.dataset)))
 
 def main():
-    epochs = 50  # don't forget to change the number of epochs
+    epochs = 10  # don't forget to change the number of epochs
     torch.manual_seed(1)
     device = torch.device('cpu')
 
