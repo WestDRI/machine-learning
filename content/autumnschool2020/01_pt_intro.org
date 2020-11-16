@@ -33,7 +33,7 @@ Training models from Jupyter would be a poor use of computing resources: while l
 
 To launch JupyterLab on UU:
 
-1. Go to [[https:uu.c3.ca]]
+1. Go to [[https://uu.c3.ca][https://uu.c3.ca]]
 2. Sign in with your username and password
 3. Set the server options (see image below): \\
    {{<n>}} /Please leave the following untouched:/ \\
