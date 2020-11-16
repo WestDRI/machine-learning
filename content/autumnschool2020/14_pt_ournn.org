@@ -111,7 +111,7 @@ def test(model, device, test_loader):
 def main():
     epochs = 1
     torch.manual_seed(1)
-    device = torch.device('cpu')
+    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
     transform = transforms.Compose([
         transforms.ToTensor(),
@@ -324,7 +324,7 @@ def test(model, device, test_loader):
 def main():
     epochs = 10  # don't forget to change the number of epochs
     torch.manual_seed(1)
-    device = torch.device('cpu')
+    device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
     transform = transforms.Compose([
         transforms.ToTensor(),
