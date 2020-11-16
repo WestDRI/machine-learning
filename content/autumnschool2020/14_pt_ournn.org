@@ -11,10 +11,12 @@
 /Topic:/ {{<m>}}In this session, we will build our own NN to classify the MNIST.
 #+END_simplebox
 
-* Let's try to run our model
+* Let's build an MLP
 
-Jupyter is a great tool xxxx. let's move to .... sbatch.
+The [[https://en.wikipedia.org/wiki/Multilayer_perceptron][multi-layer perceptron (MLP)]] is the simplest neural network. It is a *feed-forward* (i.e. no loop), *fully-connected* (i.e. each neuron of one layer is connected to all the neurons of the adjacent layers) *neural network with a single hidden layer*.
 
+{{<img src="/img/autumnschool2020/mlp_nw.png" margin="4rem" title="" width="60%" line-height="0.5rem">}}
+{{</img>}}
 ** Log in the training cluster
 
 Open a terminal and SSH to our training cluster [[https://westgrid-ml.netlify.app/autumnschool2020/01_pt_intro/#headline-3][as we saw in the first lesson]].
