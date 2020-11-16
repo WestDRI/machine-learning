@@ -161,6 +161,10 @@ Lastly, you will go through your allocation quickly.
 
 A much better strategy is to develop and test your code (with very little data, few epochs, etc.) in an interactive job (with ~salloc~) or in Jupyter, *then*, launch an ~sbatch~ job to actually train your model.
 
+#+BEGIN_mhexample
+Right now, our training cluster doesn't have a functional GPU and this being an introductory course, our network uses very little memory. So today, we won't be using any more resource with sbatch than we were in Jupyter. But when you build and train your own networks, you will be using a lot more resources and it is thus important to see what an efficient workflow is.
+#+END_mhexample
+
 * Let's train and test our model
 
 ** Log in the training cluster
