@@ -10,7 +10,7 @@
 
 With the explosion of the field of machine learning in recent years, the GPUs in Compute Canada clusters have seen an exponential increase in demand. Resources are expanding, but cannot keep up.
 
-{{<img src="/img/autumnschool2020/gpu_rac_2020_nw.png" margin="6rem" title="" width="100%" line-height="0rem">}}
+{{<img src="/img/gpu_rac_2020_nw.png" margin="6rem" title="" width="100%" line-height="0rem">}}
 <center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}From <a href="https://www.computecanada.ca/research-portal/accessing-resources/resource-allocation-competitions/">Compute Canada 2020 RAC Q&A session</a></center>
 {{</img>}}
 

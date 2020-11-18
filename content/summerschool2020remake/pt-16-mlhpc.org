@@ -10,7 +10,7 @@
 
 Several Compute Canada clusters have GPUs. Their numbers and types differ:
 
-{{<img src="/img/summerschool2020/cc_gpu.png" title="" width="%" line-height="1rem">}}
+{{<img src="/img/cc_gpu.png" title="" width="%" line-height="1rem">}}
 From <a href="https://docs.computecanada.ca/wiki/Using_GPUs_with_Slurm">Compute Canada Wiki</a>
 <br><br>
 {{</img>}}

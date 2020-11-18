@@ -84,7 +84,7 @@ NVIDIA [[https://developer.nvidia.com/cudnn][CUDA Deep Neural Network library (c
 
 Several Compute Canada clusters have GPUs. Their numbers and types differ:
 
-{{<img src="/img/summerschool2020/cc_gpu.png" title="" width="%" line-height="0.5rem">}}
+{{<img src="/img/cc_gpu.png" title="" width="%" line-height="0.5rem">}}
 from <a href="https://docs.computecanada.ca/wiki/Using_GPUs_with_Slurm">Compute Canada Wiki</a>
 <br><br>
 {{</img>}}
