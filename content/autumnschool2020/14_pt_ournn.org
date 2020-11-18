@@ -223,27 +223,27 @@ For future reference, below is how you would install packages on a real Compute 
 
 Create a virtual environment:
 
-#+BEGIN_example
+#+BEGIN_syntax
 $ virtualenv --no-download ~/env
-#+END_example
+#+END_syntax
 
 Activate the virtual environment:
 
-#+BEGIN_example
+#+BEGIN_syntax
 $ source ~/env/bin/activate
-#+END_example
+#+END_syntax
 
 Update pip:
 
-#+BEGIN_example
+#+BEGIN_syntax
 (env) $ pip install --no-index --upgrade pip
-#+END_example
+#+END_syntax
 
 Install the packages you need in the virtual environment:
 
-#+BEGIN_example
+#+BEGIN_syntax
 (env) $ pip install --no-cache-dir --no-index matplotlib torch torchvision tensorboard
-#+END_example
+#+END_syntax
 #+END_mhex
 
 ** Write a Python script
