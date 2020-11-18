@@ -189,10 +189,10 @@ $ module avail <tool>
 $ module load <module>[/<version>]
 #+END_src
 
-To load the default modules for Python and CUDA, run:
+Here are the modules we need:
 
 #+BEGIN_src sh
-$ module load python cuda
+$ module load nixpkgs/16.09 gcc/7.3.0 cuda/10.0.130 cudnn/7.6 python/3.8.2
 #+END_src
 
 ** Install Python packages
