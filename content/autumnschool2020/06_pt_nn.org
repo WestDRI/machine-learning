@@ -6,7 +6,7 @@
 
 #+OPTIONS: toc:nil
 
-*** Video 1 (19 min)
+* Video 1 (19 min)
 
 [[https://www.3blue1brown.com/][3Blue1Brown by Grant Sanderson]] has a series of 4 videos on neural networks which is easy to watch, fun, and does an excellent job at introducing the functioning of a simple neural network.
 

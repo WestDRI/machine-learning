@@ -6,7 +6,7 @@
 
 #+OPTIONS: toc:nil
 
-*** Video 4 (10 min)
+* Video 4 (10 min)
 
 In this lesson, you will watch the last video on NN by [[https://www.3blue1brown.com/][3Blue1Brown]] which dives into the calculus of backpropagation.{{<2br>}}
 

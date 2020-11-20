@@ -6,7 +6,7 @@
 
 #+OPTIONS: toc:nil
 
-*** Video 2 (21 min)
+* Video 2 (21 min)
 
 In this lesson, you will watch the second video on NN by [[https://www.3blue1brown.com/][3Blue1Brown]] which explains how neural networks learn.{{<2br>}}
 

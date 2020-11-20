@@ -28,7 +28,7 @@ Do not run code that displays plots on screen. Instead, have them written to fil
 
 If you need to copy files to or from the cluster, you can use ~scp~.
 
-****** From your computer
+**** From your computer
 
 If you are in a local shell, run:
 
@@ -38,7 +38,7 @@ If you are in a local shell, run:
 
 /(Replace {{<c>}}&lt;user&gt;{{</c>}} by your user name and {{<c>}}&lt;hostname&gt;{{</c>}} by the hostname—for this workshop: ~uu.c3.ca~.)/
 
-****** From the cluster
+**** From the cluster
 
 If you are in a remote shell (through ~ssh~), run:
 
@@ -168,14 +168,14 @@ $ cp -r ~/projects/def-<user>/<data> $SLURM_TMPDIR/data
 
 ** Job handling
 
-**** Submit a job
+*** Submit a job
 
 #+BEGIN_src sh
 $ cd </dir/containing/job>
 $ sbatch <jobscript>.sh
 #+END_src
 
-**** Check the status of your job(s)
+*** Check the status of your job(s)
 
 #+BEGIN_src sh
 $ sq
@@ -186,13 +186,13 @@ $ sq
 {{<b>}}CG{{</b>}} = completing (Slurm is doing the closing processes) \\
 No information = your job has finished running
 
-**** Cancel a job
+*** Cancel a job
 
 #+BEGIN_src sh
 $ scancel <jobid>
 #+END_src
 
-**** Display efficiency measures of a completed job
+*** Display efficiency measures of a completed job
 
 #+BEGIN_src sh
 $ seff <jobid>

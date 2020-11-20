@@ -13,7 +13,7 @@ Since this experience comes in the form of *data*, ML consists of feeding vast a
 From <a href="https://xkcd.com/">xkcd.com</a>
 {{</img>}}
 
-** Example in image recognition
+* Example in image recognition
 
 Coding all the possible ways—pixel by pixel—that a picture can represent a certain object is an impossibly large task. By feeding examples of images of that object to a neural network however, we can train it to recognize that object in images that it has never seen (without explicitly programming how it does this!).
 

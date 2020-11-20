@@ -18,7 +18,7 @@ The [[https://en.wikipedia.org/wiki/Multilayer_perceptron][multi-layer perceptro
 {{<img src="/img/mlp_nw.png" margin="4rem" title="" width="60%" line-height="0.5rem">}}
 {{</img>}}
 
-*** Load packages
+** Load packages
 
 #+BEGIN_src python
 import torch
@@ -33,13 +33,13 @@ from torch.optim.lr_scheduler import StepLR
 The ~torch.nn.functional~ module contains all the functions of the ~torch.nn~ package. \\
 These functions include loss functions, activation functions, pooling functions...
 
-*** Create a ~SummaryWriter~ instance for TensorBoard
+** Create a ~SummaryWriter~ instance for TensorBoard
 
 #+BEGIN_src python
 writer = SummaryWriter()
 #+END_src
 
-*** Define the architecture of the network
+** Define the architecture of the network
 
 #+BEGIN_src julia
 # To build a model, create a subclass of torch.nn.Module:
@@ -61,7 +61,7 @@ class Net(nn.Module):
 
 Python’s class inheritance gives our subclass all the functionality of ~torch.nn.Module~ while allowing us to customize it.
 
-*** Define a training function
+** Define a training function
 
 #+BEGIN_src python
 def train(model, device, train_loader, optimizer, epoch):
@@ -80,7 +80,7 @@ def train(model, device, train_loader, optimizer, epoch):
                 100. * batch_idx / len(train_loader), loss.item()))
 #+END_src
 
-*** Define a testing function
+** Define a testing function
 
 #+BEGIN_src python
 def test(model, device, test_loader):
@@ -105,7 +105,7 @@ def test(model, device, test_loader):
         100. * correct / len(test_loader.dataset)))
 #+END_src
 
-*** Define a function main() which runs our network
+** Define a function main() which runs our network
 
 #+BEGIN_src python
 def main():
@@ -138,13 +138,13 @@ def main():
         scheduler.step()
 #+END_src
 
-*** Run the network
+** Run the network
 
 #+BEGIN_src python
 main()
 #+END_src
 
-*** Write pending events to disk and close the TensorBoard
+** Write pending events to disk and close the TensorBoard
 
 #+BEGIN_src python
 writer.flush()
@@ -423,7 +423,7 @@ $ seff <jobid>
 
 Because we have sent our model's metrics logs to TensorBoard as part of our code, a directory called ~runs~ with those logs was created in our ~~/mnist~ directory.
 
-*** Launch TensorBoard
+** Launch TensorBoard
 
 TensorBoard requires too much processing power to be run on the login node. When you run long jobs, the best strategy is to launch it in the background as part of the job. This allows you to monitor your model as it is running (and cancel it if things don't look right).
 
@@ -460,7 +460,7 @@ tensorboard --logdir=~/mnist/runs --host 0.0.0.0 &
 
 Now, we need to create a connection with SSH tunnelling between your computer and the compute note running your TensorBoard job.
 
-*** Connect to TensorBoard from your computer
+** Connect to TensorBoard from your computer
 
 *From a new terminal on your computer*, run:
 

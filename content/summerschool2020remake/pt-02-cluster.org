@@ -56,31 +56,29 @@ For this, create a virtual environment in which you will install packages with {
 While Anaconda is a great tool on personal computers, it is not an appropriate tool when working on the Compute Canada clusters: binaries are unoptimized for those clusters and library paths are inconsistent with their architecture. Anaconda installs packages in {{<b>}}$HOME{{</b>}} where it creates a very large number of small files. It can also create conflicts by modifying {{<b>}}.bashrc{{</b>}}.
 #+END_box
 
-** Create a virtual environment
+Create a virtual environment:
 
 #+BEGIN_src sh
 $ virtualenv --no-download ~/env
 #+END_src
 
-** Activate your virtual environment
+Activate your virtual environment:
 
 #+BEGIN_src sh
 $ source ~/env/bin/activate
 #+END_src
 
-** Update pip
+Update pip:
 
 #+BEGIN_src sh
 (env) $ pip install --no-index --upgrade pip
 #+END_src
 
-** Install the packages you need in the virtual environment
+Install the packages you need in the virtual environment:
 
 #+BEGIN_src sh
 (env) $ pip install --no-index matplotlib torch torchvision tensorboard
 #+END_src
-
-** Leave the virtual environment
 
 If you want to exit the virtual environment, run:
 
