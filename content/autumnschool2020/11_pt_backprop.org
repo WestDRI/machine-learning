@@ -12,8 +12,8 @@ In this lesson, you will watch the third video on NN by [[https://www.3blue1brow
 
 {{<youtube Ilg3gGewQ5U>}}{{<br>}}
 
-#+BEGIN_mhexample
+#+BEGIN_note
 There is one minor terminological error in this video: they call the use of mini-batches *stochastic gradient descent*. In fact, this is called *mini-batch gradient descent*. Stochastic gradient descent uses a single example at each iteration.
-#+END_mhexample
+#+END_note
 
 * Comments & questions

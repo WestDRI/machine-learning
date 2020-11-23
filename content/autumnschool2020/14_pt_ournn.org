@@ -161,9 +161,9 @@ Lastly, you will go through your allocation quickly.
 
 A much better strategy is to develop and test your code (with very little data, few epochs, etc.) in an interactive job (with ~salloc~) or in Jupyter, *then*, launch an ~sbatch~ job to actually train your model. This ensures that heavy duty resources such as GPU(s) are only allocated to you when you are actually needing and using them.
 
-#+BEGIN_mhexample
+#+BEGIN_note
 Concrete example with our training cluster: this cluster only has 1 GPU. If you want to use it in Jupyter, you have to request it for your Jupyter session. This means that the entire time your Jupyter session is active, nobody else can use that GPU. While you let your session idle or do tasks that do not require a GPU, this is not a good use of resources.
-#+END_mhexample
+#+END_note
 
 * Let's train and test our model
 
@@ -218,7 +218,7 @@ If you want to exit the virtual environment, you can press Ctrl-D or run:
 (env) $ deactivate
 #+END_src
 
-#+BEGIN_mhex
+#+BEGIN_ex
 For future reference, below is how you would install packages on a real Compute Canada cluster (but please don't do it in the training cluster as it is unnecessary and would only slow it down).
 
 Create a virtual environment:
@@ -244,7 +244,7 @@ Install the packages you need in the virtual environment:
 #+BEGIN_syntax
 (env) $ pip install --no-cache-dir --no-index matplotlib torch torchvision tensorboard
 #+END_syntax
-#+END_mhex
+#+END_ex
 
 ** Write a Python script
 
@@ -378,11 +378,11 @@ This is what you want in that script:
 python ~/mnist/nn.py
 #+END_src
 
-#+BEGIN_mhexample
+#+BEGIN_note
 Notes:
 - ~--time~ accepts these formats: "min", "min:s", "h:min:s", "d-h", "d-h:min" & "d-h:min:s"
 - ~%x~ will get replaced by the script name & ~%j~ by the job number
-#+END_mhexample
+#+END_note
 
 ** Submit a job
 
@@ -398,12 +398,12 @@ You can check the status of your job with:
 $ sq
 #+END_src
 
-#+BEGIN_mhexample
+#+BEGIN_note
 {{<b>}}PD{{</b>}} = pending\\
 {{<b>}}R{{</b>}} = running\\
 {{<b>}}CG{{</b>}} = completing (Slurm is doing the closing processes) \\
 No information = your job has finished running
-#+END_mhexample
+#+END_note
 
 You can cancel it with:
 
@@ -427,9 +427,9 @@ Because we have sent our model's metrics logs to TensorBoard as part of our code
 
 TensorBoard requires too much processing power to be run on the login node. When you run long jobs, the best strategy is to launch it in the background as part of the job. This allows you to monitor your model as it is running (and cancel it if things don't look right).
 
-#+BEGIN_mhex
+#+BEGIN_ex
 Example:
-#+END_mhex
+#+END_ex
 
 #+BEGIN_src sh
 #!/bin/bash
@@ -468,11 +468,11 @@ Now, we need to create a connection with SSH tunnelling between your computer an
 ssh -NfL localhost:6006:<hostname>:6006 userxxx@uu.c3.ca
 #+END_src
 
-#+BEGIN_mhexample
+#+BEGIN_note
 Replace <hostname> by the name of the compute node running your ~salloc~ job. You can find it by looking at your prompt (your prompt shows <username>@<hostname>).
 
 Replace <userxxx> by your user name.
-#+END_mhexample
+#+END_note
 
 Now, you can open a browser on your computer and access TensorBoard at [[http://localhost:6006][http://localhost:6006]].
 

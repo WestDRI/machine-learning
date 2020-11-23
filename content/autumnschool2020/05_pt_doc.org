@@ -35,9 +35,9 @@ Here are some useful links.
 [[https://discuss.pytorch.org/][PyTorch Discourse forum]] \\
 [[https://stackoverflow.com/questions/tagged/pytorch][Stack Overflow [pytorch] tag]]
 
-#+BEGIN_mhexample
+#+BEGIN_note
 Note that other Stack Overflow tags might be very useful too:
-#+END_mhexample
+#+END_note
 
 {{<n>}}[[https://stackoverflow.com/questions/tagged/python][ [python] ]] \\
 {{<n>}}[[https://stackoverflow.com/questions/tagged/machine-learning][ [machine-learning] ]] \\

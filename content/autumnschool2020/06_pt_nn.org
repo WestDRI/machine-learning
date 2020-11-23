@@ -12,14 +12,14 @@
 
 For this lesson, you will watch the first of these videos which explains what NN are.
 
-#+BEGIN_mhexample
+#+BEGIN_note
 Watch it beyond the acknowledgement fragment as the function ReLU (a really important function in modern neural networks) is introduced at the very end.{{<2br>}}
-#+END_mhexample
+#+END_note
 
 {{<youtube aircAruvnKk>}} {{<br>}}
 
-#+BEGIN_mhexample
+#+BEGIN_note
 As you develop your own ML models, if you find that your mathematical background is shaky, 3blue1brown also has [[https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab][an excellent series of videos on linear algebra]] and [[https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr][an equally great one on calculus]].
-#+END_mhexample
+#+END_note
 
 * Comments & questions
