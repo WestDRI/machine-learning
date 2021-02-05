@@ -15,7 +15,7 @@
 Click to open the presentation:
 
 #+BEGIN_export html
-<a href="https://westgrid-webinars.netlify.app/fastai/"><p align="center"><img src="/img/fastai_slides.png" title="" width="100%" style="border-style: solid; border-width: 1.5px 1.5px 0 2px; border-color: black"/></p></a>
+<a href="https://westgrid-slides.netlify.app/fastai/#/"><p align="center"><img src="/img/fastai_slides.png" title="" width="100%" style="border-style: solid; border-width: 1.5px 1.5px 0 2px; border-color: black"/></p></a>
 #+END_export
 
 * Video
