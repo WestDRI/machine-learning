@@ -1,0 +1,4 @@
+#+title: WestGrid Autumn School 2020
+#+coursetitle: Getting started with deep learning using PyTorch
+#+courselink: https://autumnschool.netlify.app/pytorch/
+#+weight: 9

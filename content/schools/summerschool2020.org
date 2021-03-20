@@ -1,4 +1,0 @@
-#+title: Online summer school 2020
-#+schooltitle: Introduction to ML with PyTorch
-#+schoollink: https://wgschool.netlify.app/mlremake/
-#+weight: 10

@@ -1,0 +1,4 @@
+#+title: WestGrid Summer School 2020
+#+coursetitle: Introduction to ML with PyTorch
+#+courselink: https://wgschool.netlify.app/mlremake/
+#+weight: 10

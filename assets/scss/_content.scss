@@ -116,88 +116,97 @@ img[alt=radius] {
       }
       .date {
 	font-family: $heading-font-family;
-	font-size: 1.6rem;
+	font-size: 1.55rem;
 	display: inline-block;
-	width: 20.0rem;
-	text-align: right;
-	margin-right: 3.0rem;
+	width: 15.0rem;
+	margin-left: 4.0rem;
 	@media only screen and (max-width : 768px) {
+	  font-size: 1.5rem;
 	  display: block;
-	  text-align: left;
+	  margin-left: 0;
 	}
       }
       .schoolname {
-	font-size: 1.7rem;
+	font-size: 1.65rem;
 	display: inline-block;
 	width: 28.0rem;
-	text-align: right;
+	margin-left: 4.0rem;
 	@media only screen and (max-width : 768px) {
+	  font-size: 1.45rem;
 	  display: block;
-	  text-align: right;
-	}
-      }
-      .wstopic {
-	font-family: $heading-font-family;
-	font-size: 1.6rem;
-	color: #669999;
-	font-weight: 700;
-	display: inline-block;
-	margin-left: 3.0rem;
-	margin-right: 3.0rem;
-	width: 0rem;
-	text-align: right;
-	@media only screen and (max-width : 768px) {
-	  display: block;
-	  text-align: right;
-	}
-      }
-      .wbtopic {
-	font-family: $heading-font-family;
-	font-size: 1.6rem;
-	color: #669999;
-	font-weight: 700;
-	display: inline-block;
-	margin-left: 3.0rem;
-	// margin-right: 0rem;
-	width: 0rem;
-	// text-align: right;
-	@media only screen and (max-width : 768px) {
-	  display: block;
-	  // text-align: right;
+	  margin-left: 0;
 	}
       }
       .wstitle {
-	font-size: 1.9rem;
-	margin-left: 11.0rem;
+	font-size: 1.75rem;
+	margin-left: 4.0rem;
 	line-height: 3.5rem;
 	color: $fg-color;
 	font-family: $heading-font-family;
 	font-weight: 700;
+	@media only screen and (max-width : 768px) {
+	  font-size: 1.6rem;
+	  display: block;
+	  line-height: 2rem;
+	  margin-left: 0;
+	}
 	&:hover,
 	&:focus {
 	  color: $link-color
 	}
       }
-      .schooltitle {
-	font-size: 1.9rem;
-	margin-left: 3.0rem;
-	line-height: 3.5rem;
-	color: $fg-color;
-	font-family: $heading-font-family;
-	font-weight: 700;
-	&:hover,
-	&:focus {
-	  color: $link-color
+      .wstitle span {
+	font-size: 1.7rem;
+	@media only screen and (max-width : 768px) {
+	  font-size: 1.55rem;
 	}
       }
       .wbtitle {
-	font-size: 1.9rem;
+	font-size: 1.75rem;
+	line-height: 3.5rem;
+	margin-left: 2.0rem;
 	color: $fg-color;
 	font-family: $heading-font-family;
 	font-weight: 700;
+	@media only screen and (max-width : 768px) {
+	  font-size: 1.6rem;
+	  display: block;
+	  line-height: 2rem;
+	  margin-left: 0;
+	}
 	&:hover,
 	&:focus {
 	  color: $link-color
+	}
+      }
+      .wbtitle span {
+	font-size: 1.7rem;
+	@media only screen and (max-width : 768px) {
+	  font-size: 1.55rem;
+	}
+      }
+      .coursetitle {
+	font-size: 1.75rem;
+	margin-left: 1.0rem;
+	line-height: 3.5rem;
+	color: $fg-color;
+	font-family: $heading-font-family;
+	font-weight: 700;
+	@media only screen and (max-width : 768px) {
+	  font-size: 1.6rem;
+	  display: block;
+	  line-height: 2rem;
+	  margin-left: 0;
+	}
+	&:hover,
+	&:focus {
+	  color: $link-color
+	}
+      }
+      .coursetitle span {
+	font-size: 1.7rem;
+	@media only screen and (max-width : 768px) {
+	  font-size: 1.55rem;
 	}
       }
     }
