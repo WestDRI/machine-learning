@@ -1,8 +1,6 @@
 baseurl = "/"
 title = "Machine-learning"
 
-theme = "hugo-coder"
-
 languagecode = "en"
 defaultcontentlanguage = "en"
 
