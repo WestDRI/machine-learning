@@ -1,0 +1,81 @@
+#+title: Documentation
+#+description: Reading
+#+colordes: #2d5986
+#+slug: 05_pt_doc
+#+weight: 5
+
+* Internal
+
+In Python, to get help on an object, you can use the builtin ~help()~:
+
+#+BEGIN_src python
+help(object)
+#+END_src
+
+If you use IPython or Jupyter, you can aso use:
+
+#+BEGIN_src
+?object
+#+END_src
+
+* Online
+
+Here are some useful links.
+
+*** PyTorch documentation
+
+[[https://pytorch.org/][PyTorch website]] \\
+[[https://pytorch.org/docs/stable/index.html][PyTorch documentation]] \\
+[[https://pytorch.org/tutorials/][PyTorch tutorials]] \\
+[[https://www.fast.ai/][PyTorch online courses]] \\
+[[https://github.com/pytorch/examples][PyTorch examples]]
+
+*** Getting help with PyTorch
+
+[[https://discuss.pytorch.org/][PyTorch Discourse forum]] \\
+[[https://stackoverflow.com/questions/tagged/pytorch][Stack Overflow [pytorch] tag]]
+
+#+BEGIN_note
+Note that other Stack Overflow tags might be very useful too:
+#+END_note
+
+{{<n>}}[[https://stackoverflow.com/questions/tagged/python][ [python] ]] \\
+{{<n>}}[[https://stackoverflow.com/questions/tagged/machine-learning][ [machine-learning] ]] \\
+{{<n>}}[[https://stackoverflow.com/questions/tagged/deep-learning][ [deep-learning] ]] \\
+{{<n>}}[[https://stackoverflow.com/questions/tagged/supervised-learning][ [supervised-learning] ]] \\
+{{<n>}}[[https://stackoverflow.com/questions/tagged/unsupervised-learning][ [unsupervised-learning] ]] \\
+{{<n>}}[[https://stackoverflow.com/questions/tagged/semisupervised-learning][ [semisupervised-learning] ]] \\
+{{<n>}}[[https://stackoverflow.com/questions/tagged/reinforcement-learning][ [reinforcement-learning] ]] \\
+{{<n>}}[[https://stackoverflow.com/questions/tagged/transfer-learning][ [transfer-learning] ]] \\
+{{<n>}}[[https://stackoverflow.com/questions/tagged/machine-learning-model][ [machine-learning-model] ]] \\
+{{<n>}}[[https://stackoverflow.com/questions/tagged/learning-rate][ [learning-rate] ]] \\
+{{<n>}}[[https://stackoverflow.com/questions/tagged/bayesian-deep-learning][ [bayesian-deep-learning] ]] \\
+{{<n>}}[[https://stackoverflow.com/questions/tagged/pytorch-dataloader][ [pytorch-dataloader] ]] \\
+{{<n>}}[[https://stackoverflow.com/questions/tagged/pytorch-ignite][ [pytorch-ignite] ]]
+
+
+*** Open-access ML preprints
+
+[[http://arxiv-sanity.com/][Arxiv Sanity Preserver by Andrej Karpathy]] \\
+[[https://arxiv.org/list/cs.LG/recent][ML papers in the computer science category on arXiv]] \\
+[[https://arxiv.org/list/stat.ML/recent][ML papers in the stats category on arXiv]] \\
+[[https://distill.pub/][Distill ML research online journal]]
+
+*** Advice and sources for ML
+
+[[https://web.mit.edu/tslvr/www/lessons_two_years.html][Advice and sources from ML research student]]
+
+*** Better Python REPL
+
+[[https://ipython.org/][IPython]] \\
+[[https://www.bpython-interpreter.org/][bpython]] \\
+[[https://github.com/prompt-toolkit/ptpython][ptpython]]
+
+*** Python IDE
+
+[[https://wiki.python.org/moin/IntegratedDevelopmentEnvironments][List of IDEs with description]] \\
+[[https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python][Comparison of IDEs]] \\
+[[https://github.com/jorgenschaefer/elpy][Emacs Python IDE]] \\
+[[https://jupyter.org/][Project Jupyter]]
+
+* Comments & questions

@@ -1,0 +1,281 @@
+#+title: PyTorch tensors
+#+description: Zoom
+#+colordes: #e86e0a
+#+slug: 09_pt_tensor
+#+weight: 9
+
+#+BEGIN_simplebox
+*Zoom session 2 — part 2*
+
+/Topic:/ {{<m>}}In this session, we will familiarize ourselves with PyTorch tensors.
+#+END_simplebox
+
+PyTorch's central object is the /tensor/. Tensors have many similarities with NumPy's /ndarrays/, but they can be computed on GPUs. They are extremely well suited to build neural networks.
+
+In this lesson, we will explore tensors: how to create them, run operations on them, and most importantly, what they really represent.
+
+* Setup
+
+This lesson does not require a lot of computing power and we want it to be interactive to explore how PyTorch tensors work. This is a perfect case to use an interactive session on a cluster with ~salloc~ or, as we will be doing here, to use JupyterLab.
+
+** Start JupyterLab
+
+First, [[https://westgrid-ml.netlify.app/autumnschool2020/01_pt_intro/#headline-2][launch a JupyterLab session]] (or re-open it if you already launched it).
+
+** Navigate to a sensible place
+
+Familiarize yourself with the navigation pane, create a directory called {{<b>}}workspace{{</b>}}, and enter it.
+
+** Start a Jupyter notebook with the Python 3 kernel
+
+Start a notebook and rename it to something that makes sense to you (e.g. {{<b>}}tensors.ipynb{{</b>}}).
+
+* Load PyTorch
+
+First, we need to load the main package from the PyTorch library. It is called ~torch~:
+
+#+BEGIN_src python
+import torch
+#+END_src
+
+* Dimensions and sizes
+
+PyTorch's /tensors/ are homogeneous multidimensional arrays.
+
+You can create them with a variety of methods such as:
+
+- ~torch.rand~, for a tensor filled with random numbers from a uniform distribution on \([0, 1)\)
+- ~torch.randn~, for a tensor filled with numbers from the standard normal distribution
+- ~torch.empty~, for an uninitialized tensor
+- ~torch.zeros~, for a tensor filled with \(0\)
+- ~torch.ones~, for a tensor filled with \(1\)
+
+Each element you pass to these methods represents the length of one dimension. Consequently, the number of elements determines the number of dimensions of the tensor.
+
+{{<br>}}
+_Let's have a look at a few examples:_
+
+#+BEGIN_src python
+print(torch.rand(1))
+#+END_src
+
+This is a one-dimensional tensor. Its length in the unique dimesion is 1. So it is a tensor with a single element.
+
+When a tensor has a unique element, that element can be returned as a number with the method ~item~:
+
+#+BEGIN_src python
+print(torch.rand(1).item())
+#+END_src
+
+{{<br>}}
+
+#+BEGIN_src python
+print(torch.rand(2))
+#+END_src
+
+This is another one-dimensional tensor. Its length in the unique dimesion is 2.
+
+{{<br>}}
+
+#+BEGIN_src python
+print(torch.rand(3))
+#+END_src
+
+A one-dimensional tensor. Its length in the unique dimesion is 3.
+
+{{<br>}}
+
+#+BEGIN_src python
+print(torch.rand(1, 1))
+print(torch.rand(1, 1).item())
+#+END_src
+
+A two-dimensional tensor. Its length in one dimesion is 1 and its length in the other dimesion is also 1. So this is also a tensor with a single element.
+
+{{<br>}}
+
+#+BEGIN_src python
+print(torch.rand(1, 1, 1))
+#+END_src
+
+A three-dimensional tensor with a single element.
+
+{{<br>}}
+
+#+BEGIN_src python
+print(torch.rand(3, 1))
+#+END_src
+
+A two-dimensional tensor. Its length in one dimension is 3 and in the other, 1.
+
+{{<br>}}
+
+#+BEGIN_src python
+print(torch.rand(2, 6))
+#+END_src
+
+A two-dimensional tensor. Its length in one dimension is 2 and in the other, 6.
+
+{{<br>}}
+
+#+BEGIN_src python
+print(torch.rand(2, 1, 5))
+#+END_src
+
+A three-dimensional tensor. Its length in one dimension is 2, in a second dimension it is 1, and in the third dimension it is 5.
+
+{{<br>}}
+
+Play with a few more examples until this all makes sense:
+
+#+BEGIN_src python
+print(torch.rand(2, 2, 5))
+print(torch.rand(1, 1, 5))
+print(torch.rand(1, 1, 5, 1))
+print(torch.rand(2, 3, 5, 2))
+print(torch.rand(2, 3, 5, 2, 4))
+print(torch.rand(3, 5, 4, 2, 1))
+#+END_src
+
+** Getting information
+
+You can get the dimension of a tensor with the method ~dim~:
+
+#+BEGIN_src python
+print(torch.rand(3, 5, 4, 2, 1).dim())
+#+END_src
+
+And its size with the method ~size~:
+
+#+BEGIN_src python
+print(torch.rand(3, 5, 4, 2, 1).size())
+#+END_src
+
+** Creating new tensors of the size of existing ones
+
+All these methods to create tensor can be appended with ~_like~ to create new tensors of the same size:
+
+#+BEGIN_src python
+x = torch.rand(2, 4)
+print(x)
+
+y = torch.zeros_like(x)
+print(y)
+
+x.size() == y.size()
+#+END_src
+
+* Operations
+
+Let's take the addition as an example:
+
+/Note: you need to have tensors of matching dimensions./
+
+#+BEGIN_src python
+x = torch.rand(2)
+y = torch.rand(2)
+
+print(x)
+print(y)
+#+END_src
+
+The addition can be done with either of:
+
+#+BEGIN_src python
+print(x + y)
+print(torch.add(x, y))
+#+END_src
+
+** In-place operations
+
+In in-place operations, operators are post-fixed with ~_~:
+
+#+BEGIN_src python
+print(x)
+
+x.add_(y)
+print(x)
+
+x.zero_()
+print(x)
+#+END_src
+
+* Data type
+
+PyTorch has a {{<b>}}dtype{{</b>}} class similar to that of NumPy.
+
+You can assign a data type to a tensor when you create it:
+
+#+BEGIN_src python
+x = torch.rand(2, 4, dtype=torch.float64)
+#+END_src
+
+To check the data type of a tensor:
+
+#+BEGIN_src python
+print(x.dtype)
+#+END_src
+
+You can also modify it with:
+
+#+BEGIN_src python
+x = x.type(torch.float)
+print(x.dtype)
+#+END_src
+
+* Indexing
+
+Indexing works as it does in NumPy:
+
+#+BEGIN_src python
+x = torch.rand(5, 4)
+print(x)
+
+print(x[:, 2])
+print(x[3, :])
+print(x[2, 3])
+#+END_src
+
+* Reshaping
+
+You can change the shape and size of a tensor with the method ~view~:
+
+/Note: your new tensor needs to have the same number of elements as the old one!/
+
+#+BEGIN_src python
+print(x.view(4, 5))
+print(x.view(1, 20))
+print(x.view(20, 1))
+#+END_src
+
+You can even change the number of dimensions:
+
+#+BEGIN_src python
+print(x.view(20))
+print(x.view(20, 1, 1))
+print(x.view(1, 20, 1, 1))
+#+END_src
+
+When you set the size in one dimension to ~-1~, it is automatically calculated:
+
+#+BEGIN_src python
+print(x.view(10, -1))
+print(x.view(5, -1))
+print(x.view(-1, 1))
+#+END_src
+
+* GPU
+
+Tensors can be sent to a device (CPU or GPU) with the ~to~ method:
+
+#+BEGIN_src python
+x = torch.rand(5, 4)
+
+# Send to CPU
+x.to('cpu')         # This won't do anything here as we are already on a CPU
+
+# Send to GPU
+# x.to('cuda')      # This can't work here since we are on a node without GPU
+#+END_src
+
+* Comments & questions

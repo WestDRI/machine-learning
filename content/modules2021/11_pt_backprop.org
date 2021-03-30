@@ -1,0 +1,19 @@
+#+title: Backpropagation
+#+description: Video
+#+colordes: #663300
+#+slug: 11_pt_backprop
+#+weight: 11
+
+#+OPTIONS: toc:nil
+
+* Video 3 (14 min)
+
+In this lesson, you will watch the third video on NN by [[https://www.3blue1brown.com/][3Blue1Brown]] which explains how backpropagation works.{{<2br>}}
+
+{{<youtube Ilg3gGewQ5U>}}{{<br>}}
+
+#+BEGIN_note
+There is one minor terminological error in this video: they call the use of mini-batches *stochastic gradient descent*. In fact, this is called *mini-batch gradient descent*. Stochastic gradient descent uses a single example at each iteration.
+#+END_note
+
+* Comments & questions
