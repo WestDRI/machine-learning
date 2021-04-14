@@ -1,14 +1,14 @@
 #+title: fastai
-#+subtitle: Deep learning library for fast implementation & research (WIP)
+#+subtitle: A deep learning library for fast implementation & research
 #+slug: fastai
 #+date: 2021-04-14
 #+place: 60 min live webinar
 
-*** /Abstract/
+# *** /Abstract/
 
-#+BEGIN_definition
+# #+BEGIN_definition
 
-#+END_definition
+# #+END_definition
 
 * Slides
 
