@@ -1,8 +1,8 @@
 #+title: AI, machine learning, and deep learning
 #+description: Zoom
 #+colordes: #e86e0a
-#+slug: 02_ml
-#+weight: 2
+#+slug: 03_ml
+#+weight: 3
 
 * Zoom session 1, part 2
 
