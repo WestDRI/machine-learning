@@ -4,7 +4,7 @@
 #+slug: 01_intro
 #+weight: 1
 
-* Zoom session 1
+* Zoom session 1, part 1
 
 #+BEGIN_def
 /Time:/ {{<m>}} 9 am Pacific Time. \\
