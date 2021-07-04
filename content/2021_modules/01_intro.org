@@ -1,0 +1,39 @@
+#+title: Opening session & Jupyter access
+#+description: Zoom
+#+colordes: #e86e0a
+#+slug: 01_intro
+#+weight: 1
+
+* Zoom session 1
+
+#+BEGIN_def
+/Time:/ {{<m>}} 9 am Pacific Time. \\
+/Access:/ {{<s>}}{{<s>}} You should have received the meeting id and password by email.
+#+END_def
+
+* JupyterHub access
+
+For this course, we will use a temporary JupyterHub. Here is how to log in:
+
+- Go to [[https://uu.c3.ca][https://uu.c3.ca]].
+- Sign in with the username & password you just got.
+- Set the server options according to the image below:
+
+{{<imgmshadow src="/img/jh_widget2.png" margin="4rem 0 0 0" title="" width="%" line-height="0rem">}}
+{{</imgmshadow>}}
+
+#+BEGIN_note
+{{<s>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}} *These are the only values that you should edit:* \\
+{{<s>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}} Change the time to *9.0* \\
+{{<s>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}} Change the memory to *3500* \\
+{{<s>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}} Make sure the interface is set to *JupyterLab*
+#+END_note
+{{<br size="5">}}
+
+- Press start.
+   
+#+BEGIN_note
+Note that, unlike other JupyterHubs you might have used (e.g. [[https://syzygy.ca/][syzygy.ca]]), this JupyterHub is not permanent and can only be used for this course.
+#+END_note
+
+* Comments & questions
