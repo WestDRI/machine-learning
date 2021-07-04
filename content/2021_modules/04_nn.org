@@ -1,8 +1,8 @@
 #+title: What are neural networks and how do they learn?
 #+description: Video
 #+colordes: #663300
-#+slug: 03_nn
-#+weight: 3
+#+slug: 04_nn
+#+weight: 4
 
 * What are NN? (19 min)
 
