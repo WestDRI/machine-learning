@@ -1,14 +1,8 @@
-#+title: PyTorch tensors
-#+description: Zoom
-#+colordes: #e86e0a
-#+slug: 09_pt_tensor
-#+weight: 9
-
-#+BEGIN_simplebox
-*Zoom session 2 — part 2*
-
-/Topic:/ {{<m>}}In this session, we will familiarize ourselves with PyTorch tensors.
-#+END_simplebox
+#+title: PyTorch
+#+description: Reading
+#+colordes: #2d5986
+#+slug: 07_pytorch
+#+weight: 7
 
 PyTorch's central object is the /tensor/. Tensors have many similarities with NumPy's /ndarrays/, but they can be computed on GPUs. They are extremely well suited to build neural networks.
 
