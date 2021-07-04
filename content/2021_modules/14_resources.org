@@ -1,8 +1,15 @@
-#+title: Documentation
-#+description: Reading
-#+colordes: #2d5986
-#+slug: 05_pt_doc
-#+weight: 5
+#+title: Wrap-up and resources
+#+description: Zoom
+#+colordes: #e86e0a
+#+slug: 14_resources
+#+weight: 14
+
+* Zoom session 1, part 1
+
+#+BEGIN_def
+/Time:/ {{<m>}} 9 am Pacific Time. \\
+/Access:/ {{<s>}}{{<s>}} You should have received the meeting id and password by email.
+#+END_def
 
 * Internal
 
