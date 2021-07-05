@@ -4,11 +4,12 @@
 #+slug: 07_fastai
 #+weight: 7
 
-* Zoom session 2, part 1
+* Zoom session 3, part 1
 
 #+BEGIN_def
-/Time:/ {{<m>}} 9 am Pacific Time. \\
-/Access:/ {{<s>}}{{<s>}} You should have received the meeting id and password by email.
+/Time:/ {{<m>}} 1:30 pm Pacific Time. \\
+/Access:/ {{<s>}}{{<s>}} Same zoom access as in the first session. \\
+/Topic:/ {{<m>}} Introduction to the fastai library.
 #+END_def
 
 * Slides

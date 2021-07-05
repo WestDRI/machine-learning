@@ -4,10 +4,10 @@
 #+slug: 08_jupyter
 #+weight: 8
 
-* Zoom session 2, part 2
+* Zoom session 3, part 2
 
 #+BEGIN_def
-/Topic:/ {{<m>}} A few tips while working in Jupyter, some of which are specific to fastai.
+/Topic:/ {{<m>}} Tips while working in Jupyter, some of which specific to fastai.
 #+END_def
 
 * Summary
