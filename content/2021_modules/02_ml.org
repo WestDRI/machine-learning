@@ -1,4 +1,4 @@
-#+title: AI, machine learning, and deep learning
+#+title: AI, machine learning, deep learning
 #+description: Zoom
 #+colordes: #e86e0a
 #+slug: 02_ml
@@ -7,7 +7,7 @@
 * Zoom session 1, part 2
 
 #+BEGIN_def
-/Topic:/ {{<m>}} General concepts
+/Topic:/ {{<m>}} Introduction to general concepts of machine learning.
 #+END_def
 
 * Slides
