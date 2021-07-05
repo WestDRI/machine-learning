@@ -1,8 +1,8 @@
 #+title: Wrap-up and resources
 #+description: Zoom
 #+colordes: #e86e0a
-#+slug: 14_resources
-#+weight: 14
+#+slug: 13_resources
+#+weight: 13
 
 * Zoom session 1, part 1
 

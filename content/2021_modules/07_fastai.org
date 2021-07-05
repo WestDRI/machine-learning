@@ -1,8 +1,8 @@
 #+title: fastai
 #+description: Zoom
 #+colordes: #e86e0a
-#+slug: 08_fastai
-#+weight: 8
+#+slug: 07_fastai
+#+weight: 7
 
 * Zoom session 2, part 1
 
