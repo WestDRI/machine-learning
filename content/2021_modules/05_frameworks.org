@@ -1,7 +1,7 @@
 #+title: Which framework to choose?
 #+description: Reading
 #+colordes: #2d5986
-#+slug: 05_framework
+#+slug: 05_frameworks
 #+weight: 5
 
 With the growing popularity of machine learning, many frameworks have appeared in various languages. One of the questions you might be facing is: *which tool should I choose?*
