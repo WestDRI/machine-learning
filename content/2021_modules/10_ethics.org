@@ -1,0 +1,21 @@
+#+title: Ethical considerations
+#+description: Zoom
+#+colordes: #e86e0a
+#+slug: 10_ethics
+#+weight: 10
+
+* Zoom session 3, part 4
+
+#+BEGIN_def
+/Topic:/ {{<m>}} 
+#+END_def
+
+#+BEGIN_quote
+With great power comes great responsibility.
+#+END_quote
+
+* Summary
+
+
+
+* Comments & questions
