@@ -8,7 +8,8 @@
 
 #+BEGIN_def
 /Time:/ {{<m>}} 9 am Pacific Time. \\
-/Access:/ {{<s>}}{{<s>}} You should have received the meeting id and password by email.
+/Access:/ {{<s>}}{{<s>}} You should have received the meeting id and password by email. \\
+/Topic:/ {{<m>}} Introduction to the course & distribution of credentials to access our JupyterHub.
 #+END_def
 
 * JupyterHub access
