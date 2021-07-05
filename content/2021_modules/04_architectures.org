@@ -1,0 +1,134 @@
+#+title: Network architectures & practical considerations
+#+description: Zoom
+#+colordes: #e86e0a
+#+slug: 04_architectures
+#+weight: 4
+
+* Zoom session 2
+
+#+BEGIN_def
+/Time:/ {{<m>}} 11:30 am Pacific Time. \\
+/Access:/ {{<s>}}{{<s>}} Same zoom access as in the first session. \\
+/Topic:/ {{<m>}} Introduction to network architectures and implementation constraints/solutions.
+#+END_def
+
+* Slides
+
+/Click below to open the presentation.\\
+Once in the presentation, navigate the slides with the left and right arrows and refresh any page to show the link that will take you back here./
+
+#+BEGIN_export html
+<a href="https://westgrid-slides.netlify.app/fastai_2/#/"><p align="center"><img src="/img/fastai_2_slides.png" title="" width="100%"/></p></a>
+#+END_export
+
+* Some notes from the slides
+
+** Types of learning
+
+There are now more types of learning than those presented here. But these initial types are interesting because they will already be familiar to you.
+
+*** Supervised learning
+
+You have been doing supervised machine learning for years without looking at it in the framework of machine learning:
+
+- *Regression* is a form of supervised learning with continuous outputs
+- *Classification* is supervised learning with discrete outputs
+
+Supervised learning uses training data in the form of example input/output \((x_i, y_i)\) pairs.
+
+*/Goal:/*
+
+If \(X\) is the space of inputs and \(Y\) the space of outputs, the goal is to find a function \(h\) so that\\
+for each \(x_i \in X\),\\
+\(h_\theta(x_i)\) is a predictor for the corresponding value \(y_i\) \\
+(\(\theta\) represents the set of parameters of \(h_\theta\)).
+
+→ i.e. we want to find the relationship between inputs and outputs.
+
+*** Unsupervised learning
+
+Here too, you are familiar with some forms of unsupervised learning that you weren't thinking about in such terms:
+
+*Clustering*, *social network analysis*, *market segmentation*, *PCA* ... are all forms of unsupervised learning.
+
+Unsupervised learning uses unlabelled data (training set of \(x_i\)).
+
+*/Goal:/*
+
+Find structure within the data.
+
+{{<br>}}
+{{<img src="https://imgs.xkcd.com/comics/trained_a_neural_net.png" title="" width="%" line-height="1rem">}}
+<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<n>}}{{<n>}}From <a href="https://xkcd.com/">xkcd.com</a></center>
+{{</img>}}
+
+** Gradient descent
+
+{{<img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Gradient_descent.svg" title="" width="100%" line-height="0.5rem">}}
+From <a href="https://commons.wikimedia.org/w/index.php?curid=20569355">Olegalexandrov & Zerodamage, Wikipedia</a>
+{{</img>}}
+
+{{<br>}}
+There are several gradient descent methods:
+
+*Batch gradient descent* uses all examples in each iteration and is thus slow for large datasets (the parameters are adjusted only after all the samples have been processed).
+
+*Stochastic gradient descent* uses one example in each iteration. It is thus much faster than batch gradient descent (the parameters are adjusted after each example). But it does not allow any vectorization.
+
+*Mini-batch gradient descent* is an intermediate approach: it uses mini-batch sized examples in each iteration. This allows a vectorized approach (and hence parallelization).\\
+The [[https://arxiv.org/abs/1412.6980][Adam optimization algorithm]] is a popular variation of mini-batch gradient descent.
+
+** Types of ANN
+
+*** Fully connected neural networks
+
+{{<img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Colored_neural_network.svg" title="" width="90%" line-height="0.5rem">}}
+From <a href="https://commons.wikimedia.org/w/index.php?curid=24913461">Glosser.ca, Wikipedia</a>
+{{</img>}}
+
+{{<br>}}
+Each neuron receives inputs from every neuron of the previous layer and passes its output to every neuron of the next layer.
+
+*** Convolutional neural networks
+
+{{<img src="/img/cnn_nw.png" title="" width="%" line-height="1.5rem">}}
+From <a href="https://codetolight.wordpress.com/2017/11/29/getting-started-with-pytorch-for-deep-learning-part-3-neural-network-basics/">Programming Journeys by Rensu Theart</a>
+{{</img>}}
+
+{{<br>}}
+Convolutional neural networks (CNN) are used for spatially structured data (e.g. in image recognition).
+
+Images have huge input sizes and would require a very large number of neurons in a fully connected neural net. In convolutional layers, neurons receive input from a subarea (called /local receptive field/) of the previous layer. This greatly reduces the number of parameters.
+
+Optionally, pooling (combining the outputs of neurons in a subarea) reduces the data dimensions. The /stride/ then dictates how the subarea is moved across the image. /Max-pooling/ is one of the forms of pooling which uses the maximum for each subarea.
+
+*** Recurrent neural networks
+
+{{<img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Recurrent_neural_network_unfold.svg" title="" width="%" line-height="0rem">}}
+From <a href="https://commons.wikimedia.org/w/index.php?curid=1474927">fdeloche, Wikipedia</a>
+{{</img>}}
+
+Recurrent neural networks (RNN) such as Long Short-Term Memory (LSTM) are used for chain structured data (e.g. in speech recognition).
+
+They are not feedforward networks (i.e. networks for which the information moves only in the forward direction without any loop).
+
+*** Deep neural networks
+
+The first layer of a neural net is the input layer. The last one is the output layer. All the layers in-between are called /hidden layers/. Shallow neural networks have only one hidden layer and deep networks have two or more hidden layers. When an ANN is deep, we talk about *Deep Learning* (DL).
+
+{{<br>}}
+{{<img src="https://imgs.xkcd.com/comics/drone_training.png" title="" width="%" line-height="1rem">}}
+From <a href="https://xkcd.com/">xkcd.com</a>
+{{</img>}}
+
+** scaling things up: constraints and solutions
+
+*** GPU
+
+
+
+*** gradient accumulation
+
+
+
+* Comments & questions
