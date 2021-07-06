@@ -1,7 +1,7 @@
 #+title: PyTorch tensors
 #+description: Reading
 #+colordes: #2d5986
-#+slug: 08_pytorch
+#+slug: 08_tensors
 #+weight: 8
 
 PyTorch is a fast growing machine learning framework, particularly in research. Its central object is the /tensor/. PyTorch tensors have many similarities with [[https://numpy.org/][NumPy]]'s /ndarrays/, but they can be computed on GPUs. They are extremely well suited to build neural networks. Since fastai builds on top of PyTorch, it is useful to understand how PyTorch tensors work.
