@@ -21,7 +21,7 @@ Once in the presentation, navigate the slides with the left and right arrows and
 <a href="https://westgrid-slides.netlify.app/fastai_2/#/"><p align="center"><img src="/img/fastai_2_slides.png" title="" width="100%"/></p></a>
 #+END_export
 
-* Some notes from the slides
+* A few notes from the slides
 
 ** Types of learning
 
@@ -120,15 +120,5 @@ The first layer of a neural net is the input layer. The last one is the output l
 {{<img src="https://imgs.xkcd.com/comics/drone_training.png" title="" width="%" line-height="1rem">}}
 From <a href="https://xkcd.com/">xkcd.com</a>
 {{</img>}}
-
-** scaling things up: constraints and solutions
-
-*** GPU
-
-
-
-*** gradient accumulation
-
-
 
 * Comments & questions

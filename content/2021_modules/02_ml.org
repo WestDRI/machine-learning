@@ -19,7 +19,7 @@ Once in the presentation, navigate the slides with the left and right arrows and
 <a href="https://westgrid-slides.netlify.app/fastai_1/#/"><p align="center"><img src="/img/fastai_1_slides.png" title="" width="100%"/></p></a>
 #+END_export
 
-* Some notes from the slides
+* A few notes from the slides
 
 ** Artificial intelligence and machine learning
 
