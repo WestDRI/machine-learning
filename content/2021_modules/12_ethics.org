@@ -7,7 +7,7 @@
 * Zoom session 3, part 4
 
 #+BEGIN_def
-/Topic:/ {{<m>}} 
+/Topic:/ {{<m>}} With the exploding use of ML in every aspect of life, ethics is paramount.
 #+END_def
 
 #+BEGIN_quote
