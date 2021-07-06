@@ -10,25 +10,70 @@
 /Topic:/ {{<m>}} Closing session, last questions, list of useful resources.
 #+END_def
 
-* Internal
-
-In Python, to get help on an object, you can use the builtin ~help()~:
-
-#+BEGIN_src python
-help(object)
-#+END_src
-
-If you use IPython or Jupyter, you can aso use:
-
-#+BEGIN_src
-?object
-#+END_src
-
-* Online
+* Resources
 
 Here are some useful links.
 
-*** PyTorch documentation
+*** Machine learning
+
+**** Open-access preprints
+
+[[http://arxiv-sanity.com/][Arxiv Sanity Preserver by Andrej Karpathy]] \\
+[[https://arxiv.org/list/cs.LG/recent][ML papers in the computer science category on arXiv]] \\
+[[https://arxiv.org/list/stat.ML/recent][ML papers in the stats category on arXiv]] \\
+[[https://distill.pub/][Distill ML research online journal]]
+
+**** Advice and sources
+
+[[https://web.mit.edu/tslvr/www/lessons_two_years.html][Advice and sources from ML research student]]
+
+**** Getting help
+
+[[https://stackoverflow.com/questions/tagged/machine-learning][Stack Overflow [machine-learning] tag]] \\
+[[https://stackoverflow.com/questions/tagged/deep-learning][Stack Overflow [deep-learning] tag]] \\
+[[https://stackoverflow.com/questions/tagged/supervised-learning][Stack Overflow [supervised-learning] tag]] \\
+[[https://stackoverflow.com/questions/tagged/unsupervised-learning][Stack Overflow [unsupervised-learning] tag]] \\
+[[https://stackoverflow.com/questions/tagged/semisupervised-learning][Stack Overflow [semisupervised-learning] tag]] \\
+[[https://stackoverflow.com/questions/tagged/reinforcement-learning][Stack Overflow [reinforcement-learning] tag]] \\
+[[https://stackoverflow.com/questions/tagged/transfer-learning][Stack Overflow [transfer-learning] tag]] \\
+[[https://stackoverflow.com/questions/tagged/machine-learning-model][Stack Overflow [machine-learning-model] tag]] \\
+[[https://stackoverflow.com/questions/tagged/learning-rate][Stack Overflow [learning-rate] tag]] \\
+[[https://stackoverflow.com/questions/tagged/bayesian-deep-learning][Stack Overflow [bayesian-deep-learning] tag]]
+
+**** Free introductory courses
+
+[[https://www.deeplearning.ai/programs/][deeplearning.ai]] \\
+[[https://course.fast.ai/][fast.ai]] \\
+[[https://developers.google.com/machine-learning/crash-course/framing/check-your-understanding][Google]]
+
+**** Lists of open datasets
+
+[[https://benchmarks.ai][benchmarks.ai]] \\
+[[https://www.benchcouncil.org/AIBench/index.html#AIBench][AIBench]] \\
+[[https://www.kaggle.com/datasets][kaggle]] \\
+[[https://en.wikipedia.org/wiki/List_of_datasets_for_machine-learning_research][Wikipedia]]
+
+*** fastai
+
+**** Documentation
+
+[[https://docs.fast.ai/][Manual]] \\
+[[https://docs.fast.ai/tutorial.html][Tutorials]] \\
+[[https://www.mdpi.com/2078-2489/11/2/108/htm][Peer-reviewed paper]]
+
+**** Book
+
+[[https://www.amazon.com/Deep-Learning-Coders-fastai-PyTorch/dp/1492045527][Paperback version]] \\
+[[https://course.fast.ai/][Free MOOC version of part 1 of the book]] \\
+[[https://github.com/fastai/fastbook/][Jupyter notebooks version of the book]]
+
+**** Getting help
+
+[[https://forums.fast.ai/][Discourse forum]]
+
+*** PyTorch
+
+**** Documentation
 
 [[https://pytorch.org/][PyTorch website]] \\
 [[https://pytorch.org/docs/stable/index.html][PyTorch documentation]] \\
@@ -36,52 +81,30 @@ Here are some useful links.
 [[https://www.fast.ai/][PyTorch online courses]] \\
 [[https://github.com/pytorch/examples][PyTorch examples]]
 
-*** Getting help with PyTorch
+**** Getting help
 
 [[https://discuss.pytorch.org/][PyTorch Discourse forum]] \\
-[[https://stackoverflow.com/questions/tagged/pytorch][Stack Overflow [pytorch] tag]]
+[[https://stackoverflow.com/questions/tagged/pytorch][Stack Overflow [pytorch] tag]] \\
+[[https://stackoverflow.com/questions/tagged/pytorch-dataloader][Stack Overflow [pytorch-dataloader] tag]] \\
+[[https://stackoverflow.com/questions/tagged/pytorch-ignite][Stack Overflow [pytorch-ignite] tag]]
 
-#+BEGIN_note
-Note that other Stack Overflow tags might be very useful too:
-#+END_note
+*** Python
 
-{{<n>}}[[https://stackoverflow.com/questions/tagged/python][ [python] ]] \\
-{{<n>}}[[https://stackoverflow.com/questions/tagged/machine-learning][ [machine-learning] ]] \\
-{{<n>}}[[https://stackoverflow.com/questions/tagged/deep-learning][ [deep-learning] ]] \\
-{{<n>}}[[https://stackoverflow.com/questions/tagged/supervised-learning][ [supervised-learning] ]] \\
-{{<n>}}[[https://stackoverflow.com/questions/tagged/unsupervised-learning][ [unsupervised-learning] ]] \\
-{{<n>}}[[https://stackoverflow.com/questions/tagged/semisupervised-learning][ [semisupervised-learning] ]] \\
-{{<n>}}[[https://stackoverflow.com/questions/tagged/reinforcement-learning][ [reinforcement-learning] ]] \\
-{{<n>}}[[https://stackoverflow.com/questions/tagged/transfer-learning][ [transfer-learning] ]] \\
-{{<n>}}[[https://stackoverflow.com/questions/tagged/machine-learning-model][ [machine-learning-model] ]] \\
-{{<n>}}[[https://stackoverflow.com/questions/tagged/learning-rate][ [learning-rate] ]] \\
-{{<n>}}[[https://stackoverflow.com/questions/tagged/bayesian-deep-learning][ [bayesian-deep-learning] ]] \\
-{{<n>}}[[https://stackoverflow.com/questions/tagged/pytorch-dataloader][ [pytorch-dataloader] ]] \\
-{{<n>}}[[https://stackoverflow.com/questions/tagged/pytorch-ignite][ [pytorch-ignite] ]]
+**** IDE
 
+[[https://jupyter.org/][Project Jupyter]] \\
+[[https://wiki.python.org/moin/IntegratedDevelopmentEnvironments][List of IDEs with description]] \\
+[[https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python][Comparison of IDEs]] \\
+[[https://github.com/jorgenschaefer/elpy][Emacs Python IDE]]
 
-*** Open-access ML preprints
-
-[[http://arxiv-sanity.com/][Arxiv Sanity Preserver by Andrej Karpathy]] \\
-[[https://arxiv.org/list/cs.LG/recent][ML papers in the computer science category on arXiv]] \\
-[[https://arxiv.org/list/stat.ML/recent][ML papers in the stats category on arXiv]] \\
-[[https://distill.pub/][Distill ML research online journal]]
-
-*** Advice and sources for ML
-
-[[https://web.mit.edu/tslvr/www/lessons_two_years.html][Advice and sources from ML research student]]
-
-*** Better Python REPL
+**** Shell
 
 [[https://ipython.org/][IPython]] \\
 [[https://www.bpython-interpreter.org/][bpython]] \\
 [[https://github.com/prompt-toolkit/ptpython][ptpython]]
 
-*** Python IDE
+**** Getting help
 
-[[https://wiki.python.org/moin/IntegratedDevelopmentEnvironments][List of IDEs with description]] \\
-[[https://en.wikipedia.org/wiki/Comparison_of_integrated_development_environments#Python][Comparison of IDEs]] \\
-[[https://github.com/jorgenschaefer/elpy][Emacs Python IDE]] \\
-[[https://jupyter.org/][Project Jupyter]]
+[[https://stackoverflow.com/questions/tagged/python][Stack Overflow [python] tag]]
 
 * Comments & questions
