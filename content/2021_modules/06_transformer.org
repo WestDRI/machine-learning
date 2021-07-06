@@ -1,0 +1,19 @@
+#+title: The Transformer
+#+description: Video
+#+colordes: #663300
+#+slug: 06_transformer
+#+weight: 6
+
+#+OPTIONS: toc:nil
+
+[[http://jalammar.github.io/about/][Jay Alammar]] is a blogger whose blogs have been referenced in MIT and Stanford courses due to their quality.
+
+[[http://jalammar.github.io/illustrated-transformer/][His blog on The Transformer]] in particular does a great job at explaining the most complex and powerful deep learning model to date which gave rise to [[https://arxiv.org/abs/1810.04805][the Bidirectional Encoder Representations from Transformers (BERT)]] from Google and [[https://arxiv.org/pdf/2005.14165][GPT-3]] from [[https://openai.com/][OpenAI]].
+
+He goes over the blog in this 30 min video:
+
+{{<youtube -QH8fRhqFHM>}}
+
+For reference, [[https://arxiv.org/abs/1706.03762][here]] is the actual paper describing the Transformer.
+
+* Comments & questions
