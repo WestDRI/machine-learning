@@ -1,0 +1,16 @@
+#+title: Transfer learning
+#+description: Video
+#+colordes: #663300
+#+slug: 05_tl
+#+weight: 5
+
+#+OPTIONS: toc:nil
+
+This very short (4 min) video by [[https://huggingface.co/][Hugging Face]] gives a clear high-level picture of *transfer learning*. In addition, it introduces two other important concepts:
+
+- self-supervised pretraining in Natural Language Processing (NLP)
+- biases in models
+
+{{<youtube BqqfQnyjmgg>}}
+
+* Comments & questions
