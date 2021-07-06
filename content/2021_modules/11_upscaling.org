@@ -1,17 +1,13 @@
 #+title: Implementation: upscaling images
 #+description: Zoom
 #+colordes: #e86e0a
-#+slug: 09_upscaling
-#+weight: 9
+#+slug: 11_upscaling
+#+weight: 11
 
 * Zoom session 3, part 3
 
 #+BEGIN_def
 /Topic:/ {{<m>}} 
 #+END_def
-
-* Summary
-
-
 
 * Comments & questions

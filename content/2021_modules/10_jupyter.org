@@ -1,8 +1,8 @@
 #+title: Jupyter tips
 #+description: Zoom
 #+colordes: #e86e0a
-#+slug: 08_jupyter
-#+weight: 8
+#+slug: 10_jupyter
+#+weight: 10
 
 * Zoom session 3, part 2
 

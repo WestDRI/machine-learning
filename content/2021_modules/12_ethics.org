@@ -1,8 +1,8 @@
 #+title: Ethical considerations
 #+description: Zoom
 #+colordes: #e86e0a
-#+slug: 10_ethics
-#+weight: 10
+#+slug: 12_ethics
+#+weight: 12
 
 * Zoom session 3, part 4
 
