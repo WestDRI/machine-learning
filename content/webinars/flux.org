@@ -19,9 +19,10 @@ This webinar, aimed at users with no experience in machine learning, is an intro
 	  <img style="border-style: solid; border-color: black" src="/img/flux_slides.png">
 	</div>
 	<div style="float: left; width: 35%">
-	  <div style="padding: 25% 0 0 15%; line-height: 250%">
-	  <br>
-        <a href="https://westgrid-webinars.netlify.app/flux/#/" target="_blank">Web version</a><br>
+	  <div style="padding: 40% 0 0 15%;">
+        <a href="https://westgrid-webinars.netlify.app/flux/#/" target="_blank">Web version</a>
+	  </div>
+	  <div style="padding: 5% 0 0 15%;">
 	  <a href="/pdf/flux.pdf">Pdf version</a>
 	  </div>
 	</div>
