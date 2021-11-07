@@ -12,10 +12,22 @@
 
 * Slides
 
-Click to open the presentation:
-
 #+BEGIN_export html
-<a href="https://westgrid-slides.netlify.app/fastai/#/"><p align="center"><img src="/img/fastai_slides.png" title="" width="100%" style="border-style: solid; border-width: 1.5px 1.5px 0 2px; border-color: black"/></p></a>
+<figure style="display: table;">
+  <div class="row">
+	<div style="float: left; width: 65%">
+	  <img style="border-style: solid; border-color: black" src="/img/fastai_slides.png">
+	</div>
+	<div style="float: left; width: 35%">
+	  <div style="padding: 20% 0 0 15%;">
+        <a href="https://westgrid-slides.netlify.app/fastai/#/" target="_blank">Web version</a>
+	  </div>
+	  <div style="padding: 5% 0 0 15%;">
+	  <a href="/pdf/fastai.pdf">Pdf version</a>
+	  </div>
+	</div>
+  </div>
+</figure>
 #+END_export
 
 * Video
