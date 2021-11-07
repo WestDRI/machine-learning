@@ -30,6 +30,10 @@
 </figure>
 #+END_export
 
+#+BEGIN_note
+In the web version, navigate the slides with the left and right arrows and refresh any page to show the link that will take you back here.
+#+END_note
+
 * Video
 
 {{<youtube Q3__FzA6XLc>}}
