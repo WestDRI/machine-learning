@@ -8,7 +8,7 @@
 <figure style="display: table;">
   <div class="row">
 	<div style="float: left; width: 65%">
-	  <img style="border-style: solid; border-color: black" src="/img/upscaling_slides.png">
+	  <img style="border-style: solid; border-color: black" src="/img/upscaling_rc_slides.png">
 	</div>
 	<div style="float: left; width: 35%">
 	  <div style="padding: 20% 0 0 15%;">
