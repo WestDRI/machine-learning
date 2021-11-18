@@ -12,7 +12,7 @@
 	</div>
 	<div style="float: left; width: 35%">
 	  <div style="padding: 20% 0 0 15%;">
-        <a href="https://westgrid-slides.netlify.app/upscaling/#/" target="_blank">Web version</a>
+        <a href="https://westgrid-slides.netlify.app/upscaling_rc/#/" target="_blank">Web version</a>
 	  </div>
 	  <div style="padding: 5% 0 0 15%;">
 	  <a href="/pdf/upscaling.pdf">Pdf version</a>
