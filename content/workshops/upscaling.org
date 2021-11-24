@@ -23,7 +23,7 @@ In this webinar, I will give a quick overview of these methods and show how the 
         <a href="https://westgrid-slides.netlify.app/upscaling_rc/#/" target="_blank">Web version</a>
 	  </div>
 	  <div style="padding: 5% 0 0 15%;">
-	  <a href="/pdf/upscaling.pdf">Pdf version</a>
+	  <a href="/pdf/upscaling_rc.pdf">Pdf version</a>
 	  </div>
 	</div>
   </div>
