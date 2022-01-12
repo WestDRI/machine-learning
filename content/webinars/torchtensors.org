@@ -20,3 +20,9 @@ In this webinar, suitable for users of all levels, we will have a deep look at t
 - see how tensors work in distributed frameworks
 - see how linear algebra can be done with PyTorch tensors
 #+END_definition
+
+* Video
+
+Coming soon.
+
+* Comments & questions
