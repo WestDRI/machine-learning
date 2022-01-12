@@ -1,0 +1,4 @@
+#+title: Everything you wanted to know (and more) about PyTorch tensors
+#+slug: torchtensors
+#+date: 2022-01-19
+#+place: 60 min live webinar
