@@ -26,6 +26,16 @@ In particular, we will:
 - see how linear algebra can be done with PyTorch tensors
 #+END_definition
 
+# Comments from Alex:
+
+# - multi-processor parallelism? do they do threads? how about distributed-memory processing?
+# - working demos on CC clusters
+
+# It makes sense to talk about these only when using PyTorch tensors for things like linear algebra and vectorized calculations.
+# Since linear algebra can be CPU-intensive (and I know in PyTorch you can run it on a GPU as well), can you speed up linear algebra calculations by using multiple threads, all processing the same set of tensors in shared memory? When your tensors become large and cannot fit in shared memory on one node, can you break them into pieces and distribute across several cluster nodes, and then process these pieces (e.g. solve a linear system) as if it were a single object?
+
+# For example, consider solving a dense linear system, where the square matrix is of size 250,000^2. Just to store it in single precision, you will need 233GB memory.
+
 * Video
 
 Coming soon.
