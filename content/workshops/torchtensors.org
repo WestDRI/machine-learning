@@ -66,8 +66,4 @@ Both versions open in a new tab.\\
 In the web version, use the left and right arrows to navigate the slides.
 #+END_note
 
-* Video
-
-Coming soon.
-
 * Comments & questions
