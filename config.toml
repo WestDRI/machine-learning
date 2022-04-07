@@ -29,10 +29,11 @@ canonifyurls = true
 
 [params]
   repourl = "https://github.com/WestGrid/machine-learning"
-  wgavatar = "/img/wg_top_padding_medium.png"
+  sfuavatar = "/img/sfu.png"
+  dracavatar = "/img/drac.png"
   siteavatar = "/img/ml_top_left_padding.png"
   error = "/img/404.png"
-  favicon_32 = "/img/favicon.png"
+  favicon_32 = "/img/sfu_favicon.png"
   hidecredits = false
   hidecopyright = false
   summerschool2020url = "https://wgschool.netlify.app/ml/"
@@ -52,11 +53,6 @@ canonifyurls = true
   tag = "tags"
 
 [[params.social]]
-  name = "Compute Canada"
-  icon = "fas fa-user-friends fa-2x"
-  weight = 2
-  url = "https://www.computecanada.ca/"
-[[params.social]]
   name = "Github"
   icon = "fab fa-github fa-2x"
   weight = 3
@@ -75,7 +71,7 @@ canonifyurls = true
   name = "Events"
   icon = "fa fa-calendar-alt fa-2x"
   weight = 6
-  url = "https://www.westgrid.ca/events"
+  url = "https://westgrid.github.io/trainingMaterials/blog/"
 
 [[menu.main]]
   name = "Workshops"
@@ -96,4 +92,4 @@ canonifyurls = true
 [[menu.main]]
   name = "📬"
   weight = 5
-  url  = "mailto:training@westgrid.ca"
+  url  = "mailto:rc-training@sfu.ca"
