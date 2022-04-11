@@ -92,4 +92,4 @@ canonifyurls = true
 [[menu.main]]
   name = "📬"
   weight = 5
-  url  = "mailto:rc-training@sfu.ca"
+  url  = "email"
