@@ -1,20 +1,17 @@
 <section class="container centered">
   <div class="about" style="text-align: center">
     {{ with .Site.Params.siteavatar }}
-    <div class="avatar">
-      <img style="vertical-align: middle; width: 38rem;" src="{{ . | relURL }}" alt="avatar">
-      <span style="vertical-align: sub">
-	&nbsp;
-	<a href="https://westgrid.github.io/trainingMaterials/">
-          <b>
-	    <font size="5" color="black">
-   	      training material
-	    </font>
-	  </b>
-   	</a>
-      </span>
-    </div>
+    <img src="{{ . | relURL }}" alt="avatar">
+      &nbsp;
+      <a href="https://westgrid.github.io/trainingMaterials/">
+        <b>
+          <font size="5" color="black">
+   	      training material &emsp;&emsp;&emsp;&emsp;&emsp;
+	  </font>
+	 </b>
+      </a>
     {{ end }}
+    <br>
     <br>
     <h2>by</h2>
     <br>

@@ -83,16 +83,16 @@
   }
 }
 
-.avatar img{
-  width: 20rem;
-  height: auto;
-  @media only screen and (max-width : 768px) {
-    width: 10rem;
-  }
-  @media only screen and (max-width : 480px) {
-    width: 7rem;
-  }
-}
+// .avatar img{
+//   width: 20rem;
+//   height: auto;
+//   @media only screen and (max-width : 768px) {
+//     width: 10rem;
+//   }
+//   @media only screen and (max-width : 480px) {
+//     width: 7rem;
+//   }
+// }
 
 img[alt=logo] {
   width: 250px;
@@ -101,6 +101,17 @@ img[alt=logo] {
 img[alt=photoid] {
   width: 150px;
   border-radius: 2px;
+}
+
+img[alt=avatar] {
+  vertical-align: middle;
+  width: 38rem;
+  @media only screen and (max-width : 768px) {
+    width: 22rem;
+  }
+  @media only screen and (max-width : 480px) {
+    width: 15rem;
+  }
 }
 
 img[alt=sfuavatar] {
