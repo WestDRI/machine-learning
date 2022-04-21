@@ -1,0 +1,4 @@
+#+title: Western Canada Research Computing Training Modules 2022
+#+coursetitle: Deep learning with PyTorch
+#+courselink: https://rcmodules22.netlify.app/ml_pytorch/
+#+weight: 7
