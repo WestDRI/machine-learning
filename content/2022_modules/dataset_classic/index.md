@@ -1,8 +1,8 @@
 ---
-title: Loading data
+title: Creating a DataLoader from a classic dataset
 description: Zoom
 colordes: "#e86e0a"
-slug: loading_data
+slug: dataset_classic
 weight: 15
 execute:
   error: true
@@ -58,10 +58,26 @@ help(torchaudio.datasets.YESNO)
 
 {{<br size="4">}}
 
-Let's create a Python object with our data:
+The `root` argument sets the location of the downloaded data.
+{{<br size="5">}}
+
+{{<notes>}}
+<span style="font-size: 2rem;">**Where should I download data in a cluster?**</span>
+
+We will all use the same data. It would make little sense to all download it in our home directory.
+
+In the Alliance clusters, a good place to store data shared amongst members of a project is in the `/project` file system.
+
+You usually belong to `/project/def-group;`, where `group` is the name of your PI. You can access it from your home directory through the symbolic link `~/projects/def-group`.
+
+In our training cluster, we are all part of the group `def-sponsor00`, accessible through `~/projects/def-sponsor00`.
+{{</notes>}}
+{{<br size="6">}}
+
+We will thus use `~/projects/def-sponsor00/data/` as the `root` argument for `torchaudio.datasets.yesno`):
 
 ``` python
-yesno_data = torchaudio.datasets.YESNO(root='./', download=True)
+yesno_data = torchaudio.datasets.YESNO(root='~/projects/def-sponsor00/data/', download=True)
 ```
 
 ## Explore the data
