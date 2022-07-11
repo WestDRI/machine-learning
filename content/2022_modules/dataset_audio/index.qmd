@@ -107,11 +107,15 @@ plt.figure()
 plt.plot(waveform.t().numpy())
 ```
 
+## Split the data into a training set and a testing set
+
+
+
 ## Create a DataLoader
 
 DataLoaders are Python iterables created by the [torch.utils.data.DataLoader class](https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader) from a dataset and a sampler.
 
-We already have a dataset (`yesno_data`). Now we need a sampler (or sampling strategy) to draw samples from it. The sampling strategy contains the batch size, whether the data get shuffled prior to sampling, the number of worker used, etc.
+We already have a dataset (`yesno_data`). Now we need a sampler (or sampling strategy) to draw samples from it. The sampling strategy contains the batch size, whether the data get shuffled prior to sampling, the number of workers used if the data is loaded in parallel, etc.
 
 To create a DataLoader with shuffled data and batch size of 1 (the default), we run:
 
