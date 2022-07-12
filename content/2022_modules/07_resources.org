@@ -4,14 +4,6 @@
 #+slug: 07_resources
 #+weight: 7
 
-* Zoom session 3, part 5
-
-#+BEGIN_def
-/Topic:/ {{<m>}} Closing session, last questions, list of useful resources.
-#+END_def
-
-* Resources
-
 Here are some useful links.
 
 *** Machine learning
