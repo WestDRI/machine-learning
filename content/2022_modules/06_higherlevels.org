@@ -1,0 +1,27 @@
+#+title: Higher-level frameworks built on top of PyTorch
+#+description: Zoom
+#+colordes: #e86e0a
+#+slug: 06_higherlevels
+#+weight: 6
+
+* Higher-level frameworks
+
+Several popular higher-level frameworks are built on top of PyTorch and make the code easier to write and run:
+
+   - [[https://github.com/pytorch/ignite][ignite]] is developed by the PyTorch project. It is the easiest to combine with raw PyTorch, but not the easiest to use.
+   - [[https://github.com/Lightning-AI/lightning][PyTorch-lightning]] is probably the most popular. It makes some operations (e.g. using multiple GPUs) very easy, but some of the Lightning products are not free.
+   - [[https://github.com/fastai/fastai][fastai]] adds several interesting concepts to PyTorch borrowed from other languages, but debugging can be challenging.
+   - [[https://github.com/catalyst-team/catalyst][Catalyst]]
+
+The following tags trends on Stack Overflow might give an idea of their popularity over time (catalyst doesn't have any Stack Overflow tag):
+     
+{{<imgshadow src="/img/pt_highlevel_frameworks.png" margin="rem" title="" width="%" line-height="1.0rem">}}
+{{</imgshadow>}}
+
+* Should you use one (and which one)?
+
+Learning raw PyTorch is probably the best option for research.
+
+Depending on your deep learning trajectory, you might find some of these tools useful.
+   
+* Comments & questions
