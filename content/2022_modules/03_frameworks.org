@@ -60,7 +60,7 @@ It is often very difficult to have access to old versions of proprietary tools (
 
 ** The licenses you have access to may be limiting and a cause of headache
 
-For instance, Compute Canada does not have an unlimited number of MATLAB licenses. Since these licenses come with complex rules (one license needed for each node, additional licenses for each toolbox, additional licenses for newer tools, etc.), it can quickly become a nightmare to navigate through it all. You may want to have a look at [[https://www.reddit.com/r/deeplearning/comments/g82lr9/matlab_vs_pytorch_vector_operations_on_gpu_which/][some of the comments in this thread]].
+For instance, the Alliance does not have an unlimited number of MATLAB licenses. Since these licenses come with complex rules (one license needed for each node, additional licenses for each toolbox, additional licenses for newer tools, etc.), it can quickly become a nightmare to navigate through it all. You may want to have a look at [[https://www.reddit.com/r/deeplearning/comments/g82lr9/matlab_vs_pytorch_vector_operations_on_gpu_which/][some of the comments in this thread]].
 
 ** Proprietary tools fall behind popular open source tools
 
@@ -72,6 +72,6 @@ It is not commercially sound to develop cutting edge capabilities so specialized
 
 ** Conclusion
 
-All that said, sometimes you don't have a choice over the tool to use for your research as this may be dictated by the culture in your field or by your supervisor. But if you are free to choose and if superior or equal open source alternatives exist and are popular, do not fall in the trap of thinking that because your university and Compute Canada pay for a license, you should make use of it. It may be free for you—for now—but it can have hidden costs.
+All that said, sometimes you don't have a choice over the tool to use for your research as this may be dictated by the culture in your field or by your supervisor. But if you are free to choose and if superior or equal open source alternatives exist and are popular, do not fall in the trap of thinking that because your university and the Alliance pay for a license, you should make use of it. It may be free for you—for now—but it can have hidden costs.
 
 * Comments & questions
