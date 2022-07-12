@@ -13,7 +13,7 @@ First of all, you need *Python 3.7 or higher* and *a package manager* (to instal
 
 There are many ways to go about this. *For those new to Python, I suggest installing [[https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)][Anaconda]]:*
 
-Go to the {{<b>}}Anaconda Installers{{</b>}} section at the bottom of [[https://www.anaconda.com/products/individual][this page]], download and install the 64-Bit installer for your operating system (unless you still have a 32-Bit version of Windows of course, but those are becoming rare).
+Go to the ~Anaconda Installers~ section at the bottom of [[https://www.anaconda.com/products/individual][this page]], download and install the 64-Bit installer for your operating system (unless you still have a 32-Bit version of Windows of course, but those are becoming rare).
 
 /Notes:/
 
@@ -41,7 +41,7 @@ I recommend using the *Stable (1.5) build*.
 
 - You are on Windows, you installed Anaconda as suggested above, and you do not have CUDA, then:
 
-Launch the {{<b>}}Anaconda Prompt{{</b>}} (for instance by typing it in the main Windows search box or by going to {{<b>}}Start{{</b>}} | {{<b>}}Anaconda3{{</b>}} | {{<b>}}Anaconda Prompt{{</b>}}) and type:
+Launch the ~Anaconda Prompt~ (for instance by typing it in the main Windows search box or by going to ~Start~ | ~Anaconda3~ | ~Anaconda Prompt~) and type:
 
 #+BEGIN_src sh
 conda install pytorch torchvision cpuonly -c pytorch
@@ -58,7 +58,7 @@ conda install pytorch torchvision -c pytorch
 
 *** Test the installation
 
-Make sure that all works by launching Python, loading the {{<b>}}torch{{</b>}} package and creating a 2-dimensional tensor filled with zeros:
+Make sure that all works by launching Python, loading the ~torch~ package and creating a 2-dimensional tensor filled with zeros:
 
 {{<i>}}
 #+BEGIN_src python
@@ -74,7 +74,9 @@ tensor([[0., 0., 0., 0.],
         [0., 0., 0., 0.]])
 #+END_src
 
-/Note:/ if you have a CUDA-enabled GPU on your machine and you want to test whether it is accessible to PyTorch, you can run:
+{{<notes2>}}
+If you have a CUDA-enabled GPU on your machine and you want to test whether it is accessible to PyTorch, you can run:
+{{</notes2>}}
 
 {{<i>}}
 #+BEGIN_src python
