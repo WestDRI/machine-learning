@@ -19,3 +19,5 @@ static/img/school/unused/softmax.png
 static/img/fastai_slides_old.png
 .hugo_build.lock
 static/litt
+content/2022_modules/dataset_audio/waves_yesno
+content/2022_modules/dataset_audio/waves_yesno.tar.gz
