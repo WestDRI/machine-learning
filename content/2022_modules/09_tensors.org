@@ -4,33 +4,9 @@
 #+slug: 09_tensors
 #+weight: 9
 
-PyTorch is a fast growing machine learning framework, particularly in research. Its central object is the /tensor/. PyTorch tensors have many similarities with [[https://numpy.org/][NumPy]]'s /ndarrays/, but they can be computed on GPUs. They are extremely well suited to build neural networks. Since fastai builds on top of PyTorch, it is useful to understand how PyTorch tensors work.
+PyTorch's central object is the /tensor/. PyTorch tensors have many similarities with [[https://numpy.org/][NumPy]]'s /ndarrays/, but they can be computed on GPUs. They are extremely well suited to build neural networks. Since fastai builds on top of PyTorch, it is useful to understand how PyTorch tensors work.
 
-Note that if you are not programmatically inclined, you can skip this section and follow the rest of the course: fastai allows to build model with only a few lines of code. Knowing how to play with tensors is useful however when you want to get down to a lower level of functioning.
-
-* Setup
-
-If you want to run the code in our JupyterHub, follow this setup section.
-
-** Start JupyterLab
-
-[[https://westgrid-ml.netlify.app/2021_modules/01_intro/#headline-2][Launch a JupyterLab session]] (or re-open it if you already launched it).
-
-** Start a Jupyter notebook with the Python 3 kernel
-
-In the ~Notebook~ section, click on the button that says ~Python 3~.
-
-** Load PyTorch
-
-Load the main package from the PyTorch library. It is called ~torch~:
-
-#+BEGIN_src python
-import torch
-#+END_src
-
-* PyTorch tensors
-
-** Dimensions and sizes
+* Dimensions and sizes
 
 PyTorch's /tensors/ are homogeneous multidimensional arrays.
 
@@ -113,7 +89,7 @@ print(torch.rand(2, 3, 5, 2, 4))
 print(torch.rand(3, 5, 4, 2, 1))
 #+END_src
 
-*** Getting information
+** Getting information
 
 You can get the dimension of a tensor with the method ~dim~:
 
@@ -127,7 +103,7 @@ And its size with the method ~size~:
 print(torch.rand(3, 5, 4, 2, 1).size())
 #+END_src
 
-*** Creating new tensors of the size of existing ones
+** Creating new tensors of the size of existing ones
 
 All these methods to create tensor can be appended with ~_like~ to create new tensors of the same size:
 
@@ -141,7 +117,7 @@ print(y)
 x.size() == y.size()
 #+END_src
 
-** Operations
+* Operations
 
 Let's take the addition as an example:
 
@@ -162,7 +138,7 @@ print(x + y)
 print(torch.add(x, y))
 #+END_src
 
-*** In-place operations
+** In-place operations
 
 In in-place operations, operators are post-fixed with ~_~:
 
@@ -176,7 +152,7 @@ x.zero_()
 print(x)
 #+END_src
 
-** Data type
+* Data type
 
 PyTorch has a {{<b>}}dtype{{</b>}} class similar to that of NumPy.
 
@@ -199,7 +175,7 @@ x = x.type(torch.float)
 print(x.dtype)
 #+END_src
 
-** Indexing
+* Indexing
 
 Indexing works as it does in NumPy:
 
@@ -212,7 +188,7 @@ print(x[3, :])
 print(x[2, 3])
 #+END_src
 
-** Reshaping
+* Reshaping
 
 You can change the shape and size of a tensor with the method ~view~:
 
@@ -240,7 +216,7 @@ print(x.view(5, -1))
 print(x.view(-1, 1))
 #+END_src
 
-** GPU
+* GPU
 
 Tensors can be sent to a device (CPU or GPU) with the ~to~ method:
 
