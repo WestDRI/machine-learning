@@ -4,7 +4,7 @@
 #+slug: 10_autograd
 #+weight: 10
 
-After watching the last two videos, you may be starting to panic: how hard will it be to write the chain rule (with so many derivatives!) in backpropagation?!?
+Remember those videos you watched two hours ago? Maybe you got panicky at the time (how hard will it be to write the chain rule (with so many derivatives!) in backpropagation?!? 😱)
 
 *Don't fear!* PyTorch has [[https://en.wikipedia.org/wiki/Automatic_differentiation][automatic differentiation]] abilities—meaning that it can track all the operations conducted on tensors and do the backprop for you—thanks to its package ~torch.autograd~.
 
