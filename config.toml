@@ -40,6 +40,7 @@ canonifyurls = true
   summerschool2020remakeurl = "https://wgschool.netlify.app/mlremake/"
   autumnschool2020url = "https://autumnschool.netlify.app/pytorch/"
   modules2021url = "https://wgtm21.netlify.app/ml_fastai/"
+  modules2022url = "https://rcmodules22.netlify.app/ml_pytorch/"
   rtl = false
   math = true
   since = 2020
