@@ -1,0 +1,11 @@
+#+title: PyTorch API & libraries
+#+description: Zoom
+#+colordes: #e86e0a
+#+slug: 04_pytorch
+#+weight: 4
+
+Looking at the content of PyTorch API and libraries is very useful to get a sense of the scope of the library and its structure.
+
+[[https://pytorch.org/docs/stable/index.html][Let's go have a look at it together]].
+   
+* Comments & questions
