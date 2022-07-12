@@ -6,6 +6,8 @@
 
 PyTorch's central object is the /tensor/. PyTorch tensors have many similarities with [[https://numpy.org/][NumPy]]'s /ndarrays/, but they can be computed on GPUs. They are extremely well suited to build neural networks.
 
+This section focuses on the basics of using tensors. If you want to learn more about PyTorch tensors (e.g. how tensors are efficiently stored in memory thanks to their metadata, how to convert them to/from NumPy ndarrays, etc.), you can check {{<a "https://westgrid-ml.netlify.app/webinars/torchtensors/" "our webinar on PyTorch tensors.">}}
+
 * Dimensions and sizes
 
 PyTorch's /tensors/ are homogeneous multidimensional arrays.
