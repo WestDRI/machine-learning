@@ -1,8 +1,8 @@
-#+title: Opening session
+#+title: Jupyter
 #+description: Zoom
 #+colordes: #e86e0a
-#+slug: 01_intro
-#+weight: 1
+#+slug: 08_jupyter
+#+weight: 8
 
 #+BEGIN_def
 /Date:/ {{<m>}}{{<s>}} Tuesday, July 12 \\
