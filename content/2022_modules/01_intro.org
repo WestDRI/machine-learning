@@ -38,4 +38,71 @@ For today, here is how to log in:
 Note that, unlike other JupyterHubs you might have used (e.g. [[https://syzygy.ca/][syzygy.ca]]), this JupyterHub is not permanent and can only be used for this course.
 #+END_note
 
+* Jupyter tips
+
+** Help
+
+~help~ is a Python built-in function (it is a wrapper around ~pydoc.help~) which provides some help on code elements (functions, etc.). While some of the tips presented here only work on Jupyter, this also works in the Python shell:
+
+#+BEGIN_src python
+help(sum)
+#+END_src
+
+** Autocompletion
+
+Pressing ~Tab~ after a few characters of code autocompletes or displays available options. This also works in the Python shell.
+
+** Function arguments
+
+Pressing ~Shift+Tab~ inside the parentheses of a function opens a popup showing all the function arguments and their default values (if any).
+
+** Information
+
+In Jupyter, you can access information on a Python element by prepending or appending a question mark to it:
+
+#+BEGIN_src python
+?sum
+sum?
+#+END_src
+
+** Source code
+
+By using two question marks, you can see the source code:
+
+#+BEGIN_src python
+??sum
+sum??
+#+END_src
+
+** Important menus
+
+- File/Save As:{{<m>}} rename your notebook
+- File/New Launcher:{{<m>}} open a new launcher dashboard, e.g. to start a terminal
+- File/Logout:{{<m>}} terminate your job (your Jupyter session is running inside a Slurm job)
+
+** Main key bindings
+
+*** Mode switching
+
+- Esc:{{<m>}} leave edit mode and enter command mode (in command mode, the cell border is blue)
+- Enter:{{<m>}} leave command mode and enter edit mode (in edit mode, the cell border is green)
+
+*** Key bindings for both modes
+
+- Ctrl+Enter:{{<m>}} execute current cell
+- Alt+Enter:{{<m>}} execute current cell and insert cell below
+- Shift+Enter:{{<m>}} execute current cell and focus on cell below
+- Ctrl+S:{{<m>}} save notebook and checkpoint
+
+*** Key bindings in command mode
+
+- "Up/Down":{{<m>}} navigate to the cell above/below
+- "A":{{<m>}} insert a cell above the current cell
+- "B":{{<m>}} insert a cell below the current cell
+- "X":{{<m>}} cut the current cell
+- "C":{{<m>}} copy the current cell
+- "V":{{<m>}} paste the previously cut or copied cell
+- "M":{{<m>}} turn the current cell into a markdown cell
+- "H":{{<m>}} display help
+
 * Comments & questions
