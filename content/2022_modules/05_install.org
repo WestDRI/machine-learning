@@ -25,7 +25,7 @@ Go to the {{<b>}}Anaconda Installers{{</b>}} section at the bottom of [[https://
 
 * Python packages
 
-Then, you need 4 Python packages: *Matplotlib*, *PyTorch*, *TorchVision*, and *TensorBoard*.
+Then, you need the following Python packages: numpy, matplotlib, torch, torchvision, and torchaudio.
 
 ** Matplotlib
 
@@ -84,14 +84,6 @@ print(torch.cuda.is_available())
 {{<o>}}
 #+BEGIN_src python
 True
-#+END_src
-
-** TensorBoard
-
-Install TensorBoard with:
-
-#+BEGIN_src sh
-pip install tensorboard
 #+END_src
 
 * Comments & questions
