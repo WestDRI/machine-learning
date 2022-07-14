@@ -332,8 +332,6 @@ for i in torch.arange(20):
     sub.set_title(str(batchlabel[i].item()), fontsize=25)
 ```
 
-We get:
-
 {{<img src="/img/batch_nw.png" title="" width="%" line-height="0.5rem">}}
 {{</img>}}
 

@@ -4,6 +4,8 @@ description: Zoom
 colordes: "#e86e0a"
 slug: 12_dataset_vision
 weight: 12
+execute:
+  error: true
 format: hugo
 jupyter: python3
 ---
@@ -208,8 +210,6 @@ for i in torch.arange(20):
     sub.imshow(torch.squeeze(batchimg[i]), cmap='gray')
     sub.set_title(str(batchlabel[i].item()), fontsize=25)
 ```
-
-We get:
 
 {{<img src="/img/batch_nw.png" title="" width="%" line-height="0.5rem">}}
 {{</img>}}
