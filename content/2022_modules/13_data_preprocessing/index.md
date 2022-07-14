@@ -38,7 +38,7 @@ The labels are integers. Representing categorical variables as integers can crea
 
 ``` python
 dataset = datasets.FashionMNIST(
-    root="~/projects/def-sponsor00/data/",
+    root="/project/def-sponsor00/data/",
     train=True,
     download=True,
     transform=ToTensor(),
