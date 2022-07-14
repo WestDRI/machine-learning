@@ -84,7 +84,7 @@ train_data = datasets.MNIST(
 
 test_data = datasets.MNIST(
     '/project/def-sponsor00/data/',
-    train=False, transform=transform)
+    train=False, download=True, transform=transform)
 ```
 
 ```{python}

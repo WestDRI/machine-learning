@@ -86,7 +86,7 @@ train_data = datasets.MNIST(
 
 test_data = datasets.MNIST(
     '/project/def-sponsor00/data/',
-    train=False, transform=transform)
+    train=False, download=True, transform=transform)
 ```
 
 ## Explore the data
@@ -268,9 +268,9 @@ Then, we plot it with `pyplot`:
 plt.imshow(img, cmap='gray')
 ```
 
-    <matplotlib.image.AxesImage at 0x7f2d1c737280>
+    <matplotlib.image.AxesImage at 0x7f2da723dd20>
 
-![](index_files/figure-gfm/cell-12-output-2.png)
+<img src="index_files/figure-gfm/cell-12-output-2.png" width="408" height="404" />
 
 And indeed, it matches the first label we explored earlier (`train_data[0][1]`).
 
@@ -293,7 +293,7 @@ for x in range(width):
                      color='white' if img[x][y].item() < thresh else 'black')
 ```
 
-![](index_files/figure-gfm/cell-13-output-1.png)
+<img src="index_files/figure-gfm/cell-13-output-1.png" width="915" height="911" />
 
 ## Create the DataLoaders
 
