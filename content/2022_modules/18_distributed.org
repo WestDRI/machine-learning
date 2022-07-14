@@ -1,0 +1,59 @@
+#+title: A few notes on PyTorch distributed
+#+description: Reading
+#+colordes: #999999
+#+slug: 18_distributed
+#+weight: 18
+
+* On using multiple GPUs
+
+*Before you consider using more than 1 GPU on the Alliance clusters, you should carefully analyze whether this will truly benefit your model.*
+
+With the explosion of the field of machine learning in recent years, the GPUs in the Alliance clusters have seen an exponential increase in demand. Resources are expanding, but cannot keep up.
+
+{{<img src="/img/gpu_rac_2020_nw.png" margin="6rem" title="" width="100%" line-height="0rem">}}
+<center>{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}{{<m>}}From <a href="https://www.computecanada.ca/research-portal/accessing-resources/resource-allocation-competitions/">Compute Canada 2020 RAC Q&A session</a></center>
+{{</img>}}
+
+If you ask for more GPUs, you will wait a lot longer and you will go through your GPU allocation quickly.
+
+*In many cases, this will not make your model faster: PyTorch, by default, only uses one GPU.*
+
+There are however situations when multiple GPUs are advantageous, or even necessary. So you need to learn when and how to parallelize your code to use multiple GPUs.
+
+*If you are in doubt, while you are learning, and when testing code, stick to a single GPU.*
+
+Distributed computing with PyTorch is beyond this introductory course in machine learning. The main message here is that throwing multiple GPUs at your model is a loss of resource if you don't know what you are doing. We will offer workshops on distributed ML in the future, but in the meantime, here are the main scenarios with some links to tutorials.
+
+* Data parallel
+
+/Single node (or single machine), single process, multi-thread (multiple GPUs)./
+
+PyTorch allows to run the same model on multiple GPUs, each GPU using a different partition of the data. Since each GPU runs the model on a fraction of the data, you get a speedup in training.
+
+This is done with {{<c>}}torch.nn.DataParallel{{</c>}}.
+
+{{<c>}}DataParallel{{</c>}} splits the data automatically and sends jobs to the GPUs: each GPU gets a different data partition and runs the model on it. Once all the jobs are done, {{<c>}}DataParallel{{</c>}} collects and compiles the results before returning the final output.
+
+For instance, if you have a mini-batch of size \(m\) and 2 GPUs. {{<c>}}DataParallel{{</c>}} sends \(m/2\) samples to one GPU and the other \(m/2\) samples to the other. Once they have run the model on that data, {{<c>}}DataParallel{{</c>}} collects, compiles and returns the result.
+
+[[https://pytorch.org/tutorials/beginner/blitz/data_parallel_tutorial.html][Here]] is an example.
+
+* Model parallel
+
+/Single node (or single machine), single process, multi-thread (multiple GPUs)./
+
+If the model is too large to fit on a single GPU, you need to use model parallel. The model is then split between different GPUs.
+
+You can find an example [[https://pytorch.org/tutorials/intermediate/model_parallel_tutorial.html][here]].
+
+* Distributed data parallel (DDP)
+
+/Single or multiple node(s), multiple processes./
+
+Each process handles a split of the data.
+
+This is done with {{<c>}}torch.nn.parallel.DistributedDataParallel{{</c>}}.
+
+[[https://pytorch.org/tutorials/intermediate/ddp_tutorial.html][This tutorial]] walks you through an example.
+
+* Comments & questions
