@@ -262,13 +262,13 @@ First, we select the image of the first pair and we resize it from 3 to 2 dimens
 img = torch.squeeze(train_data[0][0])
 ```
 
-Then, we plot it with `pyplot`:, but since we are in a cluster, instead of showing it to screen with `plt.show()`, we save it to file:
+Then, we plot it with `pyplot`:
 
 ``` python
 plt.imshow(img, cmap='gray')
 ```
 
-    <matplotlib.image.AxesImage at 0x7f525e1ff3a0>
+    <matplotlib.image.AxesImage at 0x7f88e92eb2b0>
 
 ![](index_files/figure-gfm/cell-12-output-2.png)
 
