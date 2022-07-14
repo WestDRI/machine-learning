@@ -1,9 +1,9 @@
 ---
-title: Creating a DataLoader from a classic dataset
+title: Creating a DataLoader from a classic audio dataset
 description: Zoom
 colordes: "#e86e0a"
-slug: dataset_classic
-weight: 15
+slug: 11_dataset_audio
+weight: 11
 execute:
   error: true
 format: hugo
@@ -100,16 +100,28 @@ waveform, sample_rate, labels = yesno_data[0]
 print("Waveform: {}\nSample rate: {}\nLabels: {}".format(waveform, sample_rate, labels))
 ```
 
-You can also plot the data. Let's look at the waveform:
+You can also plot the data. For this, we will use `pyplot` from `matplotlib`.
 
-```{python}
+Let's look at the waveform. Since we are in a cluster, instead of showing it to screen with `plt.plot()`, we save it to file:
+
+```{.python}
 plt.figure()
 plt.plot(waveform.t().numpy())
 ```
 
+```{python}
+#| echo: false
+plt.figure()
+plt.savefig(waveform.t().numpy())
+```
+
 ## Split the data into a training set and a testing set
 
-
+```{python}
+train_size = int(0.8 * len(full_dataset))
+test_size = len(full_dataset) - train_size
+train_dataset, test_dataset = torch.utils.data.random_split(full_dataset, [train_size, test_size])
+```
 
 ## Create a DataLoader
 

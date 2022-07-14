@@ -1,9 +1,9 @@
 ---
-title: Creating a DataLoader from a classic dataset
+title: Creating a DataLoader from a classic audio dataset
 description: Zoom
 colordes: "#e86e0a"
-slug: dataset_classic
-weight: 15
+slug: 11_dataset_audio
+weight: 11
 execute:
   error: true
 format: hugo
@@ -107,20 +107,34 @@ print("Waveform: {}\nSample rate: {}\nLabels: {}".format(waveform, sample_rate, 
     Sample rate: 8000
     Labels: [0, 0, 0, 0, 1, 1, 1, 1]
 
-You can also plot the data. Let's look at the waveform:
+You can also plot the data. For this, we will use `pyplot` from `matplotlib`.
+
+Let's look at the waveform. Since we are in a cluster, instead of showing it to screen with `plt.plot()`, we save it to file:
 
 ``` python
 plt.figure()
 plt.plot(waveform.t().numpy())
 ```
 
-<img src="index_files/figure-gfm/cell-6-output-1.png" width="656" height="404" />
+    ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
+
+    <Figure size 432x288 with 0 Axes>
+
+## Split the data into a training set and a testing set
+
+``` python
+train_size = int(0.8 * len(full_dataset))
+test_size = len(full_dataset) - train_size
+train_dataset, test_dataset = torch.utils.data.random_split(full_dataset, [train_size, test_size])
+```
+
+    NameError: name 'full_dataset' is not defined
 
 ## Create a DataLoader
 
 DataLoaders are Python iterables created by the [torch.utils.data.DataLoader class](https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader) from a dataset and a sampler.
 
-We already have a dataset (`yesno_data`). Now we need a sampler (or sampling strategy) to draw samples from it. The sampling strategy contains the batch size, whether the data get shuffled prior to sampling, the number of worker used, etc.
+We already have a dataset (`yesno_data`). Now we need a sampler (or sampling strategy) to draw samples from it. The sampling strategy contains the batch size, whether the data get shuffled prior to sampling, the number of workers used if the data is loaded in parallel, etc.
 
 To create a DataLoader with shuffled data and batch size of 1 (the default), we run:
 
