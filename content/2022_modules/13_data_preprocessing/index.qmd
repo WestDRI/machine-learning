@@ -1,0 +1,58 @@
+---
+title: Data pre-processing
+description: Zoom
+colordes: "#e86e0a"
+slug: 13_data_preprocessing
+weight: 13
+execute:
+  error: true
+format: hugo
+jupyter: python3
+---
+
+Data often needs to be pre-processed before it can be fed to a model. We already saw an example with the MNIST data: we used `transform` to pre-process the features.
+
+The TorchVision datasets also have the argument `target_transform` to modify the labels.
+
+Both `transform` and `target_transform` accept callables.
+
+Here is an example with the FashionMNIST datasets.
+
+## Load packages
+
+```{python}
+import torch
+from torchvision import datasets
+from torchvision.transforms import ToTensor, Lambda
+```
+
+## Pre-process the FashionMNIST data
+
+The FashionMNIST contains pairs of images and labels.
+
+The features (images) need to be transformed into normalized tensors. For this we use `ToTensor` which turn a PIL image (the case here) a NumPy's `ndarray` into `FloatTensor` and scales the image’s pixel intensity values in the range [0., 1.].
+
+The labels are integers. Representing categorical variables as integers can create problem in training models, so we transform them into [one-hot](https://en.wikipedia.org/wiki/One-hot) encoded tensors. For this, we use `Lambda` to apply a custom function which creates a zero tensor of size 10 (the number of labels) and calls `scatter_` which assigns a `value=1` on the index as given by the label y.
+
+```{.python}
+dataset = datasets.FashionMNIST(
+    root="~/projects/def-sponsor00/data/",
+    train=True,
+    download=True,
+    transform=ToTensor(),
+    target_transform=Lambda(lambda y: torch.zeros(10, dtype=torch.float).scatter_(0, torch.tensor(y), value=1))
+)
+```
+
+```{python}
+#| echo: false
+dataset = datasets.FashionMNIST(
+    root="./",
+    train=True,
+    download=True,
+    transform=ToTensor(),
+    target_transform=Lambda(lambda y: torch.zeros(10, dtype=torch.float).scatter_(0, torch.tensor(y), value=1))
+)
+```
+
+## Comments & questions
