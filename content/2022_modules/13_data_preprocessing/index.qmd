@@ -20,7 +20,7 @@ Here is an example with the FashionMNIST datasets.
 
 ## Load packages
 
-```{python}
+```{.python}
 import torch
 from torchvision import datasets
 from torchvision.transforms import ToTensor, Lambda
@@ -37,17 +37,6 @@ The labels are integers. Representing categorical variables as integers can crea
 ```{.python}
 dataset = datasets.FashionMNIST(
     root="~/projects/def-sponsor00/data/",
-    train=True,
-    download=True,
-    transform=ToTensor(),
-    target_transform=Lambda(lambda y: torch.zeros(10, dtype=torch.float).scatter_(0, torch.tensor(y), value=1))
-)
-```
-
-```{python}
-#| echo: false
-dataset = datasets.FashionMNIST(
-    root="./",
     train=True,
     download=True,
     transform=ToTensor(),
