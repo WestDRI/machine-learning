@@ -109,11 +109,11 @@ print("Waveform: {}\nSample rate: {}\nLabels: {}".format(waveform, sample_rate, 
 
 You can also plot the data. For this, we will use `pyplot` from `matplotlib`.
 
-Let's look at the waveform. Since we are in a cluster, instead of showing it to screen with `plt.plot()`, we save it to file:
+Let's look at the waveform:
 
 ``` python
 plt.figure()
-plt.savefig(waveform.t().numpy())
+plt.plot(waveform.t().numpy())
 ```
 
 ![](index_files/figure-gfm/cell-6-output-1.png)
