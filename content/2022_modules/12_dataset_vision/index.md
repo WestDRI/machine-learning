@@ -268,7 +268,7 @@ Then, we plot it with `pyplot`:, but since we are in a cluster, instead of showi
 plt.imshow(img, cmap='gray')
 ```
 
-    <matplotlib.image.AxesImage at 0x7f8648633250>
+    <matplotlib.image.AxesImage at 0x7f525e1ff3a0>
 
 ![](index_files/figure-gfm/cell-12-output-2.png)
 
@@ -310,29 +310,5 @@ Test data:
 test_loader = torch.utils.data.DataLoader(
     test_data, batch_size=20, shuffle=False)
 ```
-
-## Plot a full batch of images with their labels
-
-Now that we have a training DataLoader, it is easy to select a batch from it. Let's plot an entire batch of images with their labels.
-
-First, we need to get one batch of training images and their labels:
-
-``` python
-dataiter = iter(train_loader)
-batchimg, batchlabel = dataiter.next()
-```
-
-Then, we can plot them:
-
-``` python
-batchplot = plt.figure(figsize=(20, 5))
-for i in torch.arange(20):
-    sub = batchplot.add_subplot(2, 10, i+1, xticks=[], yticks=[])
-    sub.imshow(torch.squeeze(batchimg[i]), cmap='gray')
-    sub.set_title(str(batchlabel[i].item()), fontsize=25)
-```
-
-{{<img src="/img/batch_nw.png" title="" width="%" line-height="0.5rem">}}
-{{</img>}}
 
 ## Comments & questions
