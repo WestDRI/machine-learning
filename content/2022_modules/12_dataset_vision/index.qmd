@@ -4,8 +4,6 @@ description: Zoom
 colordes: "#e86e0a"
 slug: 12_dataset_vision
 weight: 12
-execute:
-  error: true
 format: hugo
 jupyter: python3
 ---
@@ -153,11 +151,6 @@ Then, we plot it with `pyplot`:, but since we are in a cluster, instead of showi
 plt.imshow(img, cmap='gray')
 ```
 
-This is what that first image looks like:
-
-{{<img src="/img/img_nw.png" title="" width="%" line-height="0.5rem">}}
-{{</img>}}
-
 And indeed, it matches the first label we explored earlier (`train_data[0][1]`).
 
 ### Plotting an image with its pixel values
@@ -178,11 +171,6 @@ for x in range(width):
                      verticalalignment='center',
                      color='white' if img[x][y].item() < thresh else 'black')
 ```
-
-And this is what we get:
-
-{{<img src="/img/imgpx_nw.png" title="" width="%" line-height="0.5rem">}}
-{{</img>}}
 
 ## Create the DataLoaders
 
