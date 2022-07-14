@@ -12,6 +12,13 @@ jupyter: python3
 
 ## Packages, DataLoaders, model
 
+Let's quickly run some code on the steps that we are now familiar with:
+
+- load the needed packages,
+- get the data,
+- create data loaders for training and testing,
+- define our model:
+
 ```{.python}
 import torch
 from torch import nn
@@ -107,13 +114,17 @@ model = Net()
 
 ## Hyperparameters
 
-While the parameters of a model (weights and biases) are the values that get adjusted through training, hyperparameters control the training process.
+There is a set of specifications in the process of deep learning that we haven't talked about yet: hyperparameters.
+
+While the learning parameters of a model (weights and biases) are the values that get adjusted through training (and they will become part of the final program, along with the model architecture, once training is over), hyperparameters control the training process.
 
 They include:
 
 - batch size: number of samples passed through the model before the parameters are updated,
 - number of epochs: number iterations,
 - learning rate: size of the incremental changes to model parameters at each iteration. Smaller values yield slow learning speed, while large values may miss minima.
+
+Let's define them here:
 
 ```{python}
 learning_rate = 1e-3
@@ -123,7 +134,7 @@ epochs = 5
 
 ## Define the loss function
 
-To assess the predicted outputs of our model against the true values from the labels, we need a loss function (e.g. mean square error for regressions: `nn.MSELoss` or negative log likelihood for classification: `nn.NLLLoss`)
+To assess the predicted outputs of our model against the true values from the labels, we also need a loss function (e.g. mean square error for regressions: `nn.MSELoss` or negative log likelihood for classification: `nn.NLLLoss`)
 
 The machine learning literature is rich in information about various loss functions.
 
@@ -135,7 +146,7 @@ loss_fn = nn.CrossEntropyLoss()
 
 ## Initialize the optimizer
 
-Optimization algorithms determine how the model parameters get adjusted at each iteration.
+The optimization algorithm determines how the model parameters get adjusted at each iteration.
 
 There are many optimizers and you need to search in the literature which one performs best for your time of model and data.
 
@@ -151,6 +162,8 @@ optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
 {{</notes>}}
 
 ## Define the train and test loops
+
+Finally, we need to define the train and test loops.
 
 The train loop:
 
