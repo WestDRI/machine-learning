@@ -12,6 +12,12 @@ jupyter: python3
 
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
+
+
 ## Packages, DataLoaders, model
 
 Let's quickly run some code on the steps that we are now familiar with:
@@ -29,7 +35,7 @@ from torchvision import datasets
 from torchvision.transforms import ToTensor, Lambda
 
 training_data = datasets.FashionMNIST(
-    root="~/projects/def-sponsor00/data/",
+    root="/project/def-sponsor00/data/",
     train=True,
     download=True,
     transform=ToTensor(),
@@ -37,8 +43,8 @@ training_data = datasets.FashionMNIST(
 )
 
 test_data = datasets.FashionMNIST(
-    root="~/projects/def-sponsor00/data/",
-    train=True,
+    root="/project/def-sponsor00/data/",
+    train=False,
     download=True,
     transform=ToTensor(),
     target_transform=Lambda(lambda y: torch.zeros(10, dtype=torch.float).scatter_(0, torch.tensor(y), value=1))
@@ -66,6 +72,47 @@ class Net(nn.Module):
 
 model = Net()
 ```
+
+    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz
+
+    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz to ./FashionMNIST/raw/train-images-idx3-ubyte.gz
+
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"bf434dc1174c439093a67154792d0be0","version_major":2,"version_minor":0}
+</script>
+
+    Extracting ./FashionMNIST/raw/train-images-idx3-ubyte.gz to ./FashionMNIST/raw
+
+
+    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz
+
+    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz to ./FashionMNIST/raw/train-labels-idx1-ubyte.gz
+
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"996c8071208a4715afdc1854e0ccd3b6","version_major":2,"version_minor":0}
+</script>
+
+    Extracting ./FashionMNIST/raw/train-labels-idx1-ubyte.gz to ./FashionMNIST/raw
+
+    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz
+
+    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz to ./FashionMNIST/raw/t10k-images-idx3-ubyte.gz
+
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"fbabdd07e31946d88e6a4d8b476691ed","version_major":2,"version_minor":0}
+</script>
+
+    Extracting ./FashionMNIST/raw/t10k-images-idx3-ubyte.gz to ./FashionMNIST/raw
+
+    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz
+
+    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz to ./FashionMNIST/raw/t10k-labels-idx1-ubyte.gz
+
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id":"9796514d1fd64d93a3ccc0fbd761688b","version_major":2,"version_minor":0}
+</script>
+
+    Extracting ./FashionMNIST/raw/t10k-labels-idx1-ubyte.gz to ./FashionMNIST/raw
 
 ## Hyperparameters
 
@@ -179,520 +226,535 @@ print("Training completed")
 
     Epoch 1
     -------------------------------
-    loss: 2.313032  [    0/60000]
-    loss: 2.189277  [ 1000/60000]
+    loss: 2.313894  [    0/60000]
 
-    loss: 1.879373  [ 2000/60000]
-    loss: 1.599335  [ 3000/60000]
+    loss: 2.209583  [ 1000/60000]
 
-    loss: 1.177001  [ 4000/60000]
-    loss: 1.051830  [ 5000/60000]
+    loss: 1.825431  [ 2000/60000]
 
-    loss: 1.371127  [ 6000/60000]
-    loss: 0.810428  [ 7000/60000]
+    loss: 1.566175  [ 3000/60000]
 
-    loss: 0.991967  [ 8000/60000]
-    loss: 0.956140  [ 9000/60000]
+    loss: 1.108923  [ 4000/60000]
 
-    loss: 0.602727  [10000/60000]
+    loss: 1.006603  [ 5000/60000]
+    loss: 1.413068  [ 6000/60000]
 
-    loss: 0.834871  [11000/60000]
-    loss: 1.087197  [12000/60000]
+    loss: 0.803126  [ 7000/60000]
+    loss: 0.939774  [ 8000/60000]
 
-    loss: 0.664605  [13000/60000]
-    loss: 0.509106  [14000/60000]
+    loss: 0.927773  [ 9000/60000]
+    loss: 0.612259  [10000/60000]
 
-    loss: 0.678273  [15000/60000]
-    loss: 0.966540  [16000/60000]
+    loss: 0.840623  [11000/60000]
+    loss: 1.120255  [12000/60000]
 
-    loss: 0.344180  [17000/60000]
-    loss: 1.553607  [18000/60000]
+    loss: 0.665815  [13000/60000]
+    loss: 0.487792  [14000/60000]
 
-    loss: 0.733053  [19000/60000]
+    loss: 0.642110  [15000/60000]
+    loss: 1.016150  [16000/60000]
 
-    loss: 0.433200  [20000/60000]
-    loss: 0.181992  [21000/60000]
+    loss: 0.336110  [17000/60000]
+    loss: 1.556458  [18000/60000]
 
-    loss: 0.385904  [22000/60000]
-    loss: 0.749857  [23000/60000]
+    loss: 0.755764  [19000/60000]
+    loss: 0.407435  [20000/60000]
 
-    loss: 0.647050  [24000/60000]
-    loss: 0.483924  [25000/60000]
+    loss: 0.194701  [21000/60000]
+    loss: 0.361907  [22000/60000]
 
-    loss: 0.414128  [26000/60000]
-    loss: 0.153665  [27000/60000]
+    loss: 0.742247  [23000/60000]
+    loss: 0.672527  [24000/60000]
 
-    loss: 1.086485  [28000/60000]
+    loss: 0.466937  [25000/60000]
+    loss: 0.422173  [26000/60000]
 
-    loss: 0.680597  [29000/60000]
+    loss: 0.134426  [27000/60000]
+    loss: 1.093594  [28000/60000]
 
-    loss: 0.526780  [30000/60000]
+    loss: 0.653817  [29000/60000]
+    loss: 0.547656  [30000/60000]
 
-    loss: 0.193959  [31000/60000]
+    loss: 0.174427  [31000/60000]
+    loss: 0.605598  [32000/60000]
 
-    loss: 0.623465  [32000/60000]
+    loss: 0.714456  [33000/60000]
+    loss: 0.813955  [34000/60000]
 
-    loss: 0.700794  [33000/60000]
+    loss: 0.481885  [35000/60000]
+    loss: 0.239479  [36000/60000]
 
-    loss: 0.854201  [34000/60000]
+    loss: 0.802305  [37000/60000]
+    loss: 0.471210  [38000/60000]
 
-    loss: 0.450702  [35000/60000]
+    loss: 0.555649  [39000/60000]
+    loss: 0.914729  [40000/60000]
 
-    loss: 0.265808  [36000/60000]
+    loss: 0.342048  [41000/60000]
+    loss: 0.157393  [42000/60000]
 
-    loss: 0.762630  [37000/60000]
+    loss: 0.684286  [43000/60000]
+    loss: 0.417549  [44000/60000]
 
-    loss: 0.481670  [38000/60000]
+    loss: 0.691615  [45000/60000]
+    loss: 0.505846  [46000/60000]
 
-    loss: 0.584916  [39000/60000]
-    loss: 0.938548  [40000/60000]
+    loss: 0.314346  [47000/60000]
+    loss: 0.505909  [48000/60000]
 
-    loss: 0.349947  [41000/60000]
+    loss: 0.593913  [49000/60000]
+    loss: 0.118894  [50000/60000]
 
-    loss: 0.171913  [42000/60000]
+    loss: 1.069959  [51000/60000]
+    loss: 0.235975  [52000/60000]
 
-    loss: 0.693459  [43000/60000]
+    loss: 0.694713  [53000/60000]
+    loss: 0.435227  [54000/60000]
 
-    loss: 0.422915  [44000/60000]
-    loss: 0.673171  [45000/60000]
+    loss: 0.477341  [55000/60000]
+    loss: 0.373612  [56000/60000]
 
-    loss: 0.535404  [46000/60000]
+    loss: 0.676326  [57000/60000]
+    loss: 0.661223  [58000/60000]
 
-    loss: 0.304551  [47000/60000]
-
-    loss: 0.497037  [48000/60000]
-    loss: 0.591269  [49000/60000]
-
-    loss: 0.110107  [50000/60000]
-    loss: 0.948390  [51000/60000]
-
-    loss: 0.234284  [52000/60000]
-    loss: 0.696888  [53000/60000]
-
-    loss: 0.449288  [54000/60000]
-    loss: 0.482404  [55000/60000]
-
-    loss: 0.345427  [56000/60000]
-    loss: 0.668137  [57000/60000]
-
-    loss: 0.682948  [58000/60000]
-    loss: 0.451150  [59000/60000]
+    loss: 0.456003  [59000/60000]
 
     Test Error: 
-     Accuracy: 103.2%, Avg loss: 0.474787 
+     Accuracy: 103.7%, Avg loss: 0.472968 
 
     Epoch 2
     -------------------------------
-    loss: 0.660638  [    0/60000]
+    loss: 0.701486  [    0/60000]
+    loss: 0.378306  [ 1000/60000]
 
-    loss: 0.382847  [ 1000/60000]
+    loss: 0.267802  [ 2000/60000]
+    loss: 0.522529  [ 3000/60000]
 
-    loss: 0.262217  [ 2000/60000]
+    loss: 0.091644  [ 4000/60000]
+    loss: 0.266027  [ 5000/60000]
 
-    loss: 0.524995  [ 3000/60000]
-    loss: 0.102952  [ 4000/60000]
+    loss: 0.678095  [ 6000/60000]
+    loss: 0.523694  [ 7000/60000]
 
-    loss: 0.266365  [ 5000/60000]
+    loss: 0.341322  [ 8000/60000]
+    loss: 0.487370  [ 9000/60000]
 
-    loss: 0.679761  [ 6000/60000]
-    loss: 0.511284  [ 7000/60000]
+    loss: 0.287361  [10000/60000]
+    loss: 0.401389  [11000/60000]
 
-    loss: 0.341274  [ 8000/60000]
-    loss: 0.482237  [ 9000/60000]
+    loss: 0.650608  [12000/60000]
+    loss: 0.445530  [13000/60000]
 
-    loss: 0.273982  [10000/60000]
+    loss: 0.164422  [14000/60000]
+    loss: 0.246646  [15000/60000]
 
-    loss: 0.410666  [11000/60000]
+    loss: 1.016836  [16000/60000]
 
-    loss: 0.658335  [12000/60000]
+    loss: 0.083177  [17000/60000]
 
-    loss: 0.463334  [13000/60000]
-    loss: 0.156792  [14000/60000]
+    loss: 1.129416  [18000/60000]
+    loss: 0.730492  [19000/60000]
 
-    loss: 0.272522  [15000/60000]
-    loss: 0.972761  [16000/60000]
+    loss: 0.207064  [20000/60000]
+    loss: 0.074803  [21000/60000]
 
-    loss: 0.088276  [17000/60000]
+    loss: 0.301070  [22000/60000]
+    loss: 0.427675  [23000/60000]
 
-    loss: 1.143931  [18000/60000]
-    loss: 0.760979  [19000/60000]
+    loss: 0.450497  [24000/60000]
+    loss: 0.320961  [25000/60000]
 
-    loss: 0.209964  [20000/60000]
-    loss: 0.071765  [21000/60000]
+    loss: 0.256764  [26000/60000]
 
-    loss: 0.335469  [22000/60000]
-    loss: 0.462239  [23000/60000]
+    loss: 0.061158  [27000/60000]
+    loss: 1.112471  [28000/60000]
 
-    loss: 0.428549  [24000/60000]
-    loss: 0.308786  [25000/60000]
+    loss: 0.399782  [29000/60000]
+    loss: 0.304485  [30000/60000]
 
-    loss: 0.259935  [26000/60000]
-    loss: 0.066200  [27000/60000]
+    loss: 0.107120  [31000/60000]
 
-    loss: 1.080371  [28000/60000]
-    loss: 0.396030  [29000/60000]
+    loss: 0.479984  [32000/60000]
 
-    loss: 0.286784  [30000/60000]
-    loss: 0.121891  [31000/60000]
+    loss: 0.529688  [33000/60000]
+    loss: 0.690905  [34000/60000]
 
-    loss: 0.478226  [32000/60000]
+    loss: 0.430148  [35000/60000]
+    loss: 0.153147  [36000/60000]
 
-    loss: 0.549788  [33000/60000]
+    loss: 0.736496  [37000/60000]
+    loss: 0.341141  [38000/60000]
 
-    loss: 0.688560  [34000/60000]
+    loss: 0.612477  [39000/60000]
 
-    loss: 0.372566  [35000/60000]
+    loss: 0.929790  [40000/60000]
+    loss: 0.171491  [41000/60000]
 
-    loss: 0.161006  [36000/60000]
+    loss: 0.081986  [42000/60000]
+    loss: 0.523186  [43000/60000]
 
-    loss: 0.717515  [37000/60000]
-    loss: 0.351387  [38000/60000]
+    loss: 0.367308  [44000/60000]
+    loss: 0.574111  [45000/60000]
 
-    loss: 0.595150  [39000/60000]
-    loss: 0.991084  [40000/60000]
+    loss: 0.467557  [46000/60000]
+    loss: 0.183672  [47000/60000]
 
-    loss: 0.168918  [41000/60000]
-    loss: 0.084852  [42000/60000]
+    loss: 0.360408  [48000/60000]
 
-    loss: 0.554675  [43000/60000]
-    loss: 0.381406  [44000/60000]
+    loss: 0.526477  [49000/60000]
 
-    loss: 0.555818  [45000/60000]
-    loss: 0.467898  [46000/60000]
+    loss: 0.127008  [50000/60000]
+    loss: 0.965567  [51000/60000]
 
-    loss: 0.164762  [47000/60000]
+    loss: 0.214584  [52000/60000]
 
-    loss: 0.360958  [48000/60000]
-    loss: 0.521409  [49000/60000]
+    loss: 0.527377  [53000/60000]
 
-    loss: 0.109901  [50000/60000]
-    loss: 0.875834  [51000/60000]
+    loss: 0.370190  [54000/60000]
+    loss: 0.408935  [55000/60000]
 
-    loss: 0.238080  [52000/60000]
-    loss: 0.541535  [53000/60000]
+    loss: 0.295107  [56000/60000]
+    loss: 0.530069  [57000/60000]
 
-    loss: 0.375447  [54000/60000]
-    loss: 0.425235  [55000/60000]
-
-    loss: 0.266625  [56000/60000]
-    loss: 0.510005  [57000/60000]
-
-    loss: 0.637097  [58000/60000]
-    loss: 0.401188  [59000/60000]
+    loss: 0.634487  [58000/60000]
+    loss: 0.408090  [59000/60000]
 
     Test Error: 
-     Accuracy: 108.1%, Avg loss: 0.412004 
+     Accuracy: 108.6%, Avg loss: 0.408476 
 
     Epoch 3
     -------------------------------
-    loss: 0.525211  [    0/60000]
+    loss: 0.589625  [    0/60000]
+    loss: 0.390567  [ 1000/60000]
 
-    loss: 0.402093  [ 1000/60000]
+    loss: 0.237769  [ 2000/60000]
 
-    loss: 0.228855  [ 2000/60000]
+    loss: 0.460030  [ 3000/60000]
 
-    loss: 0.462229  [ 3000/60000]
+    loss: 0.056316  [ 4000/60000]
 
-    loss: 0.068593  [ 4000/60000]
+    loss: 0.211697  [ 5000/60000]
 
-    loss: 0.216395  [ 5000/60000]
+    loss: 0.558873  [ 6000/60000]
 
-    loss: 0.600057  [ 6000/60000]
+    loss: 0.466138  [ 7000/60000]
 
-    loss: 0.452461  [ 7000/60000]
+    loss: 0.293455  [ 8000/60000]
 
-    loss: 0.290583  [ 8000/60000]
-    loss: 0.332457  [ 9000/60000]
+    loss: 0.337856  [ 9000/60000]
 
-    loss: 0.215503  [10000/60000]
+    loss: 0.227861  [10000/60000]
 
-    loss: 0.276737  [11000/60000]
-    loss: 0.543060  [12000/60000]
+    loss: 0.264908  [11000/60000]
 
-    loss: 0.367736  [13000/60000]
-    loss: 0.120917  [14000/60000]
+    loss: 0.545475  [12000/60000]
 
-    loss: 0.182735  [15000/60000]
-    loss: 1.020491  [16000/60000]
+    loss: 0.356967  [13000/60000]
 
-    loss: 0.066941  [17000/60000]
-    loss: 1.132143  [18000/60000]
+    loss: 0.127376  [14000/60000]
 
-    loss: 0.737702  [19000/60000]
-    loss: 0.170178  [20000/60000]
+    loss: 0.172921  [15000/60000]
 
-    loss: 0.052959  [21000/60000]
-    loss: 0.313488  [22000/60000]
+    loss: 1.090881  [16000/60000]
 
-    loss: 0.407618  [23000/60000]
-    loss: 0.373944  [24000/60000]
+    loss: 0.064057  [17000/60000]
 
-    loss: 0.256424  [25000/60000]
-    loss: 0.184344  [26000/60000]
+    loss: 1.086788  [18000/60000]
 
-    loss: 0.048323  [27000/60000]
-    loss: 1.073378  [28000/60000]
+    loss: 0.698609  [19000/60000]
 
-    loss: 0.286181  [29000/60000]
+    loss: 0.166774  [20000/60000]
 
-    loss: 0.195637  [30000/60000]
+    loss: 0.058505  [21000/60000]
 
-    loss: 0.110032  [31000/60000]
-    loss: 0.498481  [32000/60000]
+    loss: 0.277547  [22000/60000]
 
-    loss: 0.407290  [33000/60000]
-    loss: 0.600758  [34000/60000]
+    loss: 0.340083  [23000/60000]
 
-    loss: 0.315671  [35000/60000]
-    loss: 0.123035  [36000/60000]
+    loss: 0.417019  [24000/60000]
 
-    loss: 0.701893  [37000/60000]
-    loss: 0.315526  [38000/60000]
+    loss: 0.302526  [25000/60000]
 
-    loss: 0.572403  [39000/60000]
-    loss: 0.923053  [40000/60000]
+    loss: 0.182446  [26000/60000]
 
-    loss: 0.120233  [41000/60000]
-    loss: 0.069061  [42000/60000]
+    loss: 0.044894  [27000/60000]
 
-    loss: 0.479645  [43000/60000]
-    loss: 0.302547  [44000/60000]
+    loss: 1.089933  [28000/60000]
 
-    loss: 0.512247  [45000/60000]
-    loss: 0.432458  [46000/60000]
+    loss: 0.298356  [29000/60000]
 
-    loss: 0.128307  [47000/60000]
-    loss: 0.299637  [48000/60000]
+    loss: 0.200580  [30000/60000]
 
-    loss: 0.450630  [49000/60000]
+    loss: 0.098322  [31000/60000]
 
-    loss: 0.119992  [50000/60000]
+    loss: 0.485597  [32000/60000]
 
-    loss: 0.830663  [51000/60000]
+    loss: 0.407959  [33000/60000]
 
-    loss: 0.248129  [52000/60000]
+    loss: 0.620739  [34000/60000]
 
-    loss: 0.472861  [53000/60000]
+    loss: 0.382905  [35000/60000]
 
-    loss: 0.346110  [54000/60000]
+    loss: 0.107402  [36000/60000]
 
-    loss: 0.391488  [55000/60000]
+    loss: 0.684698  [37000/60000]
 
-    loss: 0.228210  [56000/60000]
+    loss: 0.307851  [38000/60000]
 
-    loss: 0.455863  [57000/60000]
+    loss: 0.621548  [39000/60000]
 
-    loss: 0.592078  [58000/60000]
+    loss: 0.875995  [40000/60000]
 
-    loss: 0.401325  [59000/60000]
+    loss: 0.121690  [41000/60000]
+
+    loss: 0.069163  [42000/60000]
+
+    loss: 0.452378  [43000/60000]
+
+    loss: 0.306732  [44000/60000]
+
+    loss: 0.534353  [45000/60000]
+
+    loss: 0.439734  [46000/60000]
+
+    loss: 0.145556  [47000/60000]
+
+    loss: 0.297056  [48000/60000]
+
+    loss: 0.453122  [49000/60000]
+
+    loss: 0.129692  [50000/60000]
+
+    loss: 0.890579  [51000/60000]
+
+    loss: 0.208035  [52000/60000]
+
+    loss: 0.450671  [53000/60000]
+
+    loss: 0.342771  [54000/60000]
+
+    loss: 0.405848  [55000/60000]
+
+    loss: 0.245603  [56000/60000]
+
+    loss: 0.489146  [57000/60000]
+    loss: 0.605939  [58000/60000]
+
+    loss: 0.398694  [59000/60000]
 
     Test Error: 
-     Accuracy: 110.6%, Avg loss: 0.373217 
+     Accuracy: 110.2%, Avg loss: 0.372263 
 
     Epoch 4
     -------------------------------
-    loss: 0.481119  [    0/60000]
+    loss: 0.532061  [    0/60000]
+    loss: 0.443890  [ 1000/60000]
 
-    loss: 0.446243  [ 1000/60000]
-    loss: 0.211083  [ 2000/60000]
+    loss: 0.226630  [ 2000/60000]
 
-    loss: 0.461669  [ 3000/60000]
+    loss: 0.431535  [ 3000/60000]
 
-    loss: 0.060439  [ 4000/60000]
-    loss: 0.213278  [ 5000/60000]
+    loss: 0.046243  [ 4000/60000]
 
-    loss: 0.558812  [ 6000/60000]
-    loss: 0.408733  [ 7000/60000]
+    loss: 0.212723  [ 5000/60000]
+    loss: 0.533458  [ 6000/60000]
 
-    loss: 0.295029  [ 8000/60000]
+    loss: 0.409180  [ 7000/60000]
+    loss: 0.292523  [ 8000/60000]
 
-    loss: 0.260852  [ 9000/60000]
-    loss: 0.183164  [10000/60000]
+    loss: 0.249466  [ 9000/60000]
+    loss: 0.185609  [10000/60000]
 
-    loss: 0.192481  [11000/60000]
-    loss: 0.452313  [12000/60000]
+    loss: 0.189724  [11000/60000]
+    loss: 0.470238  [12000/60000]
 
-    loss: 0.316820  [13000/60000]
-    loss: 0.095695  [14000/60000]
+    loss: 0.325083  [13000/60000]
 
-    loss: 0.156351  [15000/60000]
-    loss: 1.056654  [16000/60000]
+    loss: 0.098501  [14000/60000]
+    loss: 0.143514  [15000/60000]
 
-    loss: 0.063700  [17000/60000]
-    loss: 1.097878  [18000/60000]
+    loss: 1.145604  [16000/60000]
 
-    loss: 0.690527  [19000/60000]
-    loss: 0.153149  [20000/60000]
+    loss: 0.060229  [17000/60000]
+    loss: 1.041621  [18000/60000]
 
-    loss: 0.039941  [21000/60000]
-    loss: 0.268286  [22000/60000]
+    loss: 0.645271  [19000/60000]
 
-    loss: 0.377895  [23000/60000]
-    loss: 0.352848  [24000/60000]
+    loss: 0.152798  [20000/60000]
 
-    loss: 0.226390  [25000/60000]
-    loss: 0.136183  [26000/60000]
+    loss: 0.051467  [21000/60000]
+    loss: 0.231872  [22000/60000]
 
-    loss: 0.042487  [27000/60000]
-    loss: 1.038781  [28000/60000]
+    loss: 0.308140  [23000/60000]
+    loss: 0.386025  [24000/60000]
 
-    loss: 0.232577  [29000/60000]
-    loss: 0.134561  [30000/60000]
+    loss: 0.262250  [25000/60000]
 
-    loss: 0.113128  [31000/60000]
-    loss: 0.512031  [32000/60000]
+    loss: 0.140432  [26000/60000]
+    loss: 0.038993  [27000/60000]
 
-    loss: 0.319918  [33000/60000]
+    loss: 1.104994  [28000/60000]
 
-    loss: 0.582166  [34000/60000]
-    loss: 0.257864  [35000/60000]
+    loss: 0.250279  [29000/60000]
 
-    loss: 0.096914  [36000/60000]
-    loss: 0.649854  [37000/60000]
+    loss: 0.146712  [30000/60000]
 
-    loss: 0.315161  [38000/60000]
-    loss: 0.556753  [39000/60000]
+    loss: 0.094324  [31000/60000]
 
-    loss: 0.853703  [40000/60000]
-    loss: 0.109040  [41000/60000]
+    loss: 0.489743  [32000/60000]
+    loss: 0.331888  [33000/60000]
 
-    loss: 0.064148  [42000/60000]
+    loss: 0.587607  [34000/60000]
+    loss: 0.345963  [35000/60000]
 
-    loss: 0.434653  [43000/60000]
-    loss: 0.245456  [44000/60000]
+    loss: 0.086927  [36000/60000]
+    loss: 0.631197  [37000/60000]
 
-    loss: 0.510700  [45000/60000]
-    loss: 0.421976  [46000/60000]
+    loss: 0.300410  [38000/60000]
+    loss: 0.604595  [39000/60000]
 
-    loss: 0.104753  [47000/60000]
-    loss: 0.281256  [48000/60000]
+    loss: 0.804568  [40000/60000]
 
-    loss: 0.387987  [49000/60000]
+    loss: 0.113696  [41000/60000]
 
-    loss: 0.128431  [50000/60000]
+    loss: 0.058610  [42000/60000]
 
-    loss: 0.810879  [51000/60000]
-    loss: 0.223144  [52000/60000]
+    loss: 0.427789  [43000/60000]
 
-    loss: 0.441438  [53000/60000]
-    loss: 0.327051  [54000/60000]
+    loss: 0.252483  [44000/60000]
 
-    loss: 0.361899  [55000/60000]
-    loss: 0.184773  [56000/60000]
+    loss: 0.517076  [45000/60000]
 
-    loss: 0.452278  [57000/60000]
-    loss: 0.549039  [58000/60000]
+    loss: 0.408849  [46000/60000]
 
-    loss: 0.381790  [59000/60000]
+    loss: 0.132180  [47000/60000]
+
+    loss: 0.258762  [48000/60000]
+
+    loss: 0.385793  [49000/60000]
+
+    loss: 0.117567  [50000/60000]
+    loss: 0.848096  [51000/60000]
+
+    loss: 0.212472  [52000/60000]
+
+    loss: 0.400717  [53000/60000]
+    loss: 0.334782  [54000/60000]
+
+    loss: 0.391648  [55000/60000]
+    loss: 0.210674  [56000/60000]
+
+    loss: 0.489246  [57000/60000]
+    loss: 0.575880  [58000/60000]
+
+    loss: 0.396307  [59000/60000]
 
     Test Error: 
-     Accuracy: 112.9%, Avg loss: 0.349858 
+     Accuracy: 111.3%, Avg loss: 0.349180 
 
     Epoch 5
     -------------------------------
-    loss: 0.429544  [    0/60000]
+    loss: 0.483897  [    0/60000]
 
-    loss: 0.489462  [ 1000/60000]
+    loss: 0.482102  [ 1000/60000]
+    loss: 0.223865  [ 2000/60000]
 
-    loss: 0.204266  [ 2000/60000]
-    loss: 0.471776  [ 3000/60000]
+    loss: 0.433387  [ 3000/60000]
+    loss: 0.039494  [ 4000/60000]
 
-    loss: 0.051942  [ 4000/60000]
+    loss: 0.219176  [ 5000/60000]
+    loss: 0.513556  [ 6000/60000]
 
-    loss: 0.226828  [ 5000/60000]
+    loss: 0.376667  [ 7000/60000]
+    loss: 0.305540  [ 8000/60000]
 
-    loss: 0.546390  [ 6000/60000]
+    loss: 0.212830  [ 9000/60000]
+    loss: 0.146233  [10000/60000]
 
-    loss: 0.368215  [ 7000/60000]
-    loss: 0.304794  [ 8000/60000]
+    loss: 0.142688  [11000/60000]
+    loss: 0.426622  [12000/60000]
 
-    loss: 0.225832  [ 9000/60000]
+    loss: 0.298005  [13000/60000]
+    loss: 0.080610  [14000/60000]
 
-    loss: 0.149489  [10000/60000]
+    loss: 0.113162  [15000/60000]
+    loss: 1.187650  [16000/60000]
 
-    loss: 0.148379  [11000/60000]
-    loss: 0.404917  [12000/60000]
+    loss: 0.063121  [17000/60000]
+    loss: 0.994065  [18000/60000]
 
-    loss: 0.279988  [13000/60000]
-    loss: 0.078912  [14000/60000]
+    loss: 0.584324  [19000/60000]
+    loss: 0.149704  [20000/60000]
 
-    loss: 0.137655  [15000/60000]
-    loss: 1.096020  [16000/60000]
+    loss: 0.047375  [21000/60000]
+    loss: 0.200011  [22000/60000]
 
-    loss: 0.063260  [17000/60000]
+    loss: 0.290627  [23000/60000]
+    loss: 0.363045  [24000/60000]
 
-    loss: 1.027669  [18000/60000]
-    loss: 0.673573  [19000/60000]
+    loss: 0.230466  [25000/60000]
+    loss: 0.113239  [26000/60000]
 
-    loss: 0.148516  [20000/60000]
-    loss: 0.033067  [21000/60000]
+    loss: 0.036227  [27000/60000]
+    loss: 1.114385  [28000/60000]
 
-    loss: 0.230424  [22000/60000]
+    loss: 0.212635  [29000/60000]
+    loss: 0.107470  [30000/60000]
 
-    loss: 0.352551  [23000/60000]
-    loss: 0.328726  [24000/60000]
+    loss: 0.094590  [31000/60000]
+    loss: 0.481113  [32000/60000]
 
-    loss: 0.190954  [25000/60000]
+    loss: 0.282456  [33000/60000]
+    loss: 0.569291  [34000/60000]
 
-    loss: 0.112787  [26000/60000]
-    loss: 0.039296  [27000/60000]
+    loss: 0.300268  [35000/60000]
 
-    loss: 1.024472  [28000/60000]
-    loss: 0.189638  [29000/60000]
+    loss: 0.075891  [36000/60000]
 
-    loss: 0.096773  [30000/60000]
+    loss: 0.571429  [37000/60000]
 
-    loss: 0.118896  [31000/60000]
+    loss: 0.309798  [38000/60000]
 
-    loss: 0.493656  [32000/60000]
-    loss: 0.292365  [33000/60000]
+    loss: 0.578555  [39000/60000]
 
-    loss: 0.557353  [34000/60000]
-    loss: 0.227794  [35000/60000]
+    loss: 0.753653  [40000/60000]
+    loss: 0.106412  [41000/60000]
 
-    loss: 0.086265  [36000/60000]
+    loss: 0.056287  [42000/60000]
+    loss: 0.409297  [43000/60000]
 
-    loss: 0.608628  [37000/60000]
-    loss: 0.314347  [38000/60000]
+    loss: 0.198123  [44000/60000]
+    loss: 0.504752  [45000/60000]
 
-    loss: 0.532585  [39000/60000]
+    loss: 0.424229  [46000/60000]
+    loss: 0.117185  [47000/60000]
 
-    loss: 0.806146  [40000/60000]
-    loss: 0.097430  [41000/60000]
+    loss: 0.243067  [48000/60000]
+    loss: 0.344168  [49000/60000]
 
-    loss: 0.058370  [42000/60000]
-    loss: 0.390279  [43000/60000]
+    loss: 0.109870  [50000/60000]
+    loss: 0.798450  [51000/60000]
 
-    loss: 0.214122  [44000/60000]
-    loss: 0.492132  [45000/60000]
+    loss: 0.196153  [52000/60000]
 
-    loss: 0.422791  [46000/60000]
+    loss: 0.379001  [53000/60000]
 
-    loss: 0.090093  [47000/60000]
+    loss: 0.313801  [54000/60000]
+    loss: 0.367338  [55000/60000]
 
-    loss: 0.280901  [48000/60000]
-    loss: 0.354855  [49000/60000]
+    loss: 0.158342  [56000/60000]
+    loss: 0.491715  [57000/60000]
 
-    loss: 0.113980  [50000/60000]
-    loss: 0.797323  [51000/60000]
-
-    loss: 0.200477  [52000/60000]
-    loss: 0.404075  [53000/60000]
-
-    loss: 0.302739  [54000/60000]
-    loss: 0.325606  [55000/60000]
-
-    loss: 0.158334  [56000/60000]
-
-    loss: 0.459957  [57000/60000]
-
-    loss: 0.500143  [58000/60000]
-
-    loss: 0.389526  [59000/60000]
+    loss: 0.552428  [58000/60000]
+    loss: 0.378269  [59000/60000]
 
     Test Error: 
-     Accuracy: 112.0%, Avg loss: 0.328879 
+     Accuracy: 112.7%, Avg loss: 0.333500 
 
     Training completed
 
 ## Comments & questions
+
+<script type=application/vnd.jupyter.widget-state+json>
+{"state":{"0044fc29835247f1a69011a983777be3":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_a9e76ce61bf94cd1ba3c378a88f99d0e","placeholder":"​","style":"IPY_MODEL_36cabf2e3c914178ae0556520f3d82d1","value":" 5148/5148 [00:00&lt;00:00, 290476.46it/s]"}},"01b808342b094e1eb149115611901f00":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_2b5ff5eb58804034828781121466a512","placeholder":"​","style":"IPY_MODEL_83b11e97b0f54fdabbe7d48b6ca78524","value":" 29515/29515 [00:00&lt;00:00, 143682.39it/s]"}},"04703999fff742339c5ea060723b37b0":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"0e31aaa0090144bc8ff918bd4f28738a":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"1456012b77af45bcb7e10903a13352ef":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_7c627309bc9649e1b44ea5f2ffb41bd0","placeholder":"​","style":"IPY_MODEL_78c6aed8949c44bd9c11fcf9e53fa59e","value":"100%"}},"1655f9a3c9ea436680484b8b8c921744":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"ProgressView","bar_style":"success","description":"","description_tooltip":null,"layout":"IPY_MODEL_beacc9cb3ca648988151b4fe0ed091e2","max":29515,"min":0,"orientation":"horizontal","style":"IPY_MODEL_79cb6e6ec78c4888b7c49dcbf227d451","value":29515}},"1f244d4792b7468c9cc9311e498cbb5d":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_5b92e14037ff4327a570db1048cea55e","placeholder":"​","style":"IPY_MODEL_ea389082d9ec415d9622912593077f43","value":"100%"}},"206cc818ca8f404bb163459a058d42c7":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"2b5ff5eb58804034828781121466a512":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"2f7ac6316c5c411c9e3c4c58bb7b7ece":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"344064a8ba4f4656a3de7dd38751ee85":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"36cabf2e3c914178ae0556520f3d82d1":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"43a6584b6b1b44d692816f0a836021fd":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"ProgressView","bar_style":"success","description":"","description_tooltip":null,"layout":"IPY_MODEL_75d362ac06814d24a29080e38efac899","max":5148,"min":0,"orientation":"horizontal","style":"IPY_MODEL_2f7ac6316c5c411c9e3c4c58bb7b7ece","value":5148}},"48908056fb704a2fb017d67c58c7e808":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"53379222cbac4ad1938050f54079c1a5":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_206cc818ca8f404bb163459a058d42c7","placeholder":"​","style":"IPY_MODEL_344064a8ba4f4656a3de7dd38751ee85","value":" 4422102/4422102 [00:01&lt;00:00, 3579950.59it/s]"}},"5b92e14037ff4327a570db1048cea55e":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"620e467d201840e58ecb6a0150d318a3":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"6fba9daa9ada4e0cb8fd1cab86928f98":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"75d362ac06814d24a29080e38efac899":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"767b3ccfb0f846559c389b47c650e325":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"777cbc8eb2ec4e70ba1b0f45bc399cea":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"78c6aed8949c44bd9c11fcf9e53fa59e":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"79cb6e6ec78c4888b7c49dcbf227d451":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"7c627309bc9649e1b44ea5f2ffb41bd0":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"83b11e97b0f54fdabbe7d48b6ca78524":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"84be93ed27bb46b29e61668ca5293803":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"9796514d1fd64d93a3ccc0fbd761688b":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_9d5c97656e5e45e891533a5b524f82c9","IPY_MODEL_43a6584b6b1b44d692816f0a836021fd","IPY_MODEL_0044fc29835247f1a69011a983777be3"],"layout":"IPY_MODEL_d9560a61aa494f3db623c8285e4afaaf"}},"996c8071208a4715afdc1854e0ccd3b6":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_1456012b77af45bcb7e10903a13352ef","IPY_MODEL_1655f9a3c9ea436680484b8b8c921744","IPY_MODEL_01b808342b094e1eb149115611901f00"],"layout":"IPY_MODEL_6fba9daa9ada4e0cb8fd1cab86928f98"}},"9d5c97656e5e45e891533a5b524f82c9":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_e96040a44a0a4d9186c02d2f2d75eec5","placeholder":"​","style":"IPY_MODEL_bc84a6b067b84e099807f970d6909454","value":"100%"}},"a9e76ce61bf94cd1ba3c378a88f99d0e":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"bc84a6b067b84e099807f970d6909454":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"beacc9cb3ca648988151b4fe0ed091e2":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"bf434dc1174c439093a67154792d0be0":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_c65e668feae9405f804db9916df78d7d","IPY_MODEL_dc7441dae88c484d833f0e76bbd296b5","IPY_MODEL_f055ee2fd2e04fb691891e7daf67e19c"],"layout":"IPY_MODEL_04703999fff742339c5ea060723b37b0"}},"c0edf81528f7416b96927415b82a7c5e":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"ProgressView","bar_style":"success","description":"","description_tooltip":null,"layout":"IPY_MODEL_48908056fb704a2fb017d67c58c7e808","max":4422102,"min":0,"orientation":"horizontal","style":"IPY_MODEL_dcd9f7c1b04e4bc2898523c8f746117d","value":4422102}},"c65e668feae9405f804db9916df78d7d":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_84be93ed27bb46b29e61668ca5293803","placeholder":"​","style":"IPY_MODEL_0e31aaa0090144bc8ff918bd4f28738a","value":"100%"}},"d9560a61aa494f3db623c8285e4afaaf":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"dc7441dae88c484d833f0e76bbd296b5":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"ProgressView","bar_style":"success","description":"","description_tooltip":null,"layout":"IPY_MODEL_ea760e087e98417da72cdd122b1f1d5e","max":26421880,"min":0,"orientation":"horizontal","style":"IPY_MODEL_767b3ccfb0f846559c389b47c650e325","value":26421880}},"dcd9f7c1b04e4bc2898523c8f746117d":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"dd70ad38152740f084e72b70b64757e7":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"e96040a44a0a4d9186c02d2f2d75eec5":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"ea389082d9ec415d9622912593077f43":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"ea760e087e98417da72cdd122b1f1d5e":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"f055ee2fd2e04fb691891e7daf67e19c":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_dd70ad38152740f084e72b70b64757e7","placeholder":"​","style":"IPY_MODEL_777cbc8eb2ec4e70ba1b0f45bc399cea","value":" 26421880/26421880 [00:10&lt;00:00, 6612842.60it/s]"}},"fbabdd07e31946d88e6a4d8b476691ed":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_1f244d4792b7468c9cc9311e498cbb5d","IPY_MODEL_c0edf81528f7416b96927415b82a7c5e","IPY_MODEL_53379222cbac4ad1938050f54079c1a5"],"layout":"IPY_MODEL_620e467d201840e58ecb6a0150d318a3"}}},"version_major":2,"version_minor":0}
+</script>
