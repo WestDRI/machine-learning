@@ -28,11 +28,9 @@ Do not run code that displays plots on screen. Instead, have them written to fil
 
 *** Few files
 
-If you need to copy files to or from the cluster, you can use ~scp~.
+If you need to copy files to or from the cluster, you can use ~scp~ from your local machine.
 
-***** From your computer
-
-If you are in a local shell, run:
+***** Copy file from your computer to the cluster
 
 #+BEGIN_src sh
 [local]$ scp </local/path/to/file> <user>@<hostname>:<path/in/cluster>
@@ -40,12 +38,10 @@ If you are in a local shell, run:
 
 /(Replace {{<c>}}&lt;user&gt;{{</c>}} by your user name and {{<c>}}&lt;hostname&gt;{{</c>}} by the hostname—for this workshop: ~uu.c3.ca~.)/
 
-***** From the cluster
-
-If you are in a remote shell (through ~ssh~), run:
+***** Copy file from the cluster to your computer
 
 #+BEGIN_src sh
-[remote]$ scp <user>@<hostname>:<cluster/path/to/file> </local/path>
+[local]$ scp <user>@<hostname>:<cluster/path/to/file> </local/path>
 #+END_src
 
 *** Large amount of data
