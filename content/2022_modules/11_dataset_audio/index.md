@@ -113,22 +113,18 @@ Let's look at the waveform. Since we are in a cluster, instead of showing it to 
 
 ``` python
 plt.figure()
-plt.plot(waveform.t().numpy())
+plt.savefig(waveform.t().numpy())
 ```
 
-    ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()
-
-    <Figure size 432x288 with 0 Axes>
+![](index_files/figure-gfm/cell-6-output-1.png)
 
 ## Split the data into a training set and a testing set
 
 ``` python
-train_size = int(0.8 * len(full_dataset))
-test_size = len(full_dataset) - train_size
-train_dataset, test_dataset = torch.utils.data.random_split(full_dataset, [train_size, test_size])
+train_size = int(0.8 * len(yesno_data))
+test_size = len(yesno_data) - train_size
+train_dataset, test_dataset = torch.utils.data.random_split(yesno_data, [train_size, test_size])
 ```
-
-    NameError: name 'full_dataset' is not defined
 
 ## Create a DataLoader
 
