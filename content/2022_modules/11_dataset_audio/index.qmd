@@ -66,16 +66,14 @@ We will all use the same data. It would make little sense to all download it in 
 
 In the Alliance clusters, a good place to store data shared amongst members of a project is in the `/project` file system.
 
-You usually belong to `/project/def-group;`, where `group` is the name of your PI. You can access it from your home directory through the symbolic link `~/projects/def-group`.
-
-In our training cluster, we are all part of the group `def-sponsor00`, accessible through `~/projects/def-sponsor00`.
+You usually belong to `/project/def-group;`, where `group` is the name of your PI. In our training cluster, we are all part of the group `def-sponsor00`, accessible through `/project/def-sponsor00`.
 {{</notes>}}
 {{<br size="6">}}
 
-We will thus use `~/projects/def-sponsor00/data/` as the `root` argument for `torchaudio.datasets.yesno`):
+We will thus use `/project/def-sponsor00/data/` as the `root` argument for `torchaudio.datasets.yesno`):
 
 ```{.python}
-yesno_data = torchaudio.datasets.YESNO(root='~/projects/def-sponsor00/data/', download=True)
+yesno_data = torchaudio.datasets.YESNO(root='/project/def-sponsor00/data/', download=True)
 ```
 
 ```{python}
@@ -117,22 +115,28 @@ test_size = len(yesno_data) - train_size
 train_dataset, test_dataset = torch.utils.data.random_split(yesno_data, [train_size, test_size])
 ```
 
-## Create a DataLoader
+## Create training and testing DataLoaders
 
 DataLoaders are Python iterables created by the [torch.utils.data.DataLoader class](https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader) from a dataset and a sampler.
 
 We already have a dataset (`yesno_data`). Now we need a sampler (or sampling strategy) to draw samples from it. The sampling strategy contains the batch size, whether the data get shuffled prior to sampling, the number of workers used if the data is loaded in parallel, etc.
 
-To create a DataLoader with shuffled data and batch size of 1 (the default), we run:
+To create a training DataLoader with shuffled data and batch size of 1 (the default), we run:
 
 ```{python}
-data_loader = torch.utils.data.DataLoader(yesno_data, shuffle=True)
+train_loader = torch.utils.data.DataLoader(train_dataset, shuffle=True)
 ```
 
-`data_loader` is an iterable of 60 elements:
+`data_loader` is an iterable of 0.8*60=48 elements (80% of the 60 samples in the YESNO dataset):
 
 ```{python}
-len(data_loader)
+len(train_loader)
+```
+
+We do the same to create the testing DataLoader:
+
+```{python}
+test_loader = torch.utils.data.DataLoader(test_dataset, shuffle=True)
 ```
 
 ## Why do we need to create a DataLoader?
