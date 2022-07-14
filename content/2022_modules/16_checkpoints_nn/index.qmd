@@ -2,8 +2,8 @@
 title: Saving/loading models and checkpointing
 description: Zoom
 colordes: "#e86e0a"
-slug: 15_checkpoints
-weight: 15
+slug: 16_checkpoints
+weight: 16
 execute:
   error: true
 format: hugo

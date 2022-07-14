@@ -2,8 +2,8 @@
 title: Building a neural network
 description: Zoom
 colordes: "#e86e0a"
-slug: 13_building_nn
-weight: 13
+slug: 14_building_nn
+weight: 14
 execute:
   error: true
 format: hugo

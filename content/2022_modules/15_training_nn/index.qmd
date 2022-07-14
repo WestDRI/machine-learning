@@ -2,8 +2,8 @@
 title: Training a model
 description: Zoom
 colordes: "#e86e0a"
-slug: 14_training_nn
-weight: 14
+slug: 15_training_nn
+weight: 15
 execute:
   error: true
 format: hugo
