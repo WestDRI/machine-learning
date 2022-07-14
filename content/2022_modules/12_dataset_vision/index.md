@@ -64,7 +64,7 @@ help(torchvision.datasets.MNIST)
 
 {{<br size="4">}}
 
-Note that here too, the `root` argument sets the location of the downloaded data and we will use `~/projects/def-sponsor00/data/`.
+Note that here too, the `root` argument sets the location of the downloaded data and we will use `/project/def-sponsor00/data/`.
 
 The MNIST dataset already consists of a training and a testing sets, so we don't have to split the data manually. Instead, we can directly create 2 different objects with the same function (`train=True` selects the train set and `train=False` selects the test set).
 
@@ -81,11 +81,11 @@ We can now create our data objects:
 
 ``` python
 train_data = datasets.MNIST(
-    '~/projects/def-sponsor00/data/',
+    '/project/def-sponsor00/data/',
     train=True, download=True, transform=transform)
 
 test_data = datasets.MNIST(
-    '~/projects/def-sponsor00/data/',
+    '/project/def-sponsor00/data/',
     train=False, transform=transform)
 ```
 
@@ -268,7 +268,7 @@ Then, we plot it with `pyplot`:
 plt.imshow(img, cmap='gray')
 ```
 
-    <matplotlib.image.AxesImage at 0x7f88e92eb2b0>
+    <matplotlib.image.AxesImage at 0x7f2d1c737280>
 
 ![](index_files/figure-gfm/cell-12-output-2.png)
 
