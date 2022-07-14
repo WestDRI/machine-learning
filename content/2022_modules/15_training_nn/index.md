@@ -12,12 +12,6 @@ jupyter: python3
 
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
-<script src="https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js" crossorigin="anonymous"></script>
-
-
 ## Packages, DataLoaders, model
 
 ``` python
@@ -43,8 +37,8 @@ test_data = datasets.FashionMNIST(
     target_transform=Lambda(lambda y: torch.zeros(10, dtype=torch.float).scatter_(0, torch.tensor(y), value=1))
 )
 
-train_dataloader = DataLoader(training_data, batch_size=64)
-test_dataloader = DataLoader(test_data, batch_size=64)
+train_dataloader = DataLoader(training_data, batch_size=10)
+test_dataloader = DataLoader(test_data, batch_size=10)
 
 class Net(nn.Module):
     def __init__(self):
@@ -65,47 +59,6 @@ class Net(nn.Module):
 
 model = Net()
 ```
-
-    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz
-
-    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-images-idx3-ubyte.gz to /home/marie/projects/def-sponsor00/data/FashionMNIST/raw/train-images-idx3-ubyte.gz
-
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"399c2f0147734878975d276f38534341","version_major":2,"version_minor":0}
-</script>
-
-    Extracting /home/marie/projects/def-sponsor00/data/FashionMNIST/raw/train-images-idx3-ubyte.gz to /home/marie/projects/def-sponsor00/data/FashionMNIST/raw
-
-
-    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz
-
-    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/train-labels-idx1-ubyte.gz to /home/marie/projects/def-sponsor00/data/FashionMNIST/raw/train-labels-idx1-ubyte.gz
-
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"a1500f688261493d9ae7206b2aa8f373","version_major":2,"version_minor":0}
-</script>
-
-    Extracting /home/marie/projects/def-sponsor00/data/FashionMNIST/raw/train-labels-idx1-ubyte.gz to /home/marie/projects/def-sponsor00/data/FashionMNIST/raw
-
-    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz
-
-    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-images-idx3-ubyte.gz to /home/marie/projects/def-sponsor00/data/FashionMNIST/raw/t10k-images-idx3-ubyte.gz
-
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"b13b131a542146dcba3f45fa1f258bdd","version_major":2,"version_minor":0}
-</script>
-
-    Extracting /home/marie/projects/def-sponsor00/data/FashionMNIST/raw/t10k-images-idx3-ubyte.gz to /home/marie/projects/def-sponsor00/data/FashionMNIST/raw
-
-    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz
-
-    Downloading http://fashion-mnist.s3-website.eu-central-1.amazonaws.com/t10k-labels-idx1-ubyte.gz to /home/marie/projects/def-sponsor00/data/FashionMNIST/raw/t10k-labels-idx1-ubyte.gz
-
-<script type="application/vnd.jupyter.widget-view+json">
-{"model_id":"19131e2b34914cdca68f929d7d007faa","version_major":2,"version_minor":0}
-</script>
-
-    Extracting /home/marie/projects/def-sponsor00/data/FashionMNIST/raw/t10k-labels-idx1-ubyte.gz to /home/marie/projects/def-sponsor00/data/FashionMNIST/raw
 
 ## Hyperparameters
 
@@ -144,10 +97,8 @@ There are many optimizers and you need to search in the literature which one per
 Below is an example with stochastic gradient descent:
 
 ``` python
-optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
 ```
-
-    NameError: name 'optim' is not defined
 
 {{<notes>}}
 - lr is the learning rate
@@ -215,11 +166,480 @@ print("Training completed")
 
     Epoch 1
     -------------------------------
+    loss: 2.290078  [    0/60000]
 
-    NameError: name 'optimizer' is not defined
+    loss: 2.175909  [ 1000/60000]
+
+    loss: 1.752827  [ 2000/60000]
+    loss: 1.483781  [ 3000/60000]
+
+    loss: 1.075751  [ 4000/60000]
+    loss: 1.009195  [ 5000/60000]
+
+    loss: 1.370676  [ 6000/60000]
+    loss: 0.801355  [ 7000/60000]
+
+    loss: 0.951855  [ 8000/60000]
+    loss: 0.909457  [ 9000/60000]
+
+    loss: 0.592998  [10000/60000]
+    loss: 0.855657  [11000/60000]
+
+    loss: 1.130125  [12000/60000]
+    loss: 0.675471  [13000/60000]
+
+    loss: 0.498876  [14000/60000]
+    loss: 0.644413  [15000/60000]
+
+    loss: 1.004657  [16000/60000]
+    loss: 0.331907  [17000/60000]
+
+    loss: 1.661913  [18000/60000]
+    loss: 0.743550  [19000/60000]
+
+    loss: 0.412794  [20000/60000]
+    loss: 0.191642  [21000/60000]
+
+    loss: 0.384772  [22000/60000]
+    loss: 0.771718  [23000/60000]
+
+    loss: 0.639409  [24000/60000]
+    loss: 0.482610  [25000/60000]
+
+    loss: 0.396803  [26000/60000]
+    loss: 0.149435  [27000/60000]
+
+    loss: 1.124946  [28000/60000]
+    loss: 0.647954  [29000/60000]
+
+    loss: 0.555405  [30000/60000]
+    loss: 0.181305  [31000/60000]
+
+    loss: 0.608224  [32000/60000]
+    loss: 0.706331  [33000/60000]
+
+    loss: 0.798880  [34000/60000]
+    loss: 0.466490  [35000/60000]
+
+    loss: 0.253191  [36000/60000]
+    loss: 0.792107  [37000/60000]
+
+    loss: 0.489095  [38000/60000]
+    loss: 0.537872  [39000/60000]
+
+    loss: 0.865563  [40000/60000]
+    loss: 0.345112  [41000/60000]
+
+    loss: 0.160820  [42000/60000]
+    loss: 0.697515  [43000/60000]
+
+    loss: 0.428813  [44000/60000]
+    loss: 0.698016  [45000/60000]
+
+    loss: 0.509303  [46000/60000]
+    loss: 0.281869  [47000/60000]
+
+    loss: 0.522103  [48000/60000]
+    loss: 0.607402  [49000/60000]
+
+    loss: 0.112917  [50000/60000]
+    loss: 0.950076  [51000/60000]
+
+    loss: 0.237514  [52000/60000]
+    loss: 0.693327  [53000/60000]
+
+    loss: 0.429077  [54000/60000]
+    loss: 0.479292  [55000/60000]
+
+    loss: 0.331490  [56000/60000]
+    loss: 0.679510  [57000/60000]
+
+    loss: 0.654126  [58000/60000]
+    loss: 0.445053  [59000/60000]
+
+    Test Error: 
+     Accuracy: 92.2%, Avg loss: 0.476131 
+
+    Epoch 2
+    -------------------------------
+    loss: 0.674914  [    0/60000]
+    loss: 0.355204  [ 1000/60000]
+
+    loss: 0.249866  [ 2000/60000]
+    loss: 0.535685  [ 3000/60000]
+
+    loss: 0.101532  [ 4000/60000]
+    loss: 0.261092  [ 5000/60000]
+
+    loss: 0.649162  [ 6000/60000]
+    loss: 0.511624  [ 7000/60000]
+
+    loss: 0.331466  [ 8000/60000]
+    loss: 0.451469  [ 9000/60000]
+
+    loss: 0.267864  [10000/60000]
+    loss: 0.408424  [11000/60000]
+
+    loss: 0.659958  [12000/60000]
+    loss: 0.446095  [13000/60000]
+
+    loss: 0.175014  [14000/60000]
+    loss: 0.275037  [15000/60000]
+
+    loss: 0.976900  [16000/60000]
+    loss: 0.086918  [17000/60000]
+
+    loss: 1.188710  [18000/60000]
+    loss: 0.779520  [19000/60000]
+
+    loss: 0.193459  [20000/60000]
+    loss: 0.062446  [21000/60000]
+
+    loss: 0.320613  [22000/60000]
+    loss: 0.442150  [23000/60000]
+
+    loss: 0.419405  [24000/60000]
+    loss: 0.313024  [25000/60000]
+
+    loss: 0.227275  [26000/60000]
+    loss: 0.062590  [27000/60000]
+
+    loss: 1.103735  [28000/60000]
+    loss: 0.399015  [29000/60000]
+
+    loss: 0.301195  [30000/60000]
+    loss: 0.110073  [31000/60000]
+
+    loss: 0.471572  [32000/60000]
+    loss: 0.538054  [33000/60000]
+
+    loss: 0.659879  [34000/60000]
+    loss: 0.408837  [35000/60000]
+
+    loss: 0.155935  [36000/60000]
+    loss: 0.706468  [37000/60000]
+
+    loss: 0.358466  [38000/60000]
+    loss: 0.559195  [39000/60000]
+
+    loss: 0.880589  [40000/60000]
+    loss: 0.159385  [41000/60000]
+
+    loss: 0.081394  [42000/60000]
+    loss: 0.549725  [43000/60000]
+
+    loss: 0.374594  [44000/60000]
+    loss: 0.579694  [45000/60000]
+
+    loss: 0.459086  [46000/60000]
+    loss: 0.157694  [47000/60000]
+
+    loss: 0.363343  [48000/60000]
+    loss: 0.519822  [49000/60000]
+
+    loss: 0.118100  [50000/60000]
+    loss: 0.849384  [51000/60000]
+
+    loss: 0.221252  [52000/60000]
+    loss: 0.515981  [53000/60000]
+
+    loss: 0.347451  [54000/60000]
+    loss: 0.427203  [55000/60000]
+
+    loss: 0.271499  [56000/60000]
+    loss: 0.527861  [57000/60000]
+
+    loss: 0.617475  [58000/60000]
+    loss: 0.394153  [59000/60000]
+
+    Test Error: 
+     Accuracy: 95.8%, Avg loss: 0.410446 
+
+    Epoch 3
+    -------------------------------
+    loss: 0.565882  [    0/60000]
+    loss: 0.374095  [ 1000/60000]
+
+    loss: 0.203961  [ 2000/60000]
+    loss: 0.493314  [ 3000/60000]
+
+    loss: 0.064018  [ 4000/60000]
+    loss: 0.207118  [ 5000/60000]
+
+    loss: 0.536460  [ 6000/60000]
+    loss: 0.439078  [ 7000/60000]
+
+    loss: 0.305634  [ 8000/60000]
+    loss: 0.312661  [ 9000/60000]
+
+    loss: 0.217111  [10000/60000]
+    loss: 0.274358  [11000/60000]
+
+    loss: 0.576091  [12000/60000]
+    loss: 0.367616  [13000/60000]
+
+    loss: 0.138128  [14000/60000]
+    loss: 0.193294  [15000/60000]
+
+    loss: 1.027959  [16000/60000]
+    loss: 0.066590  [17000/60000]
+
+    loss: 1.148113  [18000/60000]
+    loss: 0.741657  [19000/60000]
+
+    loss: 0.165835  [20000/60000]
+    loss: 0.046698  [21000/60000]
+
+    loss: 0.302461  [22000/60000]
+    loss: 0.380731  [23000/60000]
+
+    loss: 0.377939  [24000/60000]
+    loss: 0.286783  [25000/60000]
+
+    loss: 0.162386  [26000/60000]
+    loss: 0.044855  [27000/60000]
+
+    loss: 1.089164  [28000/60000]
+    loss: 0.301782  [29000/60000]
+
+    loss: 0.198920  [30000/60000]
+    loss: 0.104264  [31000/60000]
+
+    loss: 0.484383  [32000/60000]
+    loss: 0.405189  [33000/60000]
+
+    loss: 0.585919  [34000/60000]
+    loss: 0.388771  [35000/60000]
+
+    loss: 0.105924  [36000/60000]
+    loss: 0.667646  [37000/60000]
+
+    loss: 0.324323  [38000/60000]
+    loss: 0.626489  [39000/60000]
+
+    loss: 0.868886  [40000/60000]
+    loss: 0.115498  [41000/60000]
+
+    loss: 0.064228  [42000/60000]
+    loss: 0.473193  [43000/60000]
+
+    loss: 0.316293  [44000/60000]
+    loss: 0.553922  [45000/60000]
+
+    loss: 0.426380  [46000/60000]
+    loss: 0.131278  [47000/60000]
+
+    loss: 0.307736  [48000/60000]
+    loss: 0.464401  [49000/60000]
+
+    loss: 0.118437  [50000/60000]
+    loss: 0.765825  [51000/60000]
+
+    loss: 0.215936  [52000/60000]
+    loss: 0.434501  [53000/60000]
+
+    loss: 0.308184  [54000/60000]
+    loss: 0.413248  [55000/60000]
+
+    loss: 0.222270  [56000/60000]
+    loss: 0.476505  [57000/60000]
+
+    loss: 0.628386  [58000/60000]
+    loss: 0.383033  [59000/60000]
+
+    Test Error: 
+     Accuracy: 97.1%, Avg loss: 0.374140 
+
+    Epoch 4
+    -------------------------------
+    loss: 0.509754  [    0/60000]
+    loss: 0.429466  [ 1000/60000]
+
+    loss: 0.196705  [ 2000/60000]
+    loss: 0.462557  [ 3000/60000]
+
+    loss: 0.048749  [ 4000/60000]
+    loss: 0.194309  [ 5000/60000]
+
+    loss: 0.514447  [ 6000/60000]
+    loss: 0.384651  [ 7000/60000]
+
+    loss: 0.314780  [ 8000/60000]
+    loss: 0.234213  [ 9000/60000]
+
+    loss: 0.191456  [10000/60000]
+    loss: 0.190509  [11000/60000]
+
+    loss: 0.498667  [12000/60000]
+    loss: 0.314666  [13000/60000]
+
+    loss: 0.111425  [14000/60000]
+    loss: 0.154640  [15000/60000]
+
+    loss: 1.113726  [16000/60000]
+    loss: 0.060348  [17000/60000]
+
+    loss: 1.123035  [18000/60000]
+    loss: 0.697651  [19000/60000]
+
+    loss: 0.145172  [20000/60000]
+    loss: 0.042126  [21000/60000]
+
+    loss: 0.249148  [22000/60000]
+    loss: 0.350588  [23000/60000]
+
+    loss: 0.357840  [24000/60000]
+    loss: 0.264470  [25000/60000]
+
+    loss: 0.123823  [26000/60000]
+    loss: 0.038974  [27000/60000]
+
+    loss: 1.077199  [28000/60000]
+    loss: 0.249021  [29000/60000]
+
+    loss: 0.142029  [30000/60000]
+    loss: 0.105350  [31000/60000]
+
+    loss: 0.472939  [32000/60000]
+    loss: 0.332272  [33000/60000]
+
+    loss: 0.549120  [34000/60000]
+    loss: 0.362499  [35000/60000]
+
+    loss: 0.090557  [36000/60000]
+    loss: 0.595271  [37000/60000]
+
+    loss: 0.321202  [38000/60000]
+    loss: 0.607974  [39000/60000]
+
+    loss: 0.799913  [40000/60000]
+    loss: 0.095401  [41000/60000]
+
+    loss: 0.057795  [42000/60000]
+    loss: 0.433303  [43000/60000]
+
+    loss: 0.256051  [44000/60000]
+    loss: 0.541217  [45000/60000]
+
+    loss: 0.423699  [46000/60000]
+    loss: 0.123898  [47000/60000]
+
+    loss: 0.269432  [48000/60000]
+    loss: 0.411791  [49000/60000]
+
+    loss: 0.126552  [50000/60000]
+    loss: 0.744011  [51000/60000]
+
+    loss: 0.213943  [52000/60000]
+    loss: 0.387209  [53000/60000]
+
+    loss: 0.292156  [54000/60000]
+    loss: 0.387254  [55000/60000]
+
+    loss: 0.184812  [56000/60000]
+    loss: 0.441932  [57000/60000]
+
+    loss: 0.590237  [58000/60000]
+    loss: 0.375701  [59000/60000]
+
+    Test Error: 
+     Accuracy: 99.8%, Avg loss: 0.350540 
+
+    Epoch 5
+    -------------------------------
+    loss: 0.463481  [    0/60000]
+    loss: 0.461113  [ 1000/60000]
+
+    loss: 0.182303  [ 2000/60000]
+    loss: 0.458964  [ 3000/60000]
+
+    loss: 0.043798  [ 4000/60000]
+    loss: 0.188478  [ 5000/60000]
+
+    loss: 0.509040  [ 6000/60000]
+    loss: 0.348380  [ 7000/60000]
+
+    loss: 0.327356  [ 8000/60000]
+    loss: 0.188386  [ 9000/60000]
+
+    loss: 0.156696  [10000/60000]
+    loss: 0.154098  [11000/60000]
+
+    loss: 0.443449  [12000/60000]
+    loss: 0.289711  [13000/60000]
+
+    loss: 0.088884  [14000/60000]
+    loss: 0.127516  [15000/60000]
+
+    loss: 1.164954  [16000/60000]
+    loss: 0.061881  [17000/60000]
+
+    loss: 1.077961  [18000/60000]
+    loss: 0.647685  [19000/60000]
+
+    loss: 0.134136  [20000/60000]
+    loss: 0.038252  [21000/60000]
+
+    loss: 0.217067  [22000/60000]
+    loss: 0.315540  [23000/60000]
+
+    loss: 0.344841  [24000/60000]
+    loss: 0.251260  [25000/60000]
+
+    loss: 0.109184  [26000/60000]
+    loss: 0.033465  [27000/60000]
+
+    loss: 1.052413  [28000/60000]
+    loss: 0.209121  [29000/60000]
+
+    loss: 0.116288  [30000/60000]
+    loss: 0.100228  [31000/60000]
+
+    loss: 0.465138  [32000/60000]
+    loss: 0.303976  [33000/60000]
+
+    loss: 0.534196  [34000/60000]
+    loss: 0.334181  [35000/60000]
+
+    loss: 0.080613  [36000/60000]
+    loss: 0.579001  [37000/60000]
+
+    loss: 0.321934  [38000/60000]
+    loss: 0.542591  [39000/60000]
+
+    loss: 0.733868  [40000/60000]
+    loss: 0.091428  [41000/60000]
+
+    loss: 0.056304  [42000/60000]
+    loss: 0.400804  [43000/60000]
+
+    loss: 0.213983  [44000/60000]
+    loss: 0.550695  [45000/60000]
+
+    loss: 0.417832  [46000/60000]
+    loss: 0.112926  [47000/60000]
+
+    loss: 0.254434  [48000/60000]
+    loss: 0.382358  [49000/60000]
+
+    loss: 0.111378  [50000/60000]
+    loss: 0.713137  [51000/60000]
+
+    loss: 0.225667  [52000/60000]
+    loss: 0.342614  [53000/60000]
+
+    loss: 0.270426  [54000/60000]
+    loss: 0.364463  [55000/60000]
+
+    loss: 0.149493  [56000/60000]
+    loss: 0.429284  [57000/60000]
+
+    loss: 0.568922  [58000/60000]
+    loss: 0.387797  [59000/60000]
+
+    Test Error: 
+     Accuracy: 100.0%, Avg loss: 0.332800 
+
+    Training completed
 
 ## Comments & questions
-
-<script type=application/vnd.jupyter.widget-state+json>
-{"state":{"0206ce9b728b4a758f99417a8810961d":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"0a45ff6957504a0880ce04d23fecadbd":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"121a2a1cc0824bacbe411ea9987834b6":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"13616cf3207342549da3ae34888cdaf7":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"178ab9312a84417bb5b53dc1b3aecc25":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"19131e2b34914cdca68f929d7d007faa":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_7923cfc21b3446e294dc9fb458a4eb5a","IPY_MODEL_abbca4650df94576a8d0d83aecce8fbd","IPY_MODEL_f980fa95b3b749b0b63937fe3517d7c3"],"layout":"IPY_MODEL_d5d643fe7714477780edd4506dcdf5a0"}},"257be1bcb2f14981bdadb4722c0dced6":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"26f9e73872854b4aad4f726fafdb3051":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"29345fd652f74af596c2717552c7d9a1":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"31e2a5bc6825403689ed82312c255cf5":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"399c2f0147734878975d276f38534341":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_d574168d6873424daa4ce9e38f5873da","IPY_MODEL_6bce0769bf514a749ef7b438b2feed52","IPY_MODEL_b68626a37ed048bc83c71d0a9728c4ab"],"layout":"IPY_MODEL_26f9e73872854b4aad4f726fafdb3051"}},"3f7736c2d0684174ad34eed711099121":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"4312b28a1b64455284e25e172a91acf0":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"ProgressView","bar_style":"success","description":"","description_tooltip":null,"layout":"IPY_MODEL_bc77be48637f49c7afe85a6b85bcccd3","max":4422102,"min":0,"orientation":"horizontal","style":"IPY_MODEL_0206ce9b728b4a758f99417a8810961d","value":4422102}},"498aa9155e6844c5b5111a12fc5ca304":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"5b6af4a0a15e46a7a3e7a13a8f5e6735":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"638244282c404b1a99e82c9bdabaa68e":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"662ae3bcd14242ad967dfd1fc05b1164":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_c1ca46984904465998e713abe1559fbe","placeholder":"​","style":"IPY_MODEL_121a2a1cc0824bacbe411ea9987834b6","value":"100%"}},"6bce0769bf514a749ef7b438b2feed52":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"ProgressView","bar_style":"success","description":"","description_tooltip":null,"layout":"IPY_MODEL_b1423791013942b4be6c521ada19d35d","max":26421880,"min":0,"orientation":"horizontal","style":"IPY_MODEL_6d53241f952942a082f0bd3c39d4411c","value":26421880}},"6d53241f952942a082f0bd3c39d4411c":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"7923cfc21b3446e294dc9fb458a4eb5a":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_7f82c53523b04aa7a963b69e206c8464","placeholder":"​","style":"IPY_MODEL_31e2a5bc6825403689ed82312c255cf5","value":"100%"}},"7def5929d5dd40a08b5453431493b8c0":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_e8417366f28a42729ad4b40c09f8eed7","placeholder":"​","style":"IPY_MODEL_638244282c404b1a99e82c9bdabaa68e","value":"100%"}},"7f82c53523b04aa7a963b69e206c8464":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"857550cc571d4823a34605aad36894bb":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"a1500f688261493d9ae7206b2aa8f373":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_7def5929d5dd40a08b5453431493b8c0","IPY_MODEL_ec7f72ad32424a509d02d38e32cc6a67","IPY_MODEL_dbad84c6ec704fe48eab1cd7c842ff34"],"layout":"IPY_MODEL_13616cf3207342549da3ae34888cdaf7"}},"abbca4650df94576a8d0d83aecce8fbd":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"ProgressView","bar_style":"success","description":"","description_tooltip":null,"layout":"IPY_MODEL_5b6af4a0a15e46a7a3e7a13a8f5e6735","max":5148,"min":0,"orientation":"horizontal","style":"IPY_MODEL_f21279904eaf45b494390ffc08265eb3","value":5148}},"ac5d63e56183416086774908f48454ac":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"b13b131a542146dcba3f45fa1f258bdd":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HBoxModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HBoxModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HBoxView","box_style":"","children":["IPY_MODEL_662ae3bcd14242ad967dfd1fc05b1164","IPY_MODEL_4312b28a1b64455284e25e172a91acf0","IPY_MODEL_e79f6c1d1f244f7e877837ad0ff527ab"],"layout":"IPY_MODEL_857550cc571d4823a34605aad36894bb"}},"b1423791013942b4be6c521ada19d35d":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"b42234d61efa400b9a53aaed884b1248":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"b68626a37ed048bc83c71d0a9728c4ab":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_ac5d63e56183416086774908f48454ac","placeholder":"​","style":"IPY_MODEL_498aa9155e6844c5b5111a12fc5ca304","value":" 26421880/26421880 [00:10&lt;00:00, 5851658.41it/s]"}},"bc77be48637f49c7afe85a6b85bcccd3":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"be4feac5599a487b9ca01efdf61d29b8":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"be9d2c16016b441abecc5d616b54d99e":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"DescriptionStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"DescriptionStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","description_width":""}},"c1ca46984904465998e713abe1559fbe":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"d574168d6873424daa4ce9e38f5873da":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_be4feac5599a487b9ca01efdf61d29b8","placeholder":"​","style":"IPY_MODEL_29345fd652f74af596c2717552c7d9a1","value":"100%"}},"d5d643fe7714477780edd4506dcdf5a0":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"dbad84c6ec704fe48eab1cd7c842ff34":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_178ab9312a84417bb5b53dc1b3aecc25","placeholder":"​","style":"IPY_MODEL_257be1bcb2f14981bdadb4722c0dced6","value":" 29515/29515 [00:00&lt;00:00, 73100.11it/s]"}},"e79f6c1d1f244f7e877837ad0ff527ab":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_fcb5b69306804aa38a4dd6892c2b460b","placeholder":"​","style":"IPY_MODEL_b42234d61efa400b9a53aaed884b1248","value":" 4422102/4422102 [00:04&lt;00:00, 1468190.52it/s]"}},"e8417366f28a42729ad4b40c09f8eed7":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"ec7f72ad32424a509d02d38e32cc6a67":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"FloatProgressModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"FloatProgressModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"ProgressView","bar_style":"success","description":"","description_tooltip":null,"layout":"IPY_MODEL_0a45ff6957504a0880ce04d23fecadbd","max":29515,"min":0,"orientation":"horizontal","style":"IPY_MODEL_3f7736c2d0684174ad34eed711099121","value":29515}},"f21279904eaf45b494390ffc08265eb3":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"ProgressStyleModel","state":{"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"ProgressStyleModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"StyleView","bar_color":null,"description_width":""}},"f3cd3445a973409083431a24e56a5b4b":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}},"f980fa95b3b749b0b63937fe3517d7c3":{"model_module":"@jupyter-widgets/controls","model_module_version":"1.5.0","model_name":"HTMLModel","state":{"_dom_classes":[],"_model_module":"@jupyter-widgets/controls","_model_module_version":"1.5.0","_model_name":"HTMLModel","_view_count":null,"_view_module":"@jupyter-widgets/controls","_view_module_version":"1.5.0","_view_name":"HTMLView","description":"","description_tooltip":null,"layout":"IPY_MODEL_f3cd3445a973409083431a24e56a5b4b","placeholder":"​","style":"IPY_MODEL_be9d2c16016b441abecc5d616b54d99e","value":" 5148/5148 [00:00&lt;00:00, 288158.29it/s]"}},"fcb5b69306804aa38a4dd6892c2b460b":{"model_module":"@jupyter-widgets/base","model_module_version":"1.2.0","model_name":"LayoutModel","state":{"_model_module":"@jupyter-widgets/base","_model_module_version":"1.2.0","_model_name":"LayoutModel","_view_count":null,"_view_module":"@jupyter-widgets/base","_view_module_version":"1.2.0","_view_name":"LayoutView","align_content":null,"align_items":null,"align_self":null,"border":null,"bottom":null,"display":null,"flex":null,"flex_flow":null,"grid_area":null,"grid_auto_columns":null,"grid_auto_flow":null,"grid_auto_rows":null,"grid_column":null,"grid_gap":null,"grid_row":null,"grid_template_areas":null,"grid_template_columns":null,"grid_template_rows":null,"height":null,"justify_content":null,"justify_items":null,"left":null,"margin":null,"max_height":null,"max_width":null,"min_height":null,"min_width":null,"object_fit":null,"object_position":null,"order":null,"overflow":null,"overflow_x":null,"overflow_y":null,"padding":null,"right":null,"top":null,"visibility":null,"width":null}}},"version_major":2,"version_minor":0}
-</script>

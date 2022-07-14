@@ -35,8 +35,8 @@ test_data = datasets.FashionMNIST(
     target_transform=Lambda(lambda y: torch.zeros(10, dtype=torch.float).scatter_(0, torch.tensor(y), value=1))
 )
 
-train_dataloader = DataLoader(training_data, batch_size=64)
-test_dataloader = DataLoader(test_data, batch_size=64)
+train_dataloader = DataLoader(training_data, batch_size=10)
+test_dataloader = DataLoader(test_data, batch_size=10)
 
 class Net(nn.Module):
     def __init__(self):
@@ -82,8 +82,8 @@ test_data = datasets.FashionMNIST(
     target_transform=Lambda(lambda y: torch.zeros(10, dtype=torch.float).scatter_(0, torch.tensor(y), value=1))
 )
 
-train_dataloader = DataLoader(training_data, batch_size=64)
-test_dataloader = DataLoader(test_data, batch_size=64)
+train_dataloader = DataLoader(training_data, batch_size=10)
+test_dataloader = DataLoader(test_data, batch_size=10)
 
 class Net(nn.Module):
     def __init__(self):
@@ -142,7 +142,7 @@ There are many optimizers and you need to search in the literature which one per
 Below is an example with stochastic gradient descent:
 
 ```{python}
-optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+optimizer = torch.optim.SGD(model.parameters(), lr=0.001, momentum=0.9)
 ```
 
 {{<notes>}}
