@@ -12,7 +12,7 @@ Whether you are using our training cluster (which is a virtual machine hosted in
 
 *Do not run anything computationally intensive on this node*. To run your code, you need to start an interactive job or submit a batch job to Slurm (the job scheduler used by the Compute Canada clusters).
 
-If you are not familiar with HPC, you can go through [[https://wgschool.netlify.app/hpc-menu/][the material of the HPC course we offered in this summer school]], [[https://westgrid.github.io/trainingMaterials/getting-started/#introduction-to-westgrid-compute-canada-and-hpc][the training resources on the WestGrid website]], and [[https://www.youtube.com/playlist?list=PLeCQbAbRSKR8gg6ZMFof1Hf9YF_-n31Ym][the Compute Canada introductory videos]].
+If you are not familiar with HPC, you can go through [[https://wgschool.netlify.app/hpc-menu/][the material of the HPC course we offered in this summer school]], [[https://training.westdri.ca/getting-started/#introduction-to-westgrid-compute-canada-and-hpc][the training resources on the WestGrid website]], and [[https://www.youtube.com/playlist?list=PLeCQbAbRSKR8gg6ZMFof1Hf9YF_-n31Ym][the Compute Canada introductory videos]].
 
 This lesson goes over what we will do in this course, using our training cluster (of course, [[https://westgrid-ml.netlify.app/summerschool2020remake/pt-03-local.html][if you run the code locally (on your computer)]], you can simply launch Python).
 
