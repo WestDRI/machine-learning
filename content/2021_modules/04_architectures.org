@@ -18,7 +18,7 @@
 Once in the presentation, navigate the slides with the left and right arrows and refresh any page to show the link that will take you back here./
 
 #+BEGIN_export html
-<a href="https://westgrid-slides.netlify.app/fastai_2/#/"><p align="center"><img src="/img/fastai_2_slides.png" title="" width="100%"/></p></a>
+<a href="https://slides.westdri.ca/fastai_2/#/"><p align="center"><img src="/img/fastai_2_slides.png" title="" width="100%"/></p></a>
 #+END_export
 
 * A few notes from the slides
