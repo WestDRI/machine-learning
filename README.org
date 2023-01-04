@@ -1,1 +1,3 @@
-This is the repo for [[https://www.westgrid.ca/][WestGrid]]'s portal on machine-learning training material. You can find this site [[https://westgrid-ml.netlify.com/][here]].
+This is the repo for Marie-Hélène Burle's old site on [[https://ml.westdri.ca/][machine learning]].
+
+All worthwhile content has been moved to [[https://github.com/WestDRI/arc-training][the new repo]] for [[https://mint.westdri.ca/][Marie's new site]] and all new content will be added to that new site.
